@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated characterizedActions -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.presentation.CharacterizedActionsModelWizardID"
+            name="%_UI_CharacterizedActionsModelWizard_label"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.presentation.CharacterizedActionsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CharacterizedActionsModelFile.gif">
+         <description>%_UI_CharacterizedActionsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated characterizedActions -->
+      <editor
+            id="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.presentation.CharacterizedActionsEditorID"
+            name="%_UI_CharacterizedActionsEditor_label"
+            icon="icons/full/obj16/CharacterizedActionsModelFile.gif"
+            extensions="characterizedactions"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.presentation.CharacterizedActionsEditor"
+            contributorClass="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.presentation.CharacterizedActionsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated characterizedActions -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.presentation.ExpressionsModelWizardID"
+            name="%_UI_ExpressionsModelWizard_label"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.presentation.ExpressionsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ExpressionsModelFile.gif">
+         <description>%_UI_ExpressionsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated characterizedActions -->
+      <editor
+            id="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.presentation.ExpressionsEditorID"
+            name="%_UI_ExpressionsEditor_label"
+            icon="icons/full/obj16/ExpressionsModelFile.gif"
+            extensions="expressions"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.presentation.ExpressionsEditor"
+            contributorClass="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.presentation.ExpressionsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated characterizedActions -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.characteristics.presentation.CharacteristicsModelWizardID"
+            name="%_UI_CharacteristicsModelWizard_label"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.characteristics.presentation.CharacteristicsModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/CharacteristicsModelFile.gif">
+         <description>%_UI_CharacteristicsModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated characterizedActions -->
+      <editor
+            id="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.characteristics.presentation.CharacteristicsEditorID"
+            name="%_UI_CharacteristicsEditor_label"
+            icon="icons/full/obj16/CharacteristicsModelFile.gif"
+            extensions="characteristics"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.characteristics.presentation.CharacteristicsEditor"
+            contributorClass="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.characteristics.presentation.CharacteristicsActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated characterizedActions -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.presentation.RepositoryModelWizardID"
+            name="%_UI_RepositoryModelWizard_label"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.presentation.RepositoryModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/RepositoryModelFile.gif">
+         <description>%_UI_RepositoryModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated characterizedActions -->
+      <editor
+            id="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.presentation.RepositoryEditorID"
+            name="%_UI_RepositoryEditor_label"
+            icon="icons/full/obj16/RepositoryModelFile.gif"
+            extensions="repository"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.presentation.RepositoryEditor"
+            contributorClass="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.presentation.RepositoryActionBarContributor">
+      </editor>
+   </extension>
+
+</plugin>

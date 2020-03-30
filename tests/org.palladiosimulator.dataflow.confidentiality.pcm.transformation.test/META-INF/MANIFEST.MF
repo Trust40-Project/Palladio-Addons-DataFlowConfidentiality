@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Test
+Bundle-SymbolicName: org.palladiosimulator.dataflow.confidentiality.pcm.transformation.test
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: org.palladiosimulator.dataflow.confidentiality.pcm.transformation;bundle-version="1.0.0"
+Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.transformation.test
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Import-Package: org.junit;version="4.12.0",
+ org.junit.jupiter.api;version="5.5.1"
+Require-Bundle: org.eclipse.emf.compare;bundle-version="3.5.3",
+ org.apache.log4j;bundle-version="1.2.15"

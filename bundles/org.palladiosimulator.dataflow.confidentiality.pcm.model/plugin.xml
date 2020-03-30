@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated characterizedActions -->
+      <package
+            uri="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.CharacterizedActionsPackage"
+            genModel="model/characterizedActions.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated characterizedActions -->
+      <package
+            uri="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0/expressions"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.ExpressionsPackage"
+            genModel="model/characterizedActions.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated characterizedActions -->
+      <package
+            uri="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0/characteristics"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.characteristics.CharacteristicsPackage"
+            genModel="model/characterizedActions.genmodel"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.ecore.generated_package">
+      <!-- @generated characterizedActions -->
+      <package
+            uri="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0/repository"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.RepositoryPackage"
+            genModel="model/characterizedActions.genmodel"/>
+   </extension>
+
+</plugin>

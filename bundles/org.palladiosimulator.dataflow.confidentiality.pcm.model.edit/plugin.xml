@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated characterizedActions -->
+      <factory
+            uri="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.provider.CharacterizedActionsItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated characterizedActions -->
+      <extender
+            uri="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.provider.CharacterizedActionsItemProviderAdapterFactory$CompositionChildCreationExtender"/>
+      <extender
+            uri="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.2"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.provider.CharacterizedActionsItemProviderAdapterFactory$UsagemodelChildCreationExtender"/>
+      <extender
+            uri="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.provider.CharacterizedActionsItemProviderAdapterFactory$RepositoryChildCreationExtender"/>
+      <extender
+            uri="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.provider.CharacterizedActionsItemProviderAdapterFactory$SeffChildCreationExtender"/>
+      <extender
+            uri="http://palladiosimulator.org/PalladioComponentModel/SEFF/SEFF_Reliability/5.2"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.provider.CharacterizedActionsItemProviderAdapterFactory$SeffReliabilityChildCreationExtender"/>
+      <extender
+            uri="http://palladiosimulator.org/PalladioComponentModel/System/5.2"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.provider.CharacterizedActionsItemProviderAdapterFactory$SystemChildCreationExtender"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated characterizedActions -->
+      <factory
+            uri="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0/expressions"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.provider.ExpressionsItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated characterizedActions -->
+      <factory
+            uri="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0/characteristics"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.characteristics.provider.CharacteristicsItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated characterizedActions -->
+      <factory
+            uri="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0/repository"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.provider.RepositoryItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated characterizedActions -->
+      <extender
+            uri="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.provider.RepositoryItemProviderAdapterFactory$RepositoryChildCreationExtender"/>
+   </extension>
+
+</plugin>
