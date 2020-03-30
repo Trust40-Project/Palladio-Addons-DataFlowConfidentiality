@@ -9,6 +9,7 @@ import java.util.Map
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.Assignment
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.CharacterizableAssemblyContext
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.CharacterizableScenarioBehavior
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.CharacterizedEntryLevelSystemCall
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.CharacterizedExternalCallAction
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.CharacterizedResourceDemandingSEFF
@@ -39,7 +40,6 @@ import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour
 import org.palladiosimulator.pcm.usagemodel.UsageModel
-import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.CharacterizableScenarioBehavior
 
 class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	
@@ -48,13 +48,16 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	extension PcmQueryUtils pcmQueryUtils = new PcmQueryUtils
 	extension DataFlowAdder dataFlowConsumer = null;
 	extension NodeAdder nodeAdder = null;
+	extension TraceRecorder traceRecorder = null;
 	
 	override transform(UsageModel usageModel) {
+		val trace = new TransformationTraceImpl
 		val dfd = createDataFlowDiagram
 		dataFlowConsumer = [flow | dfd.edges.add(flow)]
 		nodeAdder = [node | dfd.nodes.add(node)]
+		traceRecorder = [ srcId, dstId | trace.addToTrace(srcId, dstId)]
 		usageModel.transformAllBehaviors
-		dfd
+		new TransformationResultImpl(dfd, trace)
 	}
 	
 	protected def void transformAllBehaviors(UsageModel usageModel) {
@@ -110,10 +113,10 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		discoveredSeffs
 	}
 	
-	protected def getActor(ScenarioBehaviour behavior) {
-		val actor = createActor(behavior.entityName)
+	protected def create actor: createActor getActor(ScenarioBehaviour behavior) {
+		addToTrace(behavior, actor)
+		actor.name = behavior.entityName
 		actor.createBehavior
-		actor
 	}
 	
 	protected def getEntryProcess(CharacterizedEntryLevelSystemCall elsc, CharacterizedExternalActor actor) {
@@ -142,6 +145,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	 * </ul>
 	 */
 	private def create process: createActorProcess getEntryProcessPreconditionChecked(CharacterizedEntryLevelSystemCall elsc) {
+		addToTrace(elsc, process)
 		process.name = '''«elsc.entityName» EntryProcess'''
 		process.createCharacteristics(elsc.scenarioBehaviour_AbstractUserAction)
 		process.createBehavior
@@ -209,6 +213,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	 * </ul>
 	 */
 	private def create process: createActorProcess getExitProcessPreconditionChecked(CharacterizedEntryLevelSystemCall elsc) {
+		addToTrace(elsc, process)
 		process.name = '''«elsc.entityName» ExitProcess'''
 		process.createCharacteristics(elsc.scenarioBehaviour_AbstractUserAction)
 		process.createBehavior
@@ -264,6 +269,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	 * </ul>
 	 */
 	protected def create process: createProcess getEntryProcessPreconditionChecked(ResourceDemandingSEFF seff, List<AssemblyContext> context, boolean dbProcess) {
+		addToTrace(seff, process)
 		process.name = '''SEFF «seff.basicComponent_ServiceEffectSpecification.entityName»::«seff.describedService__SEFF.entityName» EntryProcess'''
 		process.createCharacteristics(context)
 		process.createBehavior
@@ -285,6 +291,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	}
 	
 	protected def create store: createStore getStore(DBOperationInterface dbInterface, List<AssemblyContext> context) {
+		addToTrace(dbInterface, store)
 		store.name = '''Store «dbInterface.entityName»'''
 		store.createCharacteristics(context)
 		store.createBehavior
@@ -338,6 +345,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	 * </ul>
 	 */
 	protected def create process: createProcess getExitProcessPreconditionChecked(CharacterizedResourceDemandingSEFF seff, List<AssemblyContext> context, boolean dbProcess) {
+		addToTrace(seff, process)
 		process.name = '''SEFF «seff.basicComponent_ServiceEffectSpecification.entityName»::«seff.describedService__SEFF.entityName» ExitProcess'''
 		process.createCharacteristics(context)
 		process.createBehavior
@@ -400,6 +408,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	 * </ul>
 	 */
 	protected def create process: createProcess getEntryProcessPreconditionChecked(CharacterizedExternalCallAction eca, List<AssemblyContext> context) {
+		addToTrace(eca, process)
 		process.name = '''ECA «eca.findParentOfType(RepositoryComponent).entityName»::«eca.entityName» EntryProcess'''
 		process.createCharacteristics(context)
 		process.createBehavior
@@ -453,6 +462,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	 * </ul>
 	 */
 	private def create process: createProcess getExitProcessPreconditionChecked(CharacterizedExternalCallAction eca, List<AssemblyContext> context) {
+		addToTrace(eca, process)
 		process.name = '''ECA «eca.entityName» ExitProcess'''
 		process.createCharacteristics(context)
 		process.createBehavior

@@ -37,10 +37,10 @@ class TransformationTest {
 		val r = rs.getResource(getModelURI("TravelPlanner/newUsageModel.usagemodel"), true)
 		val usageModel = r.contents.iterator.next as UsageModel
 
-		val dfd = subject.transform(usageModel)
-		dfd.normalizeIdentifiers
+		val actual = subject.transform(usageModel)
+		actual.diagram.normalizeIdentifiers
 		
-		val comparisonScope = new DefaultComparisonScope(expectedDfd, dfd, null)
+		val comparisonScope = new DefaultComparisonScope(expectedDfd, actual.diagram, null)
 		val compare = EMFCompare.builder.build
 		val result = compare.compare(comparisonScope)
 		assertEquals(1, result.matches.size)

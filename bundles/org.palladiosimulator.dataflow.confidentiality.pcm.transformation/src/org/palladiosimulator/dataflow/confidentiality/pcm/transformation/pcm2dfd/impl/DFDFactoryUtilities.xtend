@@ -23,10 +23,8 @@ class DFDFactoryUtilities {
 		DataFlowDiagramFactory.eINSTANCE.createDataFlowDiagram
 	}
 	
-	def createActor(String entityName) {
-		val actor = createCharacterizedExternalActor
-		actor.name = entityName
-		actor
+	def createActor() {
+		createCharacterizedExternalActor
 	}
 	
 	def createBehavior() {
