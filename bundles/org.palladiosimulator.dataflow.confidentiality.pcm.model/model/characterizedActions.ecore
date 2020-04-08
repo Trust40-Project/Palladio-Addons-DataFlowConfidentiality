@@ -37,7 +37,7 @@
           value="not self.rhs.oclIsKindOf(DataDictionaryCharacterized::expressions::CharacteristicReference) or&#xA;(&#xA;&#x9;self.rhs.oclAsType(DataDictionaryCharacterized::expressions::CharacteristicReference).literal.oclIsUndefined()&#xA;&#x9;and&#xA;&#x9;self.lhs.literal.oclIsUndefined()&#xA;)&#xA;or&#xA;(&#xA;&#x9;not self.rhs.oclAsType(DataDictionaryCharacterized::expressions::CharacteristicReference).literal.oclIsUndefined()&#xA;&#x9;and&#xA;&#x9;not self.lhs.literal.oclIsUndefined()&#xA;)"/>
       <details
           key="rhsOnlyContainsContainerOrReturnOrSeffParameterCharacteristicReferences"
-          value="self.oclAsType(ecore::EObject)->closure(e : ecore::EObject |&#xA;&#x9;e.eContents()->selectByKind(ecore::EObject)&#xA;)->including(self.rhs.oclAsType(ecore::EObject))->selectByKind(DataDictionaryCharacterized::expressions::CharacteristicReference)->forAll(r |&#xA;&#x9;r.oclIsKindOf(DataDictionaryCharacterized::expressions::ContainerCharacteristicReference) or&#xA;&#x9;r.oclIsKindOf(expressions::SeffParameterCharacteristicReference) or&#xA;&#x9;r.oclIsKindOf(expressions::ReturnCharacteristicReference)&#xA;)"/>
+          value="self.rhs.oclAsType(ecore::EObject)->closure(e : ecore::EObject |&#xA;&#x9;e.eContents()->selectByKind(ecore::EObject)&#xA;)->including(self.rhs.oclAsType(ecore::EObject))->selectByKind(DataDictionaryCharacterized::expressions::CharacteristicReference)->forAll(r |&#xA;&#x9;r.oclIsKindOf(DataDictionaryCharacterized::expressions::ContainerCharacteristicReference) or&#xA;&#x9;r.oclIsKindOf(expressions::SeffParameterCharacteristicReference) or&#xA;&#x9;r.oclIsKindOf(expressions::ReturnCharacteristicReference)&#xA;)"/>
     </eAnnotations>
     <eAnnotations
         source="http://www.eclipse.org/emf/2002/GenModel">
@@ -232,7 +232,7 @@
           source="http://www.eclipse.org/emf/2002/Ecore/OCL">
         <details
             key="exactlyOneCallHasToBeSet"
-            value="self.externalCallAction->including(self.entryLevelSystemCall)->select(a | a.oclIsUndefined())->size() = 1"/>
+            value="(self.externalCallAction.oclIsUndefined() and not self.entryLevelSystemCall.oclIsUndefined()) or (not self.externalCallAction.oclIsUndefined() and self.entryLevelSystemCall.oclIsUndefined())"/>
       </eAnnotations>
       <eAnnotations
           source="http://www.eclipse.org/emf/2002/GenModel">
