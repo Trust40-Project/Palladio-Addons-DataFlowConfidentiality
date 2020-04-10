@@ -40,11 +40,11 @@ public class CharacterizedExternalCallActionItemProvider extends CharacterizedEx
 			public Collection<?> getChoiceOfValues(Object thisObject) {
 				Collection<?> originalChoice = super.getChoiceOfValues(thisObject);
 				if (thisObject instanceof CharacterizedExternalCallAction) {
-					CharacterizedExternalCallAction action = (CharacterizedExternalCallAction)thisObject;
-					 Optional<Collection<OperationSignature>> foundRoles = getAvailableSignatures(action);
-					if (foundRoles.isPresent()) {
-						return foundRoles.get();
-					}
+					CharacterizedExternalCallAction action = (CharacterizedExternalCallAction) thisObject;
+					return Optional.ofNullable(action.getRole_ExternalService())
+							.map(OperationRequiredRole::getRequiredInterface__OperationRequiredRole)
+							.map(OperationInterface::getSignatures__OperationInterface).map(Collection.class::cast)
+							.orElse(Collections.emptyList());
 				}
 				return originalChoice;
 			}

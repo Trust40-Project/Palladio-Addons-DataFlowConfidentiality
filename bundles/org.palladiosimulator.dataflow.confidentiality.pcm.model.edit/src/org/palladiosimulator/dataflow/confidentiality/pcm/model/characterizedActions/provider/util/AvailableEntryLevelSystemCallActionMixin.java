@@ -9,6 +9,10 @@ import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
 public interface AvailableEntryLevelSystemCallActionMixin extends ContainingScenarioBehaviorFinderMixin {
 
+	default Optional<EntryLevelSystemCall> getContainingEntryLevelSystemCall(EObject eobject) {
+		return new ContainmentWalker(eobject).findParentOfType(EntryLevelSystemCall.class);
+	}
+	
 	default Optional<Collection<EntryLevelSystemCall>> getAvailableEntryLevelSystemCalls(EObject eobject) {
 		return getContainingScenarioBehavior(eobject)
 				.map(ContainmentWalker::new)

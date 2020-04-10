@@ -10,6 +10,10 @@ import org.palladiosimulator.pcm.seff.ExternalCallAction;
 
 public interface AvailableExternalCallActionMixin extends ContainingSeffFinderMixin {
 
+	default Optional<ExternalCallAction> getContainingExternalCallAction(EObject eobject) {
+		return new ContainmentWalker(eobject).findParentOfType(ExternalCallAction.class);
+	}
+	
 	default Optional<Collection<ExternalCallAction>> getAvailableExternalCallActions(EObject eobject) {
 		return getContainingServiceEffectSpecification(eobject)
 				.map(ContainmentWalker::new)

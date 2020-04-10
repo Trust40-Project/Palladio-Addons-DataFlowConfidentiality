@@ -1,9 +1,9 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.provider;
 
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
 import org.eclipse.emf.common.notify.Notification;
@@ -38,30 +38,14 @@ public class ParameterCharacteristicReferenceItemProvider extends ParameterChara
 
 			@Override
 			public Collection<?> getChoiceOfValues(Object thisObject) {
-				Optional<Stream<OperationSignature>> elscSignatures = 
-						getAvailableEntryLevelSystemCalls((EObject) thisObject)
-							.map(Collection::stream)
-							.map(s -> s.map(EntryLevelSystemCall::getOperationSignature__EntryLevelSystemCall));
-				Optional<Stream<OperationSignature>> ecaSignatures =
-						getAvailableExternalCallActions((EObject) thisObject)
-							.map(Collection::stream)
-							.map(s -> s.map(ExternalCallAction::getCalledService_ExternalService));
-				return Stream.concat(elscSignatures.orElse(Stream.empty()), ecaSignatures.orElse(Stream.empty()))
-					.map(OperationSignature::getParameters__OperationSignature)
-					.flatMap(Collection::stream)
-					.collect(Collectors.toList());
-
-//				return getAvailableExternalCallActions((EObject) thisObject)
-//						.map(Collection::stream)
-//						.map(s -> s
-//							.map(ExternalCallAction::getCalledService_ExternalService)
-//							.map(OperationSignature::getParameters__OperationSignature)
-//							.flatMap(Collection::stream)
-//							.collect(Collectors.toList())
-//						)
-//						.map(Collections::unmodifiableCollection)
-//						.map(Collection.class::cast)
-//						.orElseGet(() -> super.getChoiceOfValues(thisObject));
+				EObject eobject = (EObject) thisObject;
+				Optional<OperationSignature> signature1 = getContainingEntryLevelSystemCall(eobject)
+						.map(EntryLevelSystemCall::getOperationSignature__EntryLevelSystemCall);
+				Optional<OperationSignature> signature2 = getContainingExternalCallAction(eobject)
+						.map(ExternalCallAction::getCalledService_ExternalService);
+				Optional<OperationSignature> signature = Optional
+						.ofNullable(signature1.orElse(signature2.orElse(null)));
+				return signature.map(OperationSignature::getParameters__OperationSignature).map(Collection.class::cast).orElse(Collections.emptyList());
 			}
 
 		};
@@ -72,7 +56,14 @@ public class ParameterCharacteristicReferenceItemProvider extends ParameterChara
 	protected void addExternalCallActionPropertyDescriptor(Object object) {
 		super.addExternalCallActionPropertyDescriptor(object);
 		IItemPropertyDescriptor originalItemDescriptor = itemPropertyDescriptors.remove(itemPropertyDescriptors.size() - 1);
-		IItemPropertyDescriptor decorator = getAvailableExternalCallActionsPropertyDescriptor(originalItemDescriptor);
+		ItemPropertyDescriptorDecorator decorator = new ItemPropertyDescriptorDecorator(originalItemDescriptor) {
+
+			@Override
+			public Collection<?> getChoiceOfValues(Object object) {
+				return getContainingExternalCallAction((EObject)object).map(Arrays::asList).orElse(Collections.emptyList());
+			}
+			
+		};
 		itemPropertyDescriptors.add(decorator);
 	}
 
@@ -80,7 +71,14 @@ public class ParameterCharacteristicReferenceItemProvider extends ParameterChara
 	protected void addEntryLevelSystemCallPropertyDescriptor(Object object) {
 		super.addEntryLevelSystemCallPropertyDescriptor(object);
 		IItemPropertyDescriptor originalItemDescriptor = itemPropertyDescriptors.remove(itemPropertyDescriptors.size() - 1);
-		IItemPropertyDescriptor decorator = getAvailableEntryLevelSystemCallsPropertyDescriptor(originalItemDescriptor);
+		ItemPropertyDescriptorDecorator decorator = new ItemPropertyDescriptorDecorator(originalItemDescriptor) {
+
+			@Override
+			public Collection<?> getChoiceOfValues(Object object) {
+				return getContainingEntryLevelSystemCall((EObject)object).map(Arrays::asList).orElse(Collections.emptyList());
+			}
+			
+		};
 		itemPropertyDescriptors.add(decorator);
 	}
 
