@@ -54,6 +54,16 @@
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated characterizedActions -->
+      <extender
+            uri="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.provider.ExpressionsItemProviderAdapterFactory$DataDictionaryCharacterizedChildCreationExtender"/>
+      <extender
+            uri="http://palladiosimulator.org/dataflow/dictionary/characterized/expressions/1.0"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.provider.ExpressionsItemProviderAdapterFactory$ExpressionsChildCreationExtender"/>
+   </extension>
+
    <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
       <!-- @generated characterizedActions -->
       <factory

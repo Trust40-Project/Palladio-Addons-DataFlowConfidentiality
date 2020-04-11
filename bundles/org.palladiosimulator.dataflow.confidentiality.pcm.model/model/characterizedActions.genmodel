@@ -12,44 +12,40 @@
   <genPackages prefix="CharacterizedActions" basePackage="org.palladiosimulator.dataflow.confidentiality.pcm.model"
       disposableProviderFactory="true" generateExampleClass="false" extensibleProviderFactory="true"
       childCreationExtenders="true" ecorePackage="characterizedActions.ecore#/">
-    <genClasses image="false" ecoreClass="characterizedActions.ecore#//ParameterUsingCharacterizedAction">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference characterizedActions.ecore#//ParameterUsingCharacterizedAction/parameterAssignments"/>
-    </genClasses>
-    <genClasses image="false" ecoreClass="characterizedActions.ecore#//CharacterizedAction">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference characterizedActions.ecore#//CharacterizedAction/returnAssignments"/>
-    </genClasses>
-    <genClasses ecoreClass="characterizedActions.ecore#//CharacterizedInternalAction"/>
-    <genClasses ecoreClass="characterizedActions.ecore#//CharacterizedExternalCallAction"/>
     <genClasses image="false" ecoreClass="characterizedActions.ecore#//Assignment">
       <genTypeParameters ecoreTypeParameter="characterizedActions.ecore#//Assignment/LhsType"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference characterizedActions.ecore#//Assignment/lhs"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference characterizedActions.ecore#//Assignment/rhs"/>
     </genClasses>
-    <genClasses ecoreClass="characterizedActions.ecore#//ParameterAssignment"/>
-    <genClasses ecoreClass="characterizedActions.ecore#//ReturnAssignment"/>
     <genClasses ecoreClass="characterizedActions.ecore#//SeffReturnAssignment"/>
+    <genClasses ecoreClass="characterizedActions.ecore#//ParameterAssignment"/>
+    <genClasses image="false" ecoreClass="characterizedActions.ecore#//ParameterUsingCharacterizedAction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference characterizedActions.ecore#//ParameterUsingCharacterizedAction/parameterAssignments"/>
+    </genClasses>
+    <genClasses ecoreClass="characterizedActions.ecore#//CharacterizedExternalCallAction"/>
     <genClasses ecoreClass="characterizedActions.ecore#//CharacterizedEntryLevelSystemCall"/>
-    <genClasses ecoreClass="characterizedActions.ecore#//CharacterizableAssemblyContext"/>
-    <genClasses ecoreClass="characterizedActions.ecore#//CharacterizableScenarioBehavior"/>
     <genClasses ecoreClass="characterizedActions.ecore#//CharacterizedResourceDemandingSEFF">
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference characterizedActions.ecore#//CharacterizedResourceDemandingSEFF/returnAssignments"/>
     </genClasses>
+    <genClasses ecoreClass="characterizedActions.ecore#//CharacterizableAssemblyContext"/>
+    <genClasses ecoreClass="characterizedActions.ecore#//CharacterizableScenarioBehavior"/>
     <nestedGenPackages prefix="Expressions" basePackage="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions"
-        disposableProviderFactory="true" ecorePackage="characterizedActions.ecore#//expressions">
+        disposableProviderFactory="true" extensibleProviderFactory="true" childCreationExtenders="true"
+        ecorePackage="characterizedActions.ecore#//expressions">
+      <genClasses image="false" ecoreClass="characterizedActions.ecore#//expressions/SeffCharacteristicReference"/>
       <genClasses image="false" ecoreClass="characterizedActions.ecore#//expressions/CallCharacteristicReference">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference characterizedActions.ecore#//expressions/CallCharacteristicReference/externalCallAction"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference characterizedActions.ecore#//expressions/CallCharacteristicReference/entryLevelSystemCall"/>
       </genClasses>
-      <genClasses ecoreClass="characterizedActions.ecore#//expressions/ParameterCharacteristicReference"/>
-      <genClasses ecoreClass="characterizedActions.ecore#//expressions/ReturnCharacteristicReference"/>
-      <genClasses ecoreClass="characterizedActions.ecore#//expressions/SeffParameterCharacteristicReference"/>
       <genClasses image="false" ecoreClass="characterizedActions.ecore#//expressions/ParameterReference">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference characterizedActions.ecore#//expressions/ParameterReference/parameter"/>
       </genClasses>
-      <genClasses image="false" ecoreClass="characterizedActions.ecore#//expressions/SeffCharacteristicReference"/>
+      <genClasses ecoreClass="characterizedActions.ecore#//expressions/ParameterCharacteristicReference"/>
+      <genClasses ecoreClass="characterizedActions.ecore#//expressions/ReturnCharacteristicReference"/>
+      <genClasses ecoreClass="characterizedActions.ecore#//expressions/SeffParameterCharacteristicReference"/>
       <genClasses ecoreClass="characterizedActions.ecore#//expressions/SeffReturnCharacteristicReference"/>
     </nestedGenPackages>
     <nestedGenPackages prefix="Characteristics" basePackage="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions"
