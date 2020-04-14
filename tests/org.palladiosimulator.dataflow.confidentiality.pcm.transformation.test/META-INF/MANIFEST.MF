@@ -9,4 +9,8 @@ Bundle-RequiredExecutionEnvironment: JavaSE-11
 Import-Package: org.junit;version="4.12.0",
  org.junit.jupiter.api;version="5.5.1"
 Require-Bundle: org.eclipse.emf.compare;bundle-version="3.5.3",
- org.apache.log4j;bundle-version="1.2.15"
+ org.apache.log4j;bundle-version="1.2.15",
+ de.uhd.ifi.se.pcm.bppcm;bundle-version="1.0.0",
+ tools.mdsd.library.standalone.initialization;bundle-version="0.1.0",
+ tools.mdsd.library.standalone.initialization.log4j;bundle-version="0.1.0",
+ org.palladiosimulator.dataflow.confidentiality.pcm.testmodels;bundle-version="0.1.0"

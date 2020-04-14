@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Datatypeusage
+Bundle-SymbolicName: org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage
+Bundle-Version: 0.1.0.qualifier
+Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.palladiosimulator.pcm;bundle-version="4.2.0",
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model;bundle-version="0.1.0",
+ org.palladiosimulator.dataflow.confidentiality.pcm.queryutils;bundle-version="0.1.0"

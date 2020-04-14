@@ -31,6 +31,38 @@
 			<repository location="https://updatesite.palladio-simulator.com/palladio-editors-commons/releases/latest"/>
 		</location>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
+			<unit id="org.palladiosimulator.intbiis.model.feature.feature.group" version="tbd"/>
+			<repository location="https://updatesite.palladio-simulator.com/palladio-addons-intbiis/nightly/"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
+			<unit id="org.palladiosimulator.intbiis.model.feature.feature.group" version="tbd"/>
+			<repository location="https://updatesite.palladio-simulator.com/palladio-addons-intbiis/releases/latest"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
+			<unit id="tools.mdsd.library.standalone.initialization.log4j.feature.feature.group" version="tbd"/>
+			<repository location="https://updatesite.mdsd.tools/library-standaloneinitialization/nightly/"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
+			<unit id="tools.mdsd.library.standalone.initialization.log4j.feature.feature.group" version="tbd"/>
+			<repository location="https://updatesite.mdsd.tools/library-standaloneinitialization/releases/latest"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
+			<unit id="de.uka.ipd.sdq.workflow.feature.mdsd.feature.group" version="tbd"/>
+			<repository location="https://updatesite.palladio-simulator.com/palladio-supporting-workflowengine/nightly/"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
+			<unit id="de.uka.ipd.sdq.workflow.feature.mdsd.feature.group" version="tbd"/>
+			<repository location="https://updatesite.palladio-simulator.com/palladio-supporting-workflowengine/releases/latest"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
+			<unit id="org.palladiosimulator.supporting.prolog.ui.feature.feature.group" version="tbd"/>
+			<repository location="https://updatesite.palladio-simulator.com/palladio-supporting-prolog/nightly/"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
+			<unit id="org.palladiosimulator.supporting.prolog.ui.feature.feature.group" version="tbd"/>
+			<repository location="https://updatesite.palladio-simulator.com/palladio-supporting-prolog/releases/latest/release"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
 			<unit id="org.palladiosimulator.dataflow.diagram.editor.sirius.feature.feature.group" version="tbd"/>
 			<repository location="https://updatesite.palladio-simulator.com/palladio-supporting-dataflowdiagram/nightly/"/>
 		</location>
@@ -39,14 +71,22 @@
 			<repository location="https://updatesite.palladio-simulator.com/palladio-supporting-dataflowdiagram/releases/latest/"/>
 		</location>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
-			<unit id="org.palladiosimulator.dataflow.confidentiality.model.feature.feature.group" version="tbd"/>
+			<unit id="org.palladiosimulator.dataflow.confidentiality.transformation.feature.feature.group" version="tbd"/>
 			<unit id="org.palladiosimulator.dataflow.confidentiality.editor.tree.feature.feature.group" version="tbd"/>
 			<repository location="https://updatesite.palladio-simulator.com/palladio-supporting-dataflowdiagramconfidentiality/nightly/"/>
 		</location>
 		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
-			<unit id="org.palladiosimulator.dataflow.confidentiality.model.feature.feature.group" version="tbd"/>
+			<unit id="org.palladiosimulator.dataflow.confidentiality.transformation.feature.feature.group" version="tbd"/>
 			<unit id="org.palladiosimulator.dataflow.confidentiality.editor.tree.feature.feature.group" version="tbd"/>
 			<repository location="https://updatesite.palladio-simulator.com/palladio-supporting-dataflowdiagramconfidentiality/releases/latest/"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="nightly" refresh="true">
+			<unit id="org.prolog4j.tuprolog.feature.feature.group" version="tbd"/>
+			<repository location="https://updatesite.palladio-simulator.com/palladio-supporting-prolog4j/nightly/"/>
+		</location>
+		<location includeAllPlatforms="false" includeConfigurePhase="true" includeMode="planner" includeSource="false" type="InstallableUnit" filter="release" refresh="true">
+			<unit id="org.prolog4j.tuprolog.feature.feature.group" version="tbd"/>
+			<repository location="https://updatesite.palladio-simulator.com/palladio-supporting-prolog4j/releases/latest/"/>
 		</location>
 	</locations>
 </target>

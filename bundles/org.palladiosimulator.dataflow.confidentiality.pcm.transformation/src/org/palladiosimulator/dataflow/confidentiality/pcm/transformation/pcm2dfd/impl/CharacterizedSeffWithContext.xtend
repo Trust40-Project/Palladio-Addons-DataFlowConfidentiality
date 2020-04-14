@@ -2,6 +2,7 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2df
 
 import java.util.List
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.CharacterizedResourceDemandingSEFF
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.SeffWithContext
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF
 

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:subsystem="http://palladiosimulator.org/PalladioComponentModel/SubSystem/5.2" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.2" id="_MHicAHidEemJObo0kKFqqQ" entityName="CoCoME Simplified">
+  <assemblyContexts__ComposedStructure id="_pevxIHieEemJObo0kKFqqQ" entityName="CustomerDataStore">
+    <encapsulatedComponent__AssemblyContext xsi:type="subsystem:SubSystem" href="LoyaltyCard.repository#_lJ6UVHidEemJObo0kKFqqQ"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_R2BQINn1EemNpY8gd-A1AQ" entityName="Store">
+    <encapsulatedComponent__AssemblyContext xsi:type="subsystem:SubSystem" href="LoyaltyCard.repository#_Zi0VZHidEemJObo0kKFqqQ"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_tJTTwNn4EemNpY8gd-A1AQ" entityName="LoyaltyManagement">
+    <encapsulatedComponent__AssemblyContext xsi:type="subsystem:SubSystem" href="LoyaltyCard.repository#_n98iNHidEemJObo0kKFqqQ"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_KPQsgHv7EeqZ0-iWUzVwFQ" entityName="Assembly_Marketing">
+    <encapsulatedComponent__AssemblyContext xsi:type="subsystem:SubSystem" href="LoyaltyCard.repository#_Q3Pp8Hv3EeqZ0-iWUzVwFQ"/>
+  </assemblyContexts__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_rWzZMNnpEemd7ayVqW_B5g" entityName="newProvidedDelegationConnector" assemblyContext_ProvidedDelegationConnector="_pevxIHieEemJObo0kKFqqQ"/>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_fIbhYNn1EemNpY8gd-A1AQ" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_R2BQINn1EemNpY8gd-A1AQ" providingAssemblyContext_AssemblyConnector="_pevxIHieEemJObo0kKFqqQ">
+    <providedRole_AssemblyConnector href="LoyaltyCard.repository#_CgrpYNnrEemd7ayVqW_B5g"/>
+    <requiredRole_AssemblyConnector href="LoyaltyCard.repository#_ZgkskNnrEemd7ayVqW_B5g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_fuVY4Nn3EemNpY8gd-A1AQ" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_hfth0Nn1EemNpY8gd-A1AQ" assemblyContext_ProvidedDelegationConnector="_R2BQINn1EemNpY8gd-A1AQ">
+    <innerProvidedRole_ProvidedDelegationConnector href="LoyaltyCard.repository#_ewTnMNnzEemNpY8gd-A1AQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_jlM8wNn3EemNpY8gd-A1AQ" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_ggZH8Nn3EemNpY8gd-A1AQ" assemblyContext_ProvidedDelegationConnector="_R2BQINn1EemNpY8gd-A1AQ">
+    <innerProvidedRole_ProvidedDelegationConnector href="LoyaltyCard.repository#_fMz9ANnzEemNpY8gd-A1AQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_usSJcNn4EemNpY8gd-A1AQ" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_R2BQINn1EemNpY8gd-A1AQ" providingAssemblyContext_AssemblyConnector="_tJTTwNn4EemNpY8gd-A1AQ">
+    <providedRole_AssemblyConnector href="LoyaltyCard.repository#_5O24sNnqEemd7ayVqW_B5g"/>
+    <requiredRole_AssemblyConnector href="LoyaltyCard.repository#_ax0SANnrEemd7ayVqW_B5g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_hwrZMNn5EemNpY8gd-A1AQ" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_tJTTwNn4EemNpY8gd-A1AQ" providingAssemblyContext_AssemblyConnector="_pevxIHieEemJObo0kKFqqQ">
+    <providedRole_AssemblyConnector href="LoyaltyCard.repository#_CgrpYNnrEemd7ayVqW_B5g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_UXJigHv7EeqZ0-iWUzVwFQ" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_KPQsgHv7EeqZ0-iWUzVwFQ" providingAssemblyContext_AssemblyConnector="_tJTTwNn4EemNpY8gd-A1AQ">
+    <providedRole_AssemblyConnector href="LoyaltyCard.repository#_eaazsHv6EeqZ0-iWUzVwFQ"/>
+    <requiredRole_AssemblyConnector href="LoyaltyCard.repository#_4GyyoHv3EeqZ0-iWUzVwFQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_zkCcUHv7EeqZ0-iWUzVwFQ" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_mM1xsHv7EeqZ0-iWUzVwFQ" assemblyContext_ProvidedDelegationConnector="_KPQsgHv7EeqZ0-iWUzVwFQ">
+    <innerProvidedRole_ProvidedDelegationConnector href="LoyaltyCard.repository#_slpDoHv3EeqZ0-iWUzVwFQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_z_4q0Hv7EeqZ0-iWUzVwFQ" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_prebwHv7EeqZ0-iWUzVwFQ" assemblyContext_ProvidedDelegationConnector="_KPQsgHv7EeqZ0-iWUzVwFQ">
+    <innerProvidedRole_ProvidedDelegationConnector href="LoyaltyCard.repository#_s9bRgHv3EeqZ0-iWUzVwFQ"/>
+  </connectors__ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_ggZH8Nn3EemNpY8gd-A1AQ" entityName="System.provided.IOfflineShop">
+    <providedInterface__OperationProvidedRole href="LoyaltyCard.repository#_Qo4ZgNnzEemNpY8gd-A1AQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_hfth0Nn1EemNpY8gd-A1AQ" entityName="System.provided.IOnlineShop">
+    <providedInterface__OperationProvidedRole href="LoyaltyCard.repository#_By41oNnzEemNpY8gd-A1AQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_mM1xsHv7EeqZ0-iWUzVwFQ" entityName="System.provided.IMarketAnalysis">
+    <providedInterface__OperationProvidedRole href="LoyaltyCard.repository#_VqnSUHv3EeqZ0-iWUzVwFQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_prebwHv7EeqZ0-iWUzVwFQ" entityName="System.provided.IAdvertisement">
+    <providedInterface__OperationProvidedRole href="LoyaltyCard.repository#_fF9LYHv3EeqZ0-iWUzVwFQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+</system:System>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<datamodel:DataModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:datamodel="http://palladiosimulator.org/PalladioComponentModel/5.2/bp/DataModel" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2">
+  <dataObjects xsi:type="datamodel:CompositeDataObject" id="_SMJmoXiZEemJObo0kKFqqQ" entityName="OnlineOrder">
+    <dataTypes xsi:type="repository:CompositeDataType" href="LoyaltyCard.repository#_I5_anXigEemJObo0kKFqqQ"/>
+  </dataObjects>
+  <dataObjects xsi:type="datamodel:CollectionDataObject" id="_OzdMgHiZEemJObo0kKFqqQ" entityName="OnlineOrders" innerDataObjects="_SMJmoXiZEemJObo0kKFqqQ">
+    <dataTypes xsi:type="repository:CollectionDataType" href="LoyaltyCard.repository#_LEyePHigEemJObo0kKFqqQ"/>
+  </dataObjects>
+  <dataObjects xsi:type="datamodel:CompositeDataObject" id="_XYMNsXiZEemJObo0kKFqqQ" entityName="LoyaltyOrder">
+    <dataTypes xsi:type="repository:CompositeDataType" href="LoyaltyCard.repository#__e9qnXifEemJObo0kKFqqQ"/>
+  </dataObjects>
+  <dataObjects xsi:type="datamodel:CollectionDataObject" id="_X8nJYHiZEemJObo0kKFqqQ" entityName="LoyaltyOrders" innerDataObjects="_XYMNsXiZEemJObo0kKFqqQ">
+    <dataTypes xsi:type="repository:CollectionDataType" href="LoyaltyCard.repository#_OPT5fHigEemJObo0kKFqqQ"/>
+  </dataObjects>
+  <dataObjects xsi:type="datamodel:CompositeDataObject" id="_dhxbEXiZEemJObo0kKFqqQ" entityName="Support ticket"/>
+  <dataObjects xsi:type="datamodel:CompositeDataObject" id="_gmLnQXiZEemJObo0kKFqqQ" entityName="Advertisement schedule">
+    <dataTypes xsi:type="repository:CompositeDataType" href="LoyaltyCard.repository#_2OV7_XrdEemf8oAvAsui2Q"/>
+  </dataObjects>
+  <dataObjects xsi:type="datamodel:CollectionDataObject" id="_k1360HiZEemJObo0kKFqqQ" entityName="Advertisement schedules" innerDataObjects="_gmLnQXiZEemJObo0kKFqqQ"/>
+  <dataObjects xsi:type="datamodel:CompositeDataObject" id="_nUR28XiZEemJObo0kKFqqQ" entityName="Advertisement request"/>
+  <dataObjects xsi:type="datamodel:CompositeDataObject" id="_rIMNcXiZEemJObo0kKFqqQ" entityName="Customer profile">
+    <dataTypes xsi:type="repository:CompositeDataType" href="LoyaltyCard.repository#_BG72LXreEemf8oAvAsui2Q"/>
+  </dataObjects>
+  <dataObjects xsi:type="datamodel:CollectionDataObject" id="_urzeIHiZEemJObo0kKFqqQ" entityName="Customer profiles" innerDataObjects="_rIMNcXiZEemJObo0kKFqqQ">
+    <dataTypes xsi:type="repository:CollectionDataType" href="LoyaltyCard.repository#_Ctb57HreEemf8oAvAsui2Q"/>
+  </dataObjects>
+  <dataObjects xsi:type="datamodel:CompositeDataObject" id="_Z7W34YXoEemi6qN7GikhRQ" entityName="Advertisement admission">
+    <dataTypes xsi:type="repository:CompositeDataType" href="LoyaltyCard.repository#_5ePCHYXjEemi6qN7GikhRQ"/>
+  </dataObjects>
+  <dataObjects xsi:type="datamodel:CompositeDataObject" id="_yehR0drxEemNpY8gd-A1AQ" entityName="Order">
+    <dataTypes xsi:type="repository:CompositeDataType" href="LoyaltyCard.repository#_UJfY7XigEemJObo0kKFqqQ"/>
+  </dataObjects>
+</datamodel:DataModel>

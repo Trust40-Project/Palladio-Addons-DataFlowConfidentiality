@@ -2,25 +2,33 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2df
 
 import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.DataFlowDiagramFactory
 import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.ExternalActor
+import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.Node
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.DataFlowDiagramCharacterizedFactory
+import org.palladiosimulator.dataflow.dictionary.DataDictionary.DataDictionaryFactory
+import org.palladiosimulator.dataflow.dictionary.DataDictionary.DataType
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Behaving
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.CharacteristicType
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.DataDictionaryCharacterizedFactory
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Literal
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Pin
-import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.expressions.ExpressionsFactory
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.expressions.DataCharacteristicReference
+import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.expressions.ExpressionsFactory
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.expressions.Term
-import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.Node
 
 class DFDFactoryUtilities {
 	
 	extension DataFlowDiagramCharacterizedFactory dfdCharacterizedFactory = DataFlowDiagramCharacterizedFactory.eINSTANCE
+	extension DataFlowDiagramFactory dfdFactory = DataFlowDiagramFactory.eINSTANCE
 	extension DataDictionaryCharacterizedFactory ddCharacterizedFactory = DataDictionaryCharacterizedFactory.eINSTANCE
+	extension DataDictionaryFactory ddFactory = DataDictionaryFactory.eINSTANCE
 	extension ExpressionsFactory ddExpressionsFactory = ExpressionsFactory.eINSTANCE
 
 	def createDataFlowDiagram() {
 		DataFlowDiagramFactory.eINSTANCE.createDataFlowDiagram
+	}
+	
+	def createDataDictionary() {
+		createDataDictionaryCharacterized
 	}
 	
 	def createActor() {
@@ -38,9 +46,6 @@ class DFDFactoryUtilities {
 	
 	def createPin() {
 		ddCharacterizedFactory.createPin
-//		val pin = createPin
-//		pin.name = entityName
-//		pin
 	}
 	
 	def createStore() {
@@ -61,10 +66,6 @@ class DFDFactoryUtilities {
 	def createProcess() {
 		createCharacterizedProcess
 	}
-//	
-//	def createAssignment() {
-//		ddCharacterizedFactory.createAssignment
-//	}
 	
 	def createAssignment(Behaving behaving, DataCharacteristicReference lhs, Term rhs) {
 		val assignment = ddCharacterizedFactory.createAssignment
@@ -89,7 +90,7 @@ class DFDFactoryUtilities {
 		reference
 	}
 	
-	def createDataFlow(Node source, Pin sourcePin, Node destination, Pin destinationPin) {
+	def createDataFlow(Node source, Pin sourcePin, Node destination, Pin destinationPin, DataType dataType) {
 		val flow = createCharacterizedDataFlow
 		//TODO calculate and set name
 		flow.name = "data"
@@ -97,7 +98,16 @@ class DFDFactoryUtilities {
 		flow.sourcePin = sourcePin
 		flow.target = destination
 		flow.targetPin = destinationPin
+		flow.data += createData(dataType)
 		flow
+	}
+	
+	def createData(DataType dataType) {
+		val data = createData
+		//TODO calculate and set name
+		data.name = "data"
+		data.type = dataType
+		data
 	}
 	
 	def createCopyAssignment(Behaving behaving, Pin toPin, Pin fromPin) {
@@ -114,4 +124,39 @@ class DFDFactoryUtilities {
 		characteristic
 	}
 	
+	def createPrimitiveDT() {
+		createPrimitiveDataType
+	}
+	
+	def createCollectionDT() {
+		createCollectionDataType
+	}
+	
+	def createCompositeDT() {
+		createCompositeDataType
+	}
+	
+	def createEntry(String name, DataType type) {
+		val entry = createEntry
+		entry.name = name
+		entry.type = type
+		entry
+	}
+	
+	def createEnum(String name) {
+		val enumeration = createEnumeration
+		enumeration.name = name
+		enumeration
+	}
+	
+	def createEnumLiteral() {
+		val literal = createLiteral
+		literal
+	}
+	
+	def createCharacteristicType(String name) {
+		val characteristicType = createEnumCharacteristicType
+		characteristicType.name = name
+		characteristicType
+	}
 }

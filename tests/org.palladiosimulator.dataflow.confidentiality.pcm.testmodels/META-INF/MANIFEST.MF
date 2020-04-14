@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Testmodels
+Bundle-SymbolicName: org.palladiosimulator.dataflow.confidentiality.pcm.testmodels
+Bundle-Version: 0.1.0.qualifier
+Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.testmodels
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.palladiosimulator.dataflow.confidentiality.pcm.testmodels.Activator
+Require-Bundle: org.eclipse.core.runtime;bundle-version="3.15.0",
+ de.uhd.ifi.se.pcm.bppcm;bundle-version="1.0.0";visibility:=reexport,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model;bundle-version="0.1.0";visibility:=reexport
+Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.testmodels

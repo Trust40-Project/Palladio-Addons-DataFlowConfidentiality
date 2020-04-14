@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<organizationenvironmentmodel:OrganizationEnvironmentModel xmlns:organizationenvironmentmodel="http://palladiosimulator.org/PalladioComponentModel/5.2/bp/OrganizationEnvironmentModel">
+  <roles id="_6GkGsHiYEemJObo0kKFqqQ" entityName="Store Manager"/>
+  <roles id="_7E9ooHiYEemJObo0kKFqqQ" entityName="Marketing Manager"/>
+  <roles id="_9OQQYHiYEemJObo0kKFqqQ" entityName="Customer"/>
+  <roles id="_hOlOkHiaEemJObo0kKFqqQ" entityName="Customer Service Employee"/>
+</organizationenvironmentmodel:OrganizationEnvironmentModel>

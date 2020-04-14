@@ -2,9 +2,9 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2df
 
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.PcmToDfdTransformationImpl;
 
-public interface PcmToDfdTransformationFactory {
+public class PcmToDfdTransformationFactory {
 
-	default PcmToDfdTransformation create() {
+	public static PcmToDfdTransformation create() {
 		return new PcmToDfdTransformationImpl();
 	}
 	

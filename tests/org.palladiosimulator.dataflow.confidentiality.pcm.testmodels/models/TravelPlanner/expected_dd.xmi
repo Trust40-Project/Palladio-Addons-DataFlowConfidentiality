@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<DataDictionaryCharacterized:DataDictionaryCharacterized xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionary="http://palladiosimulator.org/dataflow/dictionary/1.0" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" id="_VuapsH5nEeqAYsxYGku4dg">
+  <entries xsi:type="DataDictionary:PrimitiveDataType" id="_Vy3r4H5nEeqAYsxYGku4dg" name="INT"/>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_VzHjgH5nEeqAYsxYGku4dg" name="Flight"/>
+  <entries xsi:type="DataDictionary:CollectionDataType" id="_VzIxoH5nEeqAYsxYGku4dg" name="Flights" type="_VzHjgH5nEeqAYsxYGku4dg"/>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_VzO4Q35nEeqAYsxYGku4dg" name="Confirmation"/>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_VzSion5nEeqAYsxYGku4dg" name="CCD"/>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_VzZQUX5nEeqAYsxYGku4dg" name="Commission"/>
+</DataDictionaryCharacterized:DataDictionaryCharacterized>

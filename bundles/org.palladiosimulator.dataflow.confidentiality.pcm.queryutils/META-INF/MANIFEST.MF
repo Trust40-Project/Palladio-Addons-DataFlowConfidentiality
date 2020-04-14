@@ -1,0 +1,14 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PCM Query Utils
+Bundle-SymbolicName: org.palladiosimulator.dataflow.confidentiality.pcm.queryutils
+Bundle-Version: 0.1.0.qualifier
+Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.queryutils
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ org.eclipse.emf.ecore;bundle-version="2.19.0",
+ org.palladiosimulator.pcm;bundle-version="4.2.0"
+Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils

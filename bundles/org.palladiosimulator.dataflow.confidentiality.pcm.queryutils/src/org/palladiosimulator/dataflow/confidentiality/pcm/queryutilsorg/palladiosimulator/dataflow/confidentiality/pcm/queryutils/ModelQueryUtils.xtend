@@ -1,4 +1,4 @@
-package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl
+package org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils
 
 import org.eclipse.emf.ecore.EObject
 

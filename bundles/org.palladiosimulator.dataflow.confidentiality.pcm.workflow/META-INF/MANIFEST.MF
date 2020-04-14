@@ -1,0 +1,20 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PCM Data Flow Confidentiality Workflow
+Bundle-SymbolicName: org.palladiosimulator.dataflow.confidentiality.pcm.workflow
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.palladiosimulator.dataflow.confidentiality.pcm.workflow.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.palladiosimulator.dataflow.confidentiality.transformation.workflow;bundle-version="1.0.0";visibility:=reexport,
+ de.uka.ipd.sdq.workflow,
+ org.palladiosimulator.pcm,
+ de.uka.ipd.sdq.workflow.mdsd;visibility:=reexport,
+ org.palladiosimulator.dataflow.confidentiality.pcm.transformation;bundle-version="1.0.0",
+ org.palladiosimulator.dataflow.dictionary;visibility:=reexport,
+ org.palladiosimulator.dataflow.diagram;visibility:=reexport
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.workflow
+Bundle-ActivationPolicy: lazy
+Import-Package: org.apache.commons.lang3;version="3.1.0"
+Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.workflow,
+ org.palladiosimulator.dataflow.confidentiality.pcm.workflow.jobs

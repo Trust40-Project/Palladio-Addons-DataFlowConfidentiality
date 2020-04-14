@@ -1,11 +1,7 @@
-package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl
+package org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils
 
 import java.util.ArrayList
-import java.util.HashSet
 import java.util.List
-import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.CharacterizedEntryLevelSystemCall
-import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.CharacterizedResourceDemandingSEFF
-import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.ReturnCharacteristicReference
 import org.palladiosimulator.pcm.core.composition.AssemblyConnector
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.core.composition.ComposedStructure
@@ -18,18 +14,6 @@ import org.palladiosimulator.pcm.repository.Signature
 import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF
 
 class PcmQueryUtils {
-
-	val extension ModelQueryUtils modelQueryUtils = new ModelQueryUtils
-
-	/**
-	 * Finds a called SEFF and the corresponding stack of assembly contexts.
-	 * Always provides {@link CharacterizedResourceDemandingSEFF} elements.
-	 * @see #findCalledSeff(ProvidedRole, Signature, List)
-	 */
-	def findCalledCharacterizedSeff(RequiredRole requiredRole, Signature calledSignature, List<AssemblyContext> contexts) {
-		val foundSeff = requiredRole.findCalledSeff(calledSignature, contexts)
-		new CharacterizedSeffWithContext(foundSeff.seff, foundSeff.context)
-	}
 
 	/**
 	 * Finds a called SEFF and the corresponding stack of assembly contexts.
@@ -72,15 +56,7 @@ class PcmQueryUtils {
 		findCalledSeff(outerRequiredRole, calledSignature, newcontext)
 	}
 
-	/**
-	 * Finds a called SEFF and the corresponding stack of assembly contexts.
-	 * Always provides {@link CharacterizedResourceDemandingSEFF} elements.
-	 * @see #findCalledSeff(RequiredRole, Signature, List)
-	 */
-	def findCalledCharacterizedSeff(ProvidedRole providedRole, Signature calledSignature, List<AssemblyContext> contexts) {
-		val foundSeff = providedRole.findCalledSeff(calledSignature, contexts)
-		new CharacterizedSeffWithContext(foundSeff.seff, foundSeff.context)
-	}
+
 
 	/**
 	 * Finds a called SEFF and the corresponding stack of assembly contexts.
@@ -115,18 +91,6 @@ class PcmQueryUtils {
 	private def findProvidedDelegationConnector(ComposedStructure component, ProvidedRole outerRole) {
 		component.connectors__ComposedStructure.filter(ProvidedDelegationConnector).
 				findFirst[outerProvidedRole_ProvidedDelegationConnector == outerRole]
-	}
-
-	def findRequiriedEntryLevelSystemCalls(CharacterizedEntryLevelSystemCall elsc) {
-		val requiredElscs = new HashSet<CharacterizedEntryLevelSystemCall>
-		for (assignment : elsc.parameterAssignments) {
-			val elscs = assignment.rhs
-				.findAllChildrenIncludingSelfOfType(ReturnCharacteristicReference)
-				.map[entryLevelSystemCall]
-				.filter(CharacterizedEntryLevelSystemCall)
-			requiredElscs.addAll(elscs)
-		}
-		requiredElscs.sortBy[id]
 	}
 
 }

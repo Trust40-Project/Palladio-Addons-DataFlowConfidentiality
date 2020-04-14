@@ -19,6 +19,7 @@ import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedAct
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.SeffParameterCharacteristicReference
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.SeffReturnCharacteristicReference
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.DBOperationInterface
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.PcmToDfdTransformation
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.Characterizable
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedExternalActor
@@ -32,11 +33,15 @@ import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCha
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.expressions.DataCharacteristicReference
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.expressions.UnaryLogicTerm
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
+import org.palladiosimulator.pcm.repository.CollectionDataType
+import org.palladiosimulator.pcm.repository.CompositeDataType
 import org.palladiosimulator.pcm.repository.OperationSignature
 import org.palladiosimulator.pcm.repository.Parameter
+import org.palladiosimulator.pcm.repository.PrimitiveDataType
 import org.palladiosimulator.pcm.repository.RepositoryComponent
 import org.palladiosimulator.pcm.seff.AbstractAction
 import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF
+import org.palladiosimulator.pcm.seff.ServiceEffectSpecification
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour
 import org.palladiosimulator.pcm.usagemodel.UsageModel
@@ -45,24 +50,27 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	
 	extension DFDFactoryUtilities dfdFactoryUtilities = new DFDFactoryUtilities
 	extension ModelQueryUtils modelQueryUtils = new ModelQueryUtils
-	extension PcmQueryUtils pcmQueryUtils = new PcmQueryUtils
-	extension DataFlowAdder dataFlowConsumer = null;
-	extension NodeAdder nodeAdder = null;
-	extension TraceRecorder traceRecorder = null;
+	extension CharacterizedPcmQueryUtils pcmQueryUtils = new CharacterizedPcmQueryUtils
+	extension DataFlowAdder dataFlowConsumer = null
+	extension NodeAdder nodeAdder = null
+	extension DataTypeAdder dataTypeAdder = null
+	extension TraceRecorder traceRecorder = null
 	
-	override transform(UsageModel usageModel) {
+	override transform(Collection<UsageModel> usageModels) {
 		val trace = new TransformationTraceImpl
 		val dfd = createDataFlowDiagram
+		val dd = createDataDictionary
 		dataFlowConsumer = [flow | dfd.edges.add(flow)]
 		nodeAdder = [node | dfd.nodes.add(node)]
+		dataTypeAdder = [dt | dd.entries.add(dt)]
 		traceRecorder = [ srcId, dstId | trace.addToTrace(srcId, dstId)]
-		usageModel.transformAllBehaviors
-		new TransformationResultImpl(dfd, trace)
+		usageModels.transformAllBehaviors
+		new TransformationResultImpl(dfd, dd, trace)
 	}
 	
-	protected def void transformAllBehaviors(UsageModel usageModel) {
+	protected def void transformAllBehaviors(Collection<UsageModel> usageModels) {
 		val processedSeffs = new HashSet<CharacterizedSeffWithContext>
-		val behaviors = usageModel.usageScenario_UsageModel.map[scenarioBehaviour_UsageScenario]
+		val behaviors = usageModels.flatMap[usageScenario_UsageModel].map[scenarioBehaviour_UsageScenario]
 		for (behavior : behaviors) {
 			behavior.transformBehavior(processedSeffs)
 		}
@@ -153,7 +161,8 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 			val inputPin = process.getInputPin(requiredElsc)
 			val requiredProcess = requiredElsc.exitProcess
 			val requiredPin = requiredProcess.outputPin
-			createDataFlow(requiredProcess, requiredPin, process, inputPin).addToDiagram
+			val requiredDataType = requiredElsc.operationSignature__EntryLevelSystemCall.returnType__OperationSignature.dataType
+			createDataFlow(requiredProcess, requiredPin, process, inputPin, requiredDataType).addToDiagram
 		}
 		val role = elsc.providedRole_EntryLevelSystemCall
 		val signature = elsc.operationSignature__EntryLevelSystemCall
@@ -162,7 +171,8 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		for (parameter : signature.parameters__OperationSignature) {
 			val outputPin = process.getOutputPin(parameter)
 			val seffEntryPin = seffEntryProcess.getInputPin(parameter)
-			createDataFlow(process, outputPin, seffEntryProcess, seffEntryPin).addToDiagram
+			val parameterDataType = parameter.dataType__Parameter.dataType
+			createDataFlow(process, outputPin, seffEntryProcess, seffEntryPin, parameterDataType).addToDiagram
 		}
 		for (assignment : elsc.parameterAssignments) {
 			val newLhs = process._translate(null, assignment.lhs)
@@ -223,7 +233,12 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		val calledSeff = elsc.providedRole_EntryLevelSystemCall.findCalledCharacterizedSeff(elsc.operationSignature__EntryLevelSystemCall, #[])
 		val seffProcess = calledSeff.characterizedSeff.getExitProcess(calledSeff.context)
 		val seffPin = seffProcess.outputPin
-		createDataFlow(seffProcess, seffPin, process, inputPin).addToDiagram
+		val returnDataType = calledSeff.seff.returnDataType
+		createDataFlow(seffProcess, seffPin, process, inputPin, returnDataType).addToDiagram
+	}
+	
+	protected def getReturnDataType(ServiceEffectSpecification seff) {
+		(seff.describedService__SEFF as OperationSignature).returnType__OperationSignature.dataType
 	}
 	
 	/**
@@ -283,7 +298,9 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 				val dbInterface = seff.describedService__SEFF.eContainer as DBOperationInterface
 				val store = dbInterface.getStore(context)
 				val storeInputPin = store.inputPin
-				createDataFlow(process, outputPin, store, storeInputPin).addToDiagram
+				val dataType = parameter.dataType__Parameter.dataType
+				//TODO we should add collections here as well if it exists
+				createDataFlow(process, outputPin, store, storeInputPin, dataType).addToDiagram
 			}
 
 		}
@@ -355,7 +372,8 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 			val inputPin = process.getInputPin(availableAction)
 			val calledProcess = availableAction.getExitProcess(context)
 			val calledPin = calledProcess.outputPin
-			createDataFlow(calledProcess, calledPin, process, inputPin).addToDiagram
+			val returnDataType = availableAction.calledService_ExternalService.returnType__OperationSignature.dataType
+			createDataFlow(calledProcess, calledPin, process, inputPin, returnDataType).addToDiagram
 		}
 		val outputPin = process.outputPin
 		
@@ -364,7 +382,8 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 			val store = dbInterface.getStore(context)
 			val storeOutputPin = store.outputPin
 			val processInputPin = process.inputPin
-			createDataFlow(store, storeOutputPin, process, processInputPin).addToDiagram			
+			val returnType = seff.returnDataType
+			createDataFlow(store, storeOutputPin, process, processInputPin, returnType).addToDiagram			
 			process.createCopyAssignment(outputPin, processInputPin)
 		}
 		
@@ -420,14 +439,16 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		for (seffParameter : seffParameters) {
 			val inputPin = process.getInputPin(seffParameter)
 			val requiredPin = seffProcess.getOutputPin(seffParameter)
-			createDataFlow(seffProcess, requiredPin, process, inputPin).addToDiagram
+			val parameterType = seffParameter.dataType__Parameter.dataType
+			createDataFlow(seffProcess, requiredPin, process, inputPin, parameterType).addToDiagram
 		}
 		val requiredCalls = paramAssignments.flatMap[findAllChildrenIncludingSelfOfType(ReturnCharacteristicReference)].map[externalCallAction].filter(CharacterizedExternalCallAction).toSet.sortBy[id]
 		for (requiredCall : requiredCalls) {
 			val inputPin = process.getInputPin(requiredCall)
 			val requiredProcess = requiredCall.getExitProcess(context)
 			val requiredPin = requiredProcess.outputPin
-			createDataFlow(requiredProcess, requiredPin, process, inputPin).addToDiagram
+			val returnType = requiredCall.calledService_ExternalService.returnType__OperationSignature.dataType
+			createDataFlow(requiredProcess, requiredPin, process, inputPin, returnType).addToDiagram
 		}
 		
 		val calledSeff = eca.role_ExternalService.findCalledCharacterizedSeff(eca.calledService_ExternalService, context)
@@ -435,7 +456,8 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		for (parameter : eca.calledService_ExternalService.parameters__OperationSignature) {
 			val outputPin = process.getOutputPin(parameter)
 			val calledInputPin = calledProcess.getInputPin(parameter)
-			createDataFlow(process, outputPin, calledProcess, calledInputPin).addToDiagram
+			val parameterType = parameter.dataType__Parameter.dataType
+			createDataFlow(process, outputPin, calledProcess, calledInputPin, parameterType).addToDiagram
 		}
 		
 		for (paramAssignment : paramAssignments) {
@@ -474,8 +496,9 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		val calledSeff = eca.role_ExternalService.findCalledCharacterizedSeff(eca.calledService_ExternalService, context)
 		val calledProcess = calledSeff.exitProcess
 		val calledOutputPin = calledProcess.outputPin
+		val returnType = calledSeff.seff.returnDataType
 		
-		createDataFlow(calledProcess, calledOutputPin, process, inputPin).addToDiagram
+		createDataFlow(calledProcess, calledOutputPin, process, inputPin, returnType).addToDiagram
 	}
 
 	protected def createCharacteristics(Characterizable characterizable, ScenarioBehaviour behavior) {
@@ -504,6 +527,33 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 			}
 		}
 		#[]
+	}
+	
+	protected def dispatch getDataType(PrimitiveDataType pcmDataType) {
+		pcmDataType.type.getName.getPrimitiveDataType
+	}
+	
+	private def create dataType: createPrimitiveDT getPrimitiveDataType(String dataTypeName) {
+		dataType.name = dataTypeName
+		dataType.addToDictionary
+	}
+	
+	protected def dispatch create dataType: createCollectionDT getDataType(CollectionDataType pcmDataType) {
+		addToTrace(pcmDataType, dataType)
+		dataType.name = pcmDataType.entityName
+		dataType.type = pcmDataType.innerType_CollectionDataType.dataType
+		dataType.addToDictionary
+	}
+	
+	protected def dispatch create dataType: createCompositeDT getDataType(CompositeDataType pcmDataType) {
+		addToTrace(pcmDataType, dataType)
+		dataType.name = pcmDataType.entityName
+		for (innerDeclaration : pcmDataType.innerDeclaration_CompositeDataType) {
+			val entryType = innerDeclaration.datatype_InnerDeclaration.dataType
+			val entryName = innerDeclaration.entityName
+			dataType.components += createEntry(entryName, entryType)
+		}
+		dataType.addToDictionary
 	}
 
 	protected def dispatch DataCharacteristicReference translate(CharacterizedProcess behaving, List<AssemblyContext> contexts, SeffReturnCharacteristicReference term) {

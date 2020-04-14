@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Workflow Tests
+Bundle-SymbolicName: org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test
+Bundle-Version: 0.1.0.qualifier
+Fragment-Host: org.palladiosimulator.dataflow.confidentiality.pcm.workflow;bundle-version="0.1.0"
+Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ tools.mdsd.library.standalone.initialization;bundle-version="0.1.0",
+ tools.mdsd.library.standalone.initialization.log4j,
+ org.prolog4j.tuprolog;bundle-version="1.0.0",
+ org.prolog4j.api;bundle-version="1.0.0",
+ de.uhd.ifi.se.pcm.bppcm;bundle-version="1.0.0",
+ org.palladiosimulator.dataflow.confidentiality.pcm.testmodels;bundle-version="0.1.0",
+ org.palladiosimulator.supporting.prolog.ui;bundle-version="4.2.0",
+ org.palladiosimulator.supporting.prolog;bundle-version="4.2.0"
+Import-Package: org.junit.jupiter.api;version="5.1.0"

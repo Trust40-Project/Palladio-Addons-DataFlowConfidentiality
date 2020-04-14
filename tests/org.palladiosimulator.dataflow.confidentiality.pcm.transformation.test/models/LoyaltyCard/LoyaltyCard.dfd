@@ -1,0 +1,1034 @@
+<?xml version="1.0" encoding="ASCII"?>
+<DataFlowDiagram:DataFlowDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataFlowDiagram="http://palladiosimulator.org/dataflow/diagram/1.0" xmlns:DataFlowDiagramCharacterized="http://palladiosimulator.org/dataflow/diagram/characterized/1.0" xmlns:expressions="http://palladiosimulator.org/dataflow/dictionary/characterized/expressions/1.0" id="_fPz-AHzTEeqs047-C8TyNg">
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedExternalActor" id="_fS2q8HzTEeqs047-C8TyNg" name="Make Online Purchase">
+    <ownedBehavior id="_fS-mwHzTEeqs047-C8TyNg"/>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fWGMMHzTEeqs047-C8TyNg" name="submit online order EntryProcess" actor="_fS2q8HzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fWIBYHzTEeqs047-C8TyNg">
+      <outputs id="_fX-bgHzTEeqs047-C8TyNg" name="submit online order EntryProcess out for order"/>
+      <assignments id="_fYA3wHzTEeqs047-C8TyNg">
+        <lhs id="_fX_poXzTEeqs047-C8TyNg" pin="_fX-bgHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:False" id="_AEtSC3sUEeqS8O6nJaozEA"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_fYHlcHzTEeqs047-C8TyNg" name="Store ICustomerDB">
+    <ownedBehavior id="_fYHlcXzTEeqs047-C8TyNg">
+      <inputs id="_fYHlcnzTEeqs047-C8TyNg" name="in"/>
+      <outputs id="_fYHlc3zTEeqs047-C8TyNg" name="out"/>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fYBe0HzTEeqs047-C8TyNg" name="submit online order ExitProcess" actor="_fS2q8HzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fYBe0XzTEeqs047-C8TyNg">
+      <inputs id="_fYBe03zTEeqs047-C8TyNg" name="submit online order ExitProcess in for result"/>
+      <outputs id="_fYBe0nzTEeqs047-C8TyNg" name="submit online order ExitProcess out for result"/>
+      <assignments id="_fYBe1nzTEeqs047-C8TyNg">
+        <lhs id="_fYBe1HzTEeqs047-C8TyNg" pin="_fYBe0nzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYBe1XzTEeqs047-C8TyNg" pin="_fYBe03zTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fWP9MHzTEeqs047-C8TyNg" name="SEFF OnlineShop::checkout EntryProcess">
+    <ownedBehavior id="_fWRyYHzTEeqs047-C8TyNg">
+      <inputs id="_fWSZcHzTEeqs047-C8TyNg" name="SEFF OnlineShop::checkout EntryProcess input for order"/>
+      <outputs id="_fX9NYHzTEeqs047-C8TyNg" name="SEFF OnlineShop::checkout EntryProcess out for order"/>
+      <assignments id="_fX90cnzTEeqs047-C8TyNg">
+        <lhs id="_fX90cHzTEeqs047-C8TyNg" pin="_fX9NYHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fX90cXzTEeqs047-C8TyNg" pin="_fWSZcHzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYCF4HzTEeqs047-C8TyNg" name="SEFF OnlineShop::checkout ExitProcess">
+    <ownedBehavior id="_fYCF4XzTEeqs047-C8TyNg">
+      <inputs id="_fYDUAHzTEeqs047-C8TyNg" name="SEFF OnlineShop::checkout ExitProcess in for read customer from DB"/>
+      <inputs id="_fYIMiXzTEeqs047-C8TyNg" name="SEFF OnlineShop::checkout ExitProcess input for order"/>
+      <outputs id="_fYIMh3zTEeqs047-C8TyNg" name="SEFF OnlineShop::checkout ExitProcess out for result"/>
+      <assignments id="_fYIMi3zTEeqs047-C8TyNg">
+        <lhs id="_fYIMiHzTEeqs047-C8TyNg" pin="_fYIMh3zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYIMinzTEeqs047-C8TyNg" pin="_fYIMiXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYIzkHzTEeqs047-C8TyNg" name="ECA OnlineShop::updateInventory EntryProcess">
+    <ownedBehavior id="_fYIzkXzTEeqs047-C8TyNg">
+      <inputs id="_fYJaoHzTEeqs047-C8TyNg" name="ECA OnlineShop::updateInventory EntryProcess input for order"/>
+      <outputs id="_fYKoxHzTEeqs047-C8TyNg" name="ECA OnlineShop::updateInventory EntryProcess out for order"/>
+      <assignments id="_fYKoyHzTEeqs047-C8TyNg">
+        <lhs id="_fYKoxnzTEeqs047-C8TyNg" pin="_fYKoxHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYKox3zTEeqs047-C8TyNg" pin="_fYJaoHzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYKoyXzTEeqs047-C8TyNg" name="ECA OnlineShop::recordOrder EntryProcess">
+    <ownedBehavior id="_fYKoynzTEeqs047-C8TyNg">
+      <inputs id="_fYLP0HzTEeqs047-C8TyNg" name="ECA OnlineShop::recordOrder EntryProcess input for order"/>
+      <inputs id="_fYLP0nzTEeqs047-C8TyNg" name="ECA OnlineShop::recordOrder EntryProcess in for read customer from DB"/>
+      <outputs id="_fYLP23zTEeqs047-C8TyNg" name="ECA OnlineShop::recordOrder EntryProcess out for order"/>
+      <assignments id="_fYL25HzTEeqs047-C8TyNg">
+        <lhs id="_fYLP3XzTEeqs047-C8TyNg" pin="_fYLP23zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:And" id="_HLouPXwhEeqKrOn0h8JU1g">
+          <left xsi:type="expressions:DataCharacteristicReference" id="_fYL24nzTEeqs047-C8TyNg" pin="_fYLP0HzTEeqs047-C8TyNg"/>
+          <right xsi:type="expressions:DataCharacteristicReference" id="_fYL243zTEeqs047-C8TyNg" pin="_fYLP0nzTEeqs047-C8TyNg"/>
+        </rhs>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYL25XzTEeqs047-C8TyNg" name="ECA OnlineShop::read customer from DB EntryProcess">
+    <ownedBehavior id="_fYL25nzTEeqs047-C8TyNg">
+      <inputs id="_fYL253zTEeqs047-C8TyNg" name="ECA OnlineShop::read customer from DB EntryProcess input for order"/>
+      <outputs id="_fYMd93zTEeqs047-C8TyNg" name="ECA OnlineShop::read customer from DB EntryProcess out for customerID"/>
+      <assignments id="_fYMd-3zTEeqs047-C8TyNg">
+        <lhs id="_fYMd-XzTEeqs047-C8TyNg" pin="_fYMd93zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYMd-nzTEeqs047-C8TyNg" pin="_fYL253zTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYDUAXzTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess">
+    <ownedBehavior id="_fYD7EHzTEeqs047-C8TyNg">
+      <inputs id="_fYD7EXzTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess in for result"/>
+      <outputs id="_fYD7EnzTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess out for result"/>
+      <assignments id="_fYD7FXzTEeqs047-C8TyNg">
+        <lhs id="_fYD7E3zTEeqs047-C8TyNg" pin="_fYD7EnzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYD7FHzTEeqs047-C8TyNg" pin="_fYD7EXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYKBsHzTEeqs047-C8TyNg" name="SEFF InventoryLogic::updateInventory EntryProcess">
+    <ownedBehavior id="_fYKBsXzTEeqs047-C8TyNg">
+      <inputs id="_fYKBsnzTEeqs047-C8TyNg" name="SEFF InventoryLogic::updateInventory EntryProcess input for order"/>
+      <outputs id="_fYKowHzTEeqs047-C8TyNg" name="SEFF InventoryLogic::updateInventory EntryProcess out for order"/>
+      <assignments id="_fYKow3zTEeqs047-C8TyNg">
+        <lhs id="_fYKowXzTEeqs047-C8TyNg" pin="_fYKowHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYKownzTEeqs047-C8TyNg" pin="_fYKBsnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_fYNsEHzTEeqs047-C8TyNg" name="Store IInventoryDB">
+    <ownedBehavior id="_fYNsEXzTEeqs047-C8TyNg">
+      <inputs id="_fYNsEnzTEeqs047-C8TyNg" name="in"/>
+      <outputs id="_fYNsE3zTEeqs047-C8TyNg" name="out"/>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYNFAHzTEeqs047-C8TyNg" name="ECA InventoryLogic::updateDB EntryProcess">
+    <ownedBehavior id="_fYNFAXzTEeqs047-C8TyNg">
+      <inputs id="_fYNFAnzTEeqs047-C8TyNg" name="ECA InventoryLogic::updateDB EntryProcess input for order"/>
+      <outputs id="_fYNsFXzTEeqs047-C8TyNg" name="ECA InventoryLogic::updateDB EntryProcess out for order"/>
+      <assignments id="_fYNsGXzTEeqs047-C8TyNg">
+        <lhs id="_fYNsF3zTEeqs047-C8TyNg" pin="_fYNsFXzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYNsGHzTEeqs047-C8TyNg" pin="_fYNFAnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYLP1HzTEeqs047-C8TyNg" name="SEFF CustomerOrderManagementLogic::recordOrder EntryProcess">
+    <ownedBehavior id="_fYLP1XzTEeqs047-C8TyNg">
+      <inputs id="_fYLP1nzTEeqs047-C8TyNg" name="SEFF CustomerOrderManagementLogic::recordOrder EntryProcess input for order"/>
+      <outputs id="_fYLP13zTEeqs047-C8TyNg" name="SEFF CustomerOrderManagementLogic::recordOrder EntryProcess out for order"/>
+      <assignments id="_fYLP2nzTEeqs047-C8TyNg">
+        <lhs id="_fYLP2HzTEeqs047-C8TyNg" pin="_fYLP13zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYLP2XzTEeqs047-C8TyNg" pin="_fYLP1nzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_fYOTJnzTEeqs047-C8TyNg" name="Store IOrderDB">
+    <ownedBehavior id="_fYOTJ3zTEeqs047-C8TyNg">
+      <inputs id="_fYOTKHzTEeqs047-C8TyNg" name="in"/>
+      <outputs id="_fYOTKXzTEeqs047-C8TyNg" name="out"/>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYNsGnzTEeqs047-C8TyNg" name="ECA CustomerOrderManagementLogic::storeOrderInDB EntryProcess">
+    <ownedBehavior id="_fYNsG3zTEeqs047-C8TyNg">
+      <inputs id="_fYNsHHzTEeqs047-C8TyNg" name="ECA CustomerOrderManagementLogic::storeOrderInDB EntryProcess input for order"/>
+      <outputs id="_fYOTK3zTEeqs047-C8TyNg" name="ECA CustomerOrderManagementLogic::storeOrderInDB EntryProcess out for order"/>
+      <assignments id="_fYOTL3zTEeqs047-C8TyNg">
+        <lhs id="_fYOTLXzTEeqs047-C8TyNg" pin="_fYOTK3zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYOTLnzTEeqs047-C8TyNg" pin="_fYNsHHzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYMd8HzTEeqs047-C8TyNg" name="SEFF CustomerOrderManagementLogic::getCustomer EntryProcess">
+    <ownedBehavior id="_fYMd8XzTEeqs047-C8TyNg">
+      <inputs id="_fYMd8nzTEeqs047-C8TyNg" name="SEFF CustomerOrderManagementLogic::getCustomer EntryProcess input for customerID"/>
+      <outputs id="_fYMd83zTEeqs047-C8TyNg" name="SEFF CustomerOrderManagementLogic::getCustomer EntryProcess out for customerID"/>
+      <assignments id="_fYMd9nzTEeqs047-C8TyNg">
+        <lhs id="_fYMd9HzTEeqs047-C8TyNg" pin="_fYMd83zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYMd9XzTEeqs047-C8TyNg" pin="_fYMd8nzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYFJMHzTEeqs047-C8TyNg" name="SEFF CustomerOrderManagementLogic::getCustomer ExitProcess">
+    <ownedBehavior id="_fYFJMXzTEeqs047-C8TyNg">
+      <inputs id="_fYFJMnzTEeqs047-C8TyNg" name="SEFF CustomerOrderManagementLogic::getCustomer ExitProcess in for read customer from DB"/>
+      <outputs id="_fYIMgXzTEeqs047-C8TyNg" name="SEFF CustomerOrderManagementLogic::getCustomer ExitProcess out for result"/>
+      <assignments id="_fYIMhHzTEeqs047-C8TyNg">
+        <lhs id="_fYIMgnzTEeqs047-C8TyNg" pin="_fYIMgXzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYIMg3zTEeqs047-C8TyNg" pin="_fYFJMnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYFwQHzTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess">
+    <ownedBehavior id="_fYFwQXzTEeqs047-C8TyNg">
+      <inputs id="_fYFwQnzTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess in for result"/>
+      <outputs id="_fYFwQ3zTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess out for result"/>
+      <assignments id="_fYFwRnzTEeqs047-C8TyNg">
+        <lhs id="_fYFwRHzTEeqs047-C8TyNg" pin="_fYFwQ3zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYFwRXzTEeqs047-C8TyNg" pin="_fYFwQnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYNFBHzTEeqs047-C8TyNg" name="SEFF InventoryDB::add EntryProcess">
+    <ownedBehavior id="_fYNFBXzTEeqs047-C8TyNg">
+      <inputs id="_fYNFBnzTEeqs047-C8TyNg" name="SEFF InventoryDB::add EntryProcess input for order"/>
+      <outputs id="_fYNFB3zTEeqs047-C8TyNg" name="SEFF InventoryDB::add EntryProcess out for order"/>
+      <assignments id="_fYNFCnzTEeqs047-C8TyNg">
+        <lhs id="_fYNFCHzTEeqs047-C8TyNg" pin="_fYNFB3zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYNFCXzTEeqs047-C8TyNg" pin="_fYNFBnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYNsHnzTEeqs047-C8TyNg" name="SEFF OrderDB::add EntryProcess">
+    <ownedBehavior id="_fYOTIHzTEeqs047-C8TyNg">
+      <inputs id="_fYOTIXzTEeqs047-C8TyNg" name="SEFF OrderDB::add EntryProcess input for order"/>
+      <outputs id="_fYOTInzTEeqs047-C8TyNg" name="SEFF OrderDB::add EntryProcess out for order"/>
+      <assignments id="_fYOTJXzTEeqs047-C8TyNg">
+        <lhs id="_fYOTI3zTEeqs047-C8TyNg" pin="_fYOTInzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYOTJHzTEeqs047-C8TyNg" pin="_fYOTIXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYFwR3zTEeqs047-C8TyNg" name="SEFF CustomerDB::get ExitProcess">
+    <ownedBehavior id="_fYFwSHzTEeqs047-C8TyNg">
+      <inputs id="_fYHldHzTEeqs047-C8TyNg" name="SEFF CustomerDB::get ExitProcess in for result"/>
+      <outputs id="_fYFwSXzTEeqs047-C8TyNg" name="SEFF CustomerDB::get ExitProcess out for result"/>
+      <assignments id="_fYHleHzTEeqs047-C8TyNg">
+        <lhs id="_fYHldnzTEeqs047-C8TyNg" pin="_fYFwSXzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYHld3zTEeqs047-C8TyNg" pin="_fYHldHzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedExternalActor" id="_fYR9gnzTEeqs047-C8TyNg" name="Make Store Purchase Without Loyalty Program">
+    <ownedBehavior id="_fYR9g3zTEeqs047-C8TyNg"/>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fYTLoHzTEeqs047-C8TyNg" name="submit order EntryProcess" actor="_fYR9gnzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fYTysHzTEeqs047-C8TyNg">
+      <outputs id="_fYUZwHzTEeqs047-C8TyNg" name="submit order EntryProcess out for order"/>
+      <outputs id="_fYUZwnzTEeqs047-C8TyNg" name="submit order EntryProcess out for order"/>
+      <assignments id="_fYUZxXzTEeqs047-C8TyNg">
+        <lhs id="_fYUZw3zTEeqs047-C8TyNg" pin="_fYUZwnzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:False" id="_59GlK3sUEeqS8O6nJaozEA"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fYUZxnzTEeqs047-C8TyNg" name="submit order ExitProcess" actor="_fYR9gnzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fYUZx3zTEeqs047-C8TyNg">
+      <inputs id="_fYUZyXzTEeqs047-C8TyNg" name="submit order ExitProcess in for result"/>
+      <outputs id="_fYUZyHzTEeqs047-C8TyNg" name="submit order ExitProcess out for result"/>
+      <assignments id="_fYUZzHzTEeqs047-C8TyNg">
+        <lhs id="_fYUZynzTEeqs047-C8TyNg" pin="_fYUZyHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYUZy3zTEeqs047-C8TyNg" pin="_fYUZyXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYTysXzTEeqs047-C8TyNg" name="SEFF CashDesk::checkoutWithLoyalty EntryProcess">
+    <ownedBehavior id="_fYTysnzTEeqs047-C8TyNg">
+      <inputs id="_fYTys3zTEeqs047-C8TyNg" name="SEFF CashDesk::checkoutWithLoyalty EntryProcess input for order"/>
+      <outputs id="_fYTytHzTEeqs047-C8TyNg" name="SEFF CashDesk::checkoutWithLoyalty EntryProcess out for order"/>
+      <assignments id="_fYTyt3zTEeqs047-C8TyNg">
+        <lhs id="_fYTytXzTEeqs047-C8TyNg" pin="_fYTytHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYTytnzTEeqs047-C8TyNg" pin="_fYTys3zTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYVA0HzTEeqs047-C8TyNg" name="SEFF CashDesk::checkoutWithLoyalty ExitProcess">
+    <ownedBehavior id="_fYVA0XzTEeqs047-C8TyNg">
+      <inputs id="_fYVA0nzTEeqs047-C8TyNg" name="SEFF CashDesk::checkoutWithLoyalty ExitProcess in for read customer"/>
+      <inputs id="_fYVn4XzTEeqs047-C8TyNg" name="SEFF CashDesk::checkoutWithLoyalty ExitProcess input for order"/>
+      <outputs id="_fYVA3HzTEeqs047-C8TyNg" name="SEFF CashDesk::checkoutWithLoyalty ExitProcess out for result"/>
+      <assignments id="_fYVn43zTEeqs047-C8TyNg">
+        <lhs id="_fYVn4HzTEeqs047-C8TyNg" pin="_fYVA3HzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYVn4nzTEeqs047-C8TyNg" pin="_fYVn4XzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYVn5XzTEeqs047-C8TyNg" name="ECA CashDesk::updateInventory EntryProcess">
+    <ownedBehavior id="_fYVn5nzTEeqs047-C8TyNg">
+      <inputs id="_fYVn53zTEeqs047-C8TyNg" name="ECA CashDesk::updateInventory EntryProcess input for order"/>
+      <outputs id="_fYVn6XzTEeqs047-C8TyNg" name="ECA CashDesk::updateInventory EntryProcess out for order"/>
+      <assignments id="_fYVn7XzTEeqs047-C8TyNg">
+        <lhs id="_fYVn63zTEeqs047-C8TyNg" pin="_fYVn6XzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYVn7HzTEeqs047-C8TyNg" pin="_fYVn53zTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYVn7nzTEeqs047-C8TyNg" name="ECA CashDesk::recordLoyaltyOrder EntryProcess">
+    <ownedBehavior id="_fYVn73zTEeqs047-C8TyNg">
+      <inputs id="_fYWO8HzTEeqs047-C8TyNg" name="ECA CashDesk::recordLoyaltyOrder EntryProcess input for order"/>
+      <inputs id="_fYWO8nzTEeqs047-C8TyNg" name="ECA CashDesk::recordLoyaltyOrder EntryProcess in for read customer"/>
+      <outputs id="_fYW2BHzTEeqs047-C8TyNg" name="ECA CashDesk::recordLoyaltyOrder EntryProcess out for loyaltyOrder"/>
+      <assignments id="_fYW2DHzTEeqs047-C8TyNg">
+        <lhs id="_fYW2BnzTEeqs047-C8TyNg" pin="_fYW2BHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:And" id="_ax0DLXybEeqscZLjTKPARg">
+          <left xsi:type="expressions:DataCharacteristicReference" id="_fYW2CnzTEeqs047-C8TyNg" pin="_fYWO8nzTEeqs047-C8TyNg"/>
+          <right xsi:type="expressions:DataCharacteristicReference" id="_fYW2C3zTEeqs047-C8TyNg" pin="_fYWO8HzTEeqs047-C8TyNg"/>
+        </rhs>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYW2DXzTEeqs047-C8TyNg" name="ECA CashDesk::recorOrder EntryProcess">
+    <ownedBehavior id="_fYW2DnzTEeqs047-C8TyNg">
+      <inputs id="_fYW2D3zTEeqs047-C8TyNg" name="ECA CashDesk::recorOrder EntryProcess input for order"/>
+      <inputs id="_fYW2EXzTEeqs047-C8TyNg" name="ECA CashDesk::recorOrder EntryProcess in for read customer"/>
+      <outputs id="_fYXdEXzTEeqs047-C8TyNg" name="ECA CashDesk::recorOrder EntryProcess out for order"/>
+      <assignments id="_fYXdGXzTEeqs047-C8TyNg">
+        <lhs id="_fYXdE3zTEeqs047-C8TyNg" pin="_fYXdEXzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:And" id="_8tV003yYEeqKrOn0h8JU1g">
+          <left xsi:type="expressions:DataCharacteristicReference" id="_fYXdF3zTEeqs047-C8TyNg" pin="_fYW2EXzTEeqs047-C8TyNg"/>
+          <right xsi:type="expressions:DataCharacteristicReference" id="_fYXdGHzTEeqs047-C8TyNg" pin="_fYW2D3zTEeqs047-C8TyNg"/>
+        </rhs>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYXdGnzTEeqs047-C8TyNg" name="ECA CashDesk::read customer EntryProcess">
+    <ownedBehavior id="_fYXdG3zTEeqs047-C8TyNg">
+      <inputs id="_fYXdHHzTEeqs047-C8TyNg" name="ECA CashDesk::read customer EntryProcess input for order"/>
+      <outputs id="_fYXdHnzTEeqs047-C8TyNg" name="ECA CashDesk::read customer EntryProcess out for customerID"/>
+      <assignments id="_fYYEI3zTEeqs047-C8TyNg">
+        <lhs id="_fYYEIXzTEeqs047-C8TyNg" pin="_fYXdHnzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYYEInzTEeqs047-C8TyNg" pin="_fYXdHHzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYVA03zTEeqs047-C8TyNg" name="ECA read customer ExitProcess">
+    <ownedBehavior id="_fYVA1HzTEeqs047-C8TyNg">
+      <inputs id="_fYVA1XzTEeqs047-C8TyNg" name="ECA read customer ExitProcess in for result"/>
+      <outputs id="_fYVA1nzTEeqs047-C8TyNg" name="ECA read customer ExitProcess out for result"/>
+      <assignments id="_fYVA2XzTEeqs047-C8TyNg">
+        <lhs id="_fYVA13zTEeqs047-C8TyNg" pin="_fYVA1nzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYVA2HzTEeqs047-C8TyNg" pin="_fYVA1XzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYWO9HzTEeqs047-C8TyNg" name="SEFF LoyaltyManagementLogic::recordOrder EntryProcess">
+    <ownedBehavior id="_fYWO9XzTEeqs047-C8TyNg">
+      <inputs id="_fYWO9nzTEeqs047-C8TyNg" name="SEFF LoyaltyManagementLogic::recordOrder EntryProcess input for loyaltyOrder"/>
+      <outputs id="_fYW2AHzTEeqs047-C8TyNg" name="SEFF LoyaltyManagementLogic::recordOrder EntryProcess out for loyaltyOrder"/>
+      <assignments id="_fYW2A3zTEeqs047-C8TyNg">
+        <lhs id="_fYW2AXzTEeqs047-C8TyNg" pin="_fYW2AHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYW2AnzTEeqs047-C8TyNg" pin="_fYWO9nzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_fYYEL3zTEeqs047-C8TyNg" name="Store ILoyaltyOrderDB">
+    <ownedBehavior id="_fYYrMHzTEeqs047-C8TyNg">
+      <inputs id="_fYYrMXzTEeqs047-C8TyNg" name="in"/>
+      <outputs id="_fYYrMnzTEeqs047-C8TyNg" name="out"/>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYYEJHzTEeqs047-C8TyNg" name="ECA LoyaltyManagementLogic::recordLoayltyOrder EntryProcess">
+    <ownedBehavior id="_fYYEJXzTEeqs047-C8TyNg">
+      <inputs id="_fYYEJnzTEeqs047-C8TyNg" name="ECA LoyaltyManagementLogic::recordLoayltyOrder EntryProcess input for loyaltyOrder"/>
+      <outputs id="_fYYrNHzTEeqs047-C8TyNg" name="ECA LoyaltyManagementLogic::recordLoayltyOrder EntryProcess out for order"/>
+      <assignments id="_fYYrOHzTEeqs047-C8TyNg">
+        <lhs id="_fYYrNnzTEeqs047-C8TyNg" pin="_fYYrNHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYYrN3zTEeqs047-C8TyNg" pin="_fYYEJnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYYEKHzTEeqs047-C8TyNg" name="SEFF LoyaltyOrderDB::add EntryProcess">
+    <ownedBehavior id="_fYYEKXzTEeqs047-C8TyNg">
+      <inputs id="_fYYEKnzTEeqs047-C8TyNg" name="SEFF LoyaltyOrderDB::add EntryProcess input for order"/>
+      <outputs id="_fYYEK3zTEeqs047-C8TyNg" name="SEFF LoyaltyOrderDB::add EntryProcess out for order"/>
+      <assignments id="_fYYELnzTEeqs047-C8TyNg">
+        <lhs id="_fYYELHzTEeqs047-C8TyNg" pin="_fYYEK3zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYYELXzTEeqs047-C8TyNg" pin="_fYYEKnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedExternalActor" id="_fYagZnzTEeqs047-C8TyNg" name="Make Store Purchase With Loyalty Program">
+    <ownedBehavior id="_fYagZ3zTEeqs047-C8TyNg"/>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fYbugHzTEeqs047-C8TyNg" name="submit order EntryProcess" actor="_fYagZnzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fYbugXzTEeqs047-C8TyNg">
+      <outputs id="_fYbuiXzTEeqs047-C8TyNg" name="submit order EntryProcess out for order"/>
+      <assignments id="_fYbujXzTEeqs047-C8TyNg">
+        <lhs id="_fYbui3zTEeqs047-C8TyNg" pin="_fYbuiXzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:False" id="__NuxS3sUEeqS8O6nJaozEA"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fYcVkHzTEeqs047-C8TyNg" name="submit order ExitProcess" actor="_fYagZnzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fYcVkXzTEeqs047-C8TyNg">
+      <inputs id="_fYcVk3zTEeqs047-C8TyNg" name="submit order ExitProcess in for result"/>
+      <outputs id="_fYcVknzTEeqs047-C8TyNg" name="submit order ExitProcess out for result"/>
+      <assignments id="_fYcVlnzTEeqs047-C8TyNg">
+        <lhs id="_fYcVlHzTEeqs047-C8TyNg" pin="_fYcVknzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYcVlXzTEeqs047-C8TyNg" pin="_fYcVk3zTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYbugnzTEeqs047-C8TyNg" name="SEFF CashDesk::checkout EntryProcess">
+    <ownedBehavior id="_fYbug3zTEeqs047-C8TyNg">
+      <inputs id="_fYbuhHzTEeqs047-C8TyNg" name="SEFF CashDesk::checkout EntryProcess input for order"/>
+      <outputs id="_fYbuhXzTEeqs047-C8TyNg" name="SEFF CashDesk::checkout EntryProcess out for order"/>
+      <assignments id="_fYbuiHzTEeqs047-C8TyNg">
+        <lhs id="_fYbuhnzTEeqs047-C8TyNg" pin="_fYbuhXzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYbuh3zTEeqs047-C8TyNg" pin="_fYbuhHzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYcVl3zTEeqs047-C8TyNg" name="SEFF CashDesk::checkout ExitProcess">
+    <ownedBehavior id="_fYcVmHzTEeqs047-C8TyNg">
+      <inputs id="_fYcVmXzTEeqs047-C8TyNg" name="SEFF CashDesk::checkout ExitProcess in for read customer from DB"/>
+      <inputs id="_fYcVpXzTEeqs047-C8TyNg" name="SEFF CashDesk::checkout ExitProcess input for order"/>
+      <outputs id="_fYcVo3zTEeqs047-C8TyNg" name="SEFF CashDesk::checkout ExitProcess out for result"/>
+      <assignments id="_fYc8oXzTEeqs047-C8TyNg">
+        <lhs id="_fYcVpHzTEeqs047-C8TyNg" pin="_fYcVo3zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYc8oHzTEeqs047-C8TyNg" pin="_fYcVpXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYc8o3zTEeqs047-C8TyNg" name="ECA CashDesk::updateInventory EntryProcess">
+    <ownedBehavior id="_fYc8pHzTEeqs047-C8TyNg">
+      <inputs id="_fYc8pXzTEeqs047-C8TyNg" name="ECA CashDesk::updateInventory EntryProcess input for order"/>
+      <outputs id="_fYc8p3zTEeqs047-C8TyNg" name="ECA CashDesk::updateInventory EntryProcess out for order"/>
+      <assignments id="_fYc8q3zTEeqs047-C8TyNg">
+        <lhs id="_fYc8qXzTEeqs047-C8TyNg" pin="_fYc8p3zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYc8qnzTEeqs047-C8TyNg" pin="_fYc8pXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYc8rHzTEeqs047-C8TyNg" name="ECA CashDesk::recordOrder EntryProcess">
+    <ownedBehavior id="_fYc8rXzTEeqs047-C8TyNg">
+      <inputs id="_fYc8rnzTEeqs047-C8TyNg" name="ECA CashDesk::recordOrder EntryProcess input for order"/>
+      <inputs id="_fYdjsHzTEeqs047-C8TyNg" name="ECA CashDesk::recordOrder EntryProcess in for read customer from DB"/>
+      <outputs id="_fYdjsnzTEeqs047-C8TyNg" name="ECA CashDesk::recordOrder EntryProcess out for order"/>
+      <outputs id="_fYdjtHzTEeqs047-C8TyNg" name="ECA CashDesk::recordOrder EntryProcess out for loyaltyOrder"/>
+      <assignments id="_fYdju3zTEeqs047-C8TyNg">
+        <lhs id="_fYdjtXzTEeqs047-C8TyNg" pin="_fYdjtHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:And" id="_q5cVbXyYEeqKrOn0h8JU1g">
+          <left xsi:type="expressions:DataCharacteristicReference" id="_fYdjuXzTEeqs047-C8TyNg" pin="_fYdjsHzTEeqs047-C8TyNg"/>
+          <right xsi:type="expressions:DataCharacteristicReference" id="_fYdjunzTEeqs047-C8TyNg" pin="_fYc8rnzTEeqs047-C8TyNg"/>
+        </rhs>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYdjvHzTEeqs047-C8TyNg" name="ECA CashDesk::read customer from DB EntryProcess">
+    <ownedBehavior id="_fYdjvXzTEeqs047-C8TyNg">
+      <inputs id="_fYdjvnzTEeqs047-C8TyNg" name="ECA CashDesk::read customer from DB EntryProcess input for order"/>
+      <outputs id="_fYeKwHzTEeqs047-C8TyNg" name="ECA CashDesk::read customer from DB EntryProcess out for customerID"/>
+      <assignments id="_fYeKxHzTEeqs047-C8TyNg">
+        <lhs id="_fYeKwnzTEeqs047-C8TyNg" pin="_fYeKwHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYeKw3zTEeqs047-C8TyNg" pin="_fYdjvnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYcVmnzTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess">
+    <ownedBehavior id="_fYcVm3zTEeqs047-C8TyNg">
+      <inputs id="_fYcVnHzTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess in for result"/>
+      <outputs id="_fYcVnXzTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess out for result"/>
+      <assignments id="_fYcVoHzTEeqs047-C8TyNg">
+        <lhs id="_fYcVnnzTEeqs047-C8TyNg" pin="_fYcVnXzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYcVn3zTEeqs047-C8TyNg" pin="_fYcVnHzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedExternalActor" id="_fYkRZHzTEeqs047-C8TyNg" name="Prepare Advertisements and Discounts">
+    <ownedBehavior id="_fYkRZXzTEeqs047-C8TyNg"/>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fYlfgHzTEeqs047-C8TyNg" name="GetOrders ExitProcess" actor="_fYkRZHzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fYlfgXzTEeqs047-C8TyNg">
+      <inputs id="_fYlfg3zTEeqs047-C8TyNg" name="GetOrders ExitProcess in for result"/>
+      <outputs id="_fYlfgnzTEeqs047-C8TyNg" name="GetOrders ExitProcess out for result"/>
+      <assignments id="_fYlfhnzTEeqs047-C8TyNg">
+        <lhs id="_fYlfhHzTEeqs047-C8TyNg" pin="_fYlfgnzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYlfhXzTEeqs047-C8TyNg" pin="_fYlfg3zTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYmGkHzTEeqs047-C8TyNg" name="SEFF MarketingAnalysis::getLoyaltyOrders ExitProcess">
+    <ownedBehavior id="_fYmGkXzTEeqs047-C8TyNg">
+      <inputs id="_fYmGknzTEeqs047-C8TyNg" name="SEFF MarketingAnalysis::getLoyaltyOrders ExitProcess in for load loyalty orders"/>
+      <outputs id="_fYn7wnzTEeqs047-C8TyNg" name="SEFF MarketingAnalysis::getLoyaltyOrders ExitProcess out for result"/>
+      <assignments id="_fYn7xXzTEeqs047-C8TyNg">
+        <lhs id="_fYn7w3zTEeqs047-C8TyNg" pin="_fYn7wnzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYn7xHzTEeqs047-C8TyNg" pin="_fYmGknzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYmGk3zTEeqs047-C8TyNg" name="ECA load loyalty orders ExitProcess">
+    <ownedBehavior id="_fYmGlHzTEeqs047-C8TyNg">
+      <inputs id="_fYmGlXzTEeqs047-C8TyNg" name="ECA load loyalty orders ExitProcess in for result"/>
+      <outputs id="_fYmGlnzTEeqs047-C8TyNg" name="ECA load loyalty orders ExitProcess out for result"/>
+      <assignments id="_fYmGmXzTEeqs047-C8TyNg">
+        <lhs id="_fYmGl3zTEeqs047-C8TyNg" pin="_fYmGlnzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYmGmHzTEeqs047-C8TyNg" pin="_fYmGlXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYnUsHzTEeqs047-C8TyNg" name="SEFF LoyaltyManagementLogic::getOrders ExitProcess">
+    <ownedBehavior id="_fYnUsXzTEeqs047-C8TyNg">
+      <inputs id="_fYnUsnzTEeqs047-C8TyNg" name="SEFF LoyaltyManagementLogic::getOrders ExitProcess in for read orders from db"/>
+      <outputs id="_fYnUxHzTEeqs047-C8TyNg" name="SEFF LoyaltyManagementLogic::getOrders ExitProcess out for result"/>
+      <assignments id="_fYnUx3zTEeqs047-C8TyNg">
+        <lhs id="_fYnUxXzTEeqs047-C8TyNg" pin="_fYnUxHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYnUxnzTEeqs047-C8TyNg" pin="_fYnUsnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYnUs3zTEeqs047-C8TyNg" name="ECA read orders from db ExitProcess">
+    <ownedBehavior id="_fYnUtHzTEeqs047-C8TyNg">
+      <inputs id="_fYnUtXzTEeqs047-C8TyNg" name="ECA read orders from db ExitProcess in for result"/>
+      <outputs id="_fYnUtnzTEeqs047-C8TyNg" name="ECA read orders from db ExitProcess out for result"/>
+      <assignments id="_fYnUuXzTEeqs047-C8TyNg">
+        <lhs id="_fYnUt3zTEeqs047-C8TyNg" pin="_fYnUtnzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYnUuHzTEeqs047-C8TyNg" pin="_fYnUtXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYnUunzTEeqs047-C8TyNg" name="SEFF LoyaltyOrderDB::get ExitProcess">
+    <ownedBehavior id="_fYnUu3zTEeqs047-C8TyNg">
+      <inputs id="_fYnUvXzTEeqs047-C8TyNg" name="SEFF LoyaltyOrderDB::get ExitProcess in for result"/>
+      <outputs id="_fYnUvHzTEeqs047-C8TyNg" name="SEFF LoyaltyOrderDB::get ExitProcess out for result"/>
+      <assignments id="_fYnUwXzTEeqs047-C8TyNg">
+        <lhs id="_fYnUv3zTEeqs047-C8TyNg" pin="_fYnUvHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYnUwHzTEeqs047-C8TyNg" pin="_fYnUvXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fYoi0HzTEeqs047-C8TyNg" name="CreateCustomerProfiles EntryProcess" actor="_fYkRZHzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fYoi0XzTEeqs047-C8TyNg">
+      <inputs id="_fYoi0nzTEeqs047-C8TyNg" name="CreateCustomerProfiles EntryProcess in for GetOrders"/>
+      <outputs id="_fYpJ53zTEeqs047-C8TyNg" name="CreateCustomerProfiles EntryProcess out for orders"/>
+      <assignments id="_fYpJ63zTEeqs047-C8TyNg">
+        <lhs id="_fYpJ6XzTEeqs047-C8TyNg" pin="_fYpJ53zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYpJ6nzTEeqs047-C8TyNg" pin="_fYoi0nzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYpJ4HzTEeqs047-C8TyNg" name="SEFF MarketingAnalysis::createCustomerProfiles EntryProcess">
+    <ownedBehavior id="_fYpJ4XzTEeqs047-C8TyNg">
+      <inputs id="_fYpJ4nzTEeqs047-C8TyNg" name="SEFF MarketingAnalysis::createCustomerProfiles EntryProcess input for orders"/>
+      <outputs id="_fYpJ43zTEeqs047-C8TyNg" name="SEFF MarketingAnalysis::createCustomerProfiles EntryProcess out for orders"/>
+      <assignments id="_fYpJ5nzTEeqs047-C8TyNg">
+        <lhs id="_fYpJ5HzTEeqs047-C8TyNg" pin="_fYpJ43zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYpJ5XzTEeqs047-C8TyNg" pin="_fYpJ4nzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_fYpxAXzTEeqs047-C8TyNg" name="Store ILoyaltyCustomerDB">
+    <ownedBehavior id="_fYpxAnzTEeqs047-C8TyNg">
+      <inputs id="_fYpxA3zTEeqs047-C8TyNg" name="in"/>
+      <outputs id="_fYqYAHzTEeqs047-C8TyNg" name="out"/>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYpJ7HzTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess">
+    <ownedBehavior id="_fYpJ7XzTEeqs047-C8TyNg">
+      <inputs id="_fYpJ7nzTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess in for result"/>
+      <outputs id="_fYpw8HzTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess out for result"/>
+      <assignments id="_fYpw83zTEeqs047-C8TyNg">
+        <lhs id="_fYpw8XzTEeqs047-C8TyNg" pin="_fYpw8HzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYpw8nzTEeqs047-C8TyNg" pin="_fYpJ7nzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_fYq_InzTEeqs047-C8TyNg" name="Store ICustomerProfileDB">
+    <ownedBehavior id="_fYq_I3zTEeqs047-C8TyNg">
+      <inputs id="_fYq_JHzTEeqs047-C8TyNg" name="in"/>
+      <outputs id="_fYrmIHzTEeqs047-C8TyNg" name="out"/>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYqYDXzTEeqs047-C8TyNg" name="ECA MarketingAnalysis::store profiles in DB EntryProcess">
+    <ownedBehavior id="_fYqYDnzTEeqs047-C8TyNg">
+      <inputs id="_fYqYD3zTEeqs047-C8TyNg" name="ECA MarketingAnalysis::store profiles in DB EntryProcess in for read orders from DB"/>
+      <inputs id="_fYq_GXzTEeqs047-C8TyNg" name="ECA MarketingAnalysis::store profiles in DB EntryProcess in for read customer from DB"/>
+      <outputs id="_fYrmInzTEeqs047-C8TyNg" name="ECA MarketingAnalysis::store profiles in DB EntryProcess out for profile"/>
+      <assignments id="_fYrmKnzTEeqs047-C8TyNg">
+        <lhs id="_fYrmJHzTEeqs047-C8TyNg" pin="_fYrmInzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:And" id="_J5F7HXyyEeq6D_7WvQZrjA">
+          <left xsi:type="expressions:DataCharacteristicReference" id="_fYrmKHzTEeqs047-C8TyNg" pin="_fYq_GXzTEeqs047-C8TyNg"/>
+          <right xsi:type="expressions:DataCharacteristicReference" id="_fYrmKXzTEeqs047-C8TyNg" pin="_fYqYD3zTEeqs047-C8TyNg"/>
+        </rhs>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYq_EHzTEeqs047-C8TyNg" name="ECA read orders from DB ExitProcess">
+    <ownedBehavior id="_fYq_EXzTEeqs047-C8TyNg">
+      <inputs id="_fYq_EnzTEeqs047-C8TyNg" name="ECA read orders from DB ExitProcess in for result"/>
+      <outputs id="_fYq_E3zTEeqs047-C8TyNg" name="ECA read orders from DB ExitProcess out for result"/>
+      <assignments id="_fYq_FnzTEeqs047-C8TyNg">
+        <lhs id="_fYq_FHzTEeqs047-C8TyNg" pin="_fYq_E3zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYq_FXzTEeqs047-C8TyNg" pin="_fYq_EnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYpw9HzTEeqs047-C8TyNg" name="SEFF LoyaltyManagementLogic::getCustomer ExitProcess">
+    <ownedBehavior id="_fYpw9XzTEeqs047-C8TyNg">
+      <inputs id="_fYpw9nzTEeqs047-C8TyNg" name="SEFF LoyaltyManagementLogic::getCustomer ExitProcess in for read customer from DB"/>
+      <outputs id="_fYqYCHzTEeqs047-C8TyNg" name="SEFF LoyaltyManagementLogic::getCustomer ExitProcess out for result"/>
+      <assignments id="_fYqYC3zTEeqs047-C8TyNg">
+        <lhs id="_fYqYCXzTEeqs047-C8TyNg" pin="_fYqYCHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYqYCnzTEeqs047-C8TyNg" pin="_fYpw9nzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYpw93zTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess">
+    <ownedBehavior id="_fYpw-HzTEeqs047-C8TyNg">
+      <inputs id="_fYpw-XzTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess in for result"/>
+      <outputs id="_fYpw-nzTEeqs047-C8TyNg" name="ECA read customer from DB ExitProcess out for result"/>
+      <assignments id="_fYpw_XzTEeqs047-C8TyNg">
+        <lhs id="_fYpw-3zTEeqs047-C8TyNg" pin="_fYpw-nzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYpw_HzTEeqs047-C8TyNg" pin="_fYpw-XzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYq_G3zTEeqs047-C8TyNg" name="SEFF CustomerProfileDB::add EntryProcess">
+    <ownedBehavior id="_fYq_HHzTEeqs047-C8TyNg">
+      <inputs id="_fYq_HXzTEeqs047-C8TyNg" name="SEFF CustomerProfileDB::add EntryProcess input for profile"/>
+      <outputs id="_fYq_HnzTEeqs047-C8TyNg" name="SEFF CustomerProfileDB::add EntryProcess out for profile"/>
+      <assignments id="_fYq_IXzTEeqs047-C8TyNg">
+        <lhs id="_fYq_H3zTEeqs047-C8TyNg" pin="_fYq_HnzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYq_IHzTEeqs047-C8TyNg" pin="_fYq_HXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYpw_nzTEeqs047-C8TyNg" name="SEFF LoyaltyCustomerDB::get ExitProcess">
+    <ownedBehavior id="_fYpw_3zTEeqs047-C8TyNg">
+      <inputs id="_fYqYAXzTEeqs047-C8TyNg" name="SEFF LoyaltyCustomerDB::get ExitProcess in for result"/>
+      <outputs id="_fYpxAHzTEeqs047-C8TyNg" name="SEFF LoyaltyCustomerDB::get ExitProcess out for result"/>
+      <assignments id="_fYqYBXzTEeqs047-C8TyNg">
+        <lhs id="_fYqYA3zTEeqs047-C8TyNg" pin="_fYpxAHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYqYBHzTEeqs047-C8TyNg" pin="_fYqYAXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fYs0QHzTEeqs047-C8TyNg" name="GetCustomerProfiles ExitProcess" actor="_fYkRZHzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fYs0QXzTEeqs047-C8TyNg">
+      <inputs id="_fYs0Q3zTEeqs047-C8TyNg" name="GetCustomerProfiles ExitProcess in for result"/>
+      <outputs id="_fYs0QnzTEeqs047-C8TyNg" name="GetCustomerProfiles ExitProcess out for result"/>
+      <assignments id="_fYs0RnzTEeqs047-C8TyNg">
+        <lhs id="_fYs0RHzTEeqs047-C8TyNg" pin="_fYs0QnzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYs0RXzTEeqs047-C8TyNg" pin="_fYs0Q3zTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYtbUHzTEeqs047-C8TyNg" name="SEFF MarketingAnalysis::getCustomerProfiles ExitProcess">
+    <ownedBehavior id="_fYtbUXzTEeqs047-C8TyNg">
+      <inputs id="_fYtbUnzTEeqs047-C8TyNg" name="SEFF MarketingAnalysis::getCustomerProfiles ExitProcess in for load customer profiles"/>
+      <outputs id="_fYuCanzTEeqs047-C8TyNg" name="SEFF MarketingAnalysis::getCustomerProfiles ExitProcess out for result"/>
+      <assignments id="_fYuCbXzTEeqs047-C8TyNg">
+        <lhs id="_fYuCa3zTEeqs047-C8TyNg" pin="_fYuCanzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYuCbHzTEeqs047-C8TyNg" pin="_fYtbUnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYtbU3zTEeqs047-C8TyNg" name="ECA load customer profiles ExitProcess">
+    <ownedBehavior id="_fYtbVHzTEeqs047-C8TyNg">
+      <inputs id="_fYtbVXzTEeqs047-C8TyNg" name="ECA load customer profiles ExitProcess in for result"/>
+      <outputs id="_fYtbVnzTEeqs047-C8TyNg" name="ECA load customer profiles ExitProcess out for result"/>
+      <assignments id="_fYtbWXzTEeqs047-C8TyNg">
+        <lhs id="_fYtbV3zTEeqs047-C8TyNg" pin="_fYtbVnzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYtbWHzTEeqs047-C8TyNg" pin="_fYtbVXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYuCYHzTEeqs047-C8TyNg" name="SEFF CustomerProfileDB::get ExitProcess">
+    <ownedBehavior id="_fYuCYXzTEeqs047-C8TyNg">
+      <inputs id="_fYuCY3zTEeqs047-C8TyNg" name="SEFF CustomerProfileDB::get ExitProcess in for result"/>
+      <outputs id="_fYuCYnzTEeqs047-C8TyNg" name="SEFF CustomerProfileDB::get ExitProcess out for result"/>
+      <assignments id="_fYuCZ3zTEeqs047-C8TyNg">
+        <lhs id="_fYuCZXzTEeqs047-C8TyNg" pin="_fYuCYnzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYuCZnzTEeqs047-C8TyNg" pin="_fYuCY3zTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fYvQgHzTEeqs047-C8TyNg" name="GetAllLoyaltyCustomers ExitProcess" actor="_fYkRZHzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fYvQgXzTEeqs047-C8TyNg">
+      <inputs id="_fYv3kHzTEeqs047-C8TyNg" name="GetAllLoyaltyCustomers ExitProcess in for result"/>
+      <outputs id="_fYvQgnzTEeqs047-C8TyNg" name="GetAllLoyaltyCustomers ExitProcess out for result"/>
+      <assignments id="_fYv3k3zTEeqs047-C8TyNg">
+        <lhs id="_fYv3kXzTEeqs047-C8TyNg" pin="_fYvQgnzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYv3knzTEeqs047-C8TyNg" pin="_fYv3kHzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYv3lHzTEeqs047-C8TyNg" name="SEFF MarketingAnalysis::getLoyaltyCustomers ExitProcess">
+    <ownedBehavior id="_fYv3lXzTEeqs047-C8TyNg">
+      <inputs id="_fYv3lnzTEeqs047-C8TyNg" name="SEFF MarketingAnalysis::getLoyaltyCustomers ExitProcess in for load customers"/>
+      <outputs id="_fYweonzTEeqs047-C8TyNg" name="SEFF MarketingAnalysis::getLoyaltyCustomers ExitProcess out for result"/>
+      <assignments id="_fYwepXzTEeqs047-C8TyNg">
+        <lhs id="_fYweo3zTEeqs047-C8TyNg" pin="_fYweonzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYwepHzTEeqs047-C8TyNg" pin="_fYv3lnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYv3l3zTEeqs047-C8TyNg" name="ECA load customers ExitProcess">
+    <ownedBehavior id="_fYv3mHzTEeqs047-C8TyNg">
+      <inputs id="_fYv3mXzTEeqs047-C8TyNg" name="ECA load customers ExitProcess in for result"/>
+      <outputs id="_fYv3mnzTEeqs047-C8TyNg" name="ECA load customers ExitProcess out for result"/>
+      <assignments id="_fYv3nXzTEeqs047-C8TyNg">
+        <lhs id="_fYv3m3zTEeqs047-C8TyNg" pin="_fYv3mnzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYv3nHzTEeqs047-C8TyNg" pin="_fYv3mXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fYxswHzTEeqs047-C8TyNg" name="ApproveAdvertisementSchedule EntryProcess" actor="_fYkRZHzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fYxswXzTEeqs047-C8TyNg">
+      <inputs id="_fYxswnzTEeqs047-C8TyNg" name="ApproveAdvertisementSchedule EntryProcess in for GetCustomerProfiles"/>
+      <inputs id="_fYxsxHzTEeqs047-C8TyNg" name="ApproveAdvertisementSchedule EntryProcess in for GetAllLoyaltyCustomers"/>
+      <outputs id="_fYy653zTEeqs047-C8TyNg" name="ApproveAdvertisementSchedule EntryProcess out for schedule"/>
+      <assignments id="_fYy673zTEeqs047-C8TyNg">
+        <lhs id="_fYy66XzTEeqs047-C8TyNg" pin="_fYy653zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:And" id="_ctIWMHwgEeqKrOn0h8JU1g">
+          <left xsi:type="expressions:DataCharacteristicReference" id="_fYy67XzTEeqs047-C8TyNg" pin="_fYxswnzTEeqs047-C8TyNg"/>
+          <right xsi:type="expressions:DataCharacteristicReference" id="_fYy67nzTEeqs047-C8TyNg" pin="_fYxsxHzTEeqs047-C8TyNg"/>
+        </rhs>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fYy68HzTEeqs047-C8TyNg" name="ApproveAdvertisementSchedule ExitProcess" actor="_fYkRZHzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fYy68XzTEeqs047-C8TyNg">
+      <inputs id="_fYy683zTEeqs047-C8TyNg" name="ApproveAdvertisementSchedule ExitProcess in for result"/>
+      <outputs id="_fYy68nzTEeqs047-C8TyNg" name="ApproveAdvertisementSchedule ExitProcess out for result"/>
+      <assignments id="_fYzh8nzTEeqs047-C8TyNg">
+        <lhs id="_fYzh8HzTEeqs047-C8TyNg" pin="_fYy68nzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYzh8XzTEeqs047-C8TyNg" pin="_fYy683zTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYy64HzTEeqs047-C8TyNg" name="SEFF Advertisement::approveAdvertisementSchedule EntryProcess">
+    <ownedBehavior id="_fYy64XzTEeqs047-C8TyNg">
+      <inputs id="_fYy64nzTEeqs047-C8TyNg" name="SEFF Advertisement::approveAdvertisementSchedule EntryProcess input for schedule"/>
+      <outputs id="_fYy643zTEeqs047-C8TyNg" name="SEFF Advertisement::approveAdvertisementSchedule EntryProcess out for schedule"/>
+      <assignments id="_fYy65nzTEeqs047-C8TyNg">
+        <lhs id="_fYy65HzTEeqs047-C8TyNg" pin="_fYy643zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYy65XzTEeqs047-C8TyNg" pin="_fYy64nzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fYzh83zTEeqs047-C8TyNg" name="SEFF Advertisement::approveAdvertisementSchedule ExitProcess">
+    <ownedBehavior id="_fYzh9HzTEeqs047-C8TyNg">
+      <inputs id="_fYzh93zTEeqs047-C8TyNg" name="SEFF Advertisement::approveAdvertisementSchedule ExitProcess input for schedule"/>
+      <outputs id="_fYzh9XzTEeqs047-C8TyNg" name="SEFF Advertisement::approveAdvertisementSchedule ExitProcess out for result"/>
+      <assignments id="_fYzh-XzTEeqs047-C8TyNg">
+        <lhs id="_fYzh9nzTEeqs047-C8TyNg" pin="_fYzh9XzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fYzh-HzTEeqs047-C8TyNg" pin="_fYzh93zTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fY0wEHzTEeqs047-C8TyNg" name="StoreAdvertisementAdmission EntryProcess" actor="_fYkRZHzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fY0wEXzTEeqs047-C8TyNg">
+      <inputs id="_fY0wEnzTEeqs047-C8TyNg" name="StoreAdvertisementAdmission EntryProcess in for ApproveAdvertisementSchedule"/>
+      <outputs id="_fY1XJ3zTEeqs047-C8TyNg" name="StoreAdvertisementAdmission EntryProcess out for admission"/>
+      <assignments id="_fY1XK3zTEeqs047-C8TyNg">
+        <lhs id="_fY1XKXzTEeqs047-C8TyNg" pin="_fY1XJ3zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY1XKnzTEeqs047-C8TyNg" pin="_fY0wEnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fY1XIHzTEeqs047-C8TyNg" name="SEFF Advertisement::storeAdvertisementAdmission EntryProcess">
+    <ownedBehavior id="_fY1XIXzTEeqs047-C8TyNg">
+      <inputs id="_fY1XInzTEeqs047-C8TyNg" name="SEFF Advertisement::storeAdvertisementAdmission EntryProcess input for admission"/>
+      <outputs id="_fY1XI3zTEeqs047-C8TyNg" name="SEFF Advertisement::storeAdvertisementAdmission EntryProcess out for admission"/>
+      <assignments id="_fY1XJnzTEeqs047-C8TyNg">
+        <lhs id="_fY1XJHzTEeqs047-C8TyNg" pin="_fY1XI3zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY1XJXzTEeqs047-C8TyNg" pin="_fY1XInzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_fY1-O3zTEeqs047-C8TyNg" name="Store IAdvertisementAdmissionDB">
+    <ownedBehavior id="_fY1-PHzTEeqs047-C8TyNg">
+      <inputs id="_fY1-PXzTEeqs047-C8TyNg" name="in"/>
+      <outputs id="_fY1-PnzTEeqs047-C8TyNg" name="out"/>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fY1-MHzTEeqs047-C8TyNg" name="ECA Advertisement::store admission EntryProcess">
+    <ownedBehavior id="_fY1-MXzTEeqs047-C8TyNg">
+      <inputs id="_fY1-MnzTEeqs047-C8TyNg" name="ECA Advertisement::store admission EntryProcess input for admission"/>
+      <outputs id="_fY1-QHzTEeqs047-C8TyNg" name="ECA Advertisement::store admission EntryProcess out for admission"/>
+      <assignments id="_fY2lQXzTEeqs047-C8TyNg">
+        <lhs id="_fY1-QnzTEeqs047-C8TyNg" pin="_fY1-QHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY2lQHzTEeqs047-C8TyNg" pin="_fY1-MnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fY1-NHzTEeqs047-C8TyNg" name="SEFF AdvertisementAdmissionDB::add EntryProcess">
+    <ownedBehavior id="_fY1-NXzTEeqs047-C8TyNg">
+      <inputs id="_fY1-NnzTEeqs047-C8TyNg" name="SEFF AdvertisementAdmissionDB::add EntryProcess input for admission"/>
+      <outputs id="_fY1-N3zTEeqs047-C8TyNg" name="SEFF AdvertisementAdmissionDB::add EntryProcess out for admission"/>
+      <assignments id="_fY1-OnzTEeqs047-C8TyNg">
+        <lhs id="_fY1-OHzTEeqs047-C8TyNg" pin="_fY1-N3zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY1-OXzTEeqs047-C8TyNg" pin="_fY1-NnzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedExternalActor" id="_fY6PoHzTEeqs047-C8TyNg" name="Loyalty Customer">
+    <ownedBehavior id="_fY6PoXzTEeqs047-C8TyNg"/>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fY7dwHzTEeqs047-C8TyNg" name="register as loyalty customer EntryProcess" actor="_fY6PoHzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fY7dwXzTEeqs047-C8TyNg">
+      <outputs id="_fY7dyXzTEeqs047-C8TyNg" name="register as loyalty customer EntryProcess out for customer"/>
+      <assignments id="_fY7dzXzTEeqs047-C8TyNg">
+        <lhs id="_fY7dy3zTEeqs047-C8TyNg" pin="_fY7dyXzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:False" id="_RBY9C3y-EeqWM8fTBQk9dA"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fY8E0HzTEeqs047-C8TyNg" name="register as loyalty customer ExitProcess" actor="_fY6PoHzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fY8E0XzTEeqs047-C8TyNg">
+      <inputs id="_fY8E03zTEeqs047-C8TyNg" name="register as loyalty customer ExitProcess in for result"/>
+      <outputs id="_fY8E0nzTEeqs047-C8TyNg" name="register as loyalty customer ExitProcess out for result"/>
+      <assignments id="_fY8E1nzTEeqs047-C8TyNg">
+        <lhs id="_fY8E1HzTEeqs047-C8TyNg" pin="_fY8E0nzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY8E1XzTEeqs047-C8TyNg" pin="_fY8E03zTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fY7dwnzTEeqs047-C8TyNg" name="SEFF CashDesk::register EntryProcess">
+    <ownedBehavior id="_fY7dw3zTEeqs047-C8TyNg">
+      <inputs id="_fY7dxHzTEeqs047-C8TyNg" name="SEFF CashDesk::register EntryProcess input for customer"/>
+      <outputs id="_fY7dxXzTEeqs047-C8TyNg" name="SEFF CashDesk::register EntryProcess out for customer"/>
+      <assignments id="_fY7dyHzTEeqs047-C8TyNg">
+        <lhs id="_fY7dxnzTEeqs047-C8TyNg" pin="_fY7dxXzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY7dx3zTEeqs047-C8TyNg" pin="_fY7dxHzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fY8E13zTEeqs047-C8TyNg" name="SEFF CashDesk::register ExitProcess">
+    <ownedBehavior id="_fY8E2HzTEeqs047-C8TyNg">
+      <inputs id="_fY8E23zTEeqs047-C8TyNg" name="SEFF CashDesk::register ExitProcess input for customer"/>
+      <outputs id="_fY8E2XzTEeqs047-C8TyNg" name="SEFF CashDesk::register ExitProcess out for result"/>
+      <assignments id="_fY8E3XzTEeqs047-C8TyNg">
+        <lhs id="_fY8E2nzTEeqs047-C8TyNg" pin="_fY8E2XzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY8E3HzTEeqs047-C8TyNg" pin="_fY8E23zTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fY8r4HzTEeqs047-C8TyNg" name="ECA CashDesk::recordLoyaltyCustomer EntryProcess">
+    <ownedBehavior id="_fY8r4XzTEeqs047-C8TyNg">
+      <inputs id="_fY8r4nzTEeqs047-C8TyNg" name="ECA CashDesk::recordLoyaltyCustomer EntryProcess input for customer"/>
+      <outputs id="_fY8r63zTEeqs047-C8TyNg" name="ECA CashDesk::recordLoyaltyCustomer EntryProcess out for loyaltyCustomer"/>
+      <assignments id="_fY9S83zTEeqs047-C8TyNg">
+        <lhs id="_fY9S8XzTEeqs047-C8TyNg" pin="_fY8r63zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY9S8nzTEeqs047-C8TyNg" pin="_fY8r4nzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fY9S9HzTEeqs047-C8TyNg" name="ECA CashDesk::recordCustomer EntryProcess">
+    <ownedBehavior id="_fY9S9XzTEeqs047-C8TyNg">
+      <inputs id="_fY9S9nzTEeqs047-C8TyNg" name="ECA CashDesk::recordCustomer EntryProcess input for customer"/>
+      <outputs id="_fY9S_3zTEeqs047-C8TyNg" name="ECA CashDesk::recordCustomer EntryProcess out for customer"/>
+      <assignments id="_fY96AnzTEeqs047-C8TyNg">
+        <lhs id="_fY96AHzTEeqs047-C8TyNg" pin="_fY9S_3zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY96AXzTEeqs047-C8TyNg" pin="_fY9S9nzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fY8r5HzTEeqs047-C8TyNg" name="SEFF LoyaltyManagementLogic::recordCustomer EntryProcess">
+    <ownedBehavior id="_fY8r5XzTEeqs047-C8TyNg">
+      <inputs id="_fY8r5nzTEeqs047-C8TyNg" name="SEFF LoyaltyManagementLogic::recordCustomer EntryProcess input for loyaltyCustomer"/>
+      <outputs id="_fY8r53zTEeqs047-C8TyNg" name="SEFF LoyaltyManagementLogic::recordCustomer EntryProcess out for loyaltyCustomer"/>
+      <assignments id="_fY8r6nzTEeqs047-C8TyNg">
+        <lhs id="_fY8r6HzTEeqs047-C8TyNg" pin="_fY8r53zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY8r6XzTEeqs047-C8TyNg" pin="_fY8r5nzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fY96A3zTEeqs047-C8TyNg" name="ECA LoyaltyManagementLogic::store user in DB EntryProcess">
+    <ownedBehavior id="_fY96BHzTEeqs047-C8TyNg">
+      <inputs id="_fY96BXzTEeqs047-C8TyNg" name="ECA LoyaltyManagementLogic::store user in DB EntryProcess input for loyaltyCustomer"/>
+      <outputs id="_fY-hEHzTEeqs047-C8TyNg" name="ECA LoyaltyManagementLogic::store user in DB EntryProcess out for customer"/>
+      <assignments id="_fY-hFHzTEeqs047-C8TyNg">
+        <lhs id="_fY-hEnzTEeqs047-C8TyNg" pin="_fY-hEHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY-hE3zTEeqs047-C8TyNg" pin="_fY96BXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fY9S-HzTEeqs047-C8TyNg" name="SEFF CustomerOrderManagementLogic::recordCustomer EntryProcess">
+    <ownedBehavior id="_fY9S-XzTEeqs047-C8TyNg">
+      <inputs id="_fY9S-nzTEeqs047-C8TyNg" name="SEFF CustomerOrderManagementLogic::recordCustomer EntryProcess input for customer"/>
+      <outputs id="_fY9S-3zTEeqs047-C8TyNg" name="SEFF CustomerOrderManagementLogic::recordCustomer EntryProcess out for customer"/>
+      <assignments id="_fY9S_nzTEeqs047-C8TyNg">
+        <lhs id="_fY9S_HzTEeqs047-C8TyNg" pin="_fY9S-3zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY9S_XzTEeqs047-C8TyNg" pin="_fY9S-nzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fY-hFXzTEeqs047-C8TyNg" name="ECA CustomerOrderManagementLogic::store customer in db EntryProcess">
+    <ownedBehavior id="_fY-hFnzTEeqs047-C8TyNg">
+      <inputs id="_fY-hF3zTEeqs047-C8TyNg" name="ECA CustomerOrderManagementLogic::store customer in db EntryProcess input for customer"/>
+      <outputs id="_fY_IJHzTEeqs047-C8TyNg" name="ECA CustomerOrderManagementLogic::store customer in db EntryProcess out for customer"/>
+      <assignments id="_fY_IKHzTEeqs047-C8TyNg">
+        <lhs id="_fY_IJnzTEeqs047-C8TyNg" pin="_fY_IJHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY_IJ3zTEeqs047-C8TyNg" pin="_fY-hF3zTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fY96B3zTEeqs047-C8TyNg" name="SEFF LoyaltyCustomerDB::add EntryProcess">
+    <ownedBehavior id="_fY96CHzTEeqs047-C8TyNg">
+      <inputs id="_fY96CXzTEeqs047-C8TyNg" name="SEFF LoyaltyCustomerDB::add EntryProcess input for customer"/>
+      <outputs id="_fY96CnzTEeqs047-C8TyNg" name="SEFF LoyaltyCustomerDB::add EntryProcess out for customer"/>
+      <assignments id="_fY96DXzTEeqs047-C8TyNg">
+        <lhs id="_fY96C3zTEeqs047-C8TyNg" pin="_fY96CnzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY96DHzTEeqs047-C8TyNg" pin="_fY96CXzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fY-hGXzTEeqs047-C8TyNg" name="SEFF CustomerDB::add EntryProcess">
+    <ownedBehavior id="_fY-hGnzTEeqs047-C8TyNg">
+      <inputs id="_fY-hG3zTEeqs047-C8TyNg" name="SEFF CustomerDB::add EntryProcess input for customer"/>
+      <outputs id="_fY-hHHzTEeqs047-C8TyNg" name="SEFF CustomerDB::add EntryProcess out for customer"/>
+      <assignments id="_fY_IInzTEeqs047-C8TyNg">
+        <lhs id="_fY_IIHzTEeqs047-C8TyNg" pin="_fY-hHHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fY_IIXzTEeqs047-C8TyNg" pin="_fY-hG3zTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedExternalActor" id="_fZA9WHzTEeqs047-C8TyNg" name="Online Customer">
+    <ownedBehavior id="_fZA9WXzTEeqs047-C8TyNg"/>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fZCLcHzTEeqs047-C8TyNg" name="register online customer EntryProcess" actor="_fZA9WHzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fZCLcXzTEeqs047-C8TyNg">
+      <outputs id="_fZCyhHzTEeqs047-C8TyNg" name="register online customer EntryProcess out for customer"/>
+      <assignments id="_fZCyiHzTEeqs047-C8TyNg">
+        <lhs id="_fZCyhnzTEeqs047-C8TyNg" pin="_fZCyhHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:False" id="_U9lFy3y-EeqWM8fTBQk9dA"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_fZCyiXzTEeqs047-C8TyNg" name="register online customer ExitProcess" actor="_fZA9WHzTEeqs047-C8TyNg">
+    <ownedBehavior id="_fZCyinzTEeqs047-C8TyNg">
+      <inputs id="_fZCyjHzTEeqs047-C8TyNg" name="register online customer ExitProcess in for result"/>
+      <outputs id="_fZCyi3zTEeqs047-C8TyNg" name="register online customer ExitProcess out for result"/>
+      <assignments id="_fZCyj3zTEeqs047-C8TyNg">
+        <lhs id="_fZCyjXzTEeqs047-C8TyNg" pin="_fZCyi3zTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fZCyjnzTEeqs047-C8TyNg" pin="_fZCyjHzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fZCLcnzTEeqs047-C8TyNg" name="SEFF OnlineShop::register EntryProcess">
+    <ownedBehavior id="_fZCLc3zTEeqs047-C8TyNg">
+      <inputs id="_fZCLdHzTEeqs047-C8TyNg" name="SEFF OnlineShop::register EntryProcess input for customer"/>
+      <outputs id="_fZCygHzTEeqs047-C8TyNg" name="SEFF OnlineShop::register EntryProcess out for customer"/>
+      <assignments id="_fZCyg3zTEeqs047-C8TyNg">
+        <lhs id="_fZCygXzTEeqs047-C8TyNg" pin="_fZCygHzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fZCygnzTEeqs047-C8TyNg" pin="_fZCLdHzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fZDZkHzTEeqs047-C8TyNg" name="SEFF OnlineShop::register ExitProcess">
+    <ownedBehavior id="_fZDZkXzTEeqs047-C8TyNg">
+      <inputs id="_fZDZlHzTEeqs047-C8TyNg" name="SEFF OnlineShop::register ExitProcess input for customer"/>
+      <outputs id="_fZDZknzTEeqs047-C8TyNg" name="SEFF OnlineShop::register ExitProcess out for result"/>
+      <assignments id="_fZDZlnzTEeqs047-C8TyNg">
+        <lhs id="_fZDZk3zTEeqs047-C8TyNg" pin="_fZDZknzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fZDZlXzTEeqs047-C8TyNg" pin="_fZDZlHzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_fZDZmHzTEeqs047-C8TyNg" name="ECA OnlineShop::store user in data store EntryProcess">
+    <ownedBehavior id="_fZDZmXzTEeqs047-C8TyNg">
+      <inputs id="_fZEAoHzTEeqs047-C8TyNg" name="ECA OnlineShop::store user in data store EntryProcess input for customer"/>
+      <outputs id="_fZEAonzTEeqs047-C8TyNg" name="ECA OnlineShop::store user in data store EntryProcess out for customer"/>
+      <assignments id="_fZEApnzTEeqs047-C8TyNg">
+        <lhs id="_fZEApHzTEeqs047-C8TyNg" pin="_fZEAonzTEeqs047-C8TyNg"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_fZEApXzTEeqs047-C8TyNg" pin="_fZEAoHzTEeqs047-C8TyNg"/>
+      </assignments>
+    </ownedBehavior>
+  </nodes>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fX_poHzTEeqs047-C8TyNg" name="data" target="_fWP9MHzTEeqs047-C8TyNg" source="_fWGMMHzTEeqs047-C8TyNg" sourcePin="_fX-bgHzTEeqs047-C8TyNg" targetPin="_fWSZcHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYHldXzTEeqs047-C8TyNg" name="data" target="_fYFwR3zTEeqs047-C8TyNg" source="_fYHlcHzTEeqs047-C8TyNg" sourcePin="_fYHlc3zTEeqs047-C8TyNg" targetPin="_fYHldHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYHleXzTEeqs047-C8TyNg" name="data" target="_fYFwQHzTEeqs047-C8TyNg" source="_fYFwR3zTEeqs047-C8TyNg" sourcePin="_fYFwSXzTEeqs047-C8TyNg" targetPin="_fYFwQnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYIMgHzTEeqs047-C8TyNg" name="data" target="_fYFJMHzTEeqs047-C8TyNg" source="_fYFwQHzTEeqs047-C8TyNg" sourcePin="_fYFwQ3zTEeqs047-C8TyNg" targetPin="_fYFJMnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYIMhXzTEeqs047-C8TyNg" name="data" target="_fYDUAXzTEeqs047-C8TyNg" source="_fYFJMHzTEeqs047-C8TyNg" sourcePin="_fYIMgXzTEeqs047-C8TyNg" targetPin="_fYD7EXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYIMhnzTEeqs047-C8TyNg" name="data" target="_fYCF4HzTEeqs047-C8TyNg" source="_fYDUAXzTEeqs047-C8TyNg" sourcePin="_fYD7EnzTEeqs047-C8TyNg" targetPin="_fYDUAHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYIMjHzTEeqs047-C8TyNg" name="data" target="_fYBe0HzTEeqs047-C8TyNg" source="_fYCF4HzTEeqs047-C8TyNg" sourcePin="_fYIMh3zTEeqs047-C8TyNg" targetPin="_fYBe03zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYJaoXzTEeqs047-C8TyNg" name="data" target="_fYIzkHzTEeqs047-C8TyNg" source="_fWP9MHzTEeqs047-C8TyNg" sourcePin="_fX9NYHzTEeqs047-C8TyNg" targetPin="_fYJaoHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYKoxXzTEeqs047-C8TyNg" name="data" target="_fYKBsHzTEeqs047-C8TyNg" source="_fYIzkHzTEeqs047-C8TyNg" sourcePin="_fYKoxHzTEeqs047-C8TyNg" targetPin="_fYKBsnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYLP0XzTEeqs047-C8TyNg" name="data" target="_fYKoyXzTEeqs047-C8TyNg" source="_fWP9MHzTEeqs047-C8TyNg" sourcePin="_fX9NYHzTEeqs047-C8TyNg" targetPin="_fYLP0HzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYLP03zTEeqs047-C8TyNg" name="data" target="_fYKoyXzTEeqs047-C8TyNg" source="_fYDUAXzTEeqs047-C8TyNg" sourcePin="_fYD7EnzTEeqs047-C8TyNg" targetPin="_fYLP0nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYLP3HzTEeqs047-C8TyNg" name="data" target="_fYLP1HzTEeqs047-C8TyNg" source="_fYKoyXzTEeqs047-C8TyNg" sourcePin="_fYLP23zTEeqs047-C8TyNg" targetPin="_fYLP1nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYL26HzTEeqs047-C8TyNg" name="data" target="_fYL25XzTEeqs047-C8TyNg" source="_fWP9MHzTEeqs047-C8TyNg" sourcePin="_fX9NYHzTEeqs047-C8TyNg" targetPin="_fYL253zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYMd-HzTEeqs047-C8TyNg" name="data" target="_fYMd8HzTEeqs047-C8TyNg" source="_fYL25XzTEeqs047-C8TyNg" sourcePin="_fYMd93zTEeqs047-C8TyNg" targetPin="_fYMd8nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYNFA3zTEeqs047-C8TyNg" name="data" target="_fYNFAHzTEeqs047-C8TyNg" source="_fYKBsHzTEeqs047-C8TyNg" sourcePin="_fYKowHzTEeqs047-C8TyNg" targetPin="_fYNFAnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYNsFHzTEeqs047-C8TyNg" name="data" target="_fYNsEHzTEeqs047-C8TyNg" source="_fYNFBHzTEeqs047-C8TyNg" sourcePin="_fYNFB3zTEeqs047-C8TyNg" targetPin="_fYNsEnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYNsFnzTEeqs047-C8TyNg" name="data" target="_fYNFBHzTEeqs047-C8TyNg" source="_fYNFAHzTEeqs047-C8TyNg" sourcePin="_fYNsFXzTEeqs047-C8TyNg" targetPin="_fYNFBnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYNsHXzTEeqs047-C8TyNg" name="data" target="_fYNsGnzTEeqs047-C8TyNg" source="_fYLP1HzTEeqs047-C8TyNg" sourcePin="_fYLP13zTEeqs047-C8TyNg" targetPin="_fYNsHHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYOTKnzTEeqs047-C8TyNg" name="data" target="_fYOTJnzTEeqs047-C8TyNg" source="_fYNsHnzTEeqs047-C8TyNg" sourcePin="_fYOTInzTEeqs047-C8TyNg" targetPin="_fYOTKHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYOTLHzTEeqs047-C8TyNg" name="data" target="_fYNsHnzTEeqs047-C8TyNg" source="_fYNsGnzTEeqs047-C8TyNg" sourcePin="_fYOTK3zTEeqs047-C8TyNg" targetPin="_fYOTIXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYUZwXzTEeqs047-C8TyNg" name="data" target="_fYTysXzTEeqs047-C8TyNg" source="_fYTLoHzTEeqs047-C8TyNg" sourcePin="_fYUZwHzTEeqs047-C8TyNg" targetPin="_fYTys3zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYVA2nzTEeqs047-C8TyNg" name="data" target="_fYVA03zTEeqs047-C8TyNg" source="_fYFJMHzTEeqs047-C8TyNg" sourcePin="_fYIMgXzTEeqs047-C8TyNg" targetPin="_fYVA1XzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYVA23zTEeqs047-C8TyNg" name="data" target="_fYVA0HzTEeqs047-C8TyNg" source="_fYVA03zTEeqs047-C8TyNg" sourcePin="_fYVA1nzTEeqs047-C8TyNg" targetPin="_fYVA0nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYVn5HzTEeqs047-C8TyNg" name="data" target="_fYUZxnzTEeqs047-C8TyNg" source="_fYVA0HzTEeqs047-C8TyNg" sourcePin="_fYVA3HzTEeqs047-C8TyNg" targetPin="_fYUZyXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYVn6HzTEeqs047-C8TyNg" name="data" target="_fYVn5XzTEeqs047-C8TyNg" source="_fYTysXzTEeqs047-C8TyNg" sourcePin="_fYTytHzTEeqs047-C8TyNg" targetPin="_fYVn53zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYVn6nzTEeqs047-C8TyNg" name="data" target="_fYKBsHzTEeqs047-C8TyNg" source="_fYVn5XzTEeqs047-C8TyNg" sourcePin="_fYVn6XzTEeqs047-C8TyNg" targetPin="_fYKBsnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYWO8XzTEeqs047-C8TyNg" name="data" target="_fYVn7nzTEeqs047-C8TyNg" source="_fYTysXzTEeqs047-C8TyNg" sourcePin="_fYTytHzTEeqs047-C8TyNg" targetPin="_fYWO8HzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYWO83zTEeqs047-C8TyNg" name="data" target="_fYVn7nzTEeqs047-C8TyNg" source="_fYVA03zTEeqs047-C8TyNg" sourcePin="_fYVA1nzTEeqs047-C8TyNg" targetPin="_fYWO8nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYW2BXzTEeqs047-C8TyNg" name="data" target="_fYWO9HzTEeqs047-C8TyNg" source="_fYVn7nzTEeqs047-C8TyNg" sourcePin="_fYW2BHzTEeqs047-C8TyNg" targetPin="_fYWO9nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYW2EHzTEeqs047-C8TyNg" name="data" target="_fYW2DXzTEeqs047-C8TyNg" source="_fYTysXzTEeqs047-C8TyNg" sourcePin="_fYTytHzTEeqs047-C8TyNg" targetPin="_fYW2D3zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYXdEHzTEeqs047-C8TyNg" name="data" target="_fYW2DXzTEeqs047-C8TyNg" source="_fYVA03zTEeqs047-C8TyNg" sourcePin="_fYVA1nzTEeqs047-C8TyNg" targetPin="_fYW2EXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYXdEnzTEeqs047-C8TyNg" name="data" target="_fYLP1HzTEeqs047-C8TyNg" source="_fYW2DXzTEeqs047-C8TyNg" sourcePin="_fYXdEXzTEeqs047-C8TyNg" targetPin="_fYLP1nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYXdHXzTEeqs047-C8TyNg" name="data" target="_fYXdGnzTEeqs047-C8TyNg" source="_fYTysXzTEeqs047-C8TyNg" sourcePin="_fYTytHzTEeqs047-C8TyNg" targetPin="_fYXdHHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYYEIHzTEeqs047-C8TyNg" name="data" target="_fYMd8HzTEeqs047-C8TyNg" source="_fYXdGnzTEeqs047-C8TyNg" sourcePin="_fYXdHnzTEeqs047-C8TyNg" targetPin="_fYMd8nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYYEJ3zTEeqs047-C8TyNg" name="data" target="_fYYEJHzTEeqs047-C8TyNg" source="_fYWO9HzTEeqs047-C8TyNg" sourcePin="_fYW2AHzTEeqs047-C8TyNg" targetPin="_fYYEJnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYYrM3zTEeqs047-C8TyNg" name="data" target="_fYYEL3zTEeqs047-C8TyNg" source="_fYYEKHzTEeqs047-C8TyNg" sourcePin="_fYYEK3zTEeqs047-C8TyNg" targetPin="_fYYrMXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYYrNXzTEeqs047-C8TyNg" name="data" target="_fYYEKHzTEeqs047-C8TyNg" source="_fYYEJHzTEeqs047-C8TyNg" sourcePin="_fYYrNHzTEeqs047-C8TyNg" targetPin="_fYYEKnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYbuinzTEeqs047-C8TyNg" name="data" target="_fYbugnzTEeqs047-C8TyNg" source="_fYbugHzTEeqs047-C8TyNg" sourcePin="_fYbuiXzTEeqs047-C8TyNg" targetPin="_fYbuhHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYcVoXzTEeqs047-C8TyNg" name="data" target="_fYcVmnzTEeqs047-C8TyNg" source="_fYFJMHzTEeqs047-C8TyNg" sourcePin="_fYIMgXzTEeqs047-C8TyNg" targetPin="_fYcVnHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYcVonzTEeqs047-C8TyNg" name="data" target="_fYcVl3zTEeqs047-C8TyNg" source="_fYcVmnzTEeqs047-C8TyNg" sourcePin="_fYcVnXzTEeqs047-C8TyNg" targetPin="_fYcVmXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYc8onzTEeqs047-C8TyNg" name="data" target="_fYcVkHzTEeqs047-C8TyNg" source="_fYcVl3zTEeqs047-C8TyNg" sourcePin="_fYcVo3zTEeqs047-C8TyNg" targetPin="_fYcVk3zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYc8pnzTEeqs047-C8TyNg" name="data" target="_fYc8o3zTEeqs047-C8TyNg" source="_fYbugnzTEeqs047-C8TyNg" sourcePin="_fYbuhXzTEeqs047-C8TyNg" targetPin="_fYc8pXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYc8qHzTEeqs047-C8TyNg" name="data" target="_fYKBsHzTEeqs047-C8TyNg" source="_fYc8o3zTEeqs047-C8TyNg" sourcePin="_fYc8p3zTEeqs047-C8TyNg" targetPin="_fYKBsnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYc8r3zTEeqs047-C8TyNg" name="data" target="_fYc8rHzTEeqs047-C8TyNg" source="_fYbugnzTEeqs047-C8TyNg" sourcePin="_fYbuhXzTEeqs047-C8TyNg" targetPin="_fYc8rnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYdjsXzTEeqs047-C8TyNg" name="data" target="_fYc8rHzTEeqs047-C8TyNg" source="_fYcVmnzTEeqs047-C8TyNg" sourcePin="_fYcVnXzTEeqs047-C8TyNg" targetPin="_fYdjsHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYdjs3zTEeqs047-C8TyNg" name="data" target="_fYLP1HzTEeqs047-C8TyNg" source="_fYc8rHzTEeqs047-C8TyNg" sourcePin="_fYdjsnzTEeqs047-C8TyNg" targetPin="_fYLP1nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYdjv3zTEeqs047-C8TyNg" name="data" target="_fYdjvHzTEeqs047-C8TyNg" source="_fYbugnzTEeqs047-C8TyNg" sourcePin="_fYbuhXzTEeqs047-C8TyNg" targetPin="_fYdjvnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYeKwXzTEeqs047-C8TyNg" name="data" target="_fYMd8HzTEeqs047-C8TyNg" source="_fYdjvHzTEeqs047-C8TyNg" sourcePin="_fYeKwHzTEeqs047-C8TyNg" targetPin="_fYMd8nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYnUvnzTEeqs047-C8TyNg" name="data" target="_fYnUunzTEeqs047-C8TyNg" source="_fYYEL3zTEeqs047-C8TyNg" sourcePin="_fYYrMnzTEeqs047-C8TyNg" targetPin="_fYnUvXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYnUwnzTEeqs047-C8TyNg" name="data" target="_fYnUs3zTEeqs047-C8TyNg" source="_fYnUunzTEeqs047-C8TyNg" sourcePin="_fYnUvHzTEeqs047-C8TyNg" targetPin="_fYnUtXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYnUw3zTEeqs047-C8TyNg" name="data" target="_fYnUsHzTEeqs047-C8TyNg" source="_fYnUs3zTEeqs047-C8TyNg" sourcePin="_fYnUtnzTEeqs047-C8TyNg" targetPin="_fYnUsnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYn7wHzTEeqs047-C8TyNg" name="data" target="_fYmGk3zTEeqs047-C8TyNg" source="_fYnUsHzTEeqs047-C8TyNg" sourcePin="_fYnUxHzTEeqs047-C8TyNg" targetPin="_fYmGlXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYn7wXzTEeqs047-C8TyNg" name="data" target="_fYmGkHzTEeqs047-C8TyNg" source="_fYmGk3zTEeqs047-C8TyNg" sourcePin="_fYmGlnzTEeqs047-C8TyNg" targetPin="_fYmGknzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYn7xnzTEeqs047-C8TyNg" name="data" target="_fYlfgHzTEeqs047-C8TyNg" source="_fYmGkHzTEeqs047-C8TyNg" sourcePin="_fYn7wnzTEeqs047-C8TyNg" targetPin="_fYlfg3zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYoi03zTEeqs047-C8TyNg" name="data" target="_fYoi0HzTEeqs047-C8TyNg" source="_fYlfgHzTEeqs047-C8TyNg" sourcePin="_fYlfgnzTEeqs047-C8TyNg" targetPin="_fYoi0nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYpJ6HzTEeqs047-C8TyNg" name="data" target="_fYpJ4HzTEeqs047-C8TyNg" source="_fYoi0HzTEeqs047-C8TyNg" sourcePin="_fYpJ53zTEeqs047-C8TyNg" targetPin="_fYpJ4nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYqYAnzTEeqs047-C8TyNg" name="data" target="_fYpw_nzTEeqs047-C8TyNg" source="_fYpxAXzTEeqs047-C8TyNg" sourcePin="_fYqYAHzTEeqs047-C8TyNg" targetPin="_fYqYAXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYqYBnzTEeqs047-C8TyNg" name="data" target="_fYpw93zTEeqs047-C8TyNg" source="_fYpw_nzTEeqs047-C8TyNg" sourcePin="_fYpxAHzTEeqs047-C8TyNg" targetPin="_fYpw-XzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYqYB3zTEeqs047-C8TyNg" name="data" target="_fYpw9HzTEeqs047-C8TyNg" source="_fYpw93zTEeqs047-C8TyNg" sourcePin="_fYpw-nzTEeqs047-C8TyNg" targetPin="_fYpw9nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYqYDHzTEeqs047-C8TyNg" name="data" target="_fYpJ7HzTEeqs047-C8TyNg" source="_fYpw9HzTEeqs047-C8TyNg" sourcePin="_fYqYCHzTEeqs047-C8TyNg" targetPin="_fYpJ7nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYq_F3zTEeqs047-C8TyNg" name="data" target="_fYq_EHzTEeqs047-C8TyNg" source="_fYnUsHzTEeqs047-C8TyNg" sourcePin="_fYnUxHzTEeqs047-C8TyNg" targetPin="_fYq_EnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYq_GHzTEeqs047-C8TyNg" name="data" target="_fYqYDXzTEeqs047-C8TyNg" source="_fYq_EHzTEeqs047-C8TyNg" sourcePin="_fYq_E3zTEeqs047-C8TyNg" targetPin="_fYqYD3zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYq_GnzTEeqs047-C8TyNg" name="data" target="_fYqYDXzTEeqs047-C8TyNg" source="_fYpJ7HzTEeqs047-C8TyNg" sourcePin="_fYpw8HzTEeqs047-C8TyNg" targetPin="_fYq_GXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYrmIXzTEeqs047-C8TyNg" name="data" target="_fYq_InzTEeqs047-C8TyNg" source="_fYq_G3zTEeqs047-C8TyNg" sourcePin="_fYq_HnzTEeqs047-C8TyNg" targetPin="_fYq_JHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYrmI3zTEeqs047-C8TyNg" name="data" target="_fYq_G3zTEeqs047-C8TyNg" source="_fYqYDXzTEeqs047-C8TyNg" sourcePin="_fYrmInzTEeqs047-C8TyNg" targetPin="_fYq_HXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYuCZHzTEeqs047-C8TyNg" name="data" target="_fYuCYHzTEeqs047-C8TyNg" source="_fYq_InzTEeqs047-C8TyNg" sourcePin="_fYrmIHzTEeqs047-C8TyNg" targetPin="_fYuCY3zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYuCaHzTEeqs047-C8TyNg" name="data" target="_fYtbU3zTEeqs047-C8TyNg" source="_fYuCYHzTEeqs047-C8TyNg" sourcePin="_fYuCYnzTEeqs047-C8TyNg" targetPin="_fYtbVXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYuCaXzTEeqs047-C8TyNg" name="data" target="_fYtbUHzTEeqs047-C8TyNg" source="_fYtbU3zTEeqs047-C8TyNg" sourcePin="_fYtbVnzTEeqs047-C8TyNg" targetPin="_fYtbUnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYuCbnzTEeqs047-C8TyNg" name="data" target="_fYs0QHzTEeqs047-C8TyNg" source="_fYtbUHzTEeqs047-C8TyNg" sourcePin="_fYuCanzTEeqs047-C8TyNg" targetPin="_fYs0Q3zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYweoHzTEeqs047-C8TyNg" name="data" target="_fYv3l3zTEeqs047-C8TyNg" source="_fYpw9HzTEeqs047-C8TyNg" sourcePin="_fYqYCHzTEeqs047-C8TyNg" targetPin="_fYv3mXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYweoXzTEeqs047-C8TyNg" name="data" target="_fYv3lHzTEeqs047-C8TyNg" source="_fYv3l3zTEeqs047-C8TyNg" sourcePin="_fYv3mnzTEeqs047-C8TyNg" targetPin="_fYv3lnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYwepnzTEeqs047-C8TyNg" name="data" target="_fYvQgHzTEeqs047-C8TyNg" source="_fYv3lHzTEeqs047-C8TyNg" sourcePin="_fYweonzTEeqs047-C8TyNg" targetPin="_fYv3kHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYxsw3zTEeqs047-C8TyNg" name="data" target="_fYxswHzTEeqs047-C8TyNg" source="_fYs0QHzTEeqs047-C8TyNg" sourcePin="_fYs0QnzTEeqs047-C8TyNg" targetPin="_fYxswnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYxsxXzTEeqs047-C8TyNg" name="data" target="_fYxswHzTEeqs047-C8TyNg" source="_fYvQgHzTEeqs047-C8TyNg" sourcePin="_fYvQgnzTEeqs047-C8TyNg" targetPin="_fYxsxHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYy66HzTEeqs047-C8TyNg" name="data" target="_fYy64HzTEeqs047-C8TyNg" source="_fYxswHzTEeqs047-C8TyNg" sourcePin="_fYy653zTEeqs047-C8TyNg" targetPin="_fYy64nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fYzh-nzTEeqs047-C8TyNg" name="data" target="_fYy68HzTEeqs047-C8TyNg" source="_fYzh83zTEeqs047-C8TyNg" sourcePin="_fYzh9XzTEeqs047-C8TyNg" targetPin="_fYy683zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY0wE3zTEeqs047-C8TyNg" name="data" target="_fY0wEHzTEeqs047-C8TyNg" source="_fYy68HzTEeqs047-C8TyNg" sourcePin="_fYy68nzTEeqs047-C8TyNg" targetPin="_fY0wEnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY1XKHzTEeqs047-C8TyNg" name="data" target="_fY1XIHzTEeqs047-C8TyNg" source="_fY0wEHzTEeqs047-C8TyNg" sourcePin="_fY1XJ3zTEeqs047-C8TyNg" targetPin="_fY1XInzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY1-M3zTEeqs047-C8TyNg" name="data" target="_fY1-MHzTEeqs047-C8TyNg" source="_fY1XIHzTEeqs047-C8TyNg" sourcePin="_fY1XI3zTEeqs047-C8TyNg" targetPin="_fY1-MnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY1-P3zTEeqs047-C8TyNg" name="data" target="_fY1-O3zTEeqs047-C8TyNg" source="_fY1-NHzTEeqs047-C8TyNg" sourcePin="_fY1-N3zTEeqs047-C8TyNg" targetPin="_fY1-PXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY1-QXzTEeqs047-C8TyNg" name="data" target="_fY1-NHzTEeqs047-C8TyNg" source="_fY1-MHzTEeqs047-C8TyNg" sourcePin="_fY1-QHzTEeqs047-C8TyNg" targetPin="_fY1-NnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY7dynzTEeqs047-C8TyNg" name="data" target="_fY7dwnzTEeqs047-C8TyNg" source="_fY7dwHzTEeqs047-C8TyNg" sourcePin="_fY7dyXzTEeqs047-C8TyNg" targetPin="_fY7dxHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY8E3nzTEeqs047-C8TyNg" name="data" target="_fY8E0HzTEeqs047-C8TyNg" source="_fY8E13zTEeqs047-C8TyNg" sourcePin="_fY8E2XzTEeqs047-C8TyNg" targetPin="_fY8E03zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY8r43zTEeqs047-C8TyNg" name="data" target="_fY8r4HzTEeqs047-C8TyNg" source="_fY7dwnzTEeqs047-C8TyNg" sourcePin="_fY7dxXzTEeqs047-C8TyNg" targetPin="_fY8r4nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY9S8HzTEeqs047-C8TyNg" name="data" target="_fY8r5HzTEeqs047-C8TyNg" source="_fY8r4HzTEeqs047-C8TyNg" sourcePin="_fY8r63zTEeqs047-C8TyNg" targetPin="_fY8r5nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY9S93zTEeqs047-C8TyNg" name="data" target="_fY9S9HzTEeqs047-C8TyNg" source="_fY7dwnzTEeqs047-C8TyNg" sourcePin="_fY7dxXzTEeqs047-C8TyNg" targetPin="_fY9S9nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY9TAHzTEeqs047-C8TyNg" name="data" target="_fY9S-HzTEeqs047-C8TyNg" source="_fY9S9HzTEeqs047-C8TyNg" sourcePin="_fY9S_3zTEeqs047-C8TyNg" targetPin="_fY9S-nzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY96BnzTEeqs047-C8TyNg" name="data" target="_fY96A3zTEeqs047-C8TyNg" source="_fY8r5HzTEeqs047-C8TyNg" sourcePin="_fY8r53zTEeqs047-C8TyNg" targetPin="_fY96BXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY96DnzTEeqs047-C8TyNg" name="data" target="_fYpxAXzTEeqs047-C8TyNg" source="_fY96B3zTEeqs047-C8TyNg" sourcePin="_fY96CnzTEeqs047-C8TyNg" targetPin="_fYpxA3zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY-hEXzTEeqs047-C8TyNg" name="data" target="_fY96B3zTEeqs047-C8TyNg" source="_fY96A3zTEeqs047-C8TyNg" sourcePin="_fY-hEHzTEeqs047-C8TyNg" targetPin="_fY96CXzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY-hGHzTEeqs047-C8TyNg" name="data" target="_fY-hFXzTEeqs047-C8TyNg" source="_fY9S-HzTEeqs047-C8TyNg" sourcePin="_fY9S-3zTEeqs047-C8TyNg" targetPin="_fY-hF3zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY_II3zTEeqs047-C8TyNg" name="data" target="_fYHlcHzTEeqs047-C8TyNg" source="_fY-hGXzTEeqs047-C8TyNg" sourcePin="_fY-hHHzTEeqs047-C8TyNg" targetPin="_fYHlcnzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fY_IJXzTEeqs047-C8TyNg" name="data" target="_fY-hGXzTEeqs047-C8TyNg" source="_fY-hFXzTEeqs047-C8TyNg" sourcePin="_fY_IJHzTEeqs047-C8TyNg" targetPin="_fY-hG3zTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fZCyhXzTEeqs047-C8TyNg" name="data" target="_fZCLcnzTEeqs047-C8TyNg" source="_fZCLcHzTEeqs047-C8TyNg" sourcePin="_fZCyhHzTEeqs047-C8TyNg" targetPin="_fZCLdHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fZDZl3zTEeqs047-C8TyNg" name="data" target="_fZCyiXzTEeqs047-C8TyNg" source="_fZDZkHzTEeqs047-C8TyNg" sourcePin="_fZDZknzTEeqs047-C8TyNg" targetPin="_fZCyjHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fZEAoXzTEeqs047-C8TyNg" name="data" target="_fZDZmHzTEeqs047-C8TyNg" source="_fZCLcnzTEeqs047-C8TyNg" sourcePin="_fZCygHzTEeqs047-C8TyNg" targetPin="_fZEAoHzTEeqs047-C8TyNg"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_fZEAo3zTEeqs047-C8TyNg" name="data" target="_fY9S-HzTEeqs047-C8TyNg" source="_fZDZmHzTEeqs047-C8TyNg" sourcePin="_fZEAonzTEeqs047-C8TyNg" targetPin="_fY9S-nzTEeqs047-C8TyNg"/>
+</DataFlowDiagram:DataFlowDiagram>

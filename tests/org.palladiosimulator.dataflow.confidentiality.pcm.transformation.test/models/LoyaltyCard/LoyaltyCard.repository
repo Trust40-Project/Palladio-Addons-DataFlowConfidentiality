@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:characterizedActions="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:expressions="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0/expressions" xmlns:expressions_1="http://palladiosimulator.org/dataflow/dictionary/characterized/expressions/1.0" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:repository_1="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0/repository" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" xmlns:subsystem="http://palladiosimulator.org/PalladioComponentModel/SubSystem/5.2" id="_WxHCwHidEemJObo0kKFqqQ" entityName="LoyaltyCard" repositoryDescription="">
+  <components__Repository xsi:type="subsystem:SubSystem" id="_Zi0VZHidEemJObo0kKFqqQ" entityName="Store">
+    <assemblyContexts__ComposedStructure id="_Kg3MANnrEemd7ayVqW_B5g" entityName="Assembly_OnlineShop" encapsulatedComponent__AssemblyContext="_BTWEMHieEemJObo0kKFqqQ"/>
+    <assemblyContexts__ComposedStructure id="_L8CJgNnrEemd7ayVqW_B5g" entityName="Assembly_CashDesk" encapsulatedComponent__AssemblyContext="_Eb3UUHieEemJObo0kKFqqQ"/>
+    <assemblyContexts__ComposedStructure id="_XHtB4Hp3Eeq8vLY4ZcVdxA" entityName="Assembly_Inventory" encapsulatedComponent__AssemblyContext="_mjuaEHpuEeq8vLY4ZcVdxA"/>
+    <connectors__ComposedStructure xsi:type="composition:RequiredDelegationConnector" id="_gHjnoNnrEemd7ayVqW_B5g" entityName="newRequiredDelegationConnector" innerRequiredRole_RequiredDelegationConnector="_EspKoNnrEemd7ayVqW_B5g" outerRequiredRole_RequiredDelegationConnector="_ZgkskNnrEemd7ayVqW_B5g" assemblyContext_RequiredDelegationConnector="_Kg3MANnrEemd7ayVqW_B5g"/>
+    <connectors__ComposedStructure xsi:type="composition:RequiredDelegationConnector" id="_gqWysNnrEemd7ayVqW_B5g" entityName="newRequiredDelegationConnector" innerRequiredRole_RequiredDelegationConnector="_6xLnENnqEemd7ayVqW_B5g" outerRequiredRole_RequiredDelegationConnector="_ax0SANnrEemd7ayVqW_B5g" assemblyContext_RequiredDelegationConnector="_L8CJgNnrEemd7ayVqW_B5g"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_owB_sNnzEemNpY8gd-A1AQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_ICt08NnzEemNpY8gd-A1AQ" outerProvidedRole_ProvidedDelegationConnector="_ewTnMNnzEemNpY8gd-A1AQ" assemblyContext_ProvidedDelegationConnector="_Kg3MANnrEemd7ayVqW_B5g"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_pKwM0NnzEemNpY8gd-A1AQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_duxRsNnzEemNpY8gd-A1AQ" outerProvidedRole_ProvidedDelegationConnector="_fMz9ANnzEemNpY8gd-A1AQ" assemblyContext_ProvidedDelegationConnector="_L8CJgNnrEemd7ayVqW_B5g"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_ZZmzEHp3Eeq8vLY4ZcVdxA" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_Kg3MANnrEemd7ayVqW_B5g" providingAssemblyContext_AssemblyConnector="_XHtB4Hp3Eeq8vLY4ZcVdxA" providedRole_AssemblyConnector="_bb4tgHpvEeq8vLY4ZcVdxA" requiredRole_AssemblyConnector="_0YBFkNnqEemd7ayVqW_B5g"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_Z7ILwHp3Eeq8vLY4ZcVdxA" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_L8CJgNnrEemd7ayVqW_B5g" providingAssemblyContext_AssemblyConnector="_XHtB4Hp3Eeq8vLY4ZcVdxA" providedRole_AssemblyConnector="_bb4tgHpvEeq8vLY4ZcVdxA" requiredRole_AssemblyConnector="_08rR0NnqEemd7ayVqW_B5g"/>
+    <connectors__ComposedStructure xsi:type="composition:RequiredDelegationConnector" id="_SDlngHsWEeqS8O6nJaozEA" entityName="newRequiredDelegationConnector" innerRequiredRole_RequiredDelegationConnector="_CKIbgHsWEeqS8O6nJaozEA" outerRequiredRole_RequiredDelegationConnector="_ZgkskNnrEemd7ayVqW_B5g" assemblyContext_RequiredDelegationConnector="_L8CJgNnrEemd7ayVqW_B5g"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_ewTnMNnzEemNpY8gd-A1AQ" entityName="Store.provided.IOnlineShop" providedInterface__OperationProvidedRole="_By41oNnzEemNpY8gd-A1AQ"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_fMz9ANnzEemNpY8gd-A1AQ" entityName="Store.provided.IOfflineShop" providedInterface__OperationProvidedRole="_Qo4ZgNnzEemNpY8gd-A1AQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_ZgkskNnrEemd7ayVqW_B5g" entityName="Store.required.ICustomerDataRecorder" requiredInterface__OperationRequiredRole="_AI9kENnrEemd7ayVqW_B5g"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_ax0SANnrEemd7ayVqW_B5g" entityName="Store.required.ILoyaltyManagementOrderProcessing" requiredInterface__OperationRequiredRole="_3eE3kNnqEemd7ayVqW_B5g"/>
+  </components__Repository>
+  <components__Repository xsi:type="subsystem:SubSystem" id="_lJ6UVHidEemJObo0kKFqqQ" entityName="CustomerOrderManagement">
+    <assemblyContexts__ComposedStructure id="_iugpgNnwEemNpY8gd-A1AQ" entityName="Assembly_CustomerDataStoreLogic" encapsulatedComponent__AssemblyContext="_aQmpENnwEemNpY8gd-A1AQ"/>
+    <assemblyContexts__ComposedStructure id="_RIElQHp4Eeq8vLY4ZcVdxA" entityName="Assembly_CustomerDataDB" encapsulatedComponent__AssemblyContext="_j7TQMHp3Eeq8vLY4ZcVdxA"/>
+    <assemblyContexts__ComposedStructure id="_R1jWUHp4Eeq8vLY4ZcVdxA" entityName="Assembly_OrderDB" encapsulatedComponent__AssemblyContext="_776wkHp3Eeq8vLY4ZcVdxA"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_vJ5MINnwEemNpY8gd-A1AQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_s89agNnwEemNpY8gd-A1AQ" outerProvidedRole_ProvidedDelegationConnector="_CgrpYNnrEemd7ayVqW_B5g" assemblyContext_ProvidedDelegationConnector="_iugpgNnwEemNpY8gd-A1AQ"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_UQRFQHp4Eeq8vLY4ZcVdxA" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_iugpgNnwEemNpY8gd-A1AQ" providingAssemblyContext_AssemblyConnector="_R1jWUHp4Eeq8vLY4ZcVdxA" providedRole_AssemblyConnector="_9t0zEHp3Eeq8vLY4ZcVdxA" requiredRole_AssemblyConnector="_-R6XkHp3Eeq8vLY4ZcVdxA"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_UrsdAHp4Eeq8vLY4ZcVdxA" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_iugpgNnwEemNpY8gd-A1AQ" providingAssemblyContext_AssemblyConnector="_RIElQHp4Eeq8vLY4ZcVdxA" providedRole_AssemblyConnector="_nuoX4Hp3Eeq8vLY4ZcVdxA" requiredRole_AssemblyConnector="_obHDYHp3Eeq8vLY4ZcVdxA"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_CgrpYNnrEemd7ayVqW_B5g" entityName="CustomerOrderManagement.provided.ICustomerOrderManagement" providedInterface__OperationProvidedRole="_AI9kENnrEemd7ayVqW_B5g"/>
+  </components__Repository>
+  <components__Repository xsi:type="subsystem:SubSystem" id="_n98iNHidEemJObo0kKFqqQ" entityName="LoyaltyManagement">
+    <assemblyContexts__ComposedStructure id="_ffe-MNnvEemNpY8gd-A1AQ" entityName="Assembly_LoyaltyManagementLogic" encapsulatedComponent__AssemblyContext="_YlSMMNnvEemNpY8gd-A1AQ"/>
+    <assemblyContexts__ComposedStructure id="_7oEVkHp5Eeq8vLY4ZcVdxA" entityName="Assembly_LoyaltyOrderDB" encapsulatedComponent__AssemblyContext="_uJgesHp5Eeq8vLY4ZcVdxA"/>
+    <assemblyContexts__ComposedStructure id="_bFm0AHv6EeqZ0-iWUzVwFQ" entityName="Assembly_LoyaltyCustomerDB" encapsulatedComponent__AssemblyContext="_UmALwHvYEeqZ0-iWUzVwFQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_himFcNnvEemNpY8gd-A1AQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_b4JEENnvEemNpY8gd-A1AQ" outerProvidedRole_ProvidedDelegationConnector="_5O24sNnqEemd7ayVqW_B5g" assemblyContext_ProvidedDelegationConnector="_ffe-MNnvEemNpY8gd-A1AQ"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_855w4Hp5Eeq8vLY4ZcVdxA" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_ffe-MNnvEemNpY8gd-A1AQ" providingAssemblyContext_AssemblyConnector="_7oEVkHp5Eeq8vLY4ZcVdxA" providedRole_AssemblyConnector="_vn36IHp5Eeq8vLY4ZcVdxA" requiredRole_AssemblyConnector="_xIqXcHp5Eeq8vLY4ZcVdxA"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_dpUG4Hv6EeqZ0-iWUzVwFQ" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_ffe-MNnvEemNpY8gd-A1AQ" providingAssemblyContext_AssemblyConnector="_bFm0AHv6EeqZ0-iWUzVwFQ" providedRole_AssemblyConnector="_V6sGwHvYEeqZ0-iWUzVwFQ" requiredRole_AssemblyConnector="_TCmfUHvYEeqZ0-iWUzVwFQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_g8lOcHv6EeqZ0-iWUzVwFQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_I0E10HvYEeqZ0-iWUzVwFQ" outerProvidedRole_ProvidedDelegationConnector="_eaazsHv6EeqZ0-iWUzVwFQ" assemblyContext_ProvidedDelegationConnector="_ffe-MNnvEemNpY8gd-A1AQ"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_5O24sNnqEemd7ayVqW_B5g" entityName="LoyaltyManagement.provided.ILoyaltyManagementOrderProcessing" providedInterface__OperationProvidedRole="_3eE3kNnqEemd7ayVqW_B5g"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_eaazsHv6EeqZ0-iWUzVwFQ" entityName="ILoyaltyManagementDataReader" providedInterface__OperationProvidedRole="_AaVjsHvYEeqZ0-iWUzVwFQ"/>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_BTWEMHieEemJObo0kKFqqQ" entityName="OnlineShop">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_ICt08NnzEemNpY8gd-A1AQ" entityName="OnlineShop.provided.IOnlineShop" providedInterface__OperationProvidedRole="_By41oNnzEemNpY8gd-A1AQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_0YBFkNnqEemd7ayVqW_B5g" entityName="OnlineShop.required.IStoreInventory" requiredInterface__OperationRequiredRole="_rPI1gNnqEemd7ayVqW_B5g"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_EspKoNnrEemd7ayVqW_B5g" entityName="OnlineShop.required.ICustomerDataRecorder" requiredInterface__OperationRequiredRole="_AI9kENnrEemd7ayVqW_B5g"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_ICt08dnzEemNpY8gd-A1AQ" describedService__SEFF="_CjbhwNnzEemNpY8gd-A1AQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_ICt08tnzEemNpY8gd-A1AQ" successor_AbstractAction="_PdqYANn9EemNpY8gd-A1AQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_ICt089nzEemNpY8gd-A1AQ" predecessor_AbstractAction="_UxPKcNn9EemNpY8gd-A1AQ"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_PdqYANn9EemNpY8gd-A1AQ" entityName="processOrderLocally" predecessor_AbstractAction="_ICt08tnzEemNpY8gd-A1AQ" successor_AbstractAction="_lHucYHv-EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_StvBoNn9EemNpY8gd-A1AQ" entityName="updateInventory" predecessor_AbstractAction="_lHucYHv-EeqZ0-iWUzVwFQ" successor_AbstractAction="_UxPKcNn9EemNpY8gd-A1AQ" calledService_ExternalService="_mONx8NntEemd7ayVqW_B5g" role_ExternalService="_0YBFkNnqEemd7ayVqW_B5g">
+        <parameterAssignments id="_VsBHwHsLEeqYWMvhUxd_6Q">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_WM3LAHsLEeqYWMvhUxd_6Q" externalCallAction="_StvBoNn9EemNpY8gd-A1AQ" parameter="//@interfaces__Repository.0/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_cSN_uHsLEeqYWMvhUxd_6Q" parameter="//@interfaces__Repository.3/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_UxPKcNn9EemNpY8gd-A1AQ" entityName="recordOrder" predecessor_AbstractAction="_StvBoNn9EemNpY8gd-A1AQ" successor_AbstractAction="_ICt089nzEemNpY8gd-A1AQ" calledService_ExternalService="_MgI_UNnvEemNpY8gd-A1AQ" role_ExternalService="_EspKoNnrEemd7ayVqW_B5g">
+        <parameterAssignments id="_eplfsHsLEeqYWMvhUxd_6Q">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_e9LxIHsLEeqYWMvhUxd_6Q" externalCallAction="_UxPKcNn9EemNpY8gd-A1AQ" parameter="//@interfaces__Repository.2/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions_1:And" id="_HLouPXwhEeqKrOn0h8JU1g">
+            <left xsi:type="expressions:SeffParameterCharacteristicReference" id="_HpE4MHwhEeqKrOn0h8JU1g" parameter="//@interfaces__Repository.3/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+            <right xsi:type="expressions:ReturnCharacteristicReference" id="_Jddm83whEeqKrOn0h8JU1g" externalCallAction="_lHucYHv-EeqZ0-iWUzVwFQ"/>
+          </rhs>
+        </parameterAssignments>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_lHucYHv-EeqZ0-iWUzVwFQ" entityName="read customer from DB" predecessor_AbstractAction="_PdqYANn9EemNpY8gd-A1AQ" successor_AbstractAction="_StvBoNn9EemNpY8gd-A1AQ" calledService_ExternalService="_Z8TXgHvXEeqZ0-iWUzVwFQ" role_ExternalService="_EspKoNnrEemd7ayVqW_B5g">
+        <parameterAssignments id="_9LPAQHwgEeqKrOn0h8JU1g">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_9l-bgHwgEeqKrOn0h8JU1g" externalCallAction="_lHucYHv-EeqZ0-iWUzVwFQ" parameter="//@interfaces__Repository.2/@signatures__OperationInterface.2/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="__xvIeHwgEeqKrOn0h8JU1g" parameter="//@interfaces__Repository.3/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+      <returnAssignments id="_2wBBMHygEeqscZLjTKPARg">
+        <lhs xsi:type="expressions:SeffReturnCharacteristicReference" id="_dnIbs3yhEeq6D_7WvQZrjA"/>
+        <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_mvr7qHyhEeq6D_7WvQZrjA" parameter="//@interfaces__Repository.3/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+      </returnAssignments>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_xJFMIHtTEeqdr_-YUYcTWA" describedService__SEFF="_Rdwp4HtTEeqdr_-YUYcTWA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_xbo7wHtTEeqdr_-YUYcTWA" successor_AbstractAction="_EZvYsHv9EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_xbo7wXtTEeqdr_-YUYcTWA" predecessor_AbstractAction="_EZvYsHv9EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_EZvYsHv9EeqZ0-iWUzVwFQ" entityName="store user in data store" predecessor_AbstractAction="_xbo7wHtTEeqdr_-YUYcTWA" successor_AbstractAction="_xbo7wXtTEeqdr_-YUYcTWA" calledService_ExternalService="_Vp5uMHvXEeqZ0-iWUzVwFQ" role_ExternalService="_EspKoNnrEemd7ayVqW_B5g">
+        <parameterAssignments id="_Mt6D8HwhEeqKrOn0h8JU1g">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_NSpvwHwhEeqKrOn0h8JU1g" externalCallAction="_EZvYsHv9EeqZ0-iWUzVwFQ" parameter="//@interfaces__Repository.2/@signatures__OperationInterface.1/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_Oe_ACHwhEeqKrOn0h8JU1g" parameter="//@interfaces__Repository.3/@signatures__OperationInterface.1/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+      <returnAssignments id="_t9MEMHyhEeq6D_7WvQZrjA">
+        <lhs xsi:type="expressions:SeffReturnCharacteristicReference" id="_vwa8U3yhEeq6D_7WvQZrjA"/>
+        <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_wURQSHyhEeq6D_7WvQZrjA" parameter="//@interfaces__Repository.3/@signatures__OperationInterface.1/@parameters__OperationSignature.0"/>
+      </returnAssignments>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_Eb3UUHieEemJObo0kKFqqQ" entityName="CashDesk">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_duxRsNnzEemNpY8gd-A1AQ" entityName="CashDesk.provided.IOfflineShop" providedInterface__OperationProvidedRole="_Qo4ZgNnzEemNpY8gd-A1AQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_08rR0NnqEemd7ayVqW_B5g" entityName="CashDesk.required.IStoreInventory" requiredInterface__OperationRequiredRole="_rPI1gNnqEemd7ayVqW_B5g"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_6xLnENnqEemd7ayVqW_B5g" entityName="CashDesk.required.ILoyaltyManagementOrderProcessing" requiredInterface__OperationRequiredRole="_3eE3kNnqEemd7ayVqW_B5g"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_CKIbgHsWEeqS8O6nJaozEA" entityName="CashDesk.required.ICustomerDataRecorder" requiredInterface__OperationRequiredRole="_AI9kENnrEemd7ayVqW_B5g"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_duxRsdnzEemNpY8gd-A1AQ" describedService__SEFF="_CjbhwNnzEemNpY8gd-A1Aa">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_duxRstnzEemNpY8gd-A1AQ" successor_AbstractAction="_LsULEHyYEeqKrOn0h8JU1g"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_duxRs9nzEemNpY8gd-A1AQ" predecessor_AbstractAction="_od5iUNn9EemNpY8gd-A1AQ"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_mQeBcNn9EemNpY8gd-A1AQ" entityName="processOrder" predecessor_AbstractAction="_LsULEHyYEeqKrOn0h8JU1g" successor_AbstractAction="_nEiisNn9EemNpY8gd-A1AQ"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_nEiisNn9EemNpY8gd-A1AQ" entityName="updateInventory" predecessor_AbstractAction="_mQeBcNn9EemNpY8gd-A1AQ" successor_AbstractAction="_od5iUNn9EemNpY8gd-A1AQ" calledService_ExternalService="_mONx8NntEemd7ayVqW_B5g" role_ExternalService="_08rR0NnqEemd7ayVqW_B5g">
+        <parameterAssignments id="_kt5ykHsLEeqYWMvhUxd_6Q">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_lniJQHsLEeqYWMvhUxd_6Q" externalCallAction="_od5iUNn9EemNpY8gd-A1AQ" parameter="//@interfaces__Repository.0/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_m5YLqHsLEeqYWMvhUxd_6Q" parameter="//@interfaces__Repository.4/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_od5iUNn9EemNpY8gd-A1AQ" entityName="recordOrder" predecessor_AbstractAction="_nEiisNn9EemNpY8gd-A1AQ" successor_AbstractAction="_duxRs9nzEemNpY8gd-A1AQ" calledService_ExternalService="_MgI_UNnvEemNpY8gd-A1AQ" role_ExternalService="_CKIbgHsWEeqS8O6nJaozEA">
+        <parameterAssignments id="_lL2S0HsLEeqYWMvhUxd_6Q">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_nnIpgHsLEeqYWMvhUxd_6Q" externalCallAction="_od5iUNn9EemNpY8gd-A1AQ" parameter="//@interfaces__Repository.1/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions_1:And" id="_q5cVbXyYEeqKrOn0h8JU1g">
+            <left xsi:type="expressions:ReturnCharacteristicReference" id="_rSThX3yYEeqKrOn0h8JU1g" externalCallAction="_LsULEHyYEeqKrOn0h8JU1g"/>
+            <right xsi:type="expressions:SeffParameterCharacteristicReference" id="_tXiIhHyYEeqKrOn0h8JU1g" parameter="//@interfaces__Repository.4/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          </rhs>
+        </parameterAssignments>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_LsULEHyYEeqKrOn0h8JU1g" entityName="read customer from DB" predecessor_AbstractAction="_duxRstnzEemNpY8gd-A1AQ" successor_AbstractAction="_mQeBcNn9EemNpY8gd-A1AQ" calledService_ExternalService="_Z8TXgHvXEeqZ0-iWUzVwFQ" role_ExternalService="_CKIbgHsWEeqS8O6nJaozEA">
+        <parameterAssignments id="_lk7HwHyYEeqKrOn0h8JU1g">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_mCP88HyYEeqKrOn0h8JU1g" externalCallAction="_LsULEHyYEeqKrOn0h8JU1g" parameter="//@interfaces__Repository.2/@signatures__OperationInterface.2/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_mhRbSHyYEeqKrOn0h8JU1g" parameter="//@interfaces__Repository.4/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+      <returnAssignments id="_yRsmUHyhEeq6D_7WvQZrjA">
+        <lhs xsi:type="expressions:SeffReturnCharacteristicReference" id="_ykEvs3yhEeq6D_7WvQZrjA"/>
+        <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_zK10yHyhEeq6D_7WvQZrjA" parameter="//@interfaces__Repository.4/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+      </returnAssignments>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_eYjOgHsVEeqS8O6nJaozEA" describedService__SEFF="_FkoB4HsVEeqS8O6nJaozEA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_esMjQHsVEeqS8O6nJaozEA" successor_AbstractAction="_sY7ZIHv-EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_esNKUHsVEeqS8O6nJaozEA" predecessor_AbstractAction="_mTC_4HsVEeqS8O6nJaozEA"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_lRYukHsVEeqS8O6nJaozEA" entityName="updateInventory" predecessor_AbstractAction="_sY7ZIHv-EeqZ0-iWUzVwFQ" successor_AbstractAction="_QLqHkHv9EeqZ0-iWUzVwFQ" calledService_ExternalService="_mONx8NntEemd7ayVqW_B5g" role_ExternalService="_08rR0NnqEemd7ayVqW_B5g">
+        <parameterAssignments id="_0VvekHsVEeqS8O6nJaozEA">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_0p5JoHsVEeqS8O6nJaozEA" externalCallAction="_lRYukHsVEeqS8O6nJaozEA" parameter="//@interfaces__Repository.0/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_1N84-HsVEeqS8O6nJaozEA" parameter="//@interfaces__Repository.4/@signatures__OperationInterface.1/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_mTC_4HsVEeqS8O6nJaozEA" entityName="recordLoyaltyOrder" predecessor_AbstractAction="_QLqHkHv9EeqZ0-iWUzVwFQ" successor_AbstractAction="_esNKUHsVEeqS8O6nJaozEA" calledService_ExternalService="_wMBe4NntEemd7ayVqW_B5g" role_ExternalService="_6xLnENnqEemd7ayVqW_B5g">
+        <parameterAssignments id="_3PIGgHsVEeqS8O6nJaozEA">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_3nhYYHsVEeqS8O6nJaozEA" externalCallAction="_mTC_4HsVEeqS8O6nJaozEA" parameter="//@interfaces__Repository.1/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions_1:And" id="_ax0DLXybEeqscZLjTKPARg">
+            <left xsi:type="expressions:ReturnCharacteristicReference" id="_bY7Gf3ybEeqscZLjTKPARg" externalCallAction="_sY7ZIHv-EeqZ0-iWUzVwFQ"/>
+            <right xsi:type="expressions:SeffParameterCharacteristicReference" id="_dBu3ZHybEeqscZLjTKPARg" parameter="//@interfaces__Repository.4/@signatures__OperationInterface.1/@parameters__OperationSignature.0"/>
+          </rhs>
+        </parameterAssignments>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_QLqHkHv9EeqZ0-iWUzVwFQ" entityName="recorOrder" predecessor_AbstractAction="_lRYukHsVEeqS8O6nJaozEA" successor_AbstractAction="_mTC_4HsVEeqS8O6nJaozEA" calledService_ExternalService="_MgI_UNnvEemNpY8gd-A1AQ" role_ExternalService="_CKIbgHsWEeqS8O6nJaozEA">
+        <parameterAssignments id="_6vN7QHyYEeqKrOn0h8JU1g">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_69LewHyYEeqKrOn0h8JU1g" externalCallAction="_QLqHkHv9EeqZ0-iWUzVwFQ" parameter="//@interfaces__Repository.2/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions_1:And" id="_8tV003yYEeqKrOn0h8JU1g">
+            <left xsi:type="expressions:ReturnCharacteristicReference" id="_9XzuL3yYEeqKrOn0h8JU1g" externalCallAction="_sY7ZIHv-EeqZ0-iWUzVwFQ"/>
+            <right xsi:type="expressions:SeffParameterCharacteristicReference" id="_AItIhHyZEeqKrOn0h8JU1g" parameter="//@interfaces__Repository.4/@signatures__OperationInterface.1/@parameters__OperationSignature.0"/>
+          </rhs>
+        </parameterAssignments>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_sY7ZIHv-EeqZ0-iWUzVwFQ" entityName="read customer" predecessor_AbstractAction="_esMjQHsVEeqS8O6nJaozEA" successor_AbstractAction="_lRYukHsVEeqS8O6nJaozEA" calledService_ExternalService="_Z8TXgHvXEeqZ0-iWUzVwFQ" role_ExternalService="_CKIbgHsWEeqS8O6nJaozEA">
+        <parameterAssignments id="_1f1sUHyYEeqKrOn0h8JU1g">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_2KPUMHyYEeqKrOn0h8JU1g" externalCallAction="_sY7ZIHv-EeqZ0-iWUzVwFQ" parameter="//@interfaces__Repository.2/@signatures__OperationInterface.2/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_3jdw-HyYEeqKrOn0h8JU1g" parameter="//@interfaces__Repository.4/@signatures__OperationInterface.1/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+      <returnAssignments id="_0m2f0HyhEeq6D_7WvQZrjA">
+        <lhs xsi:type="expressions:SeffReturnCharacteristicReference" id="_05-QE3yhEeq6D_7WvQZrjA"/>
+        <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_1ctwyHyhEeq6D_7WvQZrjA" parameter="//@interfaces__Repository.4/@signatures__OperationInterface.1/@parameters__OperationSignature.0"/>
+      </returnAssignments>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_qw4T8HtTEeqdr_-YUYcTWA" describedService__SEFF="_bFWPMHtTEeqdr_-YUYcTWA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_rFjjcHtTEeqdr_-YUYcTWA" successor_AbstractAction="_dQ1OEHv9EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_rFjjcXtTEeqdr_-YUYcTWA" predecessor_AbstractAction="_YtHLQHv9EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_YtHLQHv9EeqZ0-iWUzVwFQ" entityName="recordLoyaltyCustomer" predecessor_AbstractAction="_dQ1OEHv9EeqZ0-iWUzVwFQ" successor_AbstractAction="_rFjjcXtTEeqdr_-YUYcTWA" calledService_ExternalService="_oF5vcHvXEeqZ0-iWUzVwFQ" role_ExternalService="_6xLnENnqEemd7ayVqW_B5g">
+        <parameterAssignments id="_fUdH4HybEeqscZLjTKPARg">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_fh1ckHybEeqscZLjTKPARg" externalCallAction="_YtHLQHv9EeqZ0-iWUzVwFQ" parameter="//@interfaces__Repository.1/@signatures__OperationInterface.1/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_jdgA6HybEeqscZLjTKPARg" parameter="//@interfaces__Repository.4/@signatures__OperationInterface.2/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_dQ1OEHv9EeqZ0-iWUzVwFQ" entityName="recordCustomer" predecessor_AbstractAction="_rFjjcHtTEeqdr_-YUYcTWA" successor_AbstractAction="_YtHLQHv9EeqZ0-iWUzVwFQ" calledService_ExternalService="_Vp5uMHvXEeqZ0-iWUzVwFQ" role_ExternalService="_CKIbgHsWEeqS8O6nJaozEA">
+        <parameterAssignments id="_es5YoHybEeqscZLjTKPARg">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_g58fAHybEeqscZLjTKPARg" externalCallAction="_dQ1OEHv9EeqZ0-iWUzVwFQ" parameter="//@interfaces__Repository.2/@signatures__OperationInterface.1/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_iTQbWHybEeqscZLjTKPARg" parameter="//@interfaces__Repository.4/@signatures__OperationInterface.2/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+      <returnAssignments id="_27cYoHyhEeq6D_7WvQZrjA">
+        <lhs xsi:type="expressions:SeffReturnCharacteristicReference" id="_3SkfI3yhEeq6D_7WvQZrjA"/>
+        <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_32coSHyhEeq6D_7WvQZrjA" parameter="//@interfaces__Repository.4/@signatures__OperationInterface.2/@parameters__OperationSignature.0"/>
+      </returnAssignments>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_FhAXcHieEemJObo0kKFqqQ" entityName="InventoryLogic">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_yQ19sNnqEemd7ayVqW_B5g" entityName="InventoryLogic.provided.IStoreInventory" providedInterface__OperationProvidedRole="_rPI1gNnqEemd7ayVqW_B5g"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_E1vAAHpvEeq8vLY4ZcVdxA" entityName="InventoryLogic.required.IInventoryDB" requiredInterface__OperationRequiredRole="_quRH4HpuEeq8vLY4ZcVdxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_138QINn-EemNpY8gd-A1AQ" describedService__SEFF="_mONx8NntEemd7ayVqW_B5g">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_2It3E9n-EemNpY8gd-A1AQ" successor_AbstractAction="_3L81sNn-EemNpY8gd-A1AQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_2It3FNn-EemNpY8gd-A1AQ" predecessor_AbstractAction="_vJirAHsLEeqYWMvhUxd_6Q"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_3L81sNn-EemNpY8gd-A1AQ" entityName="calculateNewInventory" predecessor_AbstractAction="_2It3E9n-EemNpY8gd-A1AQ" successor_AbstractAction="_vJirAHsLEeqYWMvhUxd_6Q"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_vJirAHsLEeqYWMvhUxd_6Q" entityName="updateDB" predecessor_AbstractAction="_3L81sNn-EemNpY8gd-A1AQ" successor_AbstractAction="_2It3FNn-EemNpY8gd-A1AQ" calledService_ExternalService="_sfvFgHpuEeq8vLY4ZcVdxA" role_ExternalService="_E1vAAHpvEeq8vLY4ZcVdxA">
+        <parameterAssignments id="_7rNb0HsLEeqYWMvhUxd_6Q">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_8G6gYHsLEeqYWMvhUxd_6Q" externalCallAction="_vJirAHsLEeqYWMvhUxd_6Q" parameter="//@interfaces__Repository.5/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_9dRPWHsLEeqYWMvhUxd_6Q" parameter="//@interfaces__Repository.0/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_YlSMMNnvEemNpY8gd-A1AQ" entityName="LoyaltyManagementLogic">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_b4JEENnvEemNpY8gd-A1AQ" entityName="LoyaltyManagementLogic.provided.ILoyaltyManagementOrderProcessing" providedInterface__OperationProvidedRole="_3eE3kNnqEemd7ayVqW_B5g"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_I0E10HvYEeqZ0-iWUzVwFQ" entityName="LoyaltyManagementLogic.provided.ILoyaltyManagementDataReader" providedInterface__OperationProvidedRole="_AaVjsHvYEeqZ0-iWUzVwFQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_xIqXcHp5Eeq8vLY4ZcVdxA" entityName="LoyaltyManagementLogic.required.ILoyaltyOrderDB" requiredInterface__OperationRequiredRole="_ogxUkHp5Eeq8vLY4ZcVdxA"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_TCmfUHvYEeqZ0-iWUzVwFQ" entityName="LoyaltyManagementLogic.required.ILoyaltyCustomerDB" requiredInterface__OperationRequiredRole="_NsTwEHvYEeqZ0-iWUzVwFQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_b4b_ANnvEemNpY8gd-A1AQ" describedService__SEFF="_wMBe4NntEemd7ayVqW_B5g">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_b4b_AdnvEemNpY8gd-A1AQ" successor_AbstractAction="_3x_XcNn9EemNpY8gd-A1AQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_b4b_AtnvEemNpY8gd-A1AQ" predecessor_AbstractAction="_QM4Tr3sNEeqYWMvhUxd_6Q"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_3x_XcNn9EemNpY8gd-A1AQ" entityName="calculatePoints" predecessor_AbstractAction="_b4b_AdnvEemNpY8gd-A1AQ" successor_AbstractAction="_QM4Tr3sNEeqYWMvhUxd_6Q"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_QM4Tr3sNEeqYWMvhUxd_6Q" entityName="recordLoayltyOrder" predecessor_AbstractAction="_3x_XcNn9EemNpY8gd-A1AQ" successor_AbstractAction="_b4b_AtnvEemNpY8gd-A1AQ" calledService_ExternalService="_qKQa4Hp5Eeq8vLY4ZcVdxA" role_ExternalService="_xIqXcHp5Eeq8vLY4ZcVdxA">
+        <parameterAssignments id="_hi4WIHsNEeqYWMvhUxd_6Q">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_h4KCkHsNEeqYWMvhUxd_6Q" externalCallAction="_QM4Tr3sNEeqYWMvhUxd_6Q" parameter="//@interfaces__Repository.8/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_iipxGHsNEeqYWMvhUxd_6Q" parameter="//@interfaces__Repository.1/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_I0TfUHvYEeqZ0-iWUzVwFQ" describedService__SEFF="_Bu3GoHvYEeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_I0UGYHvYEeqZ0-iWUzVwFQ" successor_AbstractAction="_KNqNMHv_EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_I0UGYXvYEeqZ0-iWUzVwFQ" predecessor_AbstractAction="_KNqNMHv_EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_KNqNMHv_EeqZ0-iWUzVwFQ" entityName="read orders from db" predecessor_AbstractAction="_I0UGYHvYEeqZ0-iWUzVwFQ" successor_AbstractAction="_I0UGYXvYEeqZ0-iWUzVwFQ" calledService_ExternalService="_sqtlcHp5Eeq8vLY4ZcVdxA" role_ExternalService="_xIqXcHp5Eeq8vLY4ZcVdxA"/>
+      <returnAssignments id="_HbgcMHyjEeq6D_7WvQZrjA">
+        <lhs xsi:type="expressions:SeffReturnCharacteristicReference" id="_HzdCE3yjEeq6D_7WvQZrjA"/>
+        <rhs xsi:type="expressions:ReturnCharacteristicReference" id="_IbQo93yjEeq6D_7WvQZrjA" externalCallAction="_KNqNMHv_EeqZ0-iWUzVwFQ"/>
+      </returnAssignments>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_I06jUHvYEeqZ0-iWUzVwFQ" describedService__SEFF="_E2-HEHvYEeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_I07KYHvYEeqZ0-iWUzVwFQ" successor_AbstractAction="_PMKukHv_EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_I07KYXvYEeqZ0-iWUzVwFQ" predecessor_AbstractAction="_PMKukHv_EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_PMKukHv_EeqZ0-iWUzVwFQ" entityName="read customer from DB" predecessor_AbstractAction="_I07KYHvYEeqZ0-iWUzVwFQ" successor_AbstractAction="_I07KYXvYEeqZ0-iWUzVwFQ" calledService_ExternalService="_RMTsEHvYEeqZ0-iWUzVwFQ" role_ExternalService="_TCmfUHvYEeqZ0-iWUzVwFQ"/>
+      <returnAssignments id="_K_VvUHyjEeq6D_7WvQZrjA">
+        <lhs xsi:type="expressions:SeffReturnCharacteristicReference" id="_LX7OY3yjEeq6D_7WvQZrjA"/>
+        <rhs xsi:type="expressions:ReturnCharacteristicReference" id="_MCnKJ3yjEeq6D_7WvQZrjA" externalCallAction="_PMKukHv_EeqZ0-iWUzVwFQ"/>
+      </returnAssignments>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_LY2fsHvYEeqZ0-iWUzVwFQ" describedService__SEFF="_oF5vcHvXEeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_LriyMHvYEeqZ0-iWUzVwFQ" successor_AbstractAction="_TjNAQHv_EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_LrjZQHvYEeqZ0-iWUzVwFQ" predecessor_AbstractAction="_TjNAQHv_EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_TjNAQHv_EeqZ0-iWUzVwFQ" entityName="store user in DB" predecessor_AbstractAction="_LriyMHvYEeqZ0-iWUzVwFQ" successor_AbstractAction="_LrjZQHvYEeqZ0-iWUzVwFQ" calledService_ExternalService="_OsSmYHvYEeqZ0-iWUzVwFQ" role_ExternalService="_TCmfUHvYEeqZ0-iWUzVwFQ">
+        <parameterAssignments id="_SsKRAHyjEeq6D_7WvQZrjA">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_TmlR4HyjEeq6D_7WvQZrjA" externalCallAction="_TjNAQHv_EeqZ0-iWUzVwFQ" parameter="//@interfaces__Repository.10/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_ULFtKHyjEeq6D_7WvQZrjA" parameter="//@interfaces__Repository.1/@signatures__OperationInterface.1/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_aQmpENnwEemNpY8gd-A1AQ" entityName="CustomerOrderManagementLogic">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_s89agNnwEemNpY8gd-A1AQ" entityName="CustomerOrderManagementLogic.provided.ICustomerOrderManagement" providedInterface__OperationProvidedRole="_AI9kENnrEemd7ayVqW_B5g"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_obHDYHp3Eeq8vLY4ZcVdxA" entityName="CustomerOrderManagementLogic.required.ICustomerDataDB" requiredInterface__OperationRequiredRole="_ltmUQHp3Eeq8vLY4ZcVdxA"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_-R6XkHp3Eeq8vLY4ZcVdxA" entityName="CustomerOrderManagementLogic.required.IOrderDB" requiredInterface__OperationRequiredRole="_6wRc0Hp3Eeq8vLY4ZcVdxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_s9HLgNnwEemNpY8gd-A1AQ" describedService__SEFF="_MgI_UNnvEemNpY8gd-A1AQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_s9HLgdnwEemNpY8gd-A1AQ" successor_AbstractAction="_FNHTH3sQEeqS8O6nJaozEA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_s9HLgtnwEemNpY8gd-A1AQ" predecessor_AbstractAction="_FNHTH3sQEeqS8O6nJaozEA"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_FNHTH3sQEeqS8O6nJaozEA" entityName="storeOrderInDB" predecessor_AbstractAction="_s9HLgdnwEemNpY8gd-A1AQ" successor_AbstractAction="_s9HLgtnwEemNpY8gd-A1AQ" calledService_ExternalService="_acFuUHp4Eeq8vLY4ZcVdxA" role_ExternalService="_-R6XkHp3Eeq8vLY4ZcVdxA">
+        <parameterAssignments id="_vJjf0HsQEeqS8O6nJaozEA">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_v1OTAHsQEeqS8O6nJaozEA" externalCallAction="_FNHTH3sQEeqS8O6nJaozEA" parameter="//@interfaces__Repository.7/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_x7hRKHsQEeqS8O6nJaozEA" parameter="//@interfaces__Repository.2/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_hvSysHvXEeqZ0-iWUzVwFQ" describedService__SEFF="_Vp5uMHvXEeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_iCpMgHvXEeqZ0-iWUzVwFQ" successor_AbstractAction="_YXz0MHv-EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_iCpMgXvXEeqZ0-iWUzVwFQ" predecessor_AbstractAction="_YXz0MHv-EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_YXz0MHv-EeqZ0-iWUzVwFQ" entityName="store customer in db" predecessor_AbstractAction="_iCpMgHvXEeqZ0-iWUzVwFQ" successor_AbstractAction="_iCpMgXvXEeqZ0-iWUzVwFQ" calledService_ExternalService="_-5ptAHp3Eeq8vLY4ZcVdxA" role_ExternalService="_obHDYHp3Eeq8vLY4ZcVdxA">
+        <parameterAssignments id="_omsGQHyxEeq6D_7WvQZrjA">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_o7_n4HyxEeq6D_7WvQZrjA" externalCallAction="_YXz0MHv-EeqZ0-iWUzVwFQ" parameter="//@interfaces__Repository.6/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_qBLuWHyxEeq6D_7WvQZrjA" parameter="//@interfaces__Repository.2/@signatures__OperationInterface.1/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_iYh88HvXEeqZ0-iWUzVwFQ" describedService__SEFF="_Z8TXgHvXEeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_imti4HvXEeqZ0-iWUzVwFQ" successor_AbstractAction="_clANYHv-EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_imti4XvXEeqZ0-iWUzVwFQ" predecessor_AbstractAction="_clANYHv-EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_clANYHv-EeqZ0-iWUzVwFQ" entityName="read customer from DB" predecessor_AbstractAction="_imti4HvXEeqZ0-iWUzVwFQ" successor_AbstractAction="_imti4XvXEeqZ0-iWUzVwFQ" calledService_ExternalService="_Bd7AkHp4Eeq8vLY4ZcVdxA" role_ExternalService="_obHDYHp3Eeq8vLY4ZcVdxA"/>
+      <returnAssignments id="_rdQDwHyxEeq6D_7WvQZrjA">
+        <lhs xsi:type="expressions:SeffReturnCharacteristicReference" id="_rydes3yxEeq6D_7WvQZrjA"/>
+        <rhs xsi:type="expressions:ReturnCharacteristicReference" id="_snbX13yxEeq6D_7WvQZrjA" externalCallAction="_clANYHv-EeqZ0-iWUzVwFQ"/>
+      </returnAssignments>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:CompositeComponent" id="_mjuaEHpuEeq8vLY4ZcVdxA" entityName="Inventory">
+    <assemblyContexts__ComposedStructure id="_hXl28HpvEeq8vLY4ZcVdxA" entityName="Assembly_InventoryLogic" encapsulatedComponent__AssemblyContext="_FhAXcHieEemJObo0kKFqqQ"/>
+    <assemblyContexts__ComposedStructure id="_iwx3cHpvEeq8vLY4ZcVdxA" entityName="Assembly_InventoryDB" encapsulatedComponent__AssemblyContext="_ovzQEHpuEeq8vLY4ZcVdxA"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_lNUyYHpvEeq8vLY4ZcVdxA" entityName="IInventoryDB" requiringAssemblyContext_AssemblyConnector="_hXl28HpvEeq8vLY4ZcVdxA" providingAssemblyContext_AssemblyConnector="_iwx3cHpvEeq8vLY4ZcVdxA" providedRole_AssemblyConnector="_BesywHpvEeq8vLY4ZcVdxA" requiredRole_AssemblyConnector="_E1vAAHpvEeq8vLY4ZcVdxA"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_lv1CgHpvEeq8vLY4ZcVdxA" entityName="IStoreInventory" innerProvidedRole_ProvidedDelegationConnector="_yQ19sNnqEemd7ayVqW_B5g" outerProvidedRole_ProvidedDelegationConnector="_bb4tgHpvEeq8vLY4ZcVdxA" assemblyContext_ProvidedDelegationConnector="_hXl28HpvEeq8vLY4ZcVdxA"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_bb4tgHpvEeq8vLY4ZcVdxA" entityName="Inventory.provided.IStoreInventory" providedInterface__OperationProvidedRole="_rPI1gNnqEemd7ayVqW_B5g"/>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_ovzQEHpuEeq8vLY4ZcVdxA" entityName="InventoryDB">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_BesywHpvEeq8vLY4ZcVdxA" entityName="InventoryDB.provided.IInventoryDB" providedInterface__OperationProvidedRole="_quRH4HpuEeq8vLY4ZcVdxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_BfXhIHpvEeq8vLY4ZcVdxA" describedService__SEFF="_sfvFgHpuEeq8vLY4ZcVdxA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_BfYIMHpvEeq8vLY4ZcVdxA" successor_AbstractAction="_BfYIMXpvEeq8vLY4ZcVdxA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_BfYIMXpvEeq8vLY4ZcVdxA" predecessor_AbstractAction="_BfYIMHpvEeq8vLY4ZcVdxA"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_BguzEHpvEeq8vLY4ZcVdxA" describedService__SEFF="_tVUpsHpuEeq8vLY4ZcVdxA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_BguzEXpvEeq8vLY4ZcVdxA" successor_AbstractAction="_BgvaIHpvEeq8vLY4ZcVdxA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_BgvaIHpvEeq8vLY4ZcVdxA" predecessor_AbstractAction="_BguzEXpvEeq8vLY4ZcVdxA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_j7TQMHp3Eeq8vLY4ZcVdxA" entityName="CustomerDB">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_nuoX4Hp3Eeq8vLY4ZcVdxA" entityName="CustomerDB.provided.ICustomerDB" providedInterface__OperationProvidedRole="_ltmUQHp3Eeq8vLY4ZcVdxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_EfjToHp6Eeq8vLY4ZcVdxA" describedService__SEFF="_-5ptAHp3Eeq8vLY4ZcVdxA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_EzSH8Hp6Eeq8vLY4ZcVdxA" successor_AbstractAction="_EzSH8Xp6Eeq8vLY4ZcVdxA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_EzSH8Xp6Eeq8vLY4ZcVdxA" predecessor_AbstractAction="_EzSH8Hp6Eeq8vLY4ZcVdxA"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_FW1g8Hp6Eeq8vLY4ZcVdxA" describedService__SEFF="_Bd7AkHp4Eeq8vLY4ZcVdxA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_FmYY0Hp6Eeq8vLY4ZcVdxA" successor_AbstractAction="_FmY_4Hp6Eeq8vLY4ZcVdxA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_FmY_4Hp6Eeq8vLY4ZcVdxA" predecessor_AbstractAction="_FmYY0Hp6Eeq8vLY4ZcVdxA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_776wkHp3Eeq8vLY4ZcVdxA" entityName="OrderDB">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_9t0zEHp3Eeq8vLY4ZcVdxA" entityName="OrderDB.provided.IOrderDB" providedInterface__OperationProvidedRole="_6wRc0Hp3Eeq8vLY4ZcVdxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_GHL_0Hp6Eeq8vLY4ZcVdxA" describedService__SEFF="_acFuUHp4Eeq8vLY4ZcVdxA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_GWoKAHp6Eeq8vLY4ZcVdxA" successor_AbstractAction="_GWoKAXp6Eeq8vLY4ZcVdxA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_GWoKAXp6Eeq8vLY4ZcVdxA" predecessor_AbstractAction="_GWoKAHp6Eeq8vLY4ZcVdxA"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_GyXDwHp6Eeq8vLY4ZcVdxA" describedService__SEFF="_cso0oHp4Eeq8vLY4ZcVdxA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_HBdPsHp6Eeq8vLY4ZcVdxA" successor_AbstractAction="_HBdPsXp6Eeq8vLY4ZcVdxA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_HBdPsXp6Eeq8vLY4ZcVdxA" predecessor_AbstractAction="_HBdPsHp6Eeq8vLY4ZcVdxA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_uJgesHp5Eeq8vLY4ZcVdxA" entityName="LoyaltyOrderDB">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_vn36IHp5Eeq8vLY4ZcVdxA" entityName="LoyaltyOrderDB.provided.ILoyaltyOrderDB" providedInterface__OperationProvidedRole="_ogxUkHp5Eeq8vLY4ZcVdxA"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_voIY0Hp5Eeq8vLY4ZcVdxA" describedService__SEFF="_qKQa4Hp5Eeq8vLY4ZcVdxA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_voI_4Hp5Eeq8vLY4ZcVdxA" successor_AbstractAction="_voI_4Xp5Eeq8vLY4ZcVdxA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_voI_4Xp5Eeq8vLY4ZcVdxA" predecessor_AbstractAction="_voI_4Hp5Eeq8vLY4ZcVdxA"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_vpLhsHp5Eeq8vLY4ZcVdxA" describedService__SEFF="_sqtlcHp5Eeq8vLY4ZcVdxA">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_vpLhsXp5Eeq8vLY4ZcVdxA" successor_AbstractAction="_vpMIwHp5Eeq8vLY4ZcVdxA"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_vpMIwHp5Eeq8vLY4ZcVdxA" predecessor_AbstractAction="_vpLhsXp5Eeq8vLY4ZcVdxA"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_UmALwHvYEeqZ0-iWUzVwFQ" entityName="LoyaltyCustomerDB">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_V6sGwHvYEeqZ0-iWUzVwFQ" entityName="LoyaltyCustomerDB.provided.ILoyaltyCustomerDB" providedInterface__OperationProvidedRole="_NsTwEHvYEeqZ0-iWUzVwFQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_V6vKEHvYEeqZ0-iWUzVwFQ" describedService__SEFF="_OsSmYHvYEeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_V6vxIHvYEeqZ0-iWUzVwFQ" successor_AbstractAction="_V6wYMHvYEeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_V6wYMHvYEeqZ0-iWUzVwFQ" predecessor_AbstractAction="_V6vxIHvYEeqZ0-iWUzVwFQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_V7O5UHvYEeqZ0-iWUzVwFQ" describedService__SEFF="_RMTsEHvYEeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_V7O5UXvYEeqZ0-iWUzVwFQ" successor_AbstractAction="_V7O5UnvYEeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_V7O5UnvYEeqZ0-iWUzVwFQ" predecessor_AbstractAction="_V7O5UXvYEeqZ0-iWUzVwFQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="subsystem:SubSystem" id="_Q3Pp8Hv3EeqZ0-iWUzVwFQ" entityName="Marketing">
+    <assemblyContexts__ComposedStructure id="_jq6c8Hv6EeqZ0-iWUzVwFQ" entityName="Assembly_MarketingAnalysis" encapsulatedComponent__AssemblyContext="_TOaVoHv3EeqZ0-iWUzVwFQ"/>
+    <assemblyContexts__ComposedStructure id="_lTvb8Hv6EeqZ0-iWUzVwFQ" entityName="Assembly_Advertisement" encapsulatedComponent__AssemblyContext="_UGM5QHv3EeqZ0-iWUzVwFQ"/>
+    <assemblyContexts__ComposedStructure id="_uj5_wHv6EeqZ0-iWUzVwFQ" entityName="Assembly_CustomerProfileDB" encapsulatedComponent__AssemblyContext="_M5CSgHv4EeqZ0-iWUzVwFQ"/>
+    <assemblyContexts__ComposedStructure id="_yspWwHv6EeqZ0-iWUzVwFQ" entityName="Assembly_AdvertisementAdmissionDB" encapsulatedComponent__AssemblyContext="_wIY8MHv4EeqZ0-iWUzVwFQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_tqwKMHv6EeqZ0-iWUzVwFQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_yB9iYHv3EeqZ0-iWUzVwFQ" outerProvidedRole_ProvidedDelegationConnector="_s9bRgHv3EeqZ0-iWUzVwFQ" assemblyContext_ProvidedDelegationConnector="_lTvb8Hv6EeqZ0-iWUzVwFQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_uImj0Hv6EeqZ0-iWUzVwFQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_wDbZIHv3EeqZ0-iWUzVwFQ" outerProvidedRole_ProvidedDelegationConnector="_slpDoHv3EeqZ0-iWUzVwFQ" assemblyContext_ProvidedDelegationConnector="_jq6c8Hv6EeqZ0-iWUzVwFQ"/>
+    <connectors__ComposedStructure xsi:type="composition:RequiredDelegationConnector" id="_xaOsoHv6EeqZ0-iWUzVwFQ" entityName="newRequiredDelegationConnector" innerRequiredRole_RequiredDelegationConnector="_2ybnwHv3EeqZ0-iWUzVwFQ" outerRequiredRole_RequiredDelegationConnector="_4GyyoHv3EeqZ0-iWUzVwFQ" assemblyContext_RequiredDelegationConnector="_jq6c8Hv6EeqZ0-iWUzVwFQ"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_ySlQ8Hv6EeqZ0-iWUzVwFQ" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_jq6c8Hv6EeqZ0-iWUzVwFQ" providingAssemblyContext_AssemblyConnector="_uj5_wHv6EeqZ0-iWUzVwFQ" providedRole_AssemblyConnector="_OKAyMHv4EeqZ0-iWUzVwFQ" requiredRole_AssemblyConnector="_LDqsUHv4EeqZ0-iWUzVwFQ"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_zut3wHv6EeqZ0-iWUzVwFQ" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_lTvb8Hv6EeqZ0-iWUzVwFQ" providingAssemblyContext_AssemblyConnector="_yspWwHv6EeqZ0-iWUzVwFQ" providedRole_AssemblyConnector="_xWtJcHv4EeqZ0-iWUzVwFQ" requiredRole_AssemblyConnector="_unWAMHv4EeqZ0-iWUzVwFQ"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_slpDoHv3EeqZ0-iWUzVwFQ" entityName="Marketing.provided.IMarketAnalysis" providedInterface__OperationProvidedRole="_VqnSUHv3EeqZ0-iWUzVwFQ"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_s9bRgHv3EeqZ0-iWUzVwFQ" entityName="Marketing.provided.IAdvertisement" providedInterface__OperationProvidedRole="_fF9LYHv3EeqZ0-iWUzVwFQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_4GyyoHv3EeqZ0-iWUzVwFQ" entityName="Marketing.required.ILoyaltyManagementDataReader" requiredInterface__OperationRequiredRole="_AaVjsHvYEeqZ0-iWUzVwFQ"/>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_TOaVoHv3EeqZ0-iWUzVwFQ" entityName="MarketingAnalysis">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_wDbZIHv3EeqZ0-iWUzVwFQ" entityName="MarketingAnalysis.provided.IMarketAnalysis" providedInterface__OperationProvidedRole="_VqnSUHv3EeqZ0-iWUzVwFQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_2ybnwHv3EeqZ0-iWUzVwFQ" entityName="MarketingAnalysis.required.ILoyaltyManagementDataReader" requiredInterface__OperationRequiredRole="_AaVjsHvYEeqZ0-iWUzVwFQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_LDqsUHv4EeqZ0-iWUzVwFQ" entityName="MarketingAnalysis.required.ICustomerProfileDB" requiredInterface__OperationRequiredRole="_F0_oAHv4EeqZ0-iWUzVwFQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_wDdOUHv3EeqZ0-iWUzVwFQ" describedService__SEFF="_XGyVYHv3EeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_wDdOUXv3EeqZ0-iWUzVwFQ" successor_AbstractAction="_cytcwHv_EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_wDdOUnv3EeqZ0-iWUzVwFQ" predecessor_AbstractAction="_hMx0UHv_EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_cytcwHv_EeqZ0-iWUzVwFQ" entityName="read customer from DB" predecessor_AbstractAction="_wDdOUXv3EeqZ0-iWUzVwFQ" successor_AbstractAction="_9jrdkHyxEeq6D_7WvQZrjA" calledService_ExternalService="_E2-HEHvYEeqZ0-iWUzVwFQ" role_ExternalService="_2ybnwHv3EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_gYQnIHv_EeqZ0-iWUzVwFQ" entityName="calculate profiles" predecessor_AbstractAction="_9jrdkHyxEeq6D_7WvQZrjA" successor_AbstractAction="_hMx0UHv_EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_hMx0UHv_EeqZ0-iWUzVwFQ" entityName="store profiles in DB" predecessor_AbstractAction="_gYQnIHv_EeqZ0-iWUzVwFQ" successor_AbstractAction="_wDdOUnv3EeqZ0-iWUzVwFQ" calledService_ExternalService="_HL7lwHv4EeqZ0-iWUzVwFQ" role_ExternalService="_LDqsUHv4EeqZ0-iWUzVwFQ">
+        <parameterAssignments id="_5H2ygHyxEeq6D_7WvQZrjA">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_5WwKIHyxEeq6D_7WvQZrjA" externalCallAction="_hMx0UHv_EeqZ0-iWUzVwFQ" parameter="//@interfaces__Repository.13/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions_1:And" id="_J5F7HXyyEeq6D_7WvQZrjA">
+            <left xsi:type="expressions:ReturnCharacteristicReference" id="_KbCxkXyyEeq6D_7WvQZrjA" externalCallAction="_cytcwHv_EeqZ0-iWUzVwFQ"/>
+            <right xsi:type="expressions:ReturnCharacteristicReference" id="_M1_KEnyyEeq6D_7WvQZrjA" externalCallAction="_9jrdkHyxEeq6D_7WvQZrjA"/>
+          </rhs>
+        </parameterAssignments>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_9jrdkHyxEeq6D_7WvQZrjA" entityName="read orders from DB" predecessor_AbstractAction="_cytcwHv_EeqZ0-iWUzVwFQ" successor_AbstractAction="_gYQnIHv_EeqZ0-iWUzVwFQ" calledService_ExternalService="_Bu3GoHvYEeqZ0-iWUzVwFQ" role_ExternalService="_2ybnwHv3EeqZ0-iWUzVwFQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_wDzzoHv3EeqZ0-iWUzVwFQ" describedService__SEFF="_YqeVsHv3EeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_wDzzoXv3EeqZ0-iWUzVwFQ" successor_AbstractAction="_-_B_UHwDEeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_wDzzonv3EeqZ0-iWUzVwFQ" predecessor_AbstractAction="_-_B_UHwDEeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_-_B_UHwDEeqZ0-iWUzVwFQ" entityName="load customer profiles" predecessor_AbstractAction="_wDzzoXv3EeqZ0-iWUzVwFQ" successor_AbstractAction="_wDzzonv3EeqZ0-iWUzVwFQ" calledService_ExternalService="_JZoMYHv4EeqZ0-iWUzVwFQ" role_ExternalService="_LDqsUHv4EeqZ0-iWUzVwFQ"/>
+      <returnAssignments id="_R_L4gHyyEeq6D_7WvQZrjA">
+        <lhs xsi:type="expressions:SeffReturnCharacteristicReference" id="_SScys3yyEeq6D_7WvQZrjA"/>
+        <rhs xsi:type="expressions:ReturnCharacteristicReference" id="_TFupx3yyEeq6D_7WvQZrjA" externalCallAction="_-_B_UHwDEeqZ0-iWUzVwFQ"/>
+      </returnAssignments>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_wEKY8Hv3EeqZ0-iWUzVwFQ" describedService__SEFF="_barMcHv3EeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_wEKY8Xv3EeqZ0-iWUzVwFQ" successor_AbstractAction="_aZf68HwFEeqljJx6ROYHqw"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_wEKY8nv3EeqZ0-iWUzVwFQ" predecessor_AbstractAction="_aZf68HwFEeqljJx6ROYHqw"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_aZf68HwFEeqljJx6ROYHqw" entityName="load customers" predecessor_AbstractAction="_wEKY8Xv3EeqZ0-iWUzVwFQ" successor_AbstractAction="_wEKY8nv3EeqZ0-iWUzVwFQ" calledService_ExternalService="_E2-HEHvYEeqZ0-iWUzVwFQ" role_ExternalService="_2ybnwHv3EeqZ0-iWUzVwFQ"/>
+      <returnAssignments id="_YW0I8HyyEeq6D_7WvQZrjA">
+        <lhs xsi:type="expressions:SeffReturnCharacteristicReference" id="_YrA3Q3yyEeq6D_7WvQZrjA"/>
+        <rhs xsi:type="expressions:ReturnCharacteristicReference" id="_Zb3FZ3yyEeq6D_7WvQZrjA" externalCallAction="_aZf68HwFEeqljJx6ROYHqw"/>
+      </returnAssignments>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_IYrOQHwPEeqljJx6ROYHqw" describedService__SEFF="_CLhIcHwPEeqljJx6ROYHqw">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_Iy1asHwPEeqljJx6ROYHqw" successor_AbstractAction="_JgcHkHwPEeqljJx6ROYHqw"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_Iy1asXwPEeqljJx6ROYHqw" predecessor_AbstractAction="_JgcHkHwPEeqljJx6ROYHqw"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_JgcHkHwPEeqljJx6ROYHqw" entityName="load loyalty orders" predecessor_AbstractAction="_Iy1asHwPEeqljJx6ROYHqw" successor_AbstractAction="_Iy1asXwPEeqljJx6ROYHqw" calledService_ExternalService="_Bu3GoHvYEeqZ0-iWUzVwFQ" role_ExternalService="_2ybnwHv3EeqZ0-iWUzVwFQ"/>
+      <returnAssignments id="_b2t-UHyyEeq6D_7WvQZrjA">
+        <lhs xsi:type="expressions:SeffReturnCharacteristicReference" id="_cRa9Q3yyEeq6D_7WvQZrjA"/>
+        <rhs xsi:type="expressions:ReturnCharacteristicReference" id="_c43-13yyEeq6D_7WvQZrjA" externalCallAction="_JgcHkHwPEeqljJx6ROYHqw"/>
+      </returnAssignments>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_UGM5QHv3EeqZ0-iWUzVwFQ" entityName="Advertisement">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_yB9iYHv3EeqZ0-iWUzVwFQ" entityName="Advertisement.provided.IAdvertisement" providedInterface__OperationProvidedRole="_fF9LYHv3EeqZ0-iWUzVwFQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_unWAMHv4EeqZ0-iWUzVwFQ" entityName="Advertisement.required.IAdvertisementAdmissionDB" requiredInterface__OperationRequiredRole="_o-dsIHv4EeqZ0-iWUzVwFQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_yB-wgHv3EeqZ0-iWUzVwFQ" describedService__SEFF="_hJ1HoHv3EeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_yB-wgXv3EeqZ0-iWUzVwFQ" successor_AbstractAction="_pXAcEHwFEeqljJx6ROYHqw"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_yB-wgnv3EeqZ0-iWUzVwFQ" predecessor_AbstractAction="_pXAcEHwFEeqljJx6ROYHqw"/>
+      <steps_Behaviour xsi:type="seff:InternalAction" id="_pXAcEHwFEeqljJx6ROYHqw" entityName="create approval" predecessor_AbstractAction="_yB-wgXv3EeqZ0-iWUzVwFQ" successor_AbstractAction="_yB-wgnv3EeqZ0-iWUzVwFQ"/>
+      <returnAssignments id="_fIw94HyyEeq6D_7WvQZrjA">
+        <lhs xsi:type="expressions:SeffReturnCharacteristicReference" id="_ftjF43yyEeq6D_7WvQZrjA"/>
+        <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_hjBZyHyyEeq6D_7WvQZrjA" parameter="//@interfaces__Repository.12/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+      </returnAssignments>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_yCTgoHv3EeqZ0-iWUzVwFQ" describedService__SEFF="_kOWokHv3EeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_yCUHsHv3EeqZ0-iWUzVwFQ" successor_AbstractAction="_s9pyoHwFEeqljJx6ROYHqw"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_yCUHsXv3EeqZ0-iWUzVwFQ" predecessor_AbstractAction="_s9pyoHwFEeqljJx6ROYHqw"/>
+      <steps_Behaviour xsi:type="characterizedActions:CharacterizedExternalCallAction" id="_s9pyoHwFEeqljJx6ROYHqw" entityName="store admission" predecessor_AbstractAction="_yCUHsHv3EeqZ0-iWUzVwFQ" successor_AbstractAction="_yCUHsXv3EeqZ0-iWUzVwFQ" calledService_ExternalService="_qGqqUHv4EeqZ0-iWUzVwFQ" role_ExternalService="_unWAMHv4EeqZ0-iWUzVwFQ">
+        <parameterAssignments id="_ikYJEHyyEeq6D_7WvQZrjA">
+          <lhs xsi:type="expressions:ParameterCharacteristicReference" id="_juoVsHyyEeq6D_7WvQZrjA" externalCallAction="_s9pyoHwFEeqljJx6ROYHqw" parameter="//@interfaces__Repository.14/@signatures__OperationInterface.0/@parameters__OperationSignature.0"/>
+          <rhs xsi:type="expressions:SeffParameterCharacteristicReference" id="_lTFLCHyyEeq6D_7WvQZrjA" parameter="//@interfaces__Repository.12/@signatures__OperationInterface.1/@parameters__OperationSignature.0"/>
+        </parameterAssignments>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_M5CSgHv4EeqZ0-iWUzVwFQ" entityName="CustomerProfileDB">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_OKAyMHv4EeqZ0-iWUzVwFQ" entityName="CustomerProfileDB.provided.ICustomerProfileDB" providedInterface__OperationProvidedRole="_F0_oAHv4EeqZ0-iWUzVwFQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_OKBZQHv4EeqZ0-iWUzVwFQ" describedService__SEFF="_HL7lwHv4EeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_OKCAUHv4EeqZ0-iWUzVwFQ" successor_AbstractAction="_OKCAUXv4EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_OKCAUXv4EeqZ0-iWUzVwFQ" predecessor_AbstractAction="_OKCAUHv4EeqZ0-iWUzVwFQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_OKWwcHv4EeqZ0-iWUzVwFQ" describedService__SEFF="_JZoMYHv4EeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_OKWwcXv4EeqZ0-iWUzVwFQ" successor_AbstractAction="_OKWwcnv4EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_OKWwcnv4EeqZ0-iWUzVwFQ" predecessor_AbstractAction="_OKWwcXv4EeqZ0-iWUzVwFQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_wIY8MHv4EeqZ0-iWUzVwFQ" entityName="AdvertisementAdmissionDB">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_xWtJcHv4EeqZ0-iWUzVwFQ" entityName="AdvertisementAdmissionDB.provided.IAdvertisementAdmissionDB" providedInterface__OperationProvidedRole="_o-dsIHv4EeqZ0-iWUzVwFQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_xWuXkHv4EeqZ0-iWUzVwFQ" describedService__SEFF="_qGqqUHv4EeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_xWuXkXv4EeqZ0-iWUzVwFQ" successor_AbstractAction="_xWu-oHv4EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_xWu-oHv4EeqZ0-iWUzVwFQ" predecessor_AbstractAction="_xWuXkXv4EeqZ0-iWUzVwFQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="characterizedActions:CharacterizedResourceDemandingSEFF" id="_xXGLAHv4EeqZ0-iWUzVwFQ" describedService__SEFF="_sIR8wHv4EeqZ0-iWUzVwFQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_xXGLAXv4EeqZ0-iWUzVwFQ" successor_AbstractAction="_xXGLAnv4EeqZ0-iWUzVwFQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_xXGLAnv4EeqZ0-iWUzVwFQ" predecessor_AbstractAction="_xXGLAXv4EeqZ0-iWUzVwFQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_rPI1gNnqEemd7ayVqW_B5g" entityName="IStoreInventory">
+    <signatures__OperationInterface id="_mONx8NntEemd7ayVqW_B5g" entityName="updateInventory">
+      <parameters__OperationSignature dataType__Parameter="_UJfY7XigEemJObo0kKFqqQ" parameterName="order"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_3eE3kNnqEemd7ayVqW_B5g" entityName="ILoyaltyManagementOrderProcessing">
+    <signatures__OperationInterface id="_wMBe4NntEemd7ayVqW_B5g" entityName="recordOrder">
+      <parameters__OperationSignature dataType__Parameter="__e9qnXifEemJObo0kKFqqQ" parameterName="loyaltyOrder"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_oF5vcHvXEeqZ0-iWUzVwFQ" entityName="recordCustomer">
+      <parameters__OperationSignature dataType__Parameter="_68pUwHtPEeqdr_-YUYcTWA" parameterName="loyaltyCustomer"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_AI9kENnrEemd7ayVqW_B5g" entityName="ICustomerOrderManagement">
+    <signatures__OperationInterface id="_MgI_UNnvEemNpY8gd-A1AQ" entityName="recordOrder">
+      <parameters__OperationSignature dataType__Parameter="_UJfY7XigEemJObo0kKFqqQ" parameterName="order"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_Vp5uMHvXEeqZ0-iWUzVwFQ" entityName="recordCustomer">
+      <parameters__OperationSignature dataType__Parameter="_gs6ufYXsEemi6qN7GikhRQ" parameterName="customer"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_Z8TXgHvXEeqZ0-iWUzVwFQ" entityName="getCustomer" returnType__OperationSignature="_gs6ufYXsEemi6qN7GikhRQ">
+      <parameters__OperationSignature parameterName="customerID">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+      </parameters__OperationSignature>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_By41oNnzEemNpY8gd-A1AQ" entityName="IOnlineShop">
+    <signatures__OperationInterface id="_CjbhwNnzEemNpY8gd-A1AQ" entityName="checkout">
+      <parameters__OperationSignature dataType__Parameter="_I5_anXigEemJObo0kKFqqQ" parameterName="order"/>
+      <returnType__OperationSignature xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_Rdwp4HtTEeqdr_-YUYcTWA" entityName="register">
+      <parameters__OperationSignature dataType__Parameter="_gs6ufYXsEemi6qN7GikhRQ" parameterName="customer"/>
+      <returnType__OperationSignature xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_Qo4ZgNnzEemNpY8gd-A1AQ" entityName="IOfflineShop">
+    <signatures__OperationInterface id="_CjbhwNnzEemNpY8gd-A1Aa" entityName="checkout">
+      <parameters__OperationSignature dataType__Parameter="_Rb9cQHsVEeqS8O6nJaozEA" parameterName="order"/>
+      <returnType__OperationSignature xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_FkoB4HsVEeqS8O6nJaozEA" entityName="checkoutWithLoyalty">
+      <parameters__OperationSignature dataType__Parameter="__e9qnXifEemJObo0kKFqqQ" parameterName="order"/>
+      <returnType__OperationSignature xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_bFWPMHtTEeqdr_-YUYcTWA" entityName="register">
+      <parameters__OperationSignature dataType__Parameter="_68pUwHtPEeqdr_-YUYcTWA" parameterName="customer"/>
+      <returnType__OperationSignature xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository_1:DBOperationInterface" id="_quRH4HpuEeq8vLY4ZcVdxA" entityName="IInventoryDB">
+    <signatures__OperationInterface id="_sfvFgHpuEeq8vLY4ZcVdxA" entityName="add">
+      <parameters__OperationSignature dataType__Parameter="_UJfY7XigEemJObo0kKFqqQ" parameterName="order"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_tVUpsHpuEeq8vLY4ZcVdxA" entityName="get" returnType__OperationSignature="_UJfY7XigEemJObo0kKFqqQ"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository_1:DBOperationInterface" id="_ltmUQHp3Eeq8vLY4ZcVdxA" entityName="ICustomerDB">
+    <signatures__OperationInterface id="_-5ptAHp3Eeq8vLY4ZcVdxA" entityName="add">
+      <parameters__OperationSignature dataType__Parameter="_gs6ufYXsEemi6qN7GikhRQ" parameterName="customer"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_Bd7AkHp4Eeq8vLY4ZcVdxA" entityName="get" returnType__OperationSignature="_gs6ufYXsEemi6qN7GikhRQ"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository_1:DBOperationInterface" id="_6wRc0Hp3Eeq8vLY4ZcVdxA" entityName="IOrderDB">
+    <signatures__OperationInterface id="_acFuUHp4Eeq8vLY4ZcVdxA" entityName="add">
+      <parameters__OperationSignature dataType__Parameter="_UJfY7XigEemJObo0kKFqqQ" parameterName="order"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_cso0oHp4Eeq8vLY4ZcVdxA" entityName="get" returnType__OperationSignature="_UJfY7XigEemJObo0kKFqqQ"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository_1:DBOperationInterface" id="_ogxUkHp5Eeq8vLY4ZcVdxA" entityName="ILoyaltyOrderDB">
+    <signatures__OperationInterface id="_qKQa4Hp5Eeq8vLY4ZcVdxA" entityName="add">
+      <parameters__OperationSignature dataType__Parameter="__e9qnXifEemJObo0kKFqqQ" parameterName="order"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_sqtlcHp5Eeq8vLY4ZcVdxA" entityName="get" returnType__OperationSignature="__e9qnXifEemJObo0kKFqqQ"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_AaVjsHvYEeqZ0-iWUzVwFQ" entityName="ILoyaltyManagementDataReader">
+    <signatures__OperationInterface id="_Bu3GoHvYEeqZ0-iWUzVwFQ" entityName="getOrders" returnType__OperationSignature="_OPT5fHigEemJObo0kKFqqQ"/>
+    <signatures__OperationInterface id="_E2-HEHvYEeqZ0-iWUzVwFQ" entityName="getCustomer" returnType__OperationSignature="_ANSvAHtQEeqdr_-YUYcTWA"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository_1:DBOperationInterface" id="_NsTwEHvYEeqZ0-iWUzVwFQ" entityName="ILoyaltyCustomerDB">
+    <signatures__OperationInterface id="_OsSmYHvYEeqZ0-iWUzVwFQ" entityName="add">
+      <parameters__OperationSignature dataType__Parameter="_68pUwHtPEeqdr_-YUYcTWA" parameterName="customer"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_RMTsEHvYEeqZ0-iWUzVwFQ" entityName="get" returnType__OperationSignature="_68pUwHtPEeqdr_-YUYcTWA"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_VqnSUHv3EeqZ0-iWUzVwFQ" entityName="IMarketAnalysis">
+    <signatures__OperationInterface id="_XGyVYHv3EeqZ0-iWUzVwFQ" entityName="createCustomerProfiles">
+      <parameters__OperationSignature dataType__Parameter="_OPT5fHigEemJObo0kKFqqQ" parameterName="orders"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_YqeVsHv3EeqZ0-iWUzVwFQ" entityName="getCustomerProfiles" returnType__OperationSignature="_Ctb57HreEemf8oAvAsui2Q"/>
+    <signatures__OperationInterface id="_barMcHv3EeqZ0-iWUzVwFQ" entityName="getLoyaltyCustomers" returnType__OperationSignature="_ANSvAHtQEeqdr_-YUYcTWA"/>
+    <signatures__OperationInterface id="_CLhIcHwPEeqljJx6ROYHqw" entityName="getLoyaltyOrders" returnType__OperationSignature="_OPT5fHigEemJObo0kKFqqQ"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_fF9LYHv3EeqZ0-iWUzVwFQ" entityName="IAdvertisement">
+    <signatures__OperationInterface id="_hJ1HoHv3EeqZ0-iWUzVwFQ" entityName="approveAdvertisementSchedule" returnType__OperationSignature="_5ePCHYXjEemi6qN7GikhRQ">
+      <parameters__OperationSignature dataType__Parameter="_2OV7_XrdEemf8oAvAsui2Q" parameterName="schedule"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_kOWokHv3EeqZ0-iWUzVwFQ" entityName="storeAdvertisementAdmission">
+      <parameters__OperationSignature dataType__Parameter="_5ePCHYXjEemi6qN7GikhRQ" parameterName="admission"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository_1:DBOperationInterface" id="_F0_oAHv4EeqZ0-iWUzVwFQ" entityName="ICustomerProfileDB">
+    <signatures__OperationInterface id="_HL7lwHv4EeqZ0-iWUzVwFQ" entityName="add">
+      <parameters__OperationSignature dataType__Parameter="_BG72LXreEemf8oAvAsui2Q" parameterName="profile"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_JZoMYHv4EeqZ0-iWUzVwFQ" entityName="get" returnType__OperationSignature="_BG72LXreEemf8oAvAsui2Q"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository_1:DBOperationInterface" id="_o-dsIHv4EeqZ0-iWUzVwFQ" entityName="IAdvertisementAdmissionDB">
+    <signatures__OperationInterface id="_qGqqUHv4EeqZ0-iWUzVwFQ" entityName="add">
+      <parameters__OperationSignature dataType__Parameter="_5ePCHYXjEemi6qN7GikhRQ" parameterName="admission"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_sIR8wHv4EeqZ0-iWUzVwFQ" entityName="get" returnType__OperationSignature="_5ePCHYXjEemi6qN7GikhRQ"/>
+  </interfaces__Repository>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_gs6ufYXsEemi6qN7GikhRQ" entityName="Customer">
+    <innerDeclaration_CompositeDataType entityName="customerID">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </innerDeclaration_CompositeDataType>
+    <innerDeclaration_CompositeDataType entityName="customerName">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+    <innerDeclaration_CompositeDataType entityName="adress">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+  </dataTypes__Repository>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_mH7MXIXxEemi6qN7GikhRQ" entityName="Customers" innerType_CollectionDataType="_gs6ufYXsEemi6qN7GikhRQ"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="__e9qnXifEemJObo0kKFqqQ" entityName="LoyaltyOrder" parentType_CompositeDataType="_UJfY7XigEemJObo0kKFqqQ">
+    <innerDeclaration_CompositeDataType entityName="customerID">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </innerDeclaration_CompositeDataType>
+  </dataTypes__Repository>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_OPT5fHigEemJObo0kKFqqQ" entityName="LoyaltyOrders" innerType_CollectionDataType="__e9qnXifEemJObo0kKFqqQ"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_I5_anXigEemJObo0kKFqqQ" entityName="OnlineOrder" parentType_CompositeDataType="_UJfY7XigEemJObo0kKFqqQ">
+    <innerDeclaration_CompositeDataType entityName="customerID">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </innerDeclaration_CompositeDataType>
+  </dataTypes__Repository>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_LEyePHigEemJObo0kKFqqQ" entityName="OnlineOrders" innerType_CollectionDataType="_I5_anXigEemJObo0kKFqqQ"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_UJfY7XigEemJObo0kKFqqQ" entityName="Order">
+    <innerDeclaration_CompositeDataType entityName="orderID">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </innerDeclaration_CompositeDataType>
+  </dataTypes__Repository>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_rOlJLHrlEemf8oAvAsui2Q" entityName="Orders" innerType_CollectionDataType="_UJfY7XigEemJObo0kKFqqQ"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_2OV7_XrdEemf8oAvAsui2Q" entityName="AdvertisementSchedule">
+    <innerDeclaration_CompositeDataType entityName="products" datatype_InnerDeclaration="_lzJEEHtSEeqdr_-YUYcTWA"/>
+  </dataTypes__Repository>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_BG72LXreEemf8oAvAsui2Q" entityName="CustomerProfile">
+    <innerDeclaration_CompositeDataType entityName="aggregatedItems" datatype_InnerDeclaration="_E9ocEHtREeqdr_-YUYcTWA"/>
+    <innerDeclaration_CompositeDataType entityName="customerID">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </innerDeclaration_CompositeDataType>
+  </dataTypes__Repository>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_Ctb57HreEemf8oAvAsui2Q" entityName="CustomerProfiles" innerType_CollectionDataType="_BG72LXreEemf8oAvAsui2Q"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_5ePCHYXjEemi6qN7GikhRQ" entityName="AdvertisementAdmission">
+    <innerDeclaration_CompositeDataType entityName="advertisementSchedule" datatype_InnerDeclaration="_2OV7_XrdEemf8oAvAsui2Q"/>
+  </dataTypes__Repository>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_Rb9cQHsVEeqS8O6nJaozEA" entityName="RegularOrder" parentType_CompositeDataType="_UJfY7XigEemJObo0kKFqqQ"/>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_VhOogHsVEeqS8O6nJaozEA" entityName="RegularOrders" innerType_CollectionDataType="_Rb9cQHsVEeqS8O6nJaozEA"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_68pUwHtPEeqdr_-YUYcTWA" entityName="LoyaltyCustomer" parentType_CompositeDataType="_gs6ufYXsEemi6qN7GikhRQ">
+    <innerDeclaration_CompositeDataType entityName="loyaltyID">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </innerDeclaration_CompositeDataType>
+  </dataTypes__Repository>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_ANSvAHtQEeqdr_-YUYcTWA" entityName="LoyaltyCustomers" innerType_CollectionDataType="_68pUwHtPEeqdr_-YUYcTWA"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_MBZ2QHtQEeqdr_-YUYcTWA" entityName="Product">
+    <innerDeclaration_CompositeDataType entityName="productID">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </innerDeclaration_CompositeDataType>
+    <innerDeclaration_CompositeDataType entityName="name">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+    </innerDeclaration_CompositeDataType>
+    <innerDeclaration_CompositeDataType entityName="price">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </innerDeclaration_CompositeDataType>
+  </dataTypes__Repository>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_rXvnAHtQEeqdr_-YUYcTWA" entityName="CartItem">
+    <innerDeclaration_CompositeDataType entityName="product" datatype_InnerDeclaration="_MBZ2QHtQEeqdr_-YUYcTWA"/>
+    <innerDeclaration_CompositeDataType entityName="quantity">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </innerDeclaration_CompositeDataType>
+  </dataTypes__Repository>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_w9fHgHtQEeqdr_-YUYcTWA" entityName="StockItem">
+    <innerDeclaration_CompositeDataType entityName="product" datatype_InnerDeclaration="_MBZ2QHtQEeqdr_-YUYcTWA"/>
+    <innerDeclaration_CompositeDataType entityName="quantity">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </innerDeclaration_CompositeDataType>
+  </dataTypes__Repository>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_5YSwoHtQEeqdr_-YUYcTWA" entityName="AggregatedItem">
+    <innerDeclaration_CompositeDataType entityName="boughtProducts" datatype_InnerDeclaration="_77BMEHtQEeqdr_-YUYcTWA"/>
+    <innerDeclaration_CompositeDataType entityName="aggregatedDays">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.0"/>
+    </innerDeclaration_CompositeDataType>
+  </dataTypes__Repository>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_77BMEHtQEeqdr_-YUYcTWA" entityName="CartItems" innerType_CollectionDataType="_rXvnAHtQEeqdr_-YUYcTWA"/>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_E9ocEHtREeqdr_-YUYcTWA" entityName="AggregatedItems" innerType_CollectionDataType="_5YSwoHtQEeqdr_-YUYcTWA"/>
+  <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_lzJEEHtSEeqdr_-YUYcTWA" entityName="Products" innerType_CollectionDataType="_MBZ2QHtQEeqdr_-YUYcTWA"/>
+</repository:Repository>

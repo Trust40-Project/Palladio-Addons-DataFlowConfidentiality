@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="ASCII"?>
+<DataDictionaryCharacterized:DataDictionaryCharacterized xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionary="http://palladiosimulator.org/dataflow/dictionary/1.0" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" id="_C5l78H5rEeqUa7buDCmcPg">
+  <entries xsi:type="DataDictionary:PrimitiveDataType" id="_DB7YkH5rEeqUa7buDCmcPg" name="INT"/>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_DB6KcH5rEeqUa7buDCmcPg" name="OnlineOrder">
+    <components id="_DB7_oH5rEeqUa7buDCmcPg" type="_DB7YkH5rEeqUa7buDCmcPg" name="customerID"/>
+  </entries>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_DCEig35rEeqUa7buDCmcPg" name="Customer">
+    <components id="_DCEihH5rEeqUa7buDCmcPg" type="_DB7YkH5rEeqUa7buDCmcPg" name="customerID"/>
+    <components id="_DCEihX5rEeqUa7buDCmcPg" type="_DB7YkH5rEeqUa7buDCmcPg" name="customerName"/>
+    <components id="_DCEihn5rEeqUa7buDCmcPg" type="_DB7YkH5rEeqUa7buDCmcPg" name="adress"/>
+  </entries>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_DCG-xX5rEeqUa7buDCmcPg" name="Order">
+    <components id="_DCG-xn5rEeqUa7buDCmcPg" type="_DB7YkH5rEeqUa7buDCmcPg" name="orderID"/>
+  </entries>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_DCQvyH5rEeqUa7buDCmcPg" name="LoyaltyOrder">
+    <components id="_DCQvyX5rEeqUa7buDCmcPg" type="_DB7YkH5rEeqUa7buDCmcPg" name="customerID"/>
+  </entries>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_DCZ5uH5rEeqUa7buDCmcPg" name="RegularOrder"/>
+  <entries xsi:type="DataDictionary:CollectionDataType" id="_DC1-kH5rEeqUa7buDCmcPg" name="LoyaltyOrders" type="_DCQvyH5rEeqUa7buDCmcPg"/>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_DC5B435rEeqUa7buDCmcPg" name="LoyaltyCustomer">
+    <components id="_DC5B5H5rEeqUa7buDCmcPg" type="_DB7YkH5rEeqUa7buDCmcPg" name="loyaltyID"/>
+  </entries>
+  <entries xsi:type="DataDictionary:CollectionDataType" id="_DC5B8n5rEeqUa7buDCmcPg" name="LoyaltyCustomers" type="_DC5B435rEeqUa7buDCmcPg"/>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_DC5pB35rEeqUa7buDCmcPg" name="Product">
+    <components id="_DC5pCH5rEeqUa7buDCmcPg" type="_DB7YkH5rEeqUa7buDCmcPg" name="productID"/>
+    <components id="_DC5pCX5rEeqUa7buDCmcPg" type="_DB7YkH5rEeqUa7buDCmcPg" name="name"/>
+    <components id="_DC5pCn5rEeqUa7buDCmcPg" type="_DB7YkH5rEeqUa7buDCmcPg" name="price"/>
+  </entries>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_DC5pBn5rEeqUa7buDCmcPg" name="CartItem">
+    <components id="_DC5pC35rEeqUa7buDCmcPg" type="_DC5pB35rEeqUa7buDCmcPg" name="product"/>
+    <components id="_DC5pDH5rEeqUa7buDCmcPg" type="_DB7YkH5rEeqUa7buDCmcPg" name="quantity"/>
+  </entries>
+  <entries xsi:type="DataDictionary:CollectionDataType" id="_DC5pBX5rEeqUa7buDCmcPg" name="CartItems" type="_DC5pBn5rEeqUa7buDCmcPg"/>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_DC5pBH5rEeqUa7buDCmcPg" name="AggregatedItem">
+    <components id="_DC5pDX5rEeqUa7buDCmcPg" type="_DC5pBX5rEeqUa7buDCmcPg" name="boughtProducts"/>
+    <components id="_DC5pDn5rEeqUa7buDCmcPg" type="_DB7YkH5rEeqUa7buDCmcPg" name="aggregatedDays"/>
+  </entries>
+  <entries xsi:type="DataDictionary:CollectionDataType" id="_DC5pA35rEeqUa7buDCmcPg" name="AggregatedItems" type="_DC5pBH5rEeqUa7buDCmcPg"/>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_DC5pAn5rEeqUa7buDCmcPg" name="CustomerProfile">
+    <components id="_DC5pD35rEeqUa7buDCmcPg" type="_DC5pA35rEeqUa7buDCmcPg" name="aggregatedItems"/>
+    <components id="_DC5pEH5rEeqUa7buDCmcPg" type="_DB7YkH5rEeqUa7buDCmcPg" name="customerID"/>
+  </entries>
+  <entries xsi:type="DataDictionary:CollectionDataType" id="_DC8sVH5rEeqUa7buDCmcPg" name="CustomerProfiles" type="_DC5pAn5rEeqUa7buDCmcPg"/>
+  <entries xsi:type="DataDictionary:CollectionDataType" id="_DDDZ9n5rEeqUa7buDCmcPg" name="Products" type="_DC5pB35rEeqUa7buDCmcPg"/>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_DDDZ9X5rEeqUa7buDCmcPg" name="AdvertisementSchedule">
+    <components id="_DDDZ935rEeqUa7buDCmcPg" type="_DDDZ9n5rEeqUa7buDCmcPg" name="products"/>
+  </entries>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_DDEBB35rEeqUa7buDCmcPg" name="AdvertisementAdmission">
+    <components id="_DDEBCH5rEeqUa7buDCmcPg" type="_DDDZ9X5rEeqUa7buDCmcPg" name="advertisementSchedule"/>
+  </entries>
+</DataDictionaryCharacterized:DataDictionaryCharacterized>

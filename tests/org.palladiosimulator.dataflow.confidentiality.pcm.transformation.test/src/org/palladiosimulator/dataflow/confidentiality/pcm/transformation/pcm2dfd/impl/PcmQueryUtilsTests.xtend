@@ -5,7 +5,8 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.test.util.StandaloneInitializer
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.SeffWithContext
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.test.util.StandaloneUtils
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.core.composition.ComposedStructure
 import org.palladiosimulator.pcm.repository.BasicComponent
@@ -16,11 +17,11 @@ import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 import org.palladiosimulator.pcm.usagemodel.UsageModel
 
 import static org.junit.jupiter.api.Assertions.*
-import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.test.util.URIHelper.*
+import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.test.util.StandaloneUtils.*
 
 class PcmQueryUtilsTests {
 	
-	var PcmQueryUtils subject
+	var CharacterizedPcmQueryUtils subject
 	var Iterable<EntryLevelSystemCall> elscs
 	var ResourceDemandingSEFF implementingSeff
 	var ResourceDemandingSEFF delegatingSeff
@@ -28,12 +29,12 @@ class PcmQueryUtilsTests {
 	
 	@BeforeAll
 	static def void init() {
-		StandaloneInitializer.init
+		StandaloneUtils.init
 	}
 	
 	@BeforeEach
 	def void setup() {
-		subject = new PcmQueryUtils
+		subject = new CharacterizedPcmQueryUtils
 		val rs = new ResourceSetImpl
 		val usageModel = rs.getResource(getModelURI("SeffFinding/newUsageModel.usagemodel"), true).contents.head as UsageModel
 		elscs = usageModel.usageScenario_UsageModel.head.scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour.filter(EntryLevelSystemCall)
