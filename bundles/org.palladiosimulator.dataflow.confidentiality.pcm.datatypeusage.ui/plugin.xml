@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.DataTypeUsageLaunchConfigurationDelegate"
+            id="org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.datatypeusage"
+            modes="run"
+            name="PCM Confidentiality DataType Usage"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.ui.DataTypeUsageLaunchConfigurationTabGroup"
+            id="org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.datatypeusage.tabgroup"
+            type="org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.datatypeusage">
+      </launchConfigurationTabGroup>
+   </extension>
+
+</plugin>
