@@ -1,6 +1,7 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.impl
 
 import java.util.Collection
+import java.util.HashMap
 import java.util.HashSet
 import java.util.LinkedList
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageQuery
@@ -18,6 +19,14 @@ class DataTypeUsageQueryImpl implements DataTypeUsageQuery {
 
 	val extension PcmQueryUtils pcmQueryUtils = new PcmQueryUtils
 	val extension ModelQueryUtils modelQueryUtils = new ModelQueryUtils
+
+	override getUsedDataTypes(Iterable<EntryLevelSystemCall> elscs) {
+		val result = new HashMap()
+		for (elsc : elscs) {
+			result.put(elsc, elsc.usedDataTypes)
+		}
+		result
+	}
 
 	override getUsedDataTypes(EntryLevelSystemCall elsc) {
 		val Collection<DataType> readData = new HashSet
