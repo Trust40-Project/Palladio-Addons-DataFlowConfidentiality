@@ -32,8 +32,9 @@ public class DataTypeUsageLaunchConfigurationTab extends AbstractLaunchConfigura
 
     @Override
     public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-        control.setUsageModels(USAGE_MODELS_DEFAULT);
-        control.setOutput(OUTPUT_DEFAULT);
+        configSerializer.getConfiguration().setOutputFile(OUTPUT_DEFAULT);
+        configSerializer.getConfiguration().setUsageModels(USAGE_MODELS_DEFAULT);
+        configSerializer.write(configuration);
         refreshConfigFromUI();
     }
 
@@ -51,8 +52,10 @@ public class DataTypeUsageLaunchConfigurationTab extends AbstractLaunchConfigura
     }
 
     protected void refreshConfigFromUI() {
-        configSerializer.getConfiguration().setOutputFile(control.getOutput());
-        configSerializer.getConfiguration().setUsageModels(control.getUsageModels());
+        if (control != null) {
+            configSerializer.getConfiguration().setOutputFile(control.getOutput());
+            configSerializer.getConfiguration().setUsageModels(control.getUsageModels());            
+        }
     }
 
     @Override
