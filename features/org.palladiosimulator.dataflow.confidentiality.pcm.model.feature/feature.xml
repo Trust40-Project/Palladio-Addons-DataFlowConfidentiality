@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.palladiosimulator.dataflow.confidentiality.pcm.model.feature"
-      label="PCM Data Confidentiality Model Feature"
+      label="PCM Data Flow Confidentiality Model"
       version="0.1.0.qualifier"
       plugin="org.palladiosimulator.branding"
       license-feature="org.palladiosimulator.license.epl2"

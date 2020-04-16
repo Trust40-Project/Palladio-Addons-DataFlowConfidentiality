@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.feature"
+      label="PCM Data Flow Confidentiality Datatype Usage Analysis"
+      version="0.1.0.qualifier">
+
+   <description url="http://www.example.com/description">
+      [Enter Feature Description here.]
+   </description>
+
+   <copyright url="http://www.example.com/copyright">
+      [Enter Copyright Description here.]
+   </copyright>
+
+   <license url="http://www.example.com/license">
+      [Enter License Description here.]
+   </license>
+
+   <includes
+         id="org.palladiosimulator.dataflow.confidentiality.pcm.model.feature"
+         version="0.0.0"/>
+
+   <requires>
+      <import plugin="org.palladiosimulator.pcm"/>
+   </requires>
+
+   <plugin
+         id="org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.palladiosimulator.dataflow.confidentiality.pcm.queryutils"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+</feature>

@@ -13,6 +13,7 @@
 
    <requires>
       <import feature="org.palladiosimulator.dataflow.confidentiality.model.feature" version="0.1.0.qualifier"/>
+      <import feature="org.palladiosimulator.dataflow.confidentiality.transformation.feature" version="0.1.0.qualifier"/>
    </requires>
 
    <plugin
@@ -24,6 +25,13 @@
 
    <plugin
          id="org.palladiosimulator.dataflow.confidentiality.pcm.queryutils"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         unpack="false"/>
+
+   <plugin
+         id="org.palladiosimulator.dataflow.confidentiality.pcm.workflow"
          download-size="0"
          install-size="0"
          version="0.0.0"
