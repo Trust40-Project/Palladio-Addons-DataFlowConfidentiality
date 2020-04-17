@@ -4,7 +4,8 @@ import java.util.Collection
 import java.util.HashMap
 import java.util.HashSet
 import java.util.LinkedList
-import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageQuery
+import org.osgi.service.component.annotations.Component
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysis
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.DBOperationInterface
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.PcmQueryUtils
@@ -15,10 +16,19 @@ import org.palladiosimulator.pcm.repository.PrimitiveDataType
 import org.palladiosimulator.pcm.seff.ExternalCallAction
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 
-class DataTypeUsageQueryImpl implements DataTypeUsageQuery {
+@Component
+class DataTypeUsageQueryImpl implements DataTypeUsageAnalysis {
 
 	val extension PcmQueryUtils pcmQueryUtils = new PcmQueryUtils
 	val extension ModelQueryUtils modelQueryUtils = new ModelQueryUtils
+
+	override getName() {
+		"Usage Query"
+	}
+	
+	override getUUID() {
+		"5bf1aea9-5eb0-4a9b-91a4-01d322bb34df"
+	}
 
 	override getUsedDataTypes(Iterable<EntryLevelSystemCall> elscs) {
 		val result = new HashMap()

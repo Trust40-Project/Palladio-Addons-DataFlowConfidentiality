@@ -11,6 +11,8 @@ import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.Activator;
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysis;
 
 public class ConfigurationSerializer {
 
@@ -37,6 +39,12 @@ public class ConfigurationSerializer {
                 () -> launchConfig.getAttribute(ConfigurationProperties.OUTPUT.getKey(), (String) null)).orElse(null);
         IFile output = convert(outputAttribute);
         configuration.setOutputFile(output);
+        
+        String analysisAttribute = sneaky(
+                () -> launchConfig.getAttribute(ConfigurationProperties.ANALYSIS.getKey(), (String)null))
+                    .orElse(null);
+        DataTypeUsageAnalysis analysis = convertToAnalysis(analysisAttribute);
+        configuration.setAnalysis(analysis);
     }
 
     public void write(ILaunchConfigurationWorkingCopy launchConfig) {
@@ -45,6 +53,9 @@ public class ConfigurationSerializer {
 
         String outputAttribute = convert(configuration.getOutputFile());
         launchConfig.setAttribute(ConfigurationProperties.OUTPUT.getKey(), outputAttribute);
+        
+        String analysisAttribute = convert(configuration.getAnalysis());
+        launchConfig.setAttribute(ConfigurationProperties.ANALYSIS.getKey(), analysisAttribute);
     }
 
     @FunctionalInterface
@@ -79,5 +90,13 @@ public class ConfigurationSerializer {
 
     protected static IFile convert(String path) {
         return IFILE_PARSER.convert(path);
+    }
+    
+    protected static DataTypeUsageAnalysis convertToAnalysis(String uuid) {
+        return Activator.getInstance().getDataTypeUsageAnalysisFactory().getAnalysisByUUID(uuid).orElse(null);
+    }
+    
+    protected static String convert(DataTypeUsageAnalysis analysis) {
+        return Optional.ofNullable(analysis).map(DataTypeUsageAnalysis::getUUID).orElse(null);
     }
 }

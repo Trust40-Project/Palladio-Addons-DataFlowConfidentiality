@@ -13,3 +13,8 @@ Require-Bundle: org.palladiosimulator.pcm;bundle-version="4.2.0",
  org.palladiosimulator.dataflow.confidentiality.pcm.model;bundle-version="0.1.0",
  org.palladiosimulator.dataflow.confidentiality.pcm.queryutils;bundle-version="0.1.0"
 Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage
+Service-Component: OSGI-INF/org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.impl.DataTypeUsageAnalysisFactoryImpl.xml,
+ OSGI-INF/org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.impl.DataTypeUsageQueryImpl.xml
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.Activator
+Import-Package: org.osgi.service.component.annotations;version="1.2.0"

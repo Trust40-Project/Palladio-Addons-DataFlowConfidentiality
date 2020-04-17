@@ -3,7 +3,8 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.laun
 public enum ConfigurationProperties {
 
     USAGE_MODELS("usagemodels"),
-    OUTPUT("output");
+    OUTPUT("output"),
+    ANALYSIS("analysis");
     
     private static final String PREFIX = "org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.";
     private final String key;

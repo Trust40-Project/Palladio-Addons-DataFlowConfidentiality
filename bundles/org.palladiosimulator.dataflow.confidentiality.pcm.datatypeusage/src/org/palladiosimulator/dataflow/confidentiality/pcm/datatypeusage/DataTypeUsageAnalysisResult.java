@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import org.palladiosimulator.pcm.repository.DataType;
 
-public interface DataTypeUsageQueryResult {
+public interface DataTypeUsageAnalysisResult {
 
     Collection<DataType> getReadDataTypes();
     

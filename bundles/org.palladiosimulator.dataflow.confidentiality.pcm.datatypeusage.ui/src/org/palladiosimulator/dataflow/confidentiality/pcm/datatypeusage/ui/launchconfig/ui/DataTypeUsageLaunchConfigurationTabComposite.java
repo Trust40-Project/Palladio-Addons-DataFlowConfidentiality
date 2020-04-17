@@ -18,7 +18,10 @@ import org.eclipse.core.runtime.IPath;
 import org.eclipse.emf.common.ui.dialogs.WorkspaceResourceDialog;
 import org.eclipse.jface.databinding.swt.typed.WidgetProperties;
 import org.eclipse.jface.databinding.viewers.ObservableSetContentProvider;
+import org.eclipse.jface.databinding.viewers.typed.ViewerProperties;
+import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.ComboViewer;
+import org.eclipse.jface.viewers.IStructuredContentProvider;
 import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.jface.viewers.ListViewer;
 import org.eclipse.jface.viewers.StructuredSelection;
@@ -38,6 +41,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.List;
 import org.eclipse.swt.widgets.Text;
 import org.eclipse.ui.dialogs.SaveAsDialog;
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysis;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.config.IFileToStringConverter;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.config.StringToIFileConverter;
 
@@ -47,9 +51,14 @@ public class DataTypeUsageLaunchConfigurationTabComposite extends Composite {
 
     private final IObservableSet<IFile> usageModels = new WritableSet<>();
     private final IObservableValue<IFile> outputPath = new WritableValue<>();
+    private final DataTypeUsageAnalysis[] analyses;
+    private final WritableValue<DataTypeUsageAnalysis> selectedAnalysis = new WritableValue<>();
 
     private final Text textOutput;
     private final ListViewer listViewer;
+
+    private ComboViewer comboViewer_Analysis;
+    private Combo comboAnalysis;
 
     /**
      * Create the composite.
@@ -58,9 +67,10 @@ public class DataTypeUsageLaunchConfigurationTabComposite extends Composite {
      * @param style
      */
     public DataTypeUsageLaunchConfigurationTabComposite(Composite parent, int style,
-            DirtyEventHandler dirtyEventHandler) {
+            DirtyEventHandler dirtyEventHandler, Collection<DataTypeUsageAnalysis> analyses) {
         super(parent, style);
         registerDirtyHandling(dirtyEventHandler);
+        this.analyses = analyses.toArray(new DataTypeUsageAnalysis[analyses.size()]);
         setLayout(new GridLayout(3, false));
 
         Label lblUsageModels = new Label(this, SWT.NONE);
@@ -94,11 +104,20 @@ public class DataTypeUsageLaunchConfigurationTabComposite extends Composite {
         });
         btnRemove.setText("remove");
 
+        Label lblAnalysis = new Label(this, SWT.NONE);
+        lblAnalysis.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
+        lblAnalysis.setText("Analysis");
+
+        comboViewer_Analysis = new ComboViewer(this, SWT.READ_ONLY);
+        comboAnalysis = comboViewer_Analysis.getCombo();
+        comboAnalysis.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
+        new Label(this, SWT.NONE);
+
         Label lblOutputFormat = new Label(this, SWT.NONE);
         lblOutputFormat.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 1));
         lblOutputFormat.setText("Output Format");
 
-        ComboViewer comboViewer = new ComboViewer(this, SWT.NONE);
+        ComboViewer comboViewer = new ComboViewer(this, SWT.READ_ONLY);
         Combo comboOutputFormat = comboViewer.getCombo();
         comboOutputFormat.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
         new Label(this, SWT.NONE);
@@ -121,6 +140,8 @@ public class DataTypeUsageLaunchConfigurationTabComposite extends Composite {
         btnSelect.setText("select");
         m_bindingContext = initDataBindings();
         initDataBindingsUsageModelListViewer();
+        initDataBindingsOutputText(m_bindingContext);
+        initDataBindingsAnalysis(m_bindingContext);
     }
 
     public Collection<IFile> getUsageModels() {
@@ -140,23 +161,17 @@ public class DataTypeUsageLaunchConfigurationTabComposite extends Composite {
         usageModels.addAll(convertToFileList);
     }
 
+    public void setSelectedAnalysis(DataTypeUsageAnalysis analysis) {
+        selectedAnalysis.setValue(analysis);
+    }
+
+    public DataTypeUsageAnalysis getSelectedAnalysis() {
+        return selectedAnalysis.getValue();
+    }
+
     @Override
     protected void checkSubclass() {
         // Disable the check that prevents subclassing of SWT components
-    }
-
-    protected DataBindingContext initDataBindings() {
-        DataBindingContext bindingContext = new DataBindingContext();
-        //
-        IObservableValue<String> observeTextTextOutputObserveWidget = WidgetProperties.text(SWT.Modify)
-            .observe(textOutput);
-        UpdateValueStrategy<String, IFile> strategy = new UpdateValueStrategy<>();
-        strategy.setConverter(new StringToIFileConverter());
-        UpdateValueStrategy<IFile, String> strategy_1 = new UpdateValueStrategy<>();
-        strategy_1.setConverter(new IFileToStringConverter());
-        bindingContext.bindValue(observeTextTextOutputObserveWidget, outputPath, strategy, strategy_1);
-        //
-        return bindingContext;
     }
 
     protected void initDataBindingsUsageModelListViewer() {
@@ -176,9 +191,33 @@ public class DataTypeUsageLaunchConfigurationTabComposite extends Composite {
         listViewer.setInput(usageModels);
     }
 
+    protected void initDataBindingsOutputText(DataBindingContext bindingContext) {
+        IObservableValue<String> observeTextTextOutputObserveWidget = WidgetProperties.text(SWT.Modify)
+            .observe(textOutput);
+        UpdateValueStrategy<String, IFile> strategy = new UpdateValueStrategy<>();
+        strategy.setConverter(new StringToIFileConverter());
+        UpdateValueStrategy<IFile, String> strategy_1 = new UpdateValueStrategy<>();
+        strategy_1.setConverter(new IFileToStringConverter());
+        bindingContext.bindValue(observeTextTextOutputObserveWidget, outputPath, strategy, strategy_1);
+    }
+
+    protected void initDataBindingsAnalysis(DataBindingContext bindingContext) {
+        IStructuredContentProvider setContentProvider = new ArrayContentProvider();
+        LabelProvider labelProvider = new DataTypeUsageAnalysisLabelProvider();
+        comboViewer_Analysis.setLabelProvider(labelProvider);
+        comboViewer_Analysis.setContentProvider(setContentProvider);
+        comboViewer_Analysis.setInput(analyses);
+        
+        IObservableValue<DataTypeUsageAnalysis> observeSelectionComboAnalysisObserveWidget = ViewerProperties
+            .singleSelection(DataTypeUsageAnalysis.class)
+            .observe(comboViewer_Analysis);
+        bindingContext.bindValue(observeSelectionComboAnalysisObserveWidget, selectedAnalysis, null, null);
+    }
+
     protected void registerDirtyHandling(DirtyEventHandler handler) {
         usageModels.addChangeListener(event -> handler.handleDirtyEvent());
         outputPath.addChangeListener(event -> handler.handleDirtyEvent());
+        selectedAnalysis.addChangeListener(event -> handler.handleDirtyEvent());
     }
 
     protected void addUsageModelButtonClicked() {
@@ -218,4 +257,11 @@ public class DataTypeUsageLaunchConfigurationTabComposite extends Composite {
         }
     }
 
+    protected DataBindingContext initDataBindings() {
+        DataBindingContext bindingContext = new DataBindingContext();
+        //
+
+        //
+        return bindingContext;
+    }
 }

@@ -6,9 +6,11 @@ import java.io.InputStream;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 import org.eclipse.core.resources.IFile;
@@ -25,9 +27,8 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.eclipse.net4j.util.om.monitor.SubMonitor;
-import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageQuery;
-import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageQueryFactory;
-import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageQueryResult;
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysis;
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysisResult;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.Activator;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.config.Configuration;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.config.ConfigurationSerializer;
@@ -53,7 +54,8 @@ public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfiguratio
         Collection<URI> usageModelUris = getUsageModelURIs(parsedConfig);
         monitor.worked(1);
 
-        Map<EntryLevelSystemCall, DataTypeUsageQueryResult> result = getDataTypeUsage(usageModelUris,
+        DataTypeUsageAnalysis analysis = parsedConfig.getAnalysis();
+        Map<EntryLevelSystemCall, DataTypeUsageAnalysisResult> result = getDataTypeUsage(analysis, usageModelUris,
                 monitor.newChild());
         monitor.worked(1);
 
@@ -73,13 +75,12 @@ public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfiguratio
         return usageModelUris;
     }
 
-    protected Map<EntryLevelSystemCall, DataTypeUsageQueryResult> getDataTypeUsage(Collection<URI> usageModelUris,
-            IProgressMonitor monitor) throws CoreException {
+    protected Map<EntryLevelSystemCall, DataTypeUsageAnalysisResult> getDataTypeUsage(DataTypeUsageAnalysis analysis,
+            Collection<URI> usageModelUris, IProgressMonitor monitor) throws CoreException {
         monitor.beginTask("Query usage models", usageModelUris.size());
         ResourceSetImpl rs = new ResourceSetImpl();
         ModelQueryUtils utils = new ModelQueryUtils();
-        DataTypeUsageQuery query = DataTypeUsageQueryFactory.create();
-        Map<EntryLevelSystemCall, DataTypeUsageQueryResult> result = new HashMap<>();
+        Map<EntryLevelSystemCall, DataTypeUsageAnalysisResult> result = new HashMap<>();
         for (URI uri : usageModelUris) {
             Resource r = rs.getResource(uri, true);
             try {
@@ -91,7 +92,7 @@ public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfiguratio
                 .iterator()
                 .next();
             Iterable<EntryLevelSystemCall> elscs = utils.findChildrenOfType(rootObject, EntryLevelSystemCall.class);
-            result.putAll(query.getUsedDataTypes(elscs));
+            result.putAll(analysis.getUsedDataTypes(elscs));
             monitor.worked(1);
         }
         monitor.done();
@@ -99,7 +100,8 @@ public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfiguratio
     }
 
     protected void serializeToJson(Configuration parsedConfig,
-            Map<EntryLevelSystemCall, DataTypeUsageQueryResult> result, IProgressMonitor monitor) throws CoreException {
+            Map<EntryLevelSystemCall, DataTypeUsageAnalysisResult> result, IProgressMonitor monitor)
+            throws CoreException {
 
         Object simpleResult = createSimpleResult(result);
 
@@ -122,20 +124,20 @@ public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfiguratio
         }
     }
 
-    protected Object createSimpleResult(Map<EntryLevelSystemCall, DataTypeUsageQueryResult> result) {
-        Map<Object, Object> newResult = new HashMap<>();
-        for (Entry<EntryLevelSystemCall, DataTypeUsageQueryResult> entry : result.entrySet()) {
-            Object elsc = convert(entry.getKey());
-            DataTypeUsageQueryResult queryResult = entry.getValue();
-            List<Map<String,String>> readDts = queryResult.getReadDataTypes()
+    protected Object createSimpleResult(Map<EntryLevelSystemCall, DataTypeUsageAnalysisResult> result) {
+        Map<Object, Object> newResult = new LinkedHashMap<>();
+        for (Entry<EntryLevelSystemCall, DataTypeUsageAnalysisResult> entry : result.entrySet()) {
+            Map<String, String> elsc = convert(entry.getKey());
+            DataTypeUsageAnalysisResult queryResult = entry.getValue();
+            List<Map<String, String>> readDts = queryResult.getReadDataTypes()
                 .stream()
                 .map(this::convert)
                 .collect(Collectors.toList());
-            List<Map<String,String>> writeDts = queryResult.getWriteDataTypes()
+            List<Map<String, String>> writeDts = queryResult.getWriteDataTypes()
                 .stream()
                 .map(this::convert)
                 .collect(Collectors.toList());
-            Map<String, List<Map<String,String>>> dataTypes = new HashMap<>();
+            Map<String, List<Map<String, String>>> dataTypes = new TreeMap<>();
             dataTypes.put("read", readDts);
             dataTypes.put("write", writeDts);
             newResult.put(elsc, dataTypes);
@@ -143,21 +145,22 @@ public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfiguratio
         return newResult;
     }
 
-    protected Map<String,String> convert(DataType dt) {
+    protected Map<String, String> convert(DataType dt) {
         if (dt instanceof PrimitiveDataType) {
             return convert((PrimitiveDataType) dt);
         }
         return convert((Entity) dt);
     }
 
-    protected Map<String,String> convert(PrimitiveDataType dt) {
-        Map<String,String> result = new HashMap<>();
-        result.put("name", dt.getType().getLiteral());
+    protected Map<String, String> convert(PrimitiveDataType dt) {
+        Map<String, String> result = new TreeMap<>();
+        result.put("name", dt.getType()
+            .getLiteral());
         return result;
     }
 
-    protected Map<String,String> convert(Entity entity) {
-        Map<String,String> result = new HashMap<>();
+    protected Map<String, String> convert(Entity entity) {
+        Map<String, String> result = new TreeMap<>();
         result.put("name", entity.getEntityName());
         result.put("id", entity.getId());
         return result;

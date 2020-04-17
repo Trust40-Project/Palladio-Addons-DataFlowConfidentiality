@@ -4,9 +4,9 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageQuery
-import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageQueryFactory
-import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageQueryResult
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysis
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysisResult
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.impl.DataTypeUsageQueryImpl
 import org.palladiosimulator.pcm.core.entity.Entity
 import org.palladiosimulator.pcm.repository.CollectionDataType
 import org.palladiosimulator.pcm.repository.CompositeDataType
@@ -20,7 +20,7 @@ import static org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.t
 
 class DataTypeUsageQueryTest {
 	
-	DataTypeUsageQuery subject
+	DataTypeUsageAnalysis subject
 	
 	@BeforeAll
 	static def void init() {
@@ -29,7 +29,7 @@ class DataTypeUsageQueryTest {
 	
 	@BeforeEach
 	def void setup() {
-		subject = DataTypeUsageQueryFactory.create
+		subject = new DataTypeUsageQueryImpl
 	}
 	
 	@Test
@@ -80,11 +80,11 @@ class DataTypeUsageQueryTest {
 		assertEquals(expectedNameSet, actualNameSet)
 	}
 	
-	protected def print(DataTypeUsageQueryResult result, EntryLevelSystemCall elsc) {
+	protected def print(DataTypeUsageAnalysisResult result, EntryLevelSystemCall elsc) {
 		println(result.serialize(elsc))
 	}
 	
-	protected def serialize(DataTypeUsageQueryResult result, EntryLevelSystemCall elsc) '''
+	protected def serialize(DataTypeUsageAnalysisResult result, EntryLevelSystemCall elsc) '''
 	ELSC: «elsc.entityName» («elsc.id»)
 		Read:
 			«result.readDataTypes.serialize»
