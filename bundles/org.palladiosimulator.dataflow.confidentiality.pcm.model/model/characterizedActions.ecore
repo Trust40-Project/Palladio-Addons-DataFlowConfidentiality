@@ -8,11 +8,10 @@
   </eAnnotations>
   <eClassifiers xsi:type="ecore:EClass" name="Assignment" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-      <details key="constraints" value="characteristicWildcardHasToBeOnLhsAndRhs literalWildcardHasToBeOnLhsAndRhs rhsOnlyContainsContainerOrReturnOrSeffParameterCharacteristicReferences"/>
+      <details key="constraints" value="characteristicWildcardHasToBeOnLhsAndRhs rhsOnlyContainsContainerOrReturnOrSeffParameterCharacteristicReferences"/>
     </eAnnotations>
     <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
       <details key="characteristicWildcardHasToBeOnLhsAndRhs" value="not self.rhs.oclIsKindOf(DataDictionaryCharacterized::expressions::CharacteristicReference) or&#xA;(&#xA;&#x9;self.rhs.oclAsType(DataDictionaryCharacterized::expressions::CharacteristicReference).characteristicType.oclIsUndefined()&#xA;&#x9;and&#xA;&#x9;self.lhs.characteristicType.oclIsUndefined()&#xA;)&#xA;or&#xA;(&#xA;&#x9;not self.rhs.oclAsType(DataDictionaryCharacterized::expressions::CharacteristicReference).characteristicType.oclIsUndefined()&#xA;&#x9;and&#xA;&#x9;not self.lhs.characteristicType.oclIsUndefined()&#xA;)"/>
-      <details key="literalWildcardHasToBeOnLhsAndRhs" value="not self.rhs.oclIsKindOf(DataDictionaryCharacterized::expressions::CharacteristicReference) or&#xA;(&#xA;&#x9;self.rhs.oclAsType(DataDictionaryCharacterized::expressions::CharacteristicReference).literal.oclIsUndefined()&#xA;&#x9;and&#xA;&#x9;self.lhs.literal.oclIsUndefined()&#xA;)&#xA;or&#xA;(&#xA;&#x9;not self.rhs.oclAsType(DataDictionaryCharacterized::expressions::CharacteristicReference).literal.oclIsUndefined()&#xA;&#x9;and&#xA;&#x9;not self.lhs.literal.oclIsUndefined()&#xA;)"/>
       <details key="rhsOnlyContainsContainerOrReturnOrSeffParameterCharacteristicReferences"
           value="self.rhs.oclAsType(ecore::EObject)->closure(e : ecore::EObject |&#xA;&#x9;e.eContents()->selectByKind(ecore::EObject)&#xA;)->including(self.rhs.oclAsType(ecore::EObject))->selectByKind(DataDictionaryCharacterized::expressions::CharacteristicReference)->forAll(r |&#xA;&#x9;r.oclIsKindOf(DataDictionaryCharacterized::expressions::ContainerCharacteristicReference) or&#xA;&#x9;r.oclIsKindOf(expressions::SeffParameterCharacteristicReference) or&#xA;&#x9;r.oclIsKindOf(expressions::ReturnCharacteristicReference)&#xA;)"/>
     </eAnnotations>
@@ -20,7 +19,7 @@
       <details key="documentation" value="Generic base class for characteristic assignments. An assignment consists of a left hand side (lhs) and a right hand side (rhs). The type of the left hand side is generic to be defined by the type parameter. The right hand side is a term. Depending on the particular subclass, there might be restrictions regarding the usable terms on the right hand side. You can only use terms of type ContainerCharacteristicReference, ReturnCharacteristicReference or SeffParameterCharacteristicReference on the right hand side of the assignment."/>
     </eAnnotations>
     <eTypeParameters name="LhsType">
-      <eBounds eClassifier="ecore:EClass ../../org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//expressions/CharacteristicReference"/>
+      <eBounds eClassifier="#//expressions/VariableCharacteristicReference"/>
     </eTypeParameters>
     <eStructuralFeatures xsi:type="ecore:EReference" name="lhs" lowerBound="1" containment="true">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -102,14 +101,34 @@
       <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
       <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
     </eAnnotations>
-    <eClassifiers xsi:type="ecore:EClass" name="SeffCharacteristicReference" abstract="true"
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterReference" abstract="true">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+        <details key="documentation" value="Abstract base class for references that require a parameter in order to be resolved."/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/Parameter"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableCharacteristicReference" abstract="true"
         eSuperTypes="../../org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//expressions/CharacteristicReference">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="atMostOneReferenceIsSet dataTypeMustNotBeUsedForEnumCharacteristics literalMustNotBeUsedForDataTypeCharacteristics"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <details key="atMostOneReferenceIsSet" value="self.literal.oclIsUndefined() or self.dataType.oclIsUndefined()"/>
+        <details key="dataTypeMustNotBeUsedForEnumCharacteristics" value="not self.characteristicType.oclIsKindOf(DataDictionaryCharacterized::EnumCharacteristicType) or self.dataType.oclIsUndefined()"/>
+        <details key="literalMustNotBeUsedForDataTypeCharacteristics" value="not self.characteristicType.oclIsKindOf(characterizedActions::characteristics::DataTypeCharacteristicType) or self.literal.oclIsUndefined()"/>
+      </eAnnotations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="literal" eType="ecore:EClass ../../org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//Literal"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="dataType" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/DataType"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="SeffCharacteristicReference" abstract="true"
+        eSuperTypes="#//expressions/VariableCharacteristicReference">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Abstract base class for references that require a SEFF in order to be resolved."/>
       </eAnnotations>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CallCharacteristicReference" abstract="true"
-        eSuperTypes="../../org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//expressions/CharacteristicReference">
+        eSuperTypes="#//expressions/VariableCharacteristicReference">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
         <details key="constraints" value="exactlyOneCallHasToBeSet"/>
       </eAnnotations>
@@ -122,13 +141,6 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="externalCallAction" eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//seff/ExternalCallAction"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="entryLevelSystemCall"
           eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//usagemodel/EntryLevelSystemCall"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ParameterReference" abstract="true">
-      <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Abstract base class for references that require a parameter in order to be resolved."/>
-      </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" lowerBound="1"
-          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/Parameter"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterCharacteristicReference"
         eSuperTypes="#//expressions/CallCharacteristicReference #//expressions/ParameterReference">
@@ -163,12 +175,12 @@
   </eSubpackages>
   <eSubpackages name="characteristics" nsURI="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0/characteristics"
       nsPrefix="characteristics">
-    <eClassifiers xsi:type="ecore:EClass" name="CharacteristicTypeDictionary">
+    <eClassifiers xsi:type="ecore:EClass" name="CharacteristicTypeDictionary" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Container for characteristic types and other entities required by these types. Characteristic types are required to define concrete characteristics that can be assign to entities, parameters or return values. For now, there is only support for finite-set value types, i.e. EnumCharacteristicType definitions."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="characteristicTypes"
-          upperBound="-1" eType="ecore:EClass ../../org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//EnumCharacteristicType"
+          upperBound="-1" eType="ecore:EClass ../../org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//CharacteristicType"
           containment="true">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Available characteristic types."/>
@@ -209,6 +221,11 @@
           <details key="documentation" value="Characteristics that belong to the containing entity."/>
         </eAnnotations>
       </eStructuralFeatures>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="DataTypeCharacteristicType" eSuperTypes="../../org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//CharacteristicType"/>
+    <eClassifiers xsi:type="ecore:EClass" name="DataTypeCharacteristic" eSuperTypes="#//characteristics/Characteristic">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/DataType"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="repository" nsURI="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0/repository"

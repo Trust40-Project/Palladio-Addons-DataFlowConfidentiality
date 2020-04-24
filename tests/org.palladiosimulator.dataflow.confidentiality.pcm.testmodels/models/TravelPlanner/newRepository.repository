@@ -123,14 +123,6 @@
         <rhs xsi:type="expressions_1:True" id="_w3mOam99Eeq4bKUToZIhyg"/>
       </returnAssignments>
     </serviceEffectSpecifications__BasicComponent>
-    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_LwYOgHHKEeqQIp35a0U06Q" describedService__SEFF="_tATz8G0xEeqbLPEsWsJpeg">
-      <steps_Behaviour xsi:type="seff:StartAction" id="_LwYOgXHKEeqQIp35a0U06Q" successor_AbstractAction="_LwY1kHHKEeqQIp35a0U06Q"/>
-      <steps_Behaviour xsi:type="seff:StopAction" id="_LwY1kHHKEeqQIp35a0U06Q" predecessor_AbstractAction="_LwYOgXHKEeqQIp35a0U06Q"/>
-    </serviceEffectSpecifications__BasicComponent>
-    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_MMNO4HHKEeqQIp35a0U06Q" describedService__SEFF="_z1C3IG0xEeqbLPEsWsJpeg">
-      <steps_Behaviour xsi:type="seff:StartAction" id="_MMN18HHKEeqQIp35a0U06Q" successor_AbstractAction="_MMN18XHKEeqQIp35a0U06Q"/>
-      <steps_Behaviour xsi:type="seff:StopAction" id="_MMN18XHKEeqQIp35a0U06Q" predecessor_AbstractAction="_MMN18HHKEeqQIp35a0U06Q"/>
-    </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
   <components__Repository xsi:type="repository:CompositeComponent" id="_ONS34G0fEeqKyf48wo8qfA" entityName="CreditCardCenter">
     <assemblyContexts__ComposedStructure xsi:type="characterizedActions:CharacterizableAssemblyContext" id="_iozSwG0fEeqKyf48wo8qfA" entityName="Assembly_CreditCardCenterDB" encapsulatedComponent__AssemblyContext="_RB2qMG0fEeqKyf48wo8qfA"/>
@@ -237,22 +229,22 @@
     </signatures__OperationInterface>
   </interfaces__Repository>
   <interfaces__Repository xsi:type="repository_1:DBOperationInterface" id="_13ffwG0gEeq-xaR5BhvvqA" entityName="ICreditCardCenterDB">
-    <signatures__OperationInterface id="_T96ysG0fEeqKyf48wo8qfA" entityName="setCCD">
+    <signatures__OperationInterface id="_T96ysG0fEeqKyf48wo8qfA" entityName="addCCD">
       <parameters__OperationSignature dataType__Parameter="_LkZ9IGzqEeqas-IKudlqKw" parameterName="ccd"/>
     </signatures__OperationInterface>
     <signatures__OperationInterface id="_Xb25MG0fEeqKyf48wo8qfA" entityName="getCCD" returnType__OperationSignature="_LkZ9IGzqEeqas-IKudlqKw"/>
   </interfaces__Repository>
   <interfaces__Repository xsi:type="repository_1:DBOperationInterface" id="_zi6bwG0lEeqy5fNd4LSp3w" entityName="ICommissionsDB">
-    <signatures__OperationInterface id="__ZSL0G0wEeqbMIiTDHw6dQ" entityName="set">
+    <signatures__OperationInterface id="__ZSL0G0wEeqbMIiTDHw6dQ" entityName="addCommission">
       <parameters__OperationSignature dataType__Parameter="_lM5aQGzqEeqas-IKudlqKw" parameterName="commission"/>
     </signatures__OperationInterface>
-    <signatures__OperationInterface id="_C50TUG0xEeqbMIiTDHw6dQ" entityName="get" returnType__OperationSignature="_lM5aQGzqEeqas-IKudlqKw"/>
+    <signatures__OperationInterface id="_C50TUG0xEeqbMIiTDHw6dQ" entityName="getCommission" returnType__OperationSignature="_lM5aQGzqEeqas-IKudlqKw"/>
   </interfaces__Repository>
   <interfaces__Repository xsi:type="repository_1:DBOperationInterface" id="_6X5Wn20lEeqy5fNd4LSp3w" entityName="IFlightsDB">
-    <signatures__OperationInterface id="_tATz8G0xEeqbLPEsWsJpeg" entityName="set">
+    <signatures__OperationInterface id="_tATz8G0xEeqbLPEsWsJpeg" entityName="addFlight">
       <parameters__OperationSignature dataType__Parameter="_b9E0sGzqEeqas-IKudlqKw" parameterName="flight"/>
     </signatures__OperationInterface>
-    <signatures__OperationInterface id="_z1C3IG0xEeqbLPEsWsJpeg" entityName="get" returnType__OperationSignature="_b9E0sGzqEeqas-IKudlqKw"/>
+    <signatures__OperationInterface id="_z1C3IG0xEeqbLPEsWsJpeg" entityName="getFlight" returnType__OperationSignature="_b9E0sGzqEeqas-IKudlqKw"/>
   </interfaces__Repository>
   <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_LkZ9IGzqEeqas-IKudlqKw" entityName="CCD"/>
   <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_b9E0sGzqEeqas-IKudlqKw" entityName="Flight"/>

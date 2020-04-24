@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<characteristics:CharacteristicTypeDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0/characteristics">
-  <characteristicTypes id="_LdvJEG0ZEeqKiorwkGH3eg" name="AssignedRoles" type="_M-4LsW0ZEeqKiorwkGH3eg"/>
-  <characteristicTypes id="_L_gZYG0ZEeqKiorwkGH3eg" name="AllowedRoles" type="_M-4LsW0ZEeqKiorwkGH3eg"/>
+<characteristics:CharacteristicTypeDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0/characteristics">
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_LdvJEG0ZEeqKiorwkGH3eg" name="AssignedRoles" type="_M-4LsW0ZEeqKiorwkGH3eg"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_L_gZYG0ZEeqKiorwkGH3eg" name="AllowedRoles" type="_M-4LsW0ZEeqKiorwkGH3eg"/>
   <characteristicEnumerations id="_M-4LsW0ZEeqKiorwkGH3eg" name="Roles">
     <literals id="_NtovIG0ZEeqKiorwkGH3eg" name="User"/>
     <literals id="_Oot3UG0ZEeqKiorwkGH3eg" name="TravelAgency"/>

@@ -8,4 +8,6 @@ public interface TransformPCMDFDtoPrologJob<T extends KeyValueMDSDBlackboard> ex
 
     String getPrologKey();
     
+    String getTraceKey();
+    
 }

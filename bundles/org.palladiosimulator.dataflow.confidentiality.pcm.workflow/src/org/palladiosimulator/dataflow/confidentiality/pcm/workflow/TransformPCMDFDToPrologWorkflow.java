@@ -6,4 +6,6 @@ public interface TransformPCMDFDToPrologWorkflow extends Runnable {
     
     Optional<String> getPrologProgram();
     
+    Optional<TransitiveTransformationTrace> getTrace();
+    
 }

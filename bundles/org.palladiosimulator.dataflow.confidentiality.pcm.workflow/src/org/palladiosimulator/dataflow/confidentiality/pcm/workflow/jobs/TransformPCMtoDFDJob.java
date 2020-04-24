@@ -9,30 +9,33 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.PcmToDfdTransformation;
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.PcmToDfdTransformationFactory;
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.TransformationResult;
+import org.palladiosimulator.dataflow.confidentiality.transformation.workflow.blackboards.KeyValueMDSDBlackboard;
 import org.palladiosimulator.pcm.usagemodel.UsageModel;
 
 import de.uka.ipd.sdq.workflow.jobs.AbstractBlackboardInteractingJob;
 import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
 import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
 import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
-import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ModelLocation;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 
-public class TransformPCMtoDFDJob extends AbstractBlackboardInteractingJob<MDSDBlackboard> {
+public class TransformPCMtoDFDJob extends AbstractBlackboardInteractingJob<KeyValueMDSDBlackboard> {
 
     private final String usageModelPartitionId;
     private final ModelLocation dfdLocation;
     private final ModelLocation ddLocation;
+    private final String traceKey;
 
-    public TransformPCMtoDFDJob(String usageModelPartitionId, ModelLocation dfdLocation, ModelLocation ddLocation) {
+    public TransformPCMtoDFDJob(String usageModelPartitionId, ModelLocation dfdLocation, ModelLocation ddLocation, String traceKey) {
         Validate.notNull(dfdLocation);
         Validate.notNull(ddLocation);
+        Validate.notEmpty(traceKey);
         Validate.isTrue(dfdLocation.getPartitionID()
             .equals(ddLocation.getPartitionID()), "Partition ids of transformation results have to be equal.");
         this.usageModelPartitionId = usageModelPartitionId;
         this.dfdLocation = dfdLocation;
         this.ddLocation = ddLocation;
+        this.traceKey = traceKey;
     }
 
     @Override
@@ -63,6 +66,9 @@ public class TransformPCMtoDFDJob extends AbstractBlackboardInteractingJob<MDSDB
         ResourceSetPartition dfdPartition = getBlackboard().getPartition(ddLocation.getPartitionID());
         dfdPartition.setContents(ddLocation.getModelID(), result.getDictionary());
         dfdPartition.setContents(dfdLocation.getModelID(), result.getDiagram());
+        
+        // save trace
+        getBlackboard().put(traceKey, result.getTrace());
 
         monitor.worked(1);
         monitor.done();

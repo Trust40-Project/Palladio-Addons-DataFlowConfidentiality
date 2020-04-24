@@ -11,7 +11,8 @@ import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedAct
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.CharacteristicType;
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Literal;
 
-public class SeffReturnCharacteristicReferenceItemProvider extends SeffReturnCharacteristicReferenceItemProviderGen {
+public class SeffReturnCharacteristicReferenceItemProvider extends SeffReturnCharacteristicReferenceItemProviderGen
+        implements DataTypeToNameMixin {
 
 	public SeffReturnCharacteristicReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
@@ -21,7 +22,9 @@ public class SeffReturnCharacteristicReferenceItemProvider extends SeffReturnCha
 	public String getText(Object object) {
 		SeffReturnCharacteristicReference ref = (SeffReturnCharacteristicReference) object;
 		String characteristicTypeName = Optional.ofNullable(ref.getCharacteristicType()).map(CharacteristicType::getName).orElse("*");
-		String characteristicValueName = Optional.ofNullable(ref.getLiteral()).map(Literal::getName).orElse("*");
+	    Optional<String> characteristicLiteralName = Optional.ofNullable(ref.getLiteral()).map(Literal::getName);
+	    Optional<String> characteristicDataTypeName = Optional.ofNullable(ref.getDataType()).map(this::getName);
+	    String characteristicValueName = characteristicLiteralName.orElse(characteristicDataTypeName.orElse("*"));
 		return String.format("SEFF.result.%s.%s", characteristicTypeName, characteristicValueName);
 	}
 	
@@ -33,6 +36,7 @@ public class SeffReturnCharacteristicReferenceItemProvider extends SeffReturnCha
 		{
 			case ExpressionsPackage.SEFF_RETURN_CHARACTERISTIC_REFERENCE__CHARACTERISTIC_TYPE:
 			case ExpressionsPackage.SEFF_RETURN_CHARACTERISTIC_REFERENCE__LITERAL:
+			case ExpressionsPackage.SEFF_RETURN_CHARACTERISTIC_REFERENCE__DATA_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

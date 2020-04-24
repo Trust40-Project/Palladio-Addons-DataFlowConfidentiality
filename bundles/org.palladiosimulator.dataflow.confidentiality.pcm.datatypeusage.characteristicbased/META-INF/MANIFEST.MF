@@ -1,0 +1,24 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Characteristic Based
+Bundle-SymbolicName: org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.characteristicbased
+Bundle-Version: 0.1.0.qualifier
+Bundle-Activator: org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.datatypeusage.characteristicbased.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage;bundle-version="0.1.0",
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
+ org.eclipse.xtend.lib,
+ org.eclipse.xtend.lib.macro,
+ org.palladiosimulator.dataflow.confidentiality.pcm.workflow;bundle-version="0.1.0",
+ org.prolog4j.manager;bundle-version="1.0.0",
+ org.prolog4j.api;bundle-version="1.0.0",
+ org.palladiosimulator.dataflow.confidentiality.resources;bundle-version="0.1.0",
+ org.palladiosimulator.dataflow.confidentiality.pcm.resources;bundle-version="0.1.0",
+ de.uka.ipd.sdq.workflow;bundle-version="4.2.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.datatypeusage.characteristicbased
+Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.datatypeusage.characteristicbased.impl.ActualDataTypesAffectingAnalysis.xml,
+ OSGI-INF/org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.datatypeusage.characteristicbased.impl.ActualDataTypesAtELSCsAnalysis.xml
+Import-Package: org.osgi.service.component.annotations;version="1.2.0"

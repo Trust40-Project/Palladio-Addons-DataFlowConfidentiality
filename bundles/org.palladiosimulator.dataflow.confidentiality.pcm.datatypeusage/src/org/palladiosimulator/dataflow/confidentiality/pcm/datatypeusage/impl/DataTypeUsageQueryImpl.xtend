@@ -1,11 +1,12 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.impl
 
 import java.util.Collection
-import java.util.HashMap
 import java.util.HashSet
 import java.util.LinkedList
+import org.eclipse.core.runtime.IProgressMonitor
 import org.osgi.service.component.annotations.Component
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysis
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.dto.DataTypeUsageQueryResultImpl
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.DBOperationInterface
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.PcmQueryUtils
@@ -23,22 +24,14 @@ class DataTypeUsageQueryImpl implements DataTypeUsageAnalysis {
 	val extension ModelQueryUtils modelQueryUtils = new ModelQueryUtils
 
 	override getName() {
-		"Usage Query"
+		"Usage Query (Stopping at Store)"
 	}
 	
 	override getUUID() {
 		"5bf1aea9-5eb0-4a9b-91a4-01d322bb34df"
 	}
 
-	override getUsedDataTypes(Iterable<EntryLevelSystemCall> elscs) {
-		val result = new HashMap()
-		for (elsc : elscs) {
-			result.put(elsc, elsc.usedDataTypes)
-		}
-		result
-	}
-
-	override getUsedDataTypes(EntryLevelSystemCall elsc) {
+	override getUsedDataTypes(EntryLevelSystemCall elsc, IProgressMonitor monitor) {
 		val Collection<DataType> readData = new HashSet
 		val Collection<DataType> writeData = new HashSet
 
@@ -56,7 +49,7 @@ class DataTypeUsageQueryImpl implements DataTypeUsageAnalysis {
 				val calledSignature = eca.calledService_ExternalService
 				readData.addDataTypes(calledSignature)
 				if (calledSignature.interface__OperationSignature instanceof DBOperationInterface) {
-					writeData.addDataTypes(calledSignature.parameters__OperationSignature.map[dataType__Parameter])
+					calledSignature.handleDBSignatureCall(elsc, seff, eca, readData, writeData)
 				}
 				val requiredRole = eca.role_ExternalService
 				seffQueue.add(requiredRole.findCalledSeff(calledSignature, seff.context))
@@ -67,6 +60,11 @@ class DataTypeUsageQueryImpl implements DataTypeUsageAnalysis {
 		writeData.cleanup
 
 		new DataTypeUsageQueryResultImpl(readData, writeData)
+	}
+	
+	protected def void handleDBSignatureCall(OperationSignature calledSignature, EntryLevelSystemCall elsc,
+		SeffWithContext seff, ExternalCallAction eca, Collection<DataType> readData, Collection<DataType> writeData) {
+		writeData.addDataTypes(calledSignature.parameters__OperationSignature.map[dataType__Parameter])
 	}
 
 	protected def void addDataTypes(Collection<DataType> dataTypes, Iterable<DataType> toAdd) {

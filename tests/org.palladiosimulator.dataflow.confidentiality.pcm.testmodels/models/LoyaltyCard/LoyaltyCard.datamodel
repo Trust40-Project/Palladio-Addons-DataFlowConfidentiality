@@ -12,12 +12,18 @@
   <dataObjects xsi:type="datamodel:CollectionDataObject" id="_X8nJYHiZEemJObo0kKFqqQ" entityName="LoyaltyOrders" innerDataObjects="_XYMNsXiZEemJObo0kKFqqQ">
     <dataTypes xsi:type="repository:CollectionDataType" href="LoyaltyCard.repository#_OPT5fHigEemJObo0kKFqqQ"/>
   </dataObjects>
-  <dataObjects xsi:type="datamodel:CompositeDataObject" id="_dhxbEXiZEemJObo0kKFqqQ" entityName="Support ticket"/>
+  <dataObjects xsi:type="datamodel:CompositeDataObject" id="_dhxbEXiZEemJObo0kKFqqQ" entityName="Support ticket">
+    <dataTypes xsi:type="repository:CompositeDataType" href="LoyaltyCard.repository#_5PFTIH7mEeqx0-vjhg8ymQ"/>
+  </dataObjects>
   <dataObjects xsi:type="datamodel:CompositeDataObject" id="_gmLnQXiZEemJObo0kKFqqQ" entityName="Advertisement schedule">
     <dataTypes xsi:type="repository:CompositeDataType" href="LoyaltyCard.repository#_2OV7_XrdEemf8oAvAsui2Q"/>
   </dataObjects>
-  <dataObjects xsi:type="datamodel:CollectionDataObject" id="_k1360HiZEemJObo0kKFqqQ" entityName="Advertisement schedules" innerDataObjects="_gmLnQXiZEemJObo0kKFqqQ"/>
-  <dataObjects xsi:type="datamodel:CompositeDataObject" id="_nUR28XiZEemJObo0kKFqqQ" entityName="Advertisement request"/>
+  <dataObjects xsi:type="datamodel:CollectionDataObject" id="_k1360HiZEemJObo0kKFqqQ" entityName="Advertisement schedules" innerDataObjects="_gmLnQXiZEemJObo0kKFqqQ">
+    <dataTypes xsi:type="repository:CollectionDataType" href="LoyaltyCard.repository#_abpaYH5SEeqWM8fTBQk9dA"/>
+  </dataObjects>
+  <dataObjects xsi:type="datamodel:CompositeDataObject" id="_nUR28XiZEemJObo0kKFqqQ" entityName="Advertisement request">
+    <dataTypes xsi:type="repository:CompositeDataType" href="LoyaltyCard.repository#_-X6OIH7mEeqx0-vjhg8ymQ"/>
+  </dataObjects>
   <dataObjects xsi:type="datamodel:CompositeDataObject" id="_rIMNcXiZEemJObo0kKFqqQ" entityName="Customer profile">
     <dataTypes xsi:type="repository:CompositeDataType" href="LoyaltyCard.repository#_BG72LXreEemf8oAvAsui2Q"/>
   </dataObjects>

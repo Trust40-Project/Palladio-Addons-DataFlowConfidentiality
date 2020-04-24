@@ -13,4 +13,5 @@ Require-Bundle: org.palladiosimulator.dataflow.confidentiality.pcm.model;bundle-
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro
 Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd,
- org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl;x-friends:="org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage"
+ org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl;x-friends:="org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage",
+ org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace

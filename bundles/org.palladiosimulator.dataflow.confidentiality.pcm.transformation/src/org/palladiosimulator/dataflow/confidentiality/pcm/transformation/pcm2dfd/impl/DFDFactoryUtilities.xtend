@@ -75,6 +75,18 @@ class DFDFactoryUtilities {
 		behaving
 	}
 	
+	def createEnumCharacteristicType() {
+		ddCharacterizedFactory.createEnumCharacteristicType
+	}
+	
+	def createEnumeration() {
+		ddCharacterizedFactory.createEnumeration
+	}
+	
+	def createLiteral() {
+		ddCharacterizedFactory.createLiteral
+	}
+	
 	def createDataCharacteristicReference(Pin pin, CharacteristicType characteristicType, Literal literal) {
 		val reference = createDataCharacteristicReference
 		reference.pin = pin

@@ -3,7 +3,7 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2df
 import de.uka.ipd.sdq.identifier.Identifier;
 
 public interface TraceRecorder {
-
+    
 	default void addToTrace(Identifier srcElement, Identifier dstElement) {
 		addToTrace(srcElement.getId(), dstElement.getId());
 	}

@@ -17,6 +17,7 @@ import org.palladiosimulator.pcm.usagemodel.UsageModel
 
 import static org.junit.jupiter.api.Assertions.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.test.StandaloneUtils.getModelURI
+import org.eclipse.core.runtime.NullProgressMonitor
 
 class DataTypeUsageQueryTest {
 	
@@ -33,14 +34,14 @@ class DataTypeUsageQueryTest {
 	}
 	
 	@Test
-	def void testTravelPlanner() {
+	def void testTravelPlanner() throws InterruptedException {
 		val rs = new ResourceSetImpl
 		val usageModel = rs.getResource(getModelURI("TravelPlanner/newUsageModel.usagemodel"), true).contents.
 			head as UsageModel
 		val elscs = usageModel.eAllContents.filter(EntryLevelSystemCall)
 
 		val queryFlightsElsc = elscs.findFirst[entityName == "queryFlights"]
-		val actualQueryFlights = subject.getUsedDataTypes(queryFlightsElsc)
+		val actualQueryFlights = subject.getUsedDataTypes(queryFlightsElsc, new NullProgressMonitor)
 		assertTrue(actualQueryFlights.writeDataTypes.empty)
 		assertEquals(3, actualQueryFlights.readDataTypes.size)
 		assertEquals(1, actualQueryFlights.readDataTypes.filter(PrimitiveDataType).size)
@@ -53,7 +54,7 @@ class DataTypeUsageQueryTest {
 	@Test
 	def void testLoyaltyCardOnlinePurchase() {
 		val elsc = "LoyaltyCard/MakeStorePurchaseOnline.bpusagemodel".findElsc("submit online order")
-		val actual = subject.getUsedDataTypes(elsc)
+		val actual = subject.getUsedDataTypes(elsc, new NullProgressMonitor)
 		assertEquals(#{"Order"}, actual.writeDataTypes)
 		assertEquals(#{"Order", "OnlineOrder", "Customer", "INT"}, actual.readDataTypes)
 	}
@@ -61,9 +62,9 @@ class DataTypeUsageQueryTest {
 	@Test
 	def void testLoyaltyCardPurchaseWithLoyaltyProgram() {
 		val elsc = "LoyaltyCard/MakeStorePurchaseWithLoyaltyProgram.bpusagemodel".findElsc("submit order")
-		val actual = subject.getUsedDataTypes(elsc)
-		assertEquals(#{"Order", "LoyaltyOrder"}, actual.writeDataTypes)
-		assertEquals(#{"Order", "LoyaltyOrder", "Customer", "INT"}, actual.readDataTypes)
+		val actual = subject.getUsedDataTypes(elsc, new NullProgressMonitor)
+		assertEquals(#{"Order"}, actual.writeDataTypes)
+		assertEquals(#{"Order", "INT", "Customer", "LoyaltyCustomer", "LoyaltyOrder"}, actual.readDataTypes)
 	}
 	
 	protected def EntryLevelSystemCall findElsc(String modelName, String requiredName) {

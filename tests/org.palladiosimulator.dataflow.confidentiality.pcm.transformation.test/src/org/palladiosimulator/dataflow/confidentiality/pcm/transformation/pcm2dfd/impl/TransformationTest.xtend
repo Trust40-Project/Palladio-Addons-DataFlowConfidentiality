@@ -38,11 +38,11 @@ class TransformationTest {
 			"TravelPlanner/expected_dfd.xmi")
 	}
 
-	@Test
-	def testLoyaltyCard() {
-		"TravelPlanner/newUsageModel.usagemodel".assertSameAsReference("TravelPlanner/expected_dd.xmi",
-			"TravelPlanner/expected_dfd.xmi")
-	}
+//	@Test
+//	def testLoyaltyCard() {
+//		"TravelPlanner/newUsageModel.usagemodel".assertSameAsReference("TravelPlanner/expected_dd.xmi",
+//			"TravelPlanner/expected_dfd.xmi")
+//	}
 
 	protected def assertSameAsReference(String usageModelPath, String expectedDdPath, String expectedDfdPath) {
 		val inputRs = new ResourceSetImpl

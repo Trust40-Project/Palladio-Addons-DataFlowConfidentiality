@@ -3,14 +3,11 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.laun
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.TreeMap;
 import java.util.stream.Collectors;
 
 import org.eclipse.core.resources.IFile;
@@ -26,16 +23,15 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.net4j.util.om.monitor.SubMonitor;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysis;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysisResult;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.Activator;
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.DataTypeUsageResultConverter.EntryLevelSystemCallResult;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.config.Configuration;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.config.ConfigurationSerializer;
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils;
-import org.palladiosimulator.pcm.core.entity.Entity;
-import org.palladiosimulator.pcm.repository.DataType;
-import org.palladiosimulator.pcm.repository.PrimitiveDataType;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
 import com.google.gson.Gson;
@@ -77,10 +73,9 @@ public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfiguratio
 
     protected Map<EntryLevelSystemCall, DataTypeUsageAnalysisResult> getDataTypeUsage(DataTypeUsageAnalysis analysis,
             Collection<URI> usageModelUris, IProgressMonitor monitor) throws CoreException {
-        monitor.beginTask("Query usage models", usageModelUris.size());
         ResourceSetImpl rs = new ResourceSetImpl();
         ModelQueryUtils utils = new ModelQueryUtils();
-        Map<EntryLevelSystemCall, DataTypeUsageAnalysisResult> result = new HashMap<>();
+        Collection<EntryLevelSystemCall> elscs = new ArrayList<>();
         for (URI uri : usageModelUris) {
             Resource r = rs.getResource(uri, true);
             try {
@@ -91,19 +86,23 @@ public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfiguratio
             EObject rootObject = r.getContents()
                 .iterator()
                 .next();
-            Iterable<EntryLevelSystemCall> elscs = utils.findChildrenOfType(rootObject, EntryLevelSystemCall.class);
-            result.putAll(analysis.getUsedDataTypes(elscs));
-            monitor.worked(1);
+            utils.findChildrenOfType(rootObject, EntryLevelSystemCall.class).forEach(elscs::add);            
         }
-        monitor.done();
-        return result;
+        EcoreUtil.resolveAll(rs);
+        try {
+            return analysis.getUsedDataTypes(elscs, monitor);
+        } catch (InterruptedException e) {
+            throwCoreException("The analysis has been aborted by the user.", e);
+            return null;
+        }
     }
 
     protected void serializeToJson(Configuration parsedConfig,
             Map<EntryLevelSystemCall, DataTypeUsageAnalysisResult> result, IProgressMonitor monitor)
             throws CoreException {
 
-        Object simpleResult = createSimpleResult(result);
+        DataTypeUsageResultConverter converter = new DataTypeUsageResultConverter(result);
+        List<EntryLevelSystemCallResult> simpleResult = converter.getConversionResult();
 
         GsonBuilder gsonBuilder = new GsonBuilder();
         gsonBuilder.enableComplexMapKeySerialization();
@@ -122,48 +121,6 @@ public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfiguratio
         } catch (IOException e) {
             throwCoreException("Could not serialize result.", e);
         }
-    }
-
-    protected Object createSimpleResult(Map<EntryLevelSystemCall, DataTypeUsageAnalysisResult> result) {
-        Map<Object, Object> newResult = new LinkedHashMap<>();
-        for (Entry<EntryLevelSystemCall, DataTypeUsageAnalysisResult> entry : result.entrySet()) {
-            Map<String, String> elsc = convert(entry.getKey());
-            DataTypeUsageAnalysisResult queryResult = entry.getValue();
-            List<Map<String, String>> readDts = queryResult.getReadDataTypes()
-                .stream()
-                .map(this::convert)
-                .collect(Collectors.toList());
-            List<Map<String, String>> writeDts = queryResult.getWriteDataTypes()
-                .stream()
-                .map(this::convert)
-                .collect(Collectors.toList());
-            Map<String, List<Map<String, String>>> dataTypes = new TreeMap<>();
-            dataTypes.put("read", readDts);
-            dataTypes.put("write", writeDts);
-            newResult.put(elsc, dataTypes);
-        }
-        return newResult;
-    }
-
-    protected Map<String, String> convert(DataType dt) {
-        if (dt instanceof PrimitiveDataType) {
-            return convert((PrimitiveDataType) dt);
-        }
-        return convert((Entity) dt);
-    }
-
-    protected Map<String, String> convert(PrimitiveDataType dt) {
-        Map<String, String> result = new TreeMap<>();
-        result.put("name", dt.getType()
-            .getLiteral());
-        return result;
-    }
-
-    protected Map<String, String> convert(Entity entity) {
-        Map<String, String> result = new TreeMap<>();
-        result.put("name", entity.getEntityName());
-        result.put("id", entity.getId());
-        return result;
     }
 
     protected Configuration parseLaunchConfig(ILaunchConfiguration configuration) {

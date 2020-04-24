@@ -17,7 +17,7 @@ import org.palladiosimulator.pcm.seff.ExternalCallAction;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
 public class ReturnCharacteristicReferenceItemProvider extends ReturnCharacteristicReferenceItemProviderGen
-	implements AvailableExternalCallActionMixin, AvailableEntryLevelSystemCallActionMixin {
+	implements AvailableExternalCallActionMixin, AvailableEntryLevelSystemCallActionMixin, DataTypeToNameMixin {
 
 	public ReturnCharacteristicReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
@@ -46,7 +46,9 @@ public class ReturnCharacteristicReferenceItemProvider extends ReturnCharacteris
 		Optional<String> elscName = Optional.ofNullable(ref.getEntryLevelSystemCall()).map(EntryLevelSystemCall::getEntityName);
 		String actionName = ecaName.orElse(elscName.orElse("null"));
 		String characteristicTypeName = Optional.ofNullable(ref.getCharacteristicType()).map(CharacteristicType::getName).orElse("*");
-		String characteristicValueName = Optional.ofNullable(ref.getLiteral()).map(Literal::getName).orElse("*");
+        Optional<String> characteristicLiteralName = Optional.ofNullable(ref.getLiteral()).map(Literal::getName);
+        Optional<String> characteristicDataTypeName = Optional.ofNullable(ref.getDataType()).map(this::getName);
+        String characteristicValueName = characteristicLiteralName.orElse(characteristicDataTypeName.orElse("*"));
 		return String.format("%s.result.%s.%s", actionName, characteristicTypeName, characteristicValueName);
 	}
 	
@@ -60,6 +62,7 @@ public class ReturnCharacteristicReferenceItemProvider extends ReturnCharacteris
 			case ExpressionsPackage.RETURN_CHARACTERISTIC_REFERENCE__EXTERNAL_CALL_ACTION:
 			case ExpressionsPackage.RETURN_CHARACTERISTIC_REFERENCE__CHARACTERISTIC_TYPE:
 			case ExpressionsPackage.RETURN_CHARACTERISTIC_REFERENCE__LITERAL:
+			case ExpressionsPackage.PARAMETER_CHARACTERISTIC_REFERENCE__DATA_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

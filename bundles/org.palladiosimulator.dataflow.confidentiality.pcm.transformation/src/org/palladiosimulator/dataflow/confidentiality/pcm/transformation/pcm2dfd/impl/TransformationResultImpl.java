@@ -1,16 +1,16 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl;
 
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.TransformationResult;
-import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.TransformationTrace;
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCM2DFDTransformationTrace;
 import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.DataFlowDiagram;
 import org.palladiosimulator.dataflow.dictionary.DataDictionary.DataDictionary;
 
 public class TransformationResultImpl implements TransformationResult {
 	private final DataFlowDiagram diagram;
 	private final DataDictionary dictionary;
-	private final TransformationTrace trace;
+	private final PCM2DFDTransformationTrace trace;
 
-	public TransformationResultImpl(DataFlowDiagram diagram, DataDictionary dictionary, TransformationTrace trace) {
+	public TransformationResultImpl(DataFlowDiagram diagram, DataDictionary dictionary, PCM2DFDTransformationTrace trace) {
 		super();
 		this.diagram = diagram;
 		this.dictionary = dictionary;
@@ -23,7 +23,7 @@ public class TransformationResultImpl implements TransformationResult {
 	}
 
 	@Override
-	public TransformationTrace getTrace() {
+	public PCM2DFDTransformationTrace getTrace() {
 		return trace;
 	}
 

@@ -14,18 +14,23 @@ import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedAct
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.CharacterizedExternalCallAction
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.CharacterizedResourceDemandingSEFF
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.characteristics.Characteristic
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.characteristics.DataTypeCharacteristicType
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.ParameterCharacteristicReference
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.ReturnCharacteristicReference
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.SeffParameterCharacteristicReference
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.SeffReturnCharacteristicReference
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.VariableCharacteristicReference
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.DBOperationInterface
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.PcmToDfdTransformation
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.impl.TransformationTraceModifier
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.Characterizable
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedExternalActor
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedProcess
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedStore
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.CharacteristicType
+import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.EnumCharacteristicType
+import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Literal
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Pin
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.expressions.BinaryLogicTerm
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.expressions.Constant
@@ -33,11 +38,13 @@ import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCha
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.expressions.DataCharacteristicReference
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.expressions.UnaryLogicTerm
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
+import org.palladiosimulator.pcm.core.entity.Entity
 import org.palladiosimulator.pcm.repository.CollectionDataType
 import org.palladiosimulator.pcm.repository.CompositeDataType
 import org.palladiosimulator.pcm.repository.OperationSignature
 import org.palladiosimulator.pcm.repository.Parameter
 import org.palladiosimulator.pcm.repository.PrimitiveDataType
+import org.palladiosimulator.pcm.repository.PrimitiveTypeEnum
 import org.palladiosimulator.pcm.repository.RepositoryComponent
 import org.palladiosimulator.pcm.seff.AbstractAction
 import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF
@@ -45,6 +52,7 @@ import org.palladiosimulator.pcm.seff.ServiceEffectSpecification
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour
 import org.palladiosimulator.pcm.usagemodel.UsageModel
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.impl.PCM2DFDTransformationTraceImpl
 
 class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	
@@ -54,16 +62,23 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	extension DataFlowAdder dataFlowConsumer = null
 	extension NodeAdder nodeAdder = null
 	extension DataTypeAdder dataTypeAdder = null
-	extension TraceRecorder traceRecorder = null
+	extension DataTypeLiteralAdder dataTypeLiteralAdder = null
+	extension CharacteristicTypeAdder characteristicTypeAdder = null
+	extension TransformationTraceModifier trace = null
 	
 	override transform(Collection<UsageModel> usageModels) {
-		val trace = new TransformationTraceImpl
 		val dfd = createDataFlowDiagram
 		val dd = createDataDictionary
+		val trace = new PCM2DFDTransformationTraceImpl
+		this.trace = trace
 		dataFlowConsumer = [flow | dfd.edges.add(flow)]
 		nodeAdder = [node | dfd.nodes.add(node)]
 		dataTypeAdder = [dt | dd.entries.add(dt)]
-		traceRecorder = [ srcId, dstId | trace.addToTrace(srcId, dstId)]
+		characteristicTypeAdder = [ct | dd.characteristicTypes += ct]
+		val dataTypeEnumeration = getDataTypeEnumeration
+		dd.enumerations += dataTypeEnumeration
+		dataTypeLiteralAdder = [literal | dataTypeEnumeration.literals += literal]
+		
 		usageModels.transformAllBehaviors
 		new TransformationResultImpl(dfd, dd, trace)
 	}
@@ -122,7 +137,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	}
 	
 	protected def create actor: createActor getActor(ScenarioBehaviour behavior) {
-		addToTrace(behavior, actor)
+		addTraceEntry(behavior, actor)
 		actor.name = behavior.entityName
 		actor.createBehavior
 	}
@@ -153,7 +168,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	 * </ul>
 	 */
 	private def create process: createActorProcess getEntryProcessPreconditionChecked(CharacterizedEntryLevelSystemCall elsc) {
-		addToTrace(elsc, process)
+		addTraceEntry(elsc, process)
 		process.name = '''«elsc.entityName» EntryProcess'''
 		process.createCharacteristics(elsc.scenarioBehaviour_AbstractUserAction)
 		process.createBehavior
@@ -223,7 +238,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	 * </ul>
 	 */
 	private def create process: createActorProcess getExitProcessPreconditionChecked(CharacterizedEntryLevelSystemCall elsc) {
-		addToTrace(elsc, process)
+		addTraceEntry(elsc, process)
 		process.name = '''«elsc.entityName» ExitProcess'''
 		process.createCharacteristics(elsc.scenarioBehaviour_AbstractUserAction)
 		process.createBehavior
@@ -284,7 +299,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	 * </ul>
 	 */
 	protected def create process: createProcess getEntryProcessPreconditionChecked(ResourceDemandingSEFF seff, List<AssemblyContext> context, boolean dbProcess) {
-		addToTrace(seff, process)
+		addTraceEntry(seff, context, process)
 		process.name = '''SEFF «seff.basicComponent_ServiceEffectSpecification.entityName»::«seff.describedService__SEFF.entityName» EntryProcess'''
 		process.createCharacteristics(context)
 		process.createBehavior
@@ -308,7 +323,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	}
 	
 	protected def create store: createStore getStore(DBOperationInterface dbInterface, List<AssemblyContext> context) {
-		addToTrace(dbInterface, store)
+		addTraceEntry(dbInterface, context, store)
 		store.name = '''Store «dbInterface.entityName»'''
 		store.createCharacteristics(context)
 		store.createBehavior
@@ -362,7 +377,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	 * </ul>
 	 */
 	protected def create process: createProcess getExitProcessPreconditionChecked(CharacterizedResourceDemandingSEFF seff, List<AssemblyContext> context, boolean dbProcess) {
-		addToTrace(seff, process)
+		addTraceEntry(seff, context, process)
 		process.name = '''SEFF «seff.basicComponent_ServiceEffectSpecification.entityName»::«seff.describedService__SEFF.entityName» ExitProcess'''
 		process.createCharacteristics(context)
 		process.createBehavior
@@ -427,7 +442,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	 * </ul>
 	 */
 	protected def create process: createProcess getEntryProcessPreconditionChecked(CharacterizedExternalCallAction eca, List<AssemblyContext> context) {
-		addToTrace(eca, process)
+		addTraceEntry(eca, context, process)
 		process.name = '''ECA «eca.findParentOfType(RepositoryComponent).entityName»::«eca.entityName» EntryProcess'''
 		process.createCharacteristics(context)
 		process.createBehavior
@@ -484,7 +499,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	 * </ul>
 	 */
 	private def create process: createProcess getExitProcessPreconditionChecked(CharacterizedExternalCallAction eca, List<AssemblyContext> context) {
-		addToTrace(eca, process)
+		addTraceEntry(eca, context, process)
 		process.name = '''ECA «eca.entityName» ExitProcess'''
 		process.createCharacteristics(context)
 		process.createBehavior
@@ -530,7 +545,9 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	}
 	
 	protected def dispatch getDataType(PrimitiveDataType pcmDataType) {
-		pcmDataType.type.getName.getPrimitiveDataType
+		val dataType = pcmDataType.type.getName.getPrimitiveDataType
+		addTraceEntry(pcmDataType, dataType)
+		dataType
 	}
 	
 	private def create dataType: createPrimitiveDT getPrimitiveDataType(String dataTypeName) {
@@ -539,14 +556,14 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	}
 	
 	protected def dispatch create dataType: createCollectionDT getDataType(CollectionDataType pcmDataType) {
-		addToTrace(pcmDataType, dataType)
+		addTraceEntry(pcmDataType, dataType)
 		dataType.name = pcmDataType.entityName
 		dataType.type = pcmDataType.innerType_CollectionDataType.dataType
 		dataType.addToDictionary
 	}
 	
 	protected def dispatch create dataType: createCompositeDT getDataType(CompositeDataType pcmDataType) {
-		addToTrace(pcmDataType, dataType)
+		addTraceEntry(pcmDataType, dataType)
 		dataType.name = pcmDataType.entityName
 		for (innerDeclaration : pcmDataType.innerDeclaration_CompositeDataType) {
 			val entryType = innerDeclaration.datatype_InnerDeclaration.dataType
@@ -559,13 +576,13 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	protected def dispatch DataCharacteristicReference translate(CharacterizedProcess behaving, List<AssemblyContext> contexts, SeffReturnCharacteristicReference term) {
 		// only on lhs of assignment
 		val outputPin = behaving.getOutputPin()
-		createDataCharacteristicReference(outputPin, term.characteristicType, term.literal)
+		createDataCharacteristicReference(outputPin, term)
 	}
 	
 	protected def dispatch DataCharacteristicReference translate(CharacterizedProcess behaving, List<AssemblyContext> contexts, SeffParameterCharacteristicReference term) {
 		// only on rhs of assignment
 		val inputPin = behaving.getInputPin(term.parameter)
-		createDataCharacteristicReference(inputPin, term.characteristicType, term.literal)
+		createDataCharacteristicReference(inputPin, term)
 	}
 	
 	protected def dispatch DataCharacteristicReference translate(CharacterizedProcess behaving, List<AssemblyContext> contexts, ReturnCharacteristicReference term) {
@@ -576,7 +593,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		if (assignment?.lhs == term) {
 			// behaving is an exit process, therefore it only has one output pin
 			val outputPin = behaving.outputPin
-			return createDataCharacteristicReference(outputPin, term.characteristicType, term.literal)
+			return createDataCharacteristicReference(outputPin, term)
 		}
 		
 		// rhs case
@@ -588,13 +605,13 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		} else {
 			throw new IllegalArgumentException("There is no call contained")
 		}
-		createDataCharacteristicReference(inputPin, term.characteristicType, term.literal)
+		createDataCharacteristicReference(inputPin, term)
 	}
 	
 	protected def dispatch DataCharacteristicReference translate(CharacterizedProcess behaving, List<AssemblyContext> contexts, ParameterCharacteristicReference term) {
 		// only occurs on lhs of assignment
 		val outputPin = behaving.getOutputPin(term.parameter)
-		createDataCharacteristicReference(outputPin, term.characteristicType, term.literal)
+		createDataCharacteristicReference(outputPin, term)
 	}
 	
 	protected def dispatch ContainerCharacteristicReference translate(CharacterizedProcess behaving, List<AssemblyContext> contexts, ContainerCharacteristicReference term) {
@@ -616,6 +633,59 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	
 	protected def dispatch Constant translate(CharacterizedProcess behaving, List<AssemblyContext> contexts, Constant term) {
 		EcoreUtil.copy(term)
+	}
+	
+	protected def createDataCharacteristicReference(Pin pin, VariableCharacteristicReference reference) {
+		var characteristicType = reference.characteristicType
+		if (characteristicType === null) {
+			// wildcard reference
+			createDataCharacteristicReference(pin, null, null)
+		} else {
+			createDataCharacteristicReferenceImpl(pin, reference, characteristicType)			
+		}
+	}
+	
+	protected def dispatch createDataCharacteristicReferenceImpl(Pin pin, VariableCharacteristicReference reference, EnumCharacteristicType characteristicType) {
+		createDataCharacteristicReference(pin, characteristicType, reference.literal)
+		addTraceEntry(characteristicType, characteristicType)
+	}
+	
+	protected def dispatch createDataCharacteristicReferenceImpl(Pin pin, VariableCharacteristicReference reference, DataTypeCharacteristicType characteristicType) {
+		val newCharacteristicType = characteristicType.getEnumCharacteristicType
+		val usedDataType = reference.dataType
+		var newLiteral = null as Literal
+		if (usedDataType !== null) {
+			newLiteral = usedDataType.getDataTypeLiteral
+		}
+		createDataCharacteristicReference(pin, newCharacteristicType, newLiteral)
+	}
+	
+	protected def create enumCharacteristicType : createEnumCharacteristicType getEnumCharacteristicType(DataTypeCharacteristicType type) {
+		enumCharacteristicType.name = type.name
+		enumCharacteristicType.type = getDataTypeEnumeration()
+		enumCharacteristicType.addCharacteristicType
+		addTraceEntry(type, enumCharacteristicType)
+	}
+	
+	protected def create enumeration : createEnumeration getDataTypeEnumeration() {
+		enumeration.name = "DataTypes"
+	}
+
+	protected def dispatch getDataTypeLiteral(PrimitiveDataType dataType) {
+		val literal = getPrimitiveDataTypeLiteral(dataType.type)
+		addTraceEntry(dataType, literal)
+		literal
+	}
+	
+	protected def create literal : createLiteral getPrimitiveDataTypeLiteral(PrimitiveTypeEnum type) {
+		literal.name = type.literal
+		literal.addLiteral
+	}
+	
+	protected def dispatch create literal : createLiteral getDataTypeLiteral(Entity dataType) {
+		literal.name = dataType.entityName
+		literal.addLiteral
+		addTraceEntry(dataType, literal)
 	}
 
 }

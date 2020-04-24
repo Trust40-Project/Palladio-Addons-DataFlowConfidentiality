@@ -1,5 +1,6 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test
 
+import java.util.ArrayList
 import java.util.Collection
 import java.util.HashMap
 import java.util.List
@@ -17,7 +18,6 @@ import org.prolog4j.tuprolog.TuPrologProverFactory
 
 import static org.junit.jupiter.api.Assertions.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.StandaloneUtil.getModelURI
-import java.util.ArrayList
 
 class PrologWorkflowTests {
 
@@ -36,7 +36,7 @@ class PrologWorkflowTests {
 	@Test
 	def void testActorProcessGeneration() {
 		val usageModelUris = getModelURIs("LoyaltyCard", "MakeStorePurchaseOnline.bpusagemodel",
-			"MakeStorePurchaseWithLoyaltyProgram.bpusagemodel", "MakeStorePurchaseWithoutLoyaltyProgram.bpusagemodel",
+			"MakeStorePurchaseWithLoyaltyProgram.bpusagemodel",
 			"Prepare Advertisements and Discounts.bpusagemodel", "RegisterLoyaltyCustomer.usagemodel",
 			"RegisterOnlineCustomer.usagemodel")
 
@@ -57,7 +57,7 @@ class PrologWorkflowTests {
 		for (var solutionIter = solution.iterator; solutionIter.hasNext; solutionIter.next) {
 			val processName = solutionIter.get("P", String)
 			val actor = solutionIter.get("A", String)
-			val processNames = actorProcessMap.computeIfAbsent(actor, [k | new ArrayList])
+			val processNames = actorProcessMap.computeIfAbsent(actor, [k|new ArrayList])
 			processNames.add(processName)
 		}
 
@@ -87,8 +87,40 @@ class PrologWorkflowTests {
 		}
 
 		assertTrue(actorProcessMap.isEmpty)
+	}
 
-		println(actorProcessMap)
+	@Test
+	def void testTrace() {
+		val usageModelUris = getModelURIs("LoyaltyCard", "MakeStorePurchaseOnline.bpusagemodel",
+			"MakeStorePurchaseWithLoyaltyProgram.bpusagemodel",
+			"Prepare Advertisements and Discounts.bpusagemodel", "RegisterLoyaltyCustomer.usagemodel",
+			"RegisterOnlineCustomer.usagemodel")
+
+		val rs = new ResourceSetImpl
+		val usageModels = usageModelUris.map[uri|rs.getResource(uri, true).contents.head as UsageModel]
+		val elscs = usageModels.flatMap[usageScenario_UsageModel].map[scenarioBehaviour_UsageScenario].
+			toMap([sb|sb], [ sb |
+				sb.eAllContents.toList.filter(EntryLevelSystemCall)
+			])
+
+		val job = new TransformPCMDFDToPrologJobBuilder().addSerializeModelToString.addUsageModels(usageModels).build
+		val workflow = TransformPCMDFDToPrologWorkflowFactory.createWorkflow(job)
+		workflow.run
+
+		val potentialTrace = workflow.trace
+		assertTrue(potentialTrace.isPresent)
+
+		val trace = potentialTrace.get
+		for (elsc : elscs.values.flatten) {
+			val factIds = trace.getFactIds(elsc)
+			assertFalse(factIds.isEmpty)
+			for (factId : factIds) {
+				val pcmEntities = trace.getPCMEntries(factId)
+				assertEquals(1, pcmEntities.size)
+				assertEquals(elsc, pcmEntities.head.element)
+			}
+
+		}
 	}
 
 	protected def void initializeProver(List<URI> usageModelUris) {

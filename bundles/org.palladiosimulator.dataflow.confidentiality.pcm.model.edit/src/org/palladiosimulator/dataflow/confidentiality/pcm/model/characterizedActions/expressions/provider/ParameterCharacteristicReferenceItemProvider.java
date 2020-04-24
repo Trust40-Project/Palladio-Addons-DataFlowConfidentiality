@@ -24,7 +24,7 @@ import org.palladiosimulator.pcm.seff.ExternalCallAction;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
 
 public class ParameterCharacteristicReferenceItemProvider extends ParameterCharacteristicReferenceItemProviderGen
-		implements AvailableExternalCallActionMixin, AvailableEntryLevelSystemCallActionMixin {
+		implements AvailableExternalCallActionMixin, AvailableEntryLevelSystemCallActionMixin, DataTypeToNameMixin {
 
 	public ParameterCharacteristicReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
@@ -82,7 +82,7 @@ public class ParameterCharacteristicReferenceItemProvider extends ParameterChara
 		itemPropertyDescriptors.add(decorator);
 	}
 
-	@Override
+    @Override
 	public String getText(Object object) {
 		ParameterCharacteristicReference ref = (ParameterCharacteristicReference)object;
 		Optional<String> ecaName = Optional.ofNullable(ref.getExternalCallAction()).map(ExternalCallAction::getEntityName);
@@ -90,7 +90,9 @@ public class ParameterCharacteristicReferenceItemProvider extends ParameterChara
 		String actionName = ecaName.orElse(elscName.orElse("null"));
 		String parameterName = Optional.ofNullable(ref.getParameter()).map(Parameter::getParameterName).orElse("null");
 		String characteristicTypeName = Optional.ofNullable(ref.getCharacteristicType()).map(CharacteristicType::getName).orElse("*");
-		String characteristicValueName = Optional.ofNullable(ref.getLiteral()).map(Literal::getName).orElse("*");
+		Optional<String> characteristicLiteralName = Optional.ofNullable(ref.getLiteral()).map(Literal::getName);
+		Optional<String> characteristicDataTypeName = Optional.ofNullable(ref.getDataType()).map(this::getName);
+		String characteristicValueName = characteristicLiteralName.orElse(characteristicDataTypeName.orElse("*"));
 		return String.format("%s.%s.%s.%s", actionName, parameterName, characteristicTypeName, characteristicValueName);
 	}
 	
@@ -105,6 +107,7 @@ public class ParameterCharacteristicReferenceItemProvider extends ParameterChara
 			case ExpressionsPackage.PARAMETER_CHARACTERISTIC_REFERENCE__CHARACTERISTIC_TYPE:
 			case ExpressionsPackage.PARAMETER_CHARACTERISTIC_REFERENCE__LITERAL:
 			case ExpressionsPackage.PARAMETER_CHARACTERISTIC_REFERENCE__PARAMETER:
+			case ExpressionsPackage.PARAMETER_CHARACTERISTIC_REFERENCE__DATA_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

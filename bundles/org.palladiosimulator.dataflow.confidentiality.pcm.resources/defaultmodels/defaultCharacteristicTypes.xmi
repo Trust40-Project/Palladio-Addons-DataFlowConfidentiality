@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:CharacteristicTypeDictionary
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0/characteristics"
+    xsi:schemaLocation="http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0/characteristics http://palladiosimulator.org/dataflow/confidentiality/characterizedactions/0.1.0#//characteristics"
+    id="_855zoIJKEeq3Q-b3mU7zGQ">
+  <characteristicTypes
+      xsi:type="characteristics:DataTypeCharacteristicType"
+      id="_CtimMIJLEeq3Q-b3mU7zGQ"
+      name="InfluencingDataTypes"/>
+  <characteristicTypes
+      xsi:type="characteristics:DataTypeCharacteristicType"
+      id="_Kx_44IMcEeqcvN8hbnPcuQ"
+      name="ActualDataType"/>
+</characteristics:CharacteristicTypeDictionary>

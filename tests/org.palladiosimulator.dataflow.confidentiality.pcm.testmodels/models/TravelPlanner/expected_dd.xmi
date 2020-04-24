@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="ASCII"?>
-<DataDictionaryCharacterized:DataDictionaryCharacterized xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionary="http://palladiosimulator.org/dataflow/dictionary/1.0" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" id="_VuapsH5nEeqAYsxYGku4dg">
-  <entries xsi:type="DataDictionary:PrimitiveDataType" id="_Vy3r4H5nEeqAYsxYGku4dg" name="INT"/>
-  <entries xsi:type="DataDictionary:CompositeDataType" id="_VzHjgH5nEeqAYsxYGku4dg" name="Flight"/>
-  <entries xsi:type="DataDictionary:CollectionDataType" id="_VzIxoH5nEeqAYsxYGku4dg" name="Flights" type="_VzHjgH5nEeqAYsxYGku4dg"/>
-  <entries xsi:type="DataDictionary:CompositeDataType" id="_VzO4Q35nEeqAYsxYGku4dg" name="Confirmation"/>
-  <entries xsi:type="DataDictionary:CompositeDataType" id="_VzSion5nEeqAYsxYGku4dg" name="CCD"/>
-  <entries xsi:type="DataDictionary:CompositeDataType" id="_VzZQUX5nEeqAYsxYGku4dg" name="Commission"/>
+<DataDictionaryCharacterized:DataDictionaryCharacterized xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionary="http://palladiosimulator.org/dataflow/dictionary/1.0" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" id="_FIv94YY8Eeq10a1fkq2jAQ">
+  <entries xsi:type="DataDictionary:PrimitiveDataType" id="_FPpQEIY8Eeq10a1fkq2jAQ" name="INT"/>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_I4dJ0IY8Eeq10a1fkq2jAQ" name="Flight"/>
+  <entries xsi:type="DataDictionary:CollectionDataType" id="_I4dJ3oY8Eeq10a1fkq2jAQ" name="Flights" type="_I4dJ0IY8Eeq10a1fkq2jAQ"/>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_I4p-KIY8Eeq10a1fkq2jAQ" name="Confirmation"/>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_I4u2oIY8Eeq10a1fkq2jAQ" name="CCD"/>
+  <entries xsi:type="DataDictionary:CompositeDataType" id="_I40WOIY8Eeq10a1fkq2jAQ" name="Commission"/>
+  <enumerations id="_FI2rkIY8Eeq10a1fkq2jAQ" name="DataTypes"/>
 </DataDictionaryCharacterized:DataDictionaryCharacterized>

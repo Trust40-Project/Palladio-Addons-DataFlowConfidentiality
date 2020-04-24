@@ -21,7 +21,7 @@ import org.palladiosimulator.pcm.repository.Parameter;
 import org.palladiosimulator.pcm.seff.ServiceEffectSpecification;
 
 public class SeffParameterCharacteristicReferenceItemProvider extends SeffParameterCharacteristicReferenceItemProviderGen
-	implements ContainingSeffFinderMixin {
+	implements ContainingSeffFinderMixin, DataTypeToNameMixin {
 
 	public SeffParameterCharacteristicReferenceItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
@@ -54,7 +54,9 @@ public class SeffParameterCharacteristicReferenceItemProvider extends SeffParame
 		SeffParameterCharacteristicReference ref = (SeffParameterCharacteristicReference) object;
 		String parameterName = Optional.ofNullable(ref.getParameter()).map(Parameter::getParameterName).orElse("null");
 		String characteristicTypeName = Optional.ofNullable(ref.getCharacteristicType()).map(CharacteristicType::getName).orElse("*");
-		String characteristicValueName = Optional.ofNullable(ref.getLiteral()).map(Literal::getName).orElse("*");
+	    Optional<String> characteristicLiteralName = Optional.ofNullable(ref.getLiteral()).map(Literal::getName);
+	    Optional<String> characteristicDataTypeName = Optional.ofNullable(ref.getDataType()).map(this::getName);
+	    String characteristicValueName = characteristicLiteralName.orElse(characteristicDataTypeName.orElse("*"));
 		return String.format("SEFF.%s.%s.%s", parameterName, characteristicTypeName, characteristicValueName);
 	}
 	
@@ -67,6 +69,7 @@ public class SeffParameterCharacteristicReferenceItemProvider extends SeffParame
 			case ExpressionsPackage.SEFF_PARAMETER_CHARACTERISTIC_REFERENCE__CHARACTERISTIC_TYPE:
 			case ExpressionsPackage.SEFF_PARAMETER_CHARACTERISTIC_REFERENCE__LITERAL:
 			case ExpressionsPackage.SEFF_PARAMETER_CHARACTERISTIC_REFERENCE__PARAMETER:
+			case ExpressionsPackage.SEFF_PARAMETER_CHARACTERISTIC_REFERENCE__DATA_TYPE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

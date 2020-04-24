@@ -5,16 +5,18 @@ Bundle-SymbolicName: org.palladiosimulator.dataflow.confidentiality.pcm.datatype
 Bundle-Version: 0.1.0.qualifier
 Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage
 Bundle-RequiredExecutionEnvironment: JavaSE-11
-Require-Bundle: org.palladiosimulator.pcm;bundle-version="4.2.0",
+Require-Bundle: org.palladiosimulator.pcm;bundle-version="4.2.0";visibility:=reexport,
  com.google.guava,
  org.eclipse.xtext.xbase.lib,
  org.eclipse.xtend.lib,
  org.eclipse.xtend.lib.macro,
- org.palladiosimulator.dataflow.confidentiality.pcm.model;bundle-version="0.1.0",
- org.palladiosimulator.dataflow.confidentiality.pcm.queryutils;bundle-version="0.1.0"
-Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage
+ org.palladiosimulator.dataflow.confidentiality.pcm.model;bundle-version="0.1.0";visibility:=reexport,
+ org.palladiosimulator.dataflow.confidentiality.pcm.queryutils;bundle-version="0.1.0";visibility:=reexport
+Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage,
+ org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.dto
 Service-Component: OSGI-INF/org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.impl.DataTypeUsageAnalysisFactoryImpl.xml,
- OSGI-INF/org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.impl.DataTypeUsageQueryImpl.xml
+ OSGI-INF/org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.impl.DataTypeUsageQueryImpl.xml,
+ OSGI-INF/org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.impl.DataTypeUsageStorageConsideringQueryImpl.xml
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.Activator
 Import-Package: org.osgi.service.component.annotations;version="1.2.0"

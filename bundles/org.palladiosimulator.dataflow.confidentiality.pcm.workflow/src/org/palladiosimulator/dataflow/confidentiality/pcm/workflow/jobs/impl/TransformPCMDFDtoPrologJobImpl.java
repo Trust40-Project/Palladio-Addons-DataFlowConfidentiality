@@ -20,10 +20,12 @@ public class TransformPCMDFDtoPrologJobImpl<T extends KeyValueMDSDBlackboard>
         implements org.palladiosimulator.dataflow.confidentiality.pcm.workflow.jobs.TransformPCMDFDtoPrologJob<T> {
 
     private final String prologKey;
+    private final String traceKey;
 
-    public TransformPCMDFDtoPrologJobImpl(String name, String prologKey) {
+    public TransformPCMDFDtoPrologJobImpl(String name, String prologKey, String traceKey) {
         super(name);
         this.prologKey = prologKey;
+        this.traceKey = traceKey;
     }
 
     public static TransformPCMDFDToPrologJobBuilder newBuilder() {
@@ -33,5 +35,10 @@ public class TransformPCMDFDtoPrologJobImpl<T extends KeyValueMDSDBlackboard>
     @Override
     public String getPrologKey() {
         return prologKey;
+    }
+
+    @Override
+    public String getTraceKey() {
+        return traceKey;
     }
 }
