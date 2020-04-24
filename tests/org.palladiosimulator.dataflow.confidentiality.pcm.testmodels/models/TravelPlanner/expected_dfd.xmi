@@ -1,642 +1,642 @@
 <?xml version="1.0" encoding="ASCII"?>
-<DataFlowDiagram:DataFlowDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionary="http://palladiosimulator.org/dataflow/dictionary/1.0" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:DataFlowDiagram="http://palladiosimulator.org/dataflow/diagram/1.0" xmlns:DataFlowDiagramCharacterized="http://palladiosimulator.org/dataflow/diagram/characterized/1.0" xmlns:expressions="http://palladiosimulator.org/dataflow/dictionary/characterized/expressions/1.0" id="_FIv94IY8Eeq10a1fkq2jAQ">
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedExternalActor" id="_FJDf4IY8Eeq10a1fkq2jAQ" name="UserBehavior">
-    <ownedBehavior id="_FJEuAIY8Eeq10a1fkq2jAQ"/>
+<DataFlowDiagram:DataFlowDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionary="http://palladiosimulator.org/dataflow/dictionary/1.0" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:DataFlowDiagram="http://palladiosimulator.org/dataflow/diagram/1.0" xmlns:DataFlowDiagramCharacterized="http://palladiosimulator.org/dataflow/diagram/characterized/1.0" xmlns:expressions="http://palladiosimulator.org/dataflow/dictionary/characterized/expressions/1.0" id="_GP904IZNEeqj4N2AZ1ad-g">
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedExternalActor" id="_GQHl4IZNEeqj4N2AZ1ad-g" name="UserBehavior">
+    <ownedBehavior id="_GQI0AIZNEeqj4N2AZ1ad-g"/>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_FLGuUIY8Eeq10a1fkq2jAQ" name="queryFlights EntryProcess" actor="_FJDf4IY8Eeq10a1fkq2jAQ">
-    <ownedBehavior id="_FLX0EIY8Eeq10a1fkq2jAQ">
-      <outputs id="_FPna44Y8Eeq10a1fkq2jAQ" name="queryFlights EntryProcess out for criteria"/>
-      <assignments id="_I4Um8IY8Eeq10a1fkq2jAQ">
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_GRiiMIZNEeqj4N2AZ1ad-g" name="queryFlights EntryProcess" actor="_GQHl4IZNEeqj4N2AZ1ad-g">
+    <ownedBehavior id="_GRsTMIZNEeqj4N2AZ1ad-g">
+      <outputs id="_GUQfA4ZNEeqj4N2AZ1ad-g" name="queryFlights EntryProcess out for criteria"/>
+      <assignments id="_GUTiUIZNEeqj4N2AZ1ad-g">
         <rhs xsi:type="expressions:True" id="_RomBOm27EeqTytEGo1dJMQ"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_FLVX0IY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GRrFEIZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_I4ciw4Y8Eeq10a1fkq2jAQ" name="Store IFlightsDB">
-    <ownedBehavior id="_I4cixYY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4cixoY8Eeq10a1fkq2jAQ" name="in"/>
-      <outputs id="_I4cix4Y8Eeq10a1fkq2jAQ" name="out"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_GUaQA4ZNEeqj4N2AZ1ad-g" name="Store IFlightsDB">
+    <ownedBehavior id="_GUaQBYZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUaQBoZNEeqj4N2AZ1ad-g" name="in"/>
+      <outputs id="_GUaQB4ZNEeqj4N2AZ1ad-g" name="out"/>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4cixIY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUaQBIZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_PhSeEG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_I4Um8YY8Eeq10a1fkq2jAQ" name="queryFlights ExitProcess" actor="_FJDf4IY8Eeq10a1fkq2jAQ">
-    <ownedBehavior id="_I4VOAYY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4VOA4Y8Eeq10a1fkq2jAQ" name="queryFlights ExitProcess in for result"/>
-      <outputs id="_I4VOAoY8Eeq10a1fkq2jAQ" name="queryFlights ExitProcess out for result"/>
-      <assignments id="_I4WcIoY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4WcIIY8Eeq10a1fkq2jAQ" pin="_I4VOAoY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4WcIYY8Eeq10a1fkq2jAQ" pin="_I4VOA4Y8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_GUTiUYZNEeqj4N2AZ1ad-g" name="queryFlights ExitProcess" actor="_GQHl4IZNEeqj4N2AZ1ad-g">
+    <ownedBehavior id="_GUTiU4ZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUUJYIZNEeqj4N2AZ1ad-g" name="queryFlights ExitProcess in for result"/>
+      <outputs id="_GUTiVIZNEeqj4N2AZ1ad-g" name="queryFlights ExitProcess out for result"/>
+      <assignments id="_GUUJY4ZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUUJYYZNEeqj4N2AZ1ad-g" pin="_GUTiVIZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUUJYoZNEeqj4N2AZ1ad-g" pin="_GUUJYIZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4VOAIY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUTiUoZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_FLl2gIY8Eeq10a1fkq2jAQ" name="SEFF TravelAgencyLogic::queryFlights EntryProcess">
-    <ownedBehavior id="_FLpg4YY8Eeq10a1fkq2jAQ">
-      <inputs id="_FLpg4oY8Eeq10a1fkq2jAQ" name="SEFF TravelAgencyLogic::queryFlights EntryProcess input for criteria"/>
-      <outputs id="_FPmz0IY8Eeq10a1fkq2jAQ" name="SEFF TravelAgencyLogic::queryFlights EntryProcess out for criteria"/>
-      <assignments id="_FPna4oY8Eeq10a1fkq2jAQ">
-        <lhs id="_FPna4IY8Eeq10a1fkq2jAQ" pin="_FPmz0IY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_FPna4YY8Eeq10a1fkq2jAQ" pin="_FLpg4oY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GR02EIZNEeqj4N2AZ1ad-g" name="SEFF TravelAgencyLogic::queryFlights EntryProcess">
+    <ownedBehavior id="_GR2rQYZNEeqj4N2AZ1ad-g">
+      <inputs id="_GR2rQoZNEeqj4N2AZ1ad-g" name="SEFF TravelAgencyLogic::queryFlights EntryProcess input for criteria"/>
+      <outputs id="_GUP38IZNEeqj4N2AZ1ad-g" name="SEFF TravelAgencyLogic::queryFlights EntryProcess out for criteria"/>
+      <assignments id="_GUQfAoZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUQfAIZNEeqj4N2AZ1ad-g" pin="_GUP38IZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUQfAYZNEeqj4N2AZ1ad-g" pin="_GR2rQoZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_FLpg4IY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GR2rQIZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_Oot3UG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4WcI4Y8Eeq10a1fkq2jAQ" name="SEFF TravelAgencyLogic::queryFlights ExitProcess">
-    <ownedBehavior id="_I4WcJYY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4XqQIY8Eeq10a1fkq2jAQ" name="SEFF TravelAgencyLogic::queryFlights ExitProcess in for callAirline"/>
-      <outputs id="_I4dJ44Y8Eeq10a1fkq2jAQ" name="SEFF TravelAgencyLogic::queryFlights ExitProcess out for result"/>
-      <assignments id="_I4dJ5oY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4dJ5IY8Eeq10a1fkq2jAQ" pin="_I4dJ44Y8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4dJ5YY8Eeq10a1fkq2jAQ" pin="_I4XqQIY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUUwcIZNEeqj4N2AZ1ad-g" name="SEFF TravelAgencyLogic::queryFlights ExitProcess">
+    <ownedBehavior id="_GUUwcoZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUV-kIZNEeqj4N2AZ1ad-g" name="SEFF TravelAgencyLogic::queryFlights ExitProcess in for callAirline"/>
+      <outputs id="_GUa3H4ZNEeqj4N2AZ1ad-g" name="SEFF TravelAgencyLogic::queryFlights ExitProcess out for result"/>
+      <assignments id="_GUa3IoZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUa3IIZNEeqj4N2AZ1ad-g" pin="_GUa3H4ZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUa3IYZNEeqj4N2AZ1ad-g" pin="_GUV-kIZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4WcJIY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUUwcYZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_Oot3UG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4dw4oY8Eeq10a1fkq2jAQ" name="ECA TravelAgencyLogic::callAirline EntryProcess">
-    <ownedBehavior id="_I4dw5IY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4lFoIY8Eeq10a1fkq2jAQ" name="ECA TravelAgencyLogic::callAirline EntryProcess input for criteria"/>
-      <outputs id="_I4m614Y8Eeq10a1fkq2jAQ" name="ECA TravelAgencyLogic::callAirline EntryProcess out for query"/>
-      <assignments id="_I4m63IY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4m62oY8Eeq10a1fkq2jAQ" pin="_I4m614Y8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4m624Y8Eeq10a1fkq2jAQ" pin="_I4lFoIY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUbeIoZNEeqj4N2AZ1ad-g" name="ECA TravelAgencyLogic::callAirline EntryProcess">
+    <ownedBehavior id="_GUbeJIZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUgWoIZNEeqj4N2AZ1ad-g" name="ECA TravelAgencyLogic::callAirline EntryProcess input for criteria"/>
+      <outputs id="_GUhkx4ZNEeqj4N2AZ1ad-g" name="ECA TravelAgencyLogic::callAirline EntryProcess out for query"/>
+      <assignments id="_GUhkzIZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUhkyoZNEeqj4N2AZ1ad-g" pin="_GUhkx4ZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUhky4ZNEeqj4N2AZ1ad-g" pin="_GUgWoIZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4dw44Y8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUbeI4ZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_Oot3UG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4XqQYY8Eeq10a1fkq2jAQ" name="ECA callAirline ExitProcess">
-    <ownedBehavior id="_I4XqQ4Y8Eeq10a1fkq2jAQ">
-      <inputs id="_I4XqRIY8Eeq10a1fkq2jAQ" name="ECA callAirline ExitProcess in for result"/>
-      <outputs id="_I4YRUIY8Eeq10a1fkq2jAQ" name="ECA callAirline ExitProcess out for result"/>
-      <assignments id="_I4YRU4Y8Eeq10a1fkq2jAQ">
-        <lhs id="_I4YRUYY8Eeq10a1fkq2jAQ" pin="_I4YRUIY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4YRUoY8Eeq10a1fkq2jAQ" pin="_I4XqRIY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUV-kYZNEeqj4N2AZ1ad-g" name="ECA callAirline ExitProcess">
+    <ownedBehavior id="_GUV-k4ZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUV-lIZNEeqj4N2AZ1ad-g" name="ECA callAirline ExitProcess in for result"/>
+      <outputs id="_GUV-lYZNEeqj4N2AZ1ad-g" name="ECA callAirline ExitProcess out for result"/>
+      <assignments id="_GUV-mIZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUV-loZNEeqj4N2AZ1ad-g" pin="_GUV-lYZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUV-l4ZNEeqj4N2AZ1ad-g" pin="_GUV-lIZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4XqQoY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUV-koZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_Oot3UG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4mTwIY8Eeq10a1fkq2jAQ" name="SEFF AirlineLogic::queryFlights EntryProcess">
-    <ownedBehavior id="_I4m60YY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4m60oY8Eeq10a1fkq2jAQ" name="SEFF AirlineLogic::queryFlights EntryProcess input for query"/>
-      <outputs id="_I4m604Y8Eeq10a1fkq2jAQ" name="SEFF AirlineLogic::queryFlights EntryProcess out for query"/>
-      <assignments id="_I4m61oY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4m61IY8Eeq10a1fkq2jAQ" pin="_I4m604Y8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4m61YY8Eeq10a1fkq2jAQ" pin="_I4m60oY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUg9sIZNEeqj4N2AZ1ad-g" name="SEFF AirlineLogic::queryFlights EntryProcess">
+    <ownedBehavior id="_GUhkwYZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUhkwoZNEeqj4N2AZ1ad-g" name="SEFF AirlineLogic::queryFlights EntryProcess input for query"/>
+      <outputs id="_GUhkw4ZNEeqj4N2AZ1ad-g" name="SEFF AirlineLogic::queryFlights EntryProcess out for query"/>
+      <assignments id="_GUhkxoZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUhkxIZNEeqj4N2AZ1ad-g" pin="_GUhkw4ZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUhkxYZNEeqj4N2AZ1ad-g" pin="_GUhkwoZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4m60IY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUhkwIZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_PhSeEG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4bUoIY8Eeq10a1fkq2jAQ" name="SEFF AirlineLogic::queryFlights ExitProcess">
-    <ownedBehavior id="_I4bUooY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4b7sIY8Eeq10a1fkq2jAQ" name="SEFF AirlineLogic::queryFlights ExitProcess in for loadFlights"/>
-      <outputs id="_I4dJ2oY8Eeq10a1fkq2jAQ" name="SEFF AirlineLogic::queryFlights ExitProcess out for result"/>
-      <assignments id="_I4dJ3YY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4dJ24Y8Eeq10a1fkq2jAQ" pin="_I4dJ2oY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4dJ3IY8Eeq10a1fkq2jAQ" pin="_I4b7sIY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUZB4IZNEeqj4N2AZ1ad-g" name="SEFF AirlineLogic::queryFlights ExitProcess">
+    <ownedBehavior id="_GUZo8YZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUZo8oZNEeqj4N2AZ1ad-g" name="SEFF AirlineLogic::queryFlights ExitProcess in for loadFlights"/>
+      <outputs id="_GUa3FoZNEeqj4N2AZ1ad-g" name="SEFF AirlineLogic::queryFlights ExitProcess out for result"/>
+      <assignments id="_GUa3GYZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUa3F4ZNEeqj4N2AZ1ad-g" pin="_GUa3FoZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUa3GIZNEeqj4N2AZ1ad-g" pin="_GUZo8oZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4bUoYY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUZo8IZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_PhSeEG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4b7sYY8Eeq10a1fkq2jAQ" name="ECA loadFlights ExitProcess">
-    <ownedBehavior id="_I4b7s4Y8Eeq10a1fkq2jAQ">
-      <inputs id="_I4b7tIY8Eeq10a1fkq2jAQ" name="ECA loadFlights ExitProcess in for result"/>
-      <outputs id="_I4b7tYY8Eeq10a1fkq2jAQ" name="ECA loadFlights ExitProcess out for result"/>
-      <assignments id="_I4b7uIY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4b7toY8Eeq10a1fkq2jAQ" pin="_I4b7tYY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4b7t4Y8Eeq10a1fkq2jAQ" pin="_I4b7tIY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUZo84ZNEeqj4N2AZ1ad-g" name="ECA loadFlights ExitProcess">
+    <ownedBehavior id="_GUZo9YZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUZo9oZNEeqj4N2AZ1ad-g" name="ECA loadFlights ExitProcess in for result"/>
+      <outputs id="_GUZo94ZNEeqj4N2AZ1ad-g" name="ECA loadFlights ExitProcess out for result"/>
+      <assignments id="_GUZo-oZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUZo-IZNEeqj4N2AZ1ad-g" pin="_GUZo94ZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUZo-YZNEeqj4N2AZ1ad-g" pin="_GUZo9oZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4b7soY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUZo9IZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_PhSeEG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4b7uYY8Eeq10a1fkq2jAQ" name="SEFF FlightsDB::getFlight ExitProcess">
-    <ownedBehavior id="_I4ciwYY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4ciyIY8Eeq10a1fkq2jAQ" name="SEFF FlightsDB::getFlight ExitProcess in for result"/>
-      <outputs id="_I4ciwoY8Eeq10a1fkq2jAQ" name="SEFF FlightsDB::getFlight ExitProcess out for result"/>
-      <assignments id="_I4dJ1YY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4dJ04Y8Eeq10a1fkq2jAQ" pin="_I4ciwoY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4dJ1IY8Eeq10a1fkq2jAQ" pin="_I4ciyIY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUZo-4ZNEeqj4N2AZ1ad-g" name="SEFF FlightsDB::getFlight ExitProcess">
+    <ownedBehavior id="_GUaQAYZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUaQCIZNEeqj4N2AZ1ad-g" name="SEFF FlightsDB::getFlight ExitProcess in for result"/>
+      <outputs id="_GUaQAoZNEeqj4N2AZ1ad-g" name="SEFF FlightsDB::getFlight ExitProcess out for result"/>
+      <assignments id="_GUa3EYZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUaQDIZNEeqj4N2AZ1ad-g" pin="_GUaQAoZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUa3EIZNEeqj4N2AZ1ad-g" pin="_GUaQCIZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4ciwIY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUaQAIZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_PhSeEG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_I4oI8IY8Eeq10a1fkq2jAQ" name="bookFlight EntryProcess" actor="_FJDf4IY8Eeq10a1fkq2jAQ">
-    <ownedBehavior id="_I4oI8oY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4oI84Y8Eeq10a1fkq2jAQ" name="bookFlight EntryProcess in for queryFlights"/>
-      <outputs id="_I4p-JIY8Eeq10a1fkq2jAQ" name="bookFlight EntryProcess out for flight"/>
-      <outputs id="_I4p-J4Y8Eeq10a1fkq2jAQ" name="bookFlight EntryProcess out for consent"/>
-      <assignments id="_I4qlNIY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4qlMoY8Eeq10a1fkq2jAQ" pin="_I4p-JIY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4qlM4Y8Eeq10a1fkq2jAQ" pin="_I4oI84Y8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_GUiy4IZNEeqj4N2AZ1ad-g" name="bookFlight EntryProcess" actor="_GQHl4IZNEeqj4N2AZ1ad-g">
+    <ownedBehavior id="_GUiy4oZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUiy44ZNEeqj4N2AZ1ad-g" name="bookFlight EntryProcess in for queryFlights"/>
+      <outputs id="_GUjZ_IZNEeqj4N2AZ1ad-g" name="bookFlight EntryProcess out for flight"/>
+      <outputs id="_GUkBAoZNEeqj4N2AZ1ad-g" name="bookFlight EntryProcess out for consent"/>
+      <assignments id="_GUkBCIZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUkBBoZNEeqj4N2AZ1ad-g" pin="_GUjZ_IZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUkBB4ZNEeqj4N2AZ1ad-g" pin="_GUiy44ZNEeqj4N2AZ1ad-g"/>
       </assignments>
-      <assignments id="_I4qlN4Y8Eeq10a1fkq2jAQ">
+      <assignments id="_GUkBC4ZNEeqj4N2AZ1ad-g">
         <rhs xsi:type="expressions:True" id="_KpbaKm6AEeqT7sLHEYSdtA"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4oI8YY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUiy4YZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_I4tohIY8Eeq10a1fkq2jAQ" name="Store ICreditCardCenterDB">
-    <ownedBehavior id="_I4tohoY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4toh4Y8Eeq10a1fkq2jAQ" name="in"/>
-      <outputs id="_I4uPkIY8Eeq10a1fkq2jAQ" name="out"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_GUmdRoZNEeqj4N2AZ1ad-g" name="Store ICreditCardCenterDB">
+    <ownedBehavior id="_GUmdSIZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUmdSYZNEeqj4N2AZ1ad-g" name="in"/>
+      <outputs id="_GUmdSoZNEeqj4N2AZ1ad-g" name="out"/>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4tohYY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUmdR4ZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_I4rMQIY8Eeq10a1fkq2jAQ" name="bookFlight ExitProcess" actor="_FJDf4IY8Eeq10a1fkq2jAQ">
-    <ownedBehavior id="_I4rMQoY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4rMRIY8Eeq10a1fkq2jAQ" name="bookFlight ExitProcess in for result"/>
-      <outputs id="_I4rMQ4Y8Eeq10a1fkq2jAQ" name="bookFlight ExitProcess out for result"/>
-      <assignments id="_I4rMR4Y8Eeq10a1fkq2jAQ">
-        <lhs id="_I4rMRYY8Eeq10a1fkq2jAQ" pin="_I4rMQ4Y8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4rMRoY8Eeq10a1fkq2jAQ" pin="_I4rMRIY8Eeq10a1fkq2jAQ"/>
-      </assignments>
-    </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4rMQYY8Eeq10a1fkq2jAQ">
-      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
-      <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
-    </characteristics>
-  </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4owAoY8Eeq10a1fkq2jAQ" name="SEFF TravelPlannerLogic::bookFlight EntryProcess">
-    <ownedBehavior id="_I4pXEIY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4pXEYY8Eeq10a1fkq2jAQ" name="SEFF TravelPlannerLogic::bookFlight EntryProcess input for flight"/>
-      <inputs id="_I4pXFoY8Eeq10a1fkq2jAQ" name="SEFF TravelPlannerLogic::bookFlight EntryProcess input for consent"/>
-      <outputs id="_I4pXEoY8Eeq10a1fkq2jAQ" name="SEFF TravelPlannerLogic::bookFlight EntryProcess out for flight"/>
-      <outputs id="_I4p-IIY8Eeq10a1fkq2jAQ" name="SEFF TravelPlannerLogic::bookFlight EntryProcess out for consent"/>
-      <assignments id="_I4pXFYY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4pXE4Y8Eeq10a1fkq2jAQ" pin="_I4pXEoY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4pXFIY8Eeq10a1fkq2jAQ" pin="_I4pXEYY8Eeq10a1fkq2jAQ"/>
-      </assignments>
-      <assignments id="_I4p-I4Y8Eeq10a1fkq2jAQ">
-        <lhs id="_I4p-IYY8Eeq10a1fkq2jAQ" pin="_I4p-IIY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4p-IoY8Eeq10a1fkq2jAQ" pin="_I4pXFoY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_GUkBDIZNEeqj4N2AZ1ad-g" name="bookFlight ExitProcess" actor="_GQHl4IZNEeqj4N2AZ1ad-g">
+    <ownedBehavior id="_GUkBDoZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUkoEIZNEeqj4N2AZ1ad-g" name="bookFlight ExitProcess in for result"/>
+      <outputs id="_GUkBD4ZNEeqj4N2AZ1ad-g" name="bookFlight ExitProcess out for result"/>
+      <assignments id="_GUkoE4ZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUkoEYZNEeqj4N2AZ1ad-g" pin="_GUkBD4ZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUkoEoZNEeqj4N2AZ1ad-g" pin="_GUkoEIZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4owA4Y8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUkBDYZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4rzUIY8Eeq10a1fkq2jAQ" name="SEFF TravelPlannerLogic::bookFlight ExitProcess">
-    <ownedBehavior id="_I4rzUoY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4rzU4Y8Eeq10a1fkq2jAQ" name="SEFF TravelPlannerLogic::bookFlight ExitProcess in for getCreditCardData"/>
-      <inputs id="_I4u2tYY8Eeq10a1fkq2jAQ" name="SEFF TravelPlannerLogic::bookFlight ExitProcess in for bookFlight"/>
-      <outputs id="_I4wr14Y8Eeq10a1fkq2jAQ" name="SEFF TravelPlannerLogic::bookFlight ExitProcess out for result"/>
-      <assignments id="_I4wr2oY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4wr2IY8Eeq10a1fkq2jAQ" pin="_I4wr14Y8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4wr2YY8Eeq10a1fkq2jAQ" pin="_I4u2tYY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUiy5oZNEeqj4N2AZ1ad-g" name="SEFF TravelPlannerLogic::bookFlight EntryProcess">
+    <ownedBehavior id="_GUjZ8YZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUjZ8oZNEeqj4N2AZ1ad-g" name="SEFF TravelPlannerLogic::bookFlight EntryProcess input for flight"/>
+      <inputs id="_GUjZ94ZNEeqj4N2AZ1ad-g" name="SEFF TravelPlannerLogic::bookFlight EntryProcess input for consent"/>
+      <outputs id="_GUjZ84ZNEeqj4N2AZ1ad-g" name="SEFF TravelPlannerLogic::bookFlight EntryProcess out for flight"/>
+      <outputs id="_GUjZ-IZNEeqj4N2AZ1ad-g" name="SEFF TravelPlannerLogic::bookFlight EntryProcess out for consent"/>
+      <assignments id="_GUjZ9oZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUjZ9IZNEeqj4N2AZ1ad-g" pin="_GUjZ84ZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUjZ9YZNEeqj4N2AZ1ad-g" pin="_GUjZ8oZNEeqj4N2AZ1ad-g"/>
+      </assignments>
+      <assignments id="_GUjZ-4ZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUjZ-YZNEeqj4N2AZ1ad-g" pin="_GUjZ-IZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUjZ-oZNEeqj4N2AZ1ad-g" pin="_GUjZ94ZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4rzUYY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUjZ8IZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4rzVIY8Eeq10a1fkq2jAQ" name="ECA getCreditCardData ExitProcess">
-    <ownedBehavior id="_I4rzVoY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4rzV4Y8Eeq10a1fkq2jAQ" name="ECA getCreditCardData ExitProcess in for result"/>
-      <outputs id="_I4rzWIY8Eeq10a1fkq2jAQ" name="ECA getCreditCardData ExitProcess out for result"/>
-      <assignments id="_I4saYoY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4saYIY8Eeq10a1fkq2jAQ" pin="_I4rzWIY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4saYYY8Eeq10a1fkq2jAQ" pin="_I4rzV4Y8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUkoFIZNEeqj4N2AZ1ad-g" name="SEFF TravelPlannerLogic::bookFlight ExitProcess">
+    <ownedBehavior id="_GUkoFoZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUkoF4ZNEeqj4N2AZ1ad-g" name="SEFF TravelPlannerLogic::bookFlight ExitProcess in for getCreditCardData"/>
+      <inputs id="_GUnEX4ZNEeqj4N2AZ1ad-g" name="SEFF TravelPlannerLogic::bookFlight ExitProcess in for bookFlight"/>
+      <outputs id="_GUoSe4ZNEeqj4N2AZ1ad-g" name="SEFF TravelPlannerLogic::bookFlight ExitProcess out for result"/>
+      <assignments id="_GUoSfoZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUoSfIZNEeqj4N2AZ1ad-g" pin="_GUoSe4ZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUoSfYZNEeqj4N2AZ1ad-g" pin="_GUnEX4ZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4rzVYY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUkoFYZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4xS4IY8Eeq10a1fkq2jAQ" name="ECA TravelPlannerLogic::bookFlight EntryProcess">
-    <ownedBehavior id="_I4xS4oY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4xS44Y8Eeq10a1fkq2jAQ" name="ECA TravelPlannerLogic::bookFlight EntryProcess input for flight"/>
-      <inputs id="_I4xS5oY8Eeq10a1fkq2jAQ" name="ECA TravelPlannerLogic::bookFlight EntryProcess in for getCreditCardData"/>
-      <outputs id="_I4yhA4Y8Eeq10a1fkq2jAQ" name="ECA TravelPlannerLogic::bookFlight EntryProcess out for flight"/>
-      <outputs id="_I4yhBoY8Eeq10a1fkq2jAQ" name="ECA TravelPlannerLogic::bookFlight EntryProcess out for ccd"/>
-      <assignments id="_I4yhC4Y8Eeq10a1fkq2jAQ">
-        <lhs id="_I4yhCYY8Eeq10a1fkq2jAQ" pin="_I4yhBoY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4yhCoY8Eeq10a1fkq2jAQ" pin="_I4xS5oY8Eeq10a1fkq2jAQ"/>
-      </assignments>
-      <assignments id="_I4yhDoY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4yhDIY8Eeq10a1fkq2jAQ" pin="_I4yhA4Y8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4yhDYY8Eeq10a1fkq2jAQ" pin="_I4xS44Y8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUkoGIZNEeqj4N2AZ1ad-g" name="ECA getCreditCardData ExitProcess">
+    <ownedBehavior id="_GUkoGoZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUkoG4ZNEeqj4N2AZ1ad-g" name="ECA getCreditCardData ExitProcess in for result"/>
+      <outputs id="_GUkoHIZNEeqj4N2AZ1ad-g" name="ECA getCreditCardData ExitProcess out for result"/>
+      <assignments id="_GUkoH4ZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUkoHYZNEeqj4N2AZ1ad-g" pin="_GUkoHIZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUkoHoZNEeqj4N2AZ1ad-g" pin="_GUkoG4ZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4xS4YY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUkoGYZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4vdsIY8Eeq10a1fkq2jAQ" name="ECA bookFlight ExitProcess">
-    <ownedBehavior id="_I4vdsoY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4vds4Y8Eeq10a1fkq2jAQ" name="ECA bookFlight ExitProcess in for result"/>
-      <outputs id="_I4vdtIY8Eeq10a1fkq2jAQ" name="ECA bookFlight ExitProcess out for result"/>
-      <assignments id="_I4vdt4Y8Eeq10a1fkq2jAQ">
-        <lhs id="_I4vdtYY8Eeq10a1fkq2jAQ" pin="_I4vdtIY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4vdtoY8Eeq10a1fkq2jAQ" pin="_I4vds4Y8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUo5gIZNEeqj4N2AZ1ad-g" name="ECA TravelPlannerLogic::bookFlight EntryProcess">
+    <ownedBehavior id="_GUo5goZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUo5g4ZNEeqj4N2AZ1ad-g" name="ECA TravelPlannerLogic::bookFlight EntryProcess input for flight"/>
+      <inputs id="_GUo5hoZNEeqj4N2AZ1ad-g" name="ECA TravelPlannerLogic::bookFlight EntryProcess in for getCreditCardData"/>
+      <outputs id="_GUpglYZNEeqj4N2AZ1ad-g" name="ECA TravelPlannerLogic::bookFlight EntryProcess out for flight"/>
+      <outputs id="_GUpgmIZNEeqj4N2AZ1ad-g" name="ECA TravelPlannerLogic::bookFlight EntryProcess out for ccd"/>
+      <assignments id="_GUpgnYZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUpgm4ZNEeqj4N2AZ1ad-g" pin="_GUpgmIZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUpgnIZNEeqj4N2AZ1ad-g" pin="_GUo5hoZNEeqj4N2AZ1ad-g"/>
+      </assignments>
+      <assignments id="_GUpgoIZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUpgnoZNEeqj4N2AZ1ad-g" pin="_GUpglYZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUpgn4ZNEeqj4N2AZ1ad-g" pin="_GUo5g4ZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4vdsYY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUo5gYZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4saY4Y8Eeq10a1fkq2jAQ" name="SEFF CreditCardCenterLogic::getDeclassifiedCCD ExitProcess">
-    <ownedBehavior id="_I4tBcIY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4tBcYY8Eeq10a1fkq2jAQ" name="SEFF CreditCardCenterLogic::getDeclassifiedCCD ExitProcess in for loadCCD"/>
-      <outputs id="_I4u2qoY8Eeq10a1fkq2jAQ" name="SEFF CreditCardCenterLogic::getDeclassifiedCCD ExitProcess out for result"/>
-      <assignments id="_I4u2rYY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4u2q4Y8Eeq10a1fkq2jAQ" pin="_I4u2qoY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4u2rIY8Eeq10a1fkq2jAQ" pin="_I4tBcYY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUnEYIZNEeqj4N2AZ1ad-g" name="ECA bookFlight ExitProcess">
+    <ownedBehavior id="_GUnEYoZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUnEY4ZNEeqj4N2AZ1ad-g" name="ECA bookFlight ExitProcess in for result"/>
+      <outputs id="_GUnrYIZNEeqj4N2AZ1ad-g" name="ECA bookFlight ExitProcess out for result"/>
+      <assignments id="_GUnrY4ZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUnrYYZNEeqj4N2AZ1ad-g" pin="_GUnrYIZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUnrYoZNEeqj4N2AZ1ad-g" pin="_GUnEY4ZNEeqj4N2AZ1ad-g"/>
       </assignments>
-      <assignments id="_I4u2sIY8Eeq10a1fkq2jAQ">
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUnEYYZNEeqj4N2AZ1ad-g" name="AssignedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
+      <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUlPIIZNEeqj4N2AZ1ad-g" name="SEFF CreditCardCenterLogic::getDeclassifiedCCD ExitProcess">
+    <ownedBehavior id="_GUl2MIZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUl2MYZNEeqj4N2AZ1ad-g" name="SEFF CreditCardCenterLogic::getDeclassifiedCCD ExitProcess in for loadCCD"/>
+      <outputs id="_GUnEVIZNEeqj4N2AZ1ad-g" name="SEFF CreditCardCenterLogic::getDeclassifiedCCD ExitProcess out for result"/>
+      <assignments id="_GUnEV4ZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUnEVYZNEeqj4N2AZ1ad-g" pin="_GUnEVIZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUnEVoZNEeqj4N2AZ1ad-g" pin="_GUl2MYZNEeqj4N2AZ1ad-g"/>
+      </assignments>
+      <assignments id="_GUnEWoZNEeqj4N2AZ1ad-g">
         <rhs xsi:type="expressions:True" id="_NkEkem9_Eeq4bKUToZIhyg"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4saZIY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUlPIYZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4tBcoY8Eeq10a1fkq2jAQ" name="ECA loadCCD ExitProcess">
-    <ownedBehavior id="_I4tBdIY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4tBdYY8Eeq10a1fkq2jAQ" name="ECA loadCCD ExitProcess in for result"/>
-      <outputs id="_I4tBdoY8Eeq10a1fkq2jAQ" name="ECA loadCCD ExitProcess out for result"/>
-      <assignments id="_I4tBeYY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4tBd4Y8Eeq10a1fkq2jAQ" pin="_I4tBdoY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4tBeIY8Eeq10a1fkq2jAQ" pin="_I4tBdYY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUl2MoZNEeqj4N2AZ1ad-g" name="ECA loadCCD ExitProcess">
+    <ownedBehavior id="_GUl2NIZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUl2NYZNEeqj4N2AZ1ad-g" name="ECA loadCCD ExitProcess in for result"/>
+      <outputs id="_GUl2NoZNEeqj4N2AZ1ad-g" name="ECA loadCCD ExitProcess out for result"/>
+      <assignments id="_GUmdQYZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUl2N4ZNEeqj4N2AZ1ad-g" pin="_GUl2NoZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUmdQIZNEeqj4N2AZ1ad-g" pin="_GUl2NYZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4tBc4Y8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUl2M4ZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4x58IY8Eeq10a1fkq2jAQ" name="SEFF AirlineLogic::bookFlight EntryProcess">
-    <ownedBehavior id="_I4x58oY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4x584Y8Eeq10a1fkq2jAQ" name="SEFF AirlineLogic::bookFlight EntryProcess input for flight"/>
-      <inputs id="_I4x5-IY8Eeq10a1fkq2jAQ" name="SEFF AirlineLogic::bookFlight EntryProcess input for ccd"/>
-      <outputs id="_I4x59IY8Eeq10a1fkq2jAQ" name="SEFF AirlineLogic::bookFlight EntryProcess out for flight"/>
-      <outputs id="_I4x5-YY8Eeq10a1fkq2jAQ" name="SEFF AirlineLogic::bookFlight EntryProcess out for ccd"/>
-      <assignments id="_I4x594Y8Eeq10a1fkq2jAQ">
-        <lhs id="_I4x59YY8Eeq10a1fkq2jAQ" pin="_I4x59IY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4x59oY8Eeq10a1fkq2jAQ" pin="_I4x584Y8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUo5iYZNEeqj4N2AZ1ad-g" name="SEFF AirlineLogic::bookFlight EntryProcess">
+    <ownedBehavior id="_GUo5i4ZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUo5jIZNEeqj4N2AZ1ad-g" name="SEFF AirlineLogic::bookFlight EntryProcess input for flight"/>
+      <inputs id="_GUpgkIZNEeqj4N2AZ1ad-g" name="SEFF AirlineLogic::bookFlight EntryProcess input for ccd"/>
+      <outputs id="_GUo5jYZNEeqj4N2AZ1ad-g" name="SEFF AirlineLogic::bookFlight EntryProcess out for flight"/>
+      <outputs id="_GUpgkYZNEeqj4N2AZ1ad-g" name="SEFF AirlineLogic::bookFlight EntryProcess out for ccd"/>
+      <assignments id="_GUo5kIZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUo5joZNEeqj4N2AZ1ad-g" pin="_GUo5jYZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUo5j4ZNEeqj4N2AZ1ad-g" pin="_GUo5jIZNEeqj4N2AZ1ad-g"/>
       </assignments>
-      <assignments id="_I4yhAoY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4yhAIY8Eeq10a1fkq2jAQ" pin="_I4x5-YY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4yhAYY8Eeq10a1fkq2jAQ" pin="_I4x5-IY8Eeq10a1fkq2jAQ"/>
+      <assignments id="_GUpglIZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUpgkoZNEeqj4N2AZ1ad-g" pin="_GUpgkYZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUpgk4ZNEeqj4N2AZ1ad-g" pin="_GUpgkIZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4x58YY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUo5ioZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_PhSeEG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4wEwIY8Eeq10a1fkq2jAQ" name="SEFF AirlineLogic::bookFlight ExitProcess">
-    <ownedBehavior id="_I4wEwoY8Eeq10a1fkq2jAQ">
-      <outputs id="_I4wEw4Y8Eeq10a1fkq2jAQ" name="SEFF AirlineLogic::bookFlight ExitProcess out for result"/>
-      <assignments id="_I4wr0oY8Eeq10a1fkq2jAQ">
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUoScIZNEeqj4N2AZ1ad-g" name="SEFF AirlineLogic::bookFlight ExitProcess">
+    <ownedBehavior id="_GUoScoZNEeqj4N2AZ1ad-g">
+      <outputs id="_GUoSc4ZNEeqj4N2AZ1ad-g" name="SEFF AirlineLogic::bookFlight ExitProcess out for result"/>
+      <assignments id="_GUoSdoZNEeqj4N2AZ1ad-g">
         <rhs xsi:type="expressions:True" id="_w3mOam99Eeq4bKUToZIhyg"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4wEwYY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUoScYZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_PhSeEG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4zIEIY8Eeq10a1fkq2jAQ" name="ECA AirlineLogic::sendCommission EntryProcess">
-    <ownedBehavior id="_I4zIEoY8Eeq10a1fkq2jAQ">
-      <outputs id="_I40WN4Y8Eeq10a1fkq2jAQ" name="ECA AirlineLogic::sendCommission EntryProcess out for commission"/>
-      <assignments id="_I409RIY8Eeq10a1fkq2jAQ">
-        <rhs xsi:type="expressions:ContainerCharacteristicReference" id="_I409Q4Y8Eeq10a1fkq2jAQ">
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUqHoIZNEeqj4N2AZ1ad-g" name="ECA AirlineLogic::sendCommission EntryProcess">
+    <ownedBehavior id="_GUqHooZNEeqj4N2AZ1ad-g">
+      <outputs id="_GUqut4ZNEeqj4N2AZ1ad-g" name="ECA AirlineLogic::sendCommission EntryProcess out for commission"/>
+      <assignments id="_GUquvYZNEeqj4N2AZ1ad-g">
+        <rhs xsi:type="expressions:ContainerCharacteristicReference" id="_GUquvIZNEeqj4N2AZ1ad-g">
           <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
         </rhs>
       </assignments>
-      <assignments id="_I409R4Y8Eeq10a1fkq2jAQ">
+      <assignments id="_GUrVwIZNEeqj4N2AZ1ad-g">
         <rhs xsi:type="expressions:True" id="_5d7K-m3QEeqmcoyeW2eH2g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4zIEYY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUqHoYZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_PhSeEG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4togIY8Eeq10a1fkq2jAQ" name="SEFF CreditCardCenterDB::getCCD ExitProcess">
-    <ownedBehavior id="_I4togoY8Eeq10a1fkq2jAQ">
-      <inputs id="_I4uPkYY8Eeq10a1fkq2jAQ" name="SEFF CreditCardCenterDB::getCCD ExitProcess in for result"/>
-      <outputs id="_I4tog4Y8Eeq10a1fkq2jAQ" name="SEFF CreditCardCenterDB::getCCD ExitProcess out for result"/>
-      <assignments id="_I4u2pYY8Eeq10a1fkq2jAQ">
-        <lhs id="_I4u2o4Y8Eeq10a1fkq2jAQ" pin="_I4tog4Y8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I4u2pIY8Eeq10a1fkq2jAQ" pin="_I4uPkYY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUmdQoZNEeqj4N2AZ1ad-g" name="SEFF CreditCardCenterDB::getCCD ExitProcess">
+    <ownedBehavior id="_GUmdRIZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUmdS4ZNEeqj4N2AZ1ad-g" name="SEFF CreditCardCenterDB::getCCD ExitProcess in for result"/>
+      <outputs id="_GUmdRYZNEeqj4N2AZ1ad-g" name="SEFF CreditCardCenterDB::getCCD ExitProcess out for result"/>
+      <assignments id="_GUmdUYZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUmdT4ZNEeqj4N2AZ1ad-g" pin="_GUmdRYZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUmdUIZNEeqj4N2AZ1ad-g" pin="_GUmdS4ZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I4togYY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUmdQ4ZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I4zvIIY8Eeq10a1fkq2jAQ" name="SEFF TravelAgencyLogic::bookCommission EntryProcess">
-    <ownedBehavior id="_I40WMYY8Eeq10a1fkq2jAQ">
-      <inputs id="_I40WMoY8Eeq10a1fkq2jAQ" name="SEFF TravelAgencyLogic::bookCommission EntryProcess input for commission"/>
-      <outputs id="_I40WM4Y8Eeq10a1fkq2jAQ" name="SEFF TravelAgencyLogic::bookCommission EntryProcess out for commission"/>
-      <assignments id="_I40WNoY8Eeq10a1fkq2jAQ">
-        <lhs id="_I40WNIY8Eeq10a1fkq2jAQ" pin="_I40WM4Y8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I40WNYY8Eeq10a1fkq2jAQ" pin="_I40WMoY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUqHo4ZNEeqj4N2AZ1ad-g" name="SEFF TravelAgencyLogic::bookCommission EntryProcess">
+    <ownedBehavior id="_GUqusYZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUqusoZNEeqj4N2AZ1ad-g" name="SEFF TravelAgencyLogic::bookCommission EntryProcess input for commission"/>
+      <outputs id="_GUqus4ZNEeqj4N2AZ1ad-g" name="SEFF TravelAgencyLogic::bookCommission EntryProcess out for commission"/>
+      <assignments id="_GUqutoZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUqutIZNEeqj4N2AZ1ad-g" pin="_GUqus4ZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUqutYZNEeqj4N2AZ1ad-g" pin="_GUqusoZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I40WMIY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUqusIZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_Oot3UG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_I42LZIY8Eeq10a1fkq2jAQ" name="Store ICommissionsDB">
-    <ownedBehavior id="_I42LZoY8Eeq10a1fkq2jAQ">
-      <inputs id="_I42LZ4Y8Eeq10a1fkq2jAQ" name="in"/>
-      <outputs id="_I42LaIY8Eeq10a1fkq2jAQ" name="out"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_GUr804ZNEeqj4N2AZ1ad-g" name="Store ICommissionsDB">
+    <ownedBehavior id="_GUr81YZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUr81oZNEeqj4N2AZ1ad-g" name="in"/>
+      <outputs id="_GUr814ZNEeqj4N2AZ1ad-g" name="out"/>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I42LZYY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUr81IZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_Oot3UG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I41kUIY8Eeq10a1fkq2jAQ" name="ECA TravelAgencyLogic::storeCommission EntryProcess">
-    <ownedBehavior id="_I41kUoY8Eeq10a1fkq2jAQ">
-      <inputs id="_I41kU4Y8Eeq10a1fkq2jAQ" name="ECA TravelAgencyLogic::storeCommission EntryProcess input for commission"/>
-      <outputs id="_I42La4Y8Eeq10a1fkq2jAQ" name="ECA TravelAgencyLogic::storeCommission EntryProcess out for commission"/>
-      <assignments id="_I42LcIY8Eeq10a1fkq2jAQ">
-        <lhs id="_I42LboY8Eeq10a1fkq2jAQ" pin="_I42La4Y8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I42Lb4Y8Eeq10a1fkq2jAQ" pin="_I41kU4Y8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUrVwYZNEeqj4N2AZ1ad-g" name="ECA TravelAgencyLogic::storeCommission EntryProcess">
+    <ownedBehavior id="_GUrVw4ZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUrVxIZNEeqj4N2AZ1ad-g" name="ECA TravelAgencyLogic::storeCommission EntryProcess input for commission"/>
+      <outputs id="_GUr82oZNEeqj4N2AZ1ad-g" name="ECA TravelAgencyLogic::storeCommission EntryProcess out for commission"/>
+      <assignments id="_GUr834ZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUr83YZNEeqj4N2AZ1ad-g" pin="_GUr82oZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUr83oZNEeqj4N2AZ1ad-g" pin="_GUrVxIZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I41kUYY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUrVwoZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_Oot3UG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I41kVoY8Eeq10a1fkq2jAQ" name="SEFF CommissionsDB::addCommission EntryProcess">
-    <ownedBehavior id="_I41kWIY8Eeq10a1fkq2jAQ">
-      <inputs id="_I41kWYY8Eeq10a1fkq2jAQ" name="SEFF CommissionsDB::addCommission EntryProcess input for commission"/>
-      <outputs id="_I42LYIY8Eeq10a1fkq2jAQ" name="SEFF CommissionsDB::addCommission EntryProcess out for commission"/>
-      <assignments id="_I42LY4Y8Eeq10a1fkq2jAQ">
-        <lhs id="_I42LYYY8Eeq10a1fkq2jAQ" pin="_I42LYIY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I42LYoY8Eeq10a1fkq2jAQ" pin="_I41kWYY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUrVx4ZNEeqj4N2AZ1ad-g" name="SEFF CommissionsDB::addCommission EntryProcess">
+    <ownedBehavior id="_GUrVyYZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUrVyoZNEeqj4N2AZ1ad-g" name="SEFF CommissionsDB::addCommission EntryProcess input for commission"/>
+      <outputs id="_GUrVy4ZNEeqj4N2AZ1ad-g" name="SEFF CommissionsDB::addCommission EntryProcess out for commission"/>
+      <assignments id="_GUr80oZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUr80IZNEeqj4N2AZ1ad-g" pin="_GUrVy4ZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUr80YZNEeqj4N2AZ1ad-g" pin="_GUrVyoZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I41kV4Y8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUrVyIZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_Oot3UG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_I43ZgIY8Eeq10a1fkq2jAQ" name="initCCD EntryProcess" actor="_FJDf4IY8Eeq10a1fkq2jAQ">
-    <ownedBehavior id="_I43ZgoY8Eeq10a1fkq2jAQ">
-      <outputs id="_I45OsoY8Eeq10a1fkq2jAQ" name="initCCD EntryProcess out for ccd"/>
-      <assignments id="_I451woY8Eeq10a1fkq2jAQ">
-        <rhs xsi:type="expressions:ContainerCharacteristicReference" id="_I451wYY8Eeq10a1fkq2jAQ">
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_GUsj4IZNEeqj4N2AZ1ad-g" name="initCCD EntryProcess" actor="_GQHl4IZNEeqj4N2AZ1ad-g">
+    <ownedBehavior id="_GUsj4oZNEeqj4N2AZ1ad-g">
+      <outputs id="_GUtK-oZNEeqj4N2AZ1ad-g" name="initCCD EntryProcess out for ccd"/>
+      <assignments id="_GUtyAoZNEeqj4N2AZ1ad-g">
+        <rhs xsi:type="expressions:ContainerCharacteristicReference" id="_GUtyAYZNEeqj4N2AZ1ad-g">
           <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
         </rhs>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I43ZgYY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUsj4YZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I44AkIY8Eeq10a1fkq2jAQ" name="SEFF CreditCardCenterDB::addCCD EntryProcess">
-    <ownedBehavior id="_I44noYY8Eeq10a1fkq2jAQ">
-      <inputs id="_I44nooY8Eeq10a1fkq2jAQ" name="SEFF CreditCardCenterDB::addCCD EntryProcess input for ccd"/>
-      <outputs id="_I44no4Y8Eeq10a1fkq2jAQ" name="SEFF CreditCardCenterDB::addCCD EntryProcess out for ccd"/>
-      <assignments id="_I44npoY8Eeq10a1fkq2jAQ">
-        <lhs id="_I44npIY8Eeq10a1fkq2jAQ" pin="_I44no4Y8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I44npYY8Eeq10a1fkq2jAQ" pin="_I44nooY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUtK8IZNEeqj4N2AZ1ad-g" name="SEFF CreditCardCenterDB::addCCD EntryProcess">
+    <ownedBehavior id="_GUtK8oZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUtK84ZNEeqj4N2AZ1ad-g" name="SEFF CreditCardCenterDB::addCCD EntryProcess input for ccd"/>
+      <outputs id="_GUtK9IZNEeqj4N2AZ1ad-g" name="SEFF CreditCardCenterDB::addCCD EntryProcess out for ccd"/>
+      <assignments id="_GUtK94ZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUtK9YZNEeqj4N2AZ1ad-g" pin="_GUtK9IZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUtK9oZNEeqj4N2AZ1ad-g" pin="_GUtK84ZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I44noIY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUtK8YZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_NtovIG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedExternalActor" id="_I451w4Y8Eeq10a1fkq2jAQ" name="FlightManager">
-    <ownedBehavior id="_I451xIY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedExternalActor" id="_GUtyA4ZNEeqj4N2AZ1ad-g" name="FlightManager">
+    <ownedBehavior id="_GUtyBIZNEeqj4N2AZ1ad-g"/>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_I46c0IY8Eeq10a1fkq2jAQ" name="initFlights EntryProcess" actor="_I451w4Y8Eeq10a1fkq2jAQ">
-    <ownedBehavior id="_I46c0oY8Eeq10a1fkq2jAQ">
-      <outputs id="_I47q94Y8Eeq10a1fkq2jAQ" name="initFlights EntryProcess out for flight"/>
-      <assignments id="_I47q_IY8Eeq10a1fkq2jAQ">
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_GUuZEIZNEeqj4N2AZ1ad-g" name="initFlights EntryProcess" actor="_GUtyA4ZNEeqj4N2AZ1ad-g">
+    <ownedBehavior id="_GUuZEoZNEeqj4N2AZ1ad-g">
+      <outputs id="_GUvAKoZNEeqj4N2AZ1ad-g" name="initFlights EntryProcess out for flight"/>
+      <assignments id="_GUvnMoZNEeqj4N2AZ1ad-g">
         <rhs xsi:type="expressions:True" id="_RcEwmnHLEeqQIp35a0U06Q"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I46c0YY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUuZEYZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_PhSeEG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_I47D4IY8Eeq10a1fkq2jAQ" name="SEFF FlightsDB::addFlight EntryProcess">
-    <ownedBehavior id="_I47D4oY8Eeq10a1fkq2jAQ">
-      <inputs id="_I47q8IY8Eeq10a1fkq2jAQ" name="SEFF FlightsDB::addFlight EntryProcess input for flight"/>
-      <outputs id="_I47q8YY8Eeq10a1fkq2jAQ" name="SEFF FlightsDB::addFlight EntryProcess out for flight"/>
-      <assignments id="_I47q9IY8Eeq10a1fkq2jAQ">
-        <lhs id="_I47q8oY8Eeq10a1fkq2jAQ" pin="_I47q8YY8Eeq10a1fkq2jAQ"/>
-        <rhs xsi:type="expressions:DataCharacteristicReference" id="_I47q84Y8Eeq10a1fkq2jAQ" pin="_I47q8IY8Eeq10a1fkq2jAQ"/>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_GUvAIIZNEeqj4N2AZ1ad-g" name="SEFF FlightsDB::addFlight EntryProcess">
+    <ownedBehavior id="_GUvAIoZNEeqj4N2AZ1ad-g">
+      <inputs id="_GUvAI4ZNEeqj4N2AZ1ad-g" name="SEFF FlightsDB::addFlight EntryProcess input for flight"/>
+      <outputs id="_GUvAJIZNEeqj4N2AZ1ad-g" name="SEFF FlightsDB::addFlight EntryProcess out for flight"/>
+      <assignments id="_GUvAJ4ZNEeqj4N2AZ1ad-g">
+        <lhs id="_GUvAJYZNEeqj4N2AZ1ad-g" pin="_GUvAJIZNEeqj4N2AZ1ad-g"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_GUvAJoZNEeqj4N2AZ1ad-g" pin="_GUvAI4ZNEeqj4N2AZ1ad-g"/>
       </assignments>
     </ownedBehavior>
-    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_I47D4YY8Eeq10a1fkq2jAQ">
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_GUvAIYZNEeqj4N2AZ1ad-g" name="AssignedRoles">
       <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="My.characteristics#_LdvJEG0ZEeqKiorwkGH3eg"/>
       <values href="My.characteristics#_PhSeEG0ZEeqKiorwkGH3eg"/>
     </characteristics>
   </nodes>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_FPpQEYY8Eeq10a1fkq2jAQ" name="data" target="_FLl2gIY8Eeq10a1fkq2jAQ" source="_FLGuUIY8Eeq10a1fkq2jAQ" sourcePin="_FPna44Y8Eeq10a1fkq2jAQ" targetPin="_FLpg4oY8Eeq10a1fkq2jAQ">
-    <data id="_FPpQEoY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:PrimitiveDataType" href="expected_dd.xmi#_FPpQEIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GURtIYZNEeqj4N2AZ1ad-g" name="data" target="_GR02EIZNEeqj4N2AZ1ad-g" source="_GRiiMIZNEeqj4N2AZ1ad-g" sourcePin="_GUQfA4ZNEeqj4N2AZ1ad-g" targetPin="_GR2rQoZNEeqj4N2AZ1ad-g">
+    <data id="_GURtIoZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:PrimitiveDataType" href="expected_dd.xmi#_GURtIIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4dJ0YY8Eeq10a1fkq2jAQ" name="data" target="_I4b7uYY8Eeq10a1fkq2jAQ" source="_I4ciw4Y8Eeq10a1fkq2jAQ" sourcePin="_I4cix4Y8Eeq10a1fkq2jAQ" targetPin="_I4ciyIY8Eeq10a1fkq2jAQ">
-    <data id="_I4dJ0oY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4dJ0IY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUaQCoZNEeqj4N2AZ1ad-g" name="data" target="_GUZo-4ZNEeqj4N2AZ1ad-g" source="_GUaQA4ZNEeqj4N2AZ1ad-g" sourcePin="_GUaQB4ZNEeqj4N2AZ1ad-g" targetPin="_GUaQCIZNEeqj4N2AZ1ad-g">
+    <data id="_GUaQC4ZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUaQCYZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4dJ1oY8Eeq10a1fkq2jAQ" name="data" target="_I4b7sYY8Eeq10a1fkq2jAQ" source="_I4b7uYY8Eeq10a1fkq2jAQ" sourcePin="_I4ciwoY8Eeq10a1fkq2jAQ" targetPin="_I4b7tIY8Eeq10a1fkq2jAQ">
-    <data id="_I4dJ14Y8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4dJ0IY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUa3EoZNEeqj4N2AZ1ad-g" name="data" target="_GUZo84ZNEeqj4N2AZ1ad-g" source="_GUZo-4ZNEeqj4N2AZ1ad-g" sourcePin="_GUaQAoZNEeqj4N2AZ1ad-g" targetPin="_GUZo9oZNEeqj4N2AZ1ad-g">
+    <data id="_GUa3E4ZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUaQCYZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4dJ2IY8Eeq10a1fkq2jAQ" name="data" target="_I4bUoIY8Eeq10a1fkq2jAQ" source="_I4b7sYY8Eeq10a1fkq2jAQ" sourcePin="_I4b7tYY8Eeq10a1fkq2jAQ" targetPin="_I4b7sIY8Eeq10a1fkq2jAQ">
-    <data id="_I4dJ2YY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4dJ0IY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUa3FIZNEeqj4N2AZ1ad-g" name="data" target="_GUZB4IZNEeqj4N2AZ1ad-g" source="_GUZo84ZNEeqj4N2AZ1ad-g" sourcePin="_GUZo94ZNEeqj4N2AZ1ad-g" targetPin="_GUZo8oZNEeqj4N2AZ1ad-g">
+    <data id="_GUa3FYZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUaQCYZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4dJ34Y8Eeq10a1fkq2jAQ" name="data" target="_I4XqQYY8Eeq10a1fkq2jAQ" source="_I4bUoIY8Eeq10a1fkq2jAQ" sourcePin="_I4dJ2oY8Eeq10a1fkq2jAQ" targetPin="_I4XqRIY8Eeq10a1fkq2jAQ">
-    <data id="_I4dJ4IY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CollectionDataType" href="expected_dd.xmi#_I4dJ3oY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUa3G4ZNEeqj4N2AZ1ad-g" name="data" target="_GUV-kYZNEeqj4N2AZ1ad-g" source="_GUZB4IZNEeqj4N2AZ1ad-g" sourcePin="_GUa3FoZNEeqj4N2AZ1ad-g" targetPin="_GUV-lIZNEeqj4N2AZ1ad-g">
+    <data id="_GUa3HIZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CollectionDataType" href="expected_dd.xmi#_GUa3GoZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4dJ4YY8Eeq10a1fkq2jAQ" name="data" target="_I4WcI4Y8Eeq10a1fkq2jAQ" source="_I4XqQYY8Eeq10a1fkq2jAQ" sourcePin="_I4YRUIY8Eeq10a1fkq2jAQ" targetPin="_I4XqQIY8Eeq10a1fkq2jAQ">
-    <data id="_I4dJ4oY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CollectionDataType" href="expected_dd.xmi#_I4dJ3oY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUa3HYZNEeqj4N2AZ1ad-g" name="data" target="_GUUwcIZNEeqj4N2AZ1ad-g" source="_GUV-kYZNEeqj4N2AZ1ad-g" sourcePin="_GUV-lYZNEeqj4N2AZ1ad-g" targetPin="_GUV-kIZNEeqj4N2AZ1ad-g">
+    <data id="_GUa3HoZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CollectionDataType" href="expected_dd.xmi#_GUa3GoZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4dw4IY8Eeq10a1fkq2jAQ" name="data" target="_I4Um8YY8Eeq10a1fkq2jAQ" source="_I4WcI4Y8Eeq10a1fkq2jAQ" sourcePin="_I4dJ44Y8Eeq10a1fkq2jAQ" targetPin="_I4VOA4Y8Eeq10a1fkq2jAQ">
-    <data id="_I4dw4YY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CollectionDataType" href="expected_dd.xmi#_I4dJ3oY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUbeIIZNEeqj4N2AZ1ad-g" name="data" target="_GUTiUYZNEeqj4N2AZ1ad-g" source="_GUUwcIZNEeqj4N2AZ1ad-g" sourcePin="_GUa3H4ZNEeqj4N2AZ1ad-g" targetPin="_GUUJYIZNEeqj4N2AZ1ad-g">
+    <data id="_GUbeIYZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CollectionDataType" href="expected_dd.xmi#_GUa3GoZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4lssIY8Eeq10a1fkq2jAQ" name="data" target="_I4dw4oY8Eeq10a1fkq2jAQ" source="_FLl2gIY8Eeq10a1fkq2jAQ" sourcePin="_FPmz0IY8Eeq10a1fkq2jAQ" targetPin="_I4lFoIY8Eeq10a1fkq2jAQ">
-    <data id="_I4lssYY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:PrimitiveDataType" href="expected_dd.xmi#_FPpQEIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUgWoYZNEeqj4N2AZ1ad-g" name="data" target="_GUbeIoZNEeqj4N2AZ1ad-g" source="_GR02EIZNEeqj4N2AZ1ad-g" sourcePin="_GUP38IZNEeqj4N2AZ1ad-g" targetPin="_GUgWoIZNEeqj4N2AZ1ad-g">
+    <data id="_GUgWooZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:PrimitiveDataType" href="expected_dd.xmi#_GURtIIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4m62IY8Eeq10a1fkq2jAQ" name="data" target="_I4mTwIY8Eeq10a1fkq2jAQ" source="_I4dw4oY8Eeq10a1fkq2jAQ" sourcePin="_I4m614Y8Eeq10a1fkq2jAQ" targetPin="_I4m60oY8Eeq10a1fkq2jAQ">
-    <data id="_I4m62YY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:PrimitiveDataType" href="expected_dd.xmi#_FPpQEIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUhkyIZNEeqj4N2AZ1ad-g" name="data" target="_GUg9sIZNEeqj4N2AZ1ad-g" source="_GUbeIoZNEeqj4N2AZ1ad-g" sourcePin="_GUhkx4ZNEeqj4N2AZ1ad-g" targetPin="_GUhkwoZNEeqj4N2AZ1ad-g">
+    <data id="_GUhkyYZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:PrimitiveDataType" href="expected_dd.xmi#_GURtIIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4owAIY8Eeq10a1fkq2jAQ" name="data" target="_I4oI8IY8Eeq10a1fkq2jAQ" source="_I4Um8YY8Eeq10a1fkq2jAQ" sourcePin="_I4VOAoY8Eeq10a1fkq2jAQ" targetPin="_I4oI84Y8Eeq10a1fkq2jAQ">
-    <data id="_I4owAYY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CollectionDataType" href="expected_dd.xmi#_I4dJ3oY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUiy5IZNEeqj4N2AZ1ad-g" name="data" target="_GUiy4IZNEeqj4N2AZ1ad-g" source="_GUTiUYZNEeqj4N2AZ1ad-g" sourcePin="_GUTiVIZNEeqj4N2AZ1ad-g" targetPin="_GUiy44ZNEeqj4N2AZ1ad-g">
+    <data id="_GUiy5YZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CollectionDataType" href="expected_dd.xmi#_GUa3GoZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4p-JYY8Eeq10a1fkq2jAQ" name="data" target="_I4owAoY8Eeq10a1fkq2jAQ" source="_I4oI8IY8Eeq10a1fkq2jAQ" sourcePin="_I4p-JIY8Eeq10a1fkq2jAQ" targetPin="_I4pXEYY8Eeq10a1fkq2jAQ">
-    <data id="_I4p-JoY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4dJ0IY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUkBAIZNEeqj4N2AZ1ad-g" name="data" target="_GUiy5oZNEeqj4N2AZ1ad-g" source="_GUiy4IZNEeqj4N2AZ1ad-g" sourcePin="_GUjZ_IZNEeqj4N2AZ1ad-g" targetPin="_GUjZ8oZNEeqj4N2AZ1ad-g">
+    <data id="_GUkBAYZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUaQCYZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4qlMIY8Eeq10a1fkq2jAQ" name="data" target="_I4owAoY8Eeq10a1fkq2jAQ" source="_I4oI8IY8Eeq10a1fkq2jAQ" sourcePin="_I4p-J4Y8Eeq10a1fkq2jAQ" targetPin="_I4pXFoY8Eeq10a1fkq2jAQ">
-    <data id="_I4qlMYY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4p-KIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUkBBIZNEeqj4N2AZ1ad-g" name="data" target="_GUiy5oZNEeqj4N2AZ1ad-g" source="_GUiy4IZNEeqj4N2AZ1ad-g" sourcePin="_GUkBAoZNEeqj4N2AZ1ad-g" targetPin="_GUjZ94ZNEeqj4N2AZ1ad-g">
+    <data id="_GUkBBYZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUkBA4ZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4u2oYY8Eeq10a1fkq2jAQ" name="data" target="_I4togIY8Eeq10a1fkq2jAQ" source="_I4tohIY8Eeq10a1fkq2jAQ" sourcePin="_I4uPkIY8Eeq10a1fkq2jAQ" targetPin="_I4uPkYY8Eeq10a1fkq2jAQ">
-    <data id="_I4u2ooY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4u2oIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUmdTYZNEeqj4N2AZ1ad-g" name="data" target="_GUmdQoZNEeqj4N2AZ1ad-g" source="_GUmdRoZNEeqj4N2AZ1ad-g" sourcePin="_GUmdSoZNEeqj4N2AZ1ad-g" targetPin="_GUmdS4ZNEeqj4N2AZ1ad-g">
+    <data id="_GUmdToZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUmdTIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4u2poY8Eeq10a1fkq2jAQ" name="data" target="_I4tBcoY8Eeq10a1fkq2jAQ" source="_I4togIY8Eeq10a1fkq2jAQ" sourcePin="_I4tog4Y8Eeq10a1fkq2jAQ" targetPin="_I4tBdYY8Eeq10a1fkq2jAQ">
-    <data id="_I4u2p4Y8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4u2oIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUnEUIZNEeqj4N2AZ1ad-g" name="data" target="_GUl2MoZNEeqj4N2AZ1ad-g" source="_GUmdQoZNEeqj4N2AZ1ad-g" sourcePin="_GUmdRYZNEeqj4N2AZ1ad-g" targetPin="_GUl2NYZNEeqj4N2AZ1ad-g">
+    <data id="_GUnEUYZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUmdTIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4u2qIY8Eeq10a1fkq2jAQ" name="data" target="_I4saY4Y8Eeq10a1fkq2jAQ" source="_I4tBcoY8Eeq10a1fkq2jAQ" sourcePin="_I4tBdoY8Eeq10a1fkq2jAQ" targetPin="_I4tBcYY8Eeq10a1fkq2jAQ">
-    <data id="_I4u2qYY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4u2oIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUnEUoZNEeqj4N2AZ1ad-g" name="data" target="_GUlPIIZNEeqj4N2AZ1ad-g" source="_GUl2MoZNEeqj4N2AZ1ad-g" sourcePin="_GUl2NoZNEeqj4N2AZ1ad-g" targetPin="_GUl2MYZNEeqj4N2AZ1ad-g">
+    <data id="_GUnEU4ZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUmdTIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4u2sYY8Eeq10a1fkq2jAQ" name="data" target="_I4rzVIY8Eeq10a1fkq2jAQ" source="_I4saY4Y8Eeq10a1fkq2jAQ" sourcePin="_I4u2qoY8Eeq10a1fkq2jAQ" targetPin="_I4rzV4Y8Eeq10a1fkq2jAQ">
-    <data id="_I4u2soY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4u2oIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUnEW4ZNEeqj4N2AZ1ad-g" name="data" target="_GUkoGIZNEeqj4N2AZ1ad-g" source="_GUlPIIZNEeqj4N2AZ1ad-g" sourcePin="_GUnEVIZNEeqj4N2AZ1ad-g" targetPin="_GUkoG4ZNEeqj4N2AZ1ad-g">
+    <data id="_GUnEXIZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUmdTIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4u2s4Y8Eeq10a1fkq2jAQ" name="data" target="_I4rzUIY8Eeq10a1fkq2jAQ" source="_I4rzVIY8Eeq10a1fkq2jAQ" sourcePin="_I4rzWIY8Eeq10a1fkq2jAQ" targetPin="_I4rzU4Y8Eeq10a1fkq2jAQ">
-    <data id="_I4u2tIY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4u2oIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUnEXYZNEeqj4N2AZ1ad-g" name="data" target="_GUkoFIZNEeqj4N2AZ1ad-g" source="_GUkoGIZNEeqj4N2AZ1ad-g" sourcePin="_GUkoHIZNEeqj4N2AZ1ad-g" targetPin="_GUkoF4ZNEeqj4N2AZ1ad-g">
+    <data id="_GUnEXoZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUmdTIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4wr04Y8Eeq10a1fkq2jAQ" name="data" target="_I4vdsIY8Eeq10a1fkq2jAQ" source="_I4wEwIY8Eeq10a1fkq2jAQ" sourcePin="_I4wEw4Y8Eeq10a1fkq2jAQ" targetPin="_I4vds4Y8Eeq10a1fkq2jAQ">
-    <data id="_I4wr1IY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4p-KIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUoSd4ZNEeqj4N2AZ1ad-g" name="data" target="_GUnEYIZNEeqj4N2AZ1ad-g" source="_GUoScIZNEeqj4N2AZ1ad-g" sourcePin="_GUoSc4ZNEeqj4N2AZ1ad-g" targetPin="_GUnEY4ZNEeqj4N2AZ1ad-g">
+    <data id="_GUoSeIZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUkBA4ZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4wr1YY8Eeq10a1fkq2jAQ" name="data" target="_I4rzUIY8Eeq10a1fkq2jAQ" source="_I4vdsIY8Eeq10a1fkq2jAQ" sourcePin="_I4vdtIY8Eeq10a1fkq2jAQ" targetPin="_I4u2tYY8Eeq10a1fkq2jAQ">
-    <data id="_I4wr1oY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4p-KIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUoSeYZNEeqj4N2AZ1ad-g" name="data" target="_GUkoFIZNEeqj4N2AZ1ad-g" source="_GUnEYIZNEeqj4N2AZ1ad-g" sourcePin="_GUnrYIZNEeqj4N2AZ1ad-g" targetPin="_GUnEX4ZNEeqj4N2AZ1ad-g">
+    <data id="_GUoSeoZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUkBA4ZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4wr24Y8Eeq10a1fkq2jAQ" name="data" target="_I4rMQIY8Eeq10a1fkq2jAQ" source="_I4rzUIY8Eeq10a1fkq2jAQ" sourcePin="_I4wr14Y8Eeq10a1fkq2jAQ" targetPin="_I4rMRIY8Eeq10a1fkq2jAQ">
-    <data id="_I4wr3IY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4p-KIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUoSf4ZNEeqj4N2AZ1ad-g" name="data" target="_GUkBDIZNEeqj4N2AZ1ad-g" source="_GUkoFIZNEeqj4N2AZ1ad-g" sourcePin="_GUoSe4ZNEeqj4N2AZ1ad-g" targetPin="_GUkoEIZNEeqj4N2AZ1ad-g">
+    <data id="_GUoSgIZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUkBA4ZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4xS5IY8Eeq10a1fkq2jAQ" name="data" target="_I4xS4IY8Eeq10a1fkq2jAQ" source="_I4owAoY8Eeq10a1fkq2jAQ" sourcePin="_I4pXEoY8Eeq10a1fkq2jAQ" targetPin="_I4xS44Y8Eeq10a1fkq2jAQ">
-    <data id="_I4xS5YY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4dJ0IY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUo5hIZNEeqj4N2AZ1ad-g" name="data" target="_GUo5gIZNEeqj4N2AZ1ad-g" source="_GUiy5oZNEeqj4N2AZ1ad-g" sourcePin="_GUjZ84ZNEeqj4N2AZ1ad-g" targetPin="_GUo5g4ZNEeqj4N2AZ1ad-g">
+    <data id="_GUo5hYZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUaQCYZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4xS54Y8Eeq10a1fkq2jAQ" name="data" target="_I4xS4IY8Eeq10a1fkq2jAQ" source="_I4rzVIY8Eeq10a1fkq2jAQ" sourcePin="_I4rzWIY8Eeq10a1fkq2jAQ" targetPin="_I4xS5oY8Eeq10a1fkq2jAQ">
-    <data id="_I4xS6IY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4u2oIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUo5h4ZNEeqj4N2AZ1ad-g" name="data" target="_GUo5gIZNEeqj4N2AZ1ad-g" source="_GUkoGIZNEeqj4N2AZ1ad-g" sourcePin="_GUkoHIZNEeqj4N2AZ1ad-g" targetPin="_GUo5hoZNEeqj4N2AZ1ad-g">
+    <data id="_GUo5iIZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUmdTIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4yhBIY8Eeq10a1fkq2jAQ" name="data" target="_I4x58IY8Eeq10a1fkq2jAQ" source="_I4xS4IY8Eeq10a1fkq2jAQ" sourcePin="_I4yhA4Y8Eeq10a1fkq2jAQ" targetPin="_I4x584Y8Eeq10a1fkq2jAQ">
-    <data id="_I4yhBYY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4dJ0IY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUpgloZNEeqj4N2AZ1ad-g" name="data" target="_GUo5iYZNEeqj4N2AZ1ad-g" source="_GUo5gIZNEeqj4N2AZ1ad-g" sourcePin="_GUpglYZNEeqj4N2AZ1ad-g" targetPin="_GUo5jIZNEeqj4N2AZ1ad-g">
+    <data id="_GUpgl4ZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUaQCYZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I4yhB4Y8Eeq10a1fkq2jAQ" name="data" target="_I4x58IY8Eeq10a1fkq2jAQ" source="_I4xS4IY8Eeq10a1fkq2jAQ" sourcePin="_I4yhBoY8Eeq10a1fkq2jAQ" targetPin="_I4x5-IY8Eeq10a1fkq2jAQ">
-    <data id="_I4yhCIY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4u2oIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUpgmYZNEeqj4N2AZ1ad-g" name="data" target="_GUo5iYZNEeqj4N2AZ1ad-g" source="_GUo5gIZNEeqj4N2AZ1ad-g" sourcePin="_GUpgmIZNEeqj4N2AZ1ad-g" targetPin="_GUpgkIZNEeqj4N2AZ1ad-g">
+    <data id="_GUpgmoZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUmdTIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I409QIY8Eeq10a1fkq2jAQ" name="data" target="_I4zvIIY8Eeq10a1fkq2jAQ" source="_I4zIEIY8Eeq10a1fkq2jAQ" sourcePin="_I40WN4Y8Eeq10a1fkq2jAQ" targetPin="_I40WMoY8Eeq10a1fkq2jAQ">
-    <data id="_I409QYY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I40WOIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUquuYZNEeqj4N2AZ1ad-g" name="data" target="_GUqHo4ZNEeqj4N2AZ1ad-g" source="_GUqHoIZNEeqj4N2AZ1ad-g" sourcePin="_GUqut4ZNEeqj4N2AZ1ad-g" targetPin="_GUqusoZNEeqj4N2AZ1ad-g">
+    <data id="_GUquuoZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUquuIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I41kVIY8Eeq10a1fkq2jAQ" name="data" target="_I41kUIY8Eeq10a1fkq2jAQ" source="_I4zvIIY8Eeq10a1fkq2jAQ" sourcePin="_I40WM4Y8Eeq10a1fkq2jAQ" targetPin="_I41kU4Y8Eeq10a1fkq2jAQ">
-    <data id="_I41kVYY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I40WOIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUrVxYZNEeqj4N2AZ1ad-g" name="data" target="_GUrVwYZNEeqj4N2AZ1ad-g" source="_GUqHo4ZNEeqj4N2AZ1ad-g" sourcePin="_GUqus4ZNEeqj4N2AZ1ad-g" targetPin="_GUrVxIZNEeqj4N2AZ1ad-g">
+    <data id="_GUrVxoZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUquuIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I42LaYY8Eeq10a1fkq2jAQ" name="data" target="_I42LZIY8Eeq10a1fkq2jAQ" source="_I41kVoY8Eeq10a1fkq2jAQ" sourcePin="_I42LYIY8Eeq10a1fkq2jAQ" targetPin="_I42LZ4Y8Eeq10a1fkq2jAQ">
-    <data id="_I42LaoY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I40WOIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUr82IZNEeqj4N2AZ1ad-g" name="data" target="_GUr804ZNEeqj4N2AZ1ad-g" source="_GUrVx4ZNEeqj4N2AZ1ad-g" sourcePin="_GUrVy4ZNEeqj4N2AZ1ad-g" targetPin="_GUr81oZNEeqj4N2AZ1ad-g">
+    <data id="_GUr82YZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUquuIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I42LbIY8Eeq10a1fkq2jAQ" name="data" target="_I41kVoY8Eeq10a1fkq2jAQ" source="_I41kUIY8Eeq10a1fkq2jAQ" sourcePin="_I42La4Y8Eeq10a1fkq2jAQ" targetPin="_I41kWYY8Eeq10a1fkq2jAQ">
-    <data id="_I42LbYY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I40WOIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUr824ZNEeqj4N2AZ1ad-g" name="data" target="_GUrVx4ZNEeqj4N2AZ1ad-g" source="_GUrVwYZNEeqj4N2AZ1ad-g" sourcePin="_GUr82oZNEeqj4N2AZ1ad-g" targetPin="_GUrVyoZNEeqj4N2AZ1ad-g">
+    <data id="_GUr83IZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUquuIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I45OsIY8Eeq10a1fkq2jAQ" name="data" target="_I4tohIY8Eeq10a1fkq2jAQ" source="_I44AkIY8Eeq10a1fkq2jAQ" sourcePin="_I44no4Y8Eeq10a1fkq2jAQ" targetPin="_I4toh4Y8Eeq10a1fkq2jAQ">
-    <data id="_I45OsYY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4u2oIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUtK-IZNEeqj4N2AZ1ad-g" name="data" target="_GUmdRoZNEeqj4N2AZ1ad-g" source="_GUtK8IZNEeqj4N2AZ1ad-g" sourcePin="_GUtK9IZNEeqj4N2AZ1ad-g" targetPin="_GUmdSYZNEeqj4N2AZ1ad-g">
+    <data id="_GUtK-YZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUmdTIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I45Os4Y8Eeq10a1fkq2jAQ" name="data" target="_I44AkIY8Eeq10a1fkq2jAQ" source="_I43ZgIY8Eeq10a1fkq2jAQ" sourcePin="_I45OsoY8Eeq10a1fkq2jAQ" targetPin="_I44nooY8Eeq10a1fkq2jAQ">
-    <data id="_I45OtIY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4u2oIY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUtK-4ZNEeqj4N2AZ1ad-g" name="data" target="_GUtK8IZNEeqj4N2AZ1ad-g" source="_GUsj4IZNEeqj4N2AZ1ad-g" sourcePin="_GUtK-oZNEeqj4N2AZ1ad-g" targetPin="_GUtK84ZNEeqj4N2AZ1ad-g">
+    <data id="_GUtK_IZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUmdTIZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I47q9YY8Eeq10a1fkq2jAQ" name="data" target="_I4ciw4Y8Eeq10a1fkq2jAQ" source="_I47D4IY8Eeq10a1fkq2jAQ" sourcePin="_I47q8YY8Eeq10a1fkq2jAQ" targetPin="_I4cixoY8Eeq10a1fkq2jAQ">
-    <data id="_I47q9oY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4dJ0IY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUvAKIZNEeqj4N2AZ1ad-g" name="data" target="_GUaQA4ZNEeqj4N2AZ1ad-g" source="_GUvAIIZNEeqj4N2AZ1ad-g" sourcePin="_GUvAJIZNEeqj4N2AZ1ad-g" targetPin="_GUaQBoZNEeqj4N2AZ1ad-g">
+    <data id="_GUvAKYZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUaQCYZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
-  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_I47q-IY8Eeq10a1fkq2jAQ" name="data" target="_I47D4IY8Eeq10a1fkq2jAQ" source="_I46c0IY8Eeq10a1fkq2jAQ" sourcePin="_I47q94Y8Eeq10a1fkq2jAQ" targetPin="_I47q8IY8Eeq10a1fkq2jAQ">
-    <data id="_I47q-YY8Eeq10a1fkq2jAQ" name="data">
-      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_I4dJ0IY8Eeq10a1fkq2jAQ"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_GUvAK4ZNEeqj4N2AZ1ad-g" name="data" target="_GUvAIIZNEeqj4N2AZ1ad-g" source="_GUuZEIZNEeqj4N2AZ1ad-g" sourcePin="_GUvAKoZNEeqj4N2AZ1ad-g" targetPin="_GUvAI4ZNEeqj4N2AZ1ad-g">
+    <data id="_GUvALIZNEeqj4N2AZ1ad-g" name="data">
+      <type xsi:type="DataDictionary:CompositeDataType" href="expected_dd.xmi#_GUaQCYZNEeqj4N2AZ1ad-g"/>
     </data>
   </edges>
 </DataFlowDiagram:DataFlowDiagram>
