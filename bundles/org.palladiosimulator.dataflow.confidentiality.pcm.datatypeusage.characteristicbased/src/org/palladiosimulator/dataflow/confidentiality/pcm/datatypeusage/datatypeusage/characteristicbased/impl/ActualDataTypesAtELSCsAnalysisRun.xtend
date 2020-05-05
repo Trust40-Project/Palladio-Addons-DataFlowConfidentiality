@@ -7,11 +7,11 @@ import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 import org.prolog4j.Query
 
 class ActualDataTypesAtELSCsAnalysisRun extends AnalysisRunBase {
-	
+
 	new(Iterable<EntryLevelSystemCall> elscs) {
 		super(elscs)
 	}
-	
+
 	override protected performAnalysisForNode(String nodeId, TransitiveTransformationTrace trace) {
 		val readDataTypeIds = nodeId.buildAnalysisQueryForReadData(trace).executeQueryForDataTypes
 		val readDataTypes = readDataTypeIds.getDataTypes(trace).toList
@@ -19,13 +19,22 @@ class ActualDataTypesAtELSCsAnalysisRun extends AnalysisRunBase {
 		val writeDataTypes = writeDataTypeIds.getDataTypes(trace).toList
 		new DataTypeUsageQueryResultImpl(readDataTypes, writeDataTypes)
 	}
-	
+
 	protected def executeQueryForDataTypes(Query query) {
-		val result = query.executeQuery(#{ "DTS" -> Collection})
-		result.map[get("DTS")].filterNull.flatMap[v | v as Collection<String>].toSet
+		val result = query.executeQuery(#{"DTS" -> Collection})
+		result.map[get("DTS")].filterNull.flatMap[v|v as Collection<String>].toSet
 	}
-	
+
 	protected def buildAnalysisQueryForWrittenData(String nodeId, TransitiveTransformationTrace trace) {
+		// hacky solution
+		if (nodeId.toLowerCase.contains("entry")) {
+			return nodeId.buildAnalysisQueryForWrittenDataReal(trace)
+		} else {
+			return nodeId.buildAnalysisQueryForDataDummy(trace)
+		}
+	}
+
+	protected def buildAnalysisQueryForWrittenDataReal(String nodeId, TransitiveTransformationTrace trace) {
 		val query = prover.query('''
 			CTNODE = ?CTNODE,
 			VNODE = ?VNODE,
@@ -40,9 +49,21 @@ class ActualDataTypesAtELSCsAnalysisRun extends AnalysisRunBase {
 		query.bind("J$CTDTS", trace.actualDataTypesCharacteristicTypeId)
 		query
 	}
-	
 
 	protected def buildAnalysisQueryForReadData(String nodeId, TransitiveTransformationTrace trace) {
+		// hacky solution
+		if (nodeId.toLowerCase.contains("entry")) {
+			return nodeId.buildAnalysisQueryForDataDummy(trace)
+		} else {
+			return nodeId.buildAnalysisQueryForReadDataReal(trace)
+		}
+	}
+
+	protected def buildAnalysisQueryForDataDummy(String nodeId, TransitiveTransformationTrace trace) {
+		prover.query("TMP = [], DTS = TMP.")
+	}
+
+	protected def buildAnalysisQueryForReadDataReal(String nodeId, TransitiveTransformationTrace trace) {
 		val query = prover.query('''
 			CTDTS = ?CTDTS,
 			VNODE = ?VNODE,
@@ -57,5 +78,5 @@ class ActualDataTypesAtELSCsAnalysisRun extends AnalysisRunBase {
 		query.bind("J$VNODE", nodeId)
 		query
 	}
-	
+
 }
