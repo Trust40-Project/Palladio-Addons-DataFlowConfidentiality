@@ -117,5 +117,51 @@
             contributorClass="org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.presentation.RepositoryActionBarContributor">
       </editor>
    </extension>
+   <extension
+         point="org.eclipse.ui.commands">
+      <command
+            defaultHandler="org.palladiosimulator.dataflow.confidentiality.pcm.model.editor.conversion.ConvertPCMToConfidentialityHandler"
+            id="org.palladiosimulator.dataflow.confidentiality.pcm.model.editor.conversion.ConvertPCMToConfidentialityHandler"
+            name="Convert PCM To Confidentiality Model">
+      </command>
+   </extension>
+   <extension
+         point="org.eclipse.ui.menus">
+      <menuContribution
+            allPopups="false"
+            locationURI="popup:org.eclipse.sirius.ui.tools.views.model.explorer#PopupMenu?after=additions ">
+         <command
+               commandId="org.palladiosimulator.dataflow.confidentiality.pcm.model.editor.conversion.ConvertPCMToConfidentialityHandler"
+               style="push">
+            <visibleWhen
+                  checkEnabled="false">
+               <with
+                     variable="activeMenuSelection">
+                  <iterate
+                        ifEmpty="false"
+                        operator="and">
+                     <adapt
+                           type="org.eclipse.core.resources.IResource">
+                        <or>
+                           <test
+                                 property="org.eclipse.core.resources.extension"
+                                 value="repository">
+                           </test>
+                           <test
+                                 property="org.eclipse.core.resources.extension"
+                                 value="usagemodel">
+                           </test>
+                           <test
+                                 property="org.eclipse.core.resources.extension"
+                                 value="bpusagemodel">
+                           </test>
+                        </or>
+                     </adapt>
+                  </iterate>
+               </with>
+            </visibleWhen>
+         </command>
+      </menuContribution>
+   </extension>
 
 </plugin>
