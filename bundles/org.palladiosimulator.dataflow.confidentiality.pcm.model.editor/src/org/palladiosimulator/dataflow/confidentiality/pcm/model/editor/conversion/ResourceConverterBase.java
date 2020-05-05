@@ -5,6 +5,7 @@ import java.io.InputStream;
 import java.io.StringWriter;
 import java.nio.charset.StandardCharsets;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -23,10 +24,12 @@ import org.apache.commons.io.IOUtils;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IStatus;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Status;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.presentation.CharacterizedActionsEditorPlugin;
 import org.w3c.dom.Document;
 import org.w3c.dom.Element;
@@ -84,13 +87,17 @@ public class ResourceConverterBase implements ResourceConverter {
 
     public void convertInternal(IFile file)
             throws ParserConfigurationException, SAXException, IOException, CoreException, TransformerException {
+        
+        // load model as XML
         DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         DocumentBuilder builder = factory.newDocumentBuilder();
         Document document = builder.parse(file.getContents());
 
+        // modify model
         addXmlNsEntries(document);
         replaceTypes(document);
 
+        // serialize model to string
         TransformerFactory tf = TransformerFactory.newInstance();
         Transformer transformer = tf.newTransformer();
         StringWriter writer = new StringWriter();
@@ -98,7 +105,13 @@ public class ResourceConverterBase implements ResourceConverter {
         String result = writer.getBuffer()
             .toString();
         InputStream is = IOUtils.toInputStream(result, StandardCharsets.UTF_8);
-        file.setContents(is, true, true, new NullProgressMonitor());
+        
+        // read string as model and serialize
+        ResourceSetImpl rs = new ResourceSetImpl();
+        URI rUri = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
+        Resource r = rs.createResource(rUri);
+        r.load(is, Collections.emptyMap());
+        r.save(Collections.emptyMap());
 
         return;
     }
