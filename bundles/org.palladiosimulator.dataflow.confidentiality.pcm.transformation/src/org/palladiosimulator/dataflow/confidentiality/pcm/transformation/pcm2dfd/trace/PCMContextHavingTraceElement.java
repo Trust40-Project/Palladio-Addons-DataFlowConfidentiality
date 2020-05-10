@@ -4,7 +4,7 @@ import java.util.Collection;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 
-public interface PCMContextHavingTraceElement extends PCMTraceElement {
+public interface PCMContextHavingTraceElement extends PCMSingleTraceElement {
 
     Collection<Identifier> getContext();
     

@@ -184,7 +184,9 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 			val requiredProcess = requiredElsc.exitProcess
 			val requiredPin = requiredProcess.outputPin
 			val requiredDataType = requiredElsc.operationSignature__EntryLevelSystemCall.returnType__OperationSignature.dataType
-			createDataFlow(requiredProcess, requiredPin, process, inputPin, requiredDataType).addToDiagram
+			val dataFlow = createDataFlow(requiredProcess, requiredPin, process, inputPin, requiredDataType)
+			dataFlow.addToDiagram
+			addTraceEntry(requiredElsc, #[], elsc, #[], dataFlow)
 		}
 		val role = elsc.providedRole_EntryLevelSystemCall
 		val signature = elsc.operationSignature__EntryLevelSystemCall
@@ -199,7 +201,9 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 			val outputPin = process.getOutputPin(parameter)
 			val seffEntryPin = seffEntryProcess.getInputPin(parameter)
 			val parameterDataType = parameter.dataType__Parameter.dataType
-			createDataFlow(process, outputPin, seffEntryProcess, seffEntryPin, parameterDataType).addToDiagram
+			val dataFlow = createDataFlow(process, outputPin, seffEntryProcess, seffEntryPin, parameterDataType)
+			dataFlow.addToDiagram
+			addTraceEntry(elsc, #[], calledSeff.seff, calledSeff.context, dataFlow)
 		}
 		for (assignment : elsc.parameterAssignments) {
 			val newLhs = process._translate(null, assignment.lhs)
@@ -261,7 +265,9 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		val seffProcess = calledSeff.characterizedSeff.getExitProcess(calledSeff.context)
 		val seffPin = seffProcess.outputPin
 		val returnDataType = calledSeff.seff.returnDataType
-		createDataFlow(seffProcess, seffPin, process, inputPin, returnDataType).addToDiagram
+		val dataFlow = createDataFlow(seffProcess, seffPin, process, inputPin, returnDataType)
+		dataFlow.addToDiagram
+		addTraceEntry(calledSeff.seff, calledSeff.context, elsc, #[], dataFlow)
 	}
 	
 	protected def getReturnDataType(ServiceEffectSpecification seff) {
@@ -327,7 +333,11 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 				val storeInputPin = store.inputPin
 				val dataType = parameter.dataType__Parameter.dataType
 				//TODO we should add collections here as well if it exists
-				createDataFlow(process, outputPin, store, storeInputPin, dataType).addToDiagram
+				val dataFlow = createDataFlow(process, outputPin, store, storeInputPin, dataType)
+				dataFlow.addToDiagram
+				// there is no corresponding PCM element for a store but we have to add something to the trace
+				// TODO adding a relation trace element with the same source and target is awkward
+				addTraceEntry(seff, context, seff, context, dataFlow)
 			}
 
 		}
@@ -400,7 +410,9 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 			val calledProcess = availableAction.getExitProcess(context)
 			val calledPin = calledProcess.outputPin
 			val returnDataType = availableAction.calledService_ExternalService.returnType__OperationSignature.dataType
-			createDataFlow(calledProcess, calledPin, process, inputPin, returnDataType).addToDiagram
+			val dataFlow = createDataFlow(calledProcess, calledPin, process, inputPin, returnDataType)
+			dataFlow.addToDiagram
+			addTraceEntry(availableAction, context, seff, context, dataFlow)
 		}
 		val outputPin = process.outputPin
 		
@@ -410,7 +422,10 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 			val storeOutputPin = store.outputPin
 			val processInputPin = process.inputPin
 			val returnType = seff.returnDataType
-			createDataFlow(store, storeOutputPin, process, processInputPin, returnType).addToDiagram			
+			val dataFlow = createDataFlow(store, storeOutputPin, process, processInputPin, returnType)
+			dataFlow.addToDiagram
+			//TODO decide if we could build a better trace entry
+			addTraceEntry(seff, context, seff, context, dataFlow)			
 			process.createCopyAssignment(outputPin, processInputPin)
 		}
 		
@@ -467,7 +482,9 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 			val inputPin = process.getInputPin(seffParameter)
 			val requiredPin = seffProcess.getOutputPin(seffParameter)
 			val parameterType = seffParameter.dataType__Parameter.dataType
-			createDataFlow(seffProcess, requiredPin, process, inputPin, parameterType).addToDiagram
+			val dataFlow = createDataFlow(seffProcess, requiredPin, process, inputPin, parameterType)
+			dataFlow.addToDiagram
+			addTraceEntry(seff, context, eca, context, dataFlow)
 		}
 		val requiredCalls = paramAssignments.flatMap[findAllChildrenIncludingSelfOfType(ReturnCharacteristicReference)].map[externalCallAction].filter(CharacterizedExternalCallAction).toSet.sortBy[id]
 		for (requiredCall : requiredCalls) {
@@ -475,7 +492,9 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 			val requiredProcess = requiredCall.getExitProcess(context)
 			val requiredPin = requiredProcess.outputPin
 			val returnType = requiredCall.calledService_ExternalService.returnType__OperationSignature.dataType
-			createDataFlow(requiredProcess, requiredPin, process, inputPin, returnType).addToDiagram
+			val dataFlow = createDataFlow(requiredProcess, requiredPin, process, inputPin, returnType)
+			dataFlow.addToDiagram
+			addTraceEntry(requiredCall, context, eca, context, dataFlow)
 		}
 		
 		val calledSeff = eca.role_ExternalService.findCalledCharacterizedSeffThrowing(eca.calledService_ExternalService, context)
@@ -484,7 +503,9 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 			val outputPin = process.getOutputPin(parameter)
 			val calledInputPin = calledProcess.getInputPin(parameter)
 			val parameterType = parameter.dataType__Parameter.dataType
-			createDataFlow(process, outputPin, calledProcess, calledInputPin, parameterType).addToDiagram
+			val dataFlow = createDataFlow(process, outputPin, calledProcess, calledInputPin, parameterType)
+			dataFlow.addToDiagram
+			addTraceEntry(eca, context, calledSeff.characterizedSeff, calledSeff.context, dataFlow)
 		}
 		
 		for (paramAssignment : paramAssignments) {
@@ -525,7 +546,9 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		val calledOutputPin = calledProcess.outputPin
 		val returnType = calledSeff.seff.returnDataType
 		
-		createDataFlow(calledProcess, calledOutputPin, process, inputPin, returnType).addToDiagram
+		val dataFlow = createDataFlow(calledProcess, calledOutputPin, process, inputPin, returnType)
+		dataFlow.addToDiagram
+		addTraceEntry(calledSeff.seff, calledSeff.context, eca, context, dataFlow)
 	}
 
 	protected def createCharacteristics(Characterizable characterizable, ScenarioBehaviour behavior) {

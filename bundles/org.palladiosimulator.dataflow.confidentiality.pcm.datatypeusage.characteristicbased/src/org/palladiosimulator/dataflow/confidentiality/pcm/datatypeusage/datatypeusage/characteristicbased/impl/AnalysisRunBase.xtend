@@ -24,6 +24,7 @@ import org.palladiosimulator.pcm.usagemodel.UsageModel
 import org.prolog4j.Prover
 import org.prolog4j.Query
 import org.prolog4j.Solution
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMSingleTraceElement
 
 abstract class AnalysisRunBase {
 
@@ -162,6 +163,6 @@ abstract class AnalysisRunBase {
 	}
 	
 	protected def getDataType(String id, TransitiveTransformationTrace trace) {
-		trace.getPCMEntries(id).map[element].filter(DataType).head
+		trace.getPCMEntries(id).filter(PCMSingleTraceElement).map[element].filter(DataType).head
 	}
 }

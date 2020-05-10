@@ -10,6 +10,7 @@ import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.TransitiveTra
 import org.palladiosimulator.pcm.repository.DataType
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 import org.prolog4j.Solution
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMSingleTraceElement
 
 class ActualDataTypesAffectingAnalysisRun extends AnalysisRunBase {
 
@@ -33,8 +34,8 @@ class ActualDataTypesAffectingAnalysisRun extends AnalysisRunBase {
 		val readDataTypes = new HashSet<DataType>()
 		val writeDataTypes = new HashSet<DataType>()
 		for (processId : dataTypesPerNode.keySet) {
-			val dataTypes = dataTypesPerNode.get(processId).flatMap[id|trace.getPCMEntries(id)].map[element].filter(
-				DataType).toSet
+			val dataTypes = dataTypesPerNode.get(processId).flatMap[id|trace.getPCMEntries(id)].filter(
+				PCMSingleTraceElement).map[element].filter(DataType).toSet
 			readDataTypes += dataTypes
 			if (processId.isStore) {
 				writeDataTypes += dataTypes

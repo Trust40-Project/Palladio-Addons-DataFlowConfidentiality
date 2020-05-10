@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.DFDTraceElement;
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCM2DFDTransformationTrace;
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMContextHavingTraceElement;
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMSingleTraceElement;
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMTraceElement;
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.TraceEntry;
 
@@ -30,8 +31,8 @@ public class PCM2DFDTransformationTraceImpl implements PCM2DFDTransformationTrac
     @Override
     public Collection<DFDTraceElement> getDFDEntries(EObject pcmElement) {
         return traceEntries.stream()
-            .filter(entry -> entry.getPCMEntry()
-                .getElement()
+            .filter(entry -> entry.getPCMEntry() instanceof PCMSingleTraceElement)
+            .filter(entry -> ((PCMSingleTraceElement) entry.getPCMEntry()).getElement()
                 .equals(pcmElement))
             .map(TraceEntry::getDFDEntry)
             .collect(Collectors.toList());
@@ -48,12 +49,14 @@ public class PCM2DFDTransformationTraceImpl implements PCM2DFDTransformationTrac
     }
 
     @Override
-    public Collection<PCMTraceElement> getPCMEntries(Identifier dfdElement) {
+    public Collection<PCMSingleTraceElement> getPCMEntries(Identifier dfdElement) {
         return traceEntries.stream()
             .filter(entry -> entry.getDFDEntry()
                 .getElement()
                 .equals(dfdElement))
             .map(TraceEntry::getPCMEntry)
+            .filter(PCMSingleTraceElement.class::isInstance)
+            .map(PCMSingleTraceElement.class::cast)
             .collect(Collectors.toList());
     }
 

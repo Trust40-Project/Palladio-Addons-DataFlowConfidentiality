@@ -18,6 +18,7 @@ import org.prolog4j.tuprolog.TuPrologProverFactory
 
 import static org.junit.jupiter.api.Assertions.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.StandaloneUtil.getModelURI
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMSingleTraceElement
 
 class PrologWorkflowTests {
 
@@ -117,7 +118,8 @@ class PrologWorkflowTests {
 			for (factId : factIds) {
 				val pcmEntities = trace.getPCMEntries(factId)
 				assertEquals(1, pcmEntities.size)
-				assertEquals(elsc, pcmEntities.head.element)
+				assertTrue(pcmEntities.head instanceof PCMSingleTraceElement)
+				assertEquals(elsc, (pcmEntities.head as PCMSingleTraceElement).element)
 			}
 
 		}
