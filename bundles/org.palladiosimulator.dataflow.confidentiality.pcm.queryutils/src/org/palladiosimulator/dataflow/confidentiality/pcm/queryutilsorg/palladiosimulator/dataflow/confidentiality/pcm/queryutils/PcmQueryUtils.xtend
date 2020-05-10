@@ -84,6 +84,9 @@ class PcmQueryUtils {
 		if (providingComponent instanceof BasicComponent) {
 			val seff = providingComponent.serviceEffectSpecifications__BasicComponent.filter(ResourceDemandingSEFF).
 				findFirst[describedService__SEFF == calledSignature]
+			if (seff === null) {
+				return null
+			}
 			return new SeffWithContext(seff, newContexts)
 		}
 	}

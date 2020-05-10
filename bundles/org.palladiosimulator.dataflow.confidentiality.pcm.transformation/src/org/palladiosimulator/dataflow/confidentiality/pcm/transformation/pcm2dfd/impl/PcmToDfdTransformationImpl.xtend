@@ -22,7 +22,9 @@ import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedAct
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.VariableCharacteristicReference
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.DBOperationInterface
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.SeffWithContext
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.PcmToDfdTransformation
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.impl.PCM2DFDTransformationTraceImpl
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.impl.TransformationTraceModifier
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.Characterizable
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedExternalActor
@@ -52,7 +54,6 @@ import org.palladiosimulator.pcm.seff.ServiceEffectSpecification
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour
 import org.palladiosimulator.pcm.usagemodel.UsageModel
-import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.impl.PCM2DFDTransformationTraceImpl
 
 class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	
@@ -87,6 +88,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		val processedSeffs = new HashSet<CharacterizedSeffWithContext>
 		val behaviors = usageModels.flatMap[usageScenario_UsageModel].map[scenarioBehaviour_UsageScenario]
 		for (behavior : behaviors) {
+			println("Processing behavior " + behavior.entityName)
 			behavior.transformBehavior(processedSeffs)
 		}
 	}
@@ -94,10 +96,15 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 	protected def void transformBehavior(ScenarioBehaviour behavior, Collection<CharacterizedSeffWithContext> processedSeffs) {
 		val actor = behavior.getActor
 		actor.addToDiagram
-		
-		val elscs = behavior.actions_ScenarioBehaviour.filter(CharacterizedEntryLevelSystemCall)
+
+		val elscs = behavior.findChildrenOfType(CharacterizedEntryLevelSystemCall)
 		for (elsc : elscs) {
-			elsc.transformEntryLevelSystemCall(actor, processedSeffs)
+			//FIXME make this parameterizable
+			if (true && !elsc.refersToSEFF) {
+				println('''Skipping ELSC «elsc.entityName» («elsc.id») because no SEFF could be found.''')
+			} else {				
+				elsc.transformEntryLevelSystemCall(actor, processedSeffs)
+			}
 		}
 	}
 	
@@ -106,7 +113,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		addToDiagram(elsc.getExitProcess(actor))
 		
 		val seffQueue = new LinkedList<CharacterizedSeffWithContext>
-		seffQueue += elsc.providedRole_EntryLevelSystemCall.findCalledCharacterizedSeff(elsc.operationSignature__EntryLevelSystemCall, #[])
+		seffQueue += elsc.providedRole_EntryLevelSystemCall.findCalledCharacterizedSeffThrowing(elsc.operationSignature__EntryLevelSystemCall, #[])
 		while (!seffQueue.isEmpty) {
 			val seffWithContext = seffQueue.pop
 			if (!processedSeffs.contains(seffWithContext)) {
@@ -129,7 +136,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 			addToDiagram(eca.getExitProcess(context))
 			val calledSignature = eca.calledService_ExternalService
 			val calledRole = eca.role_ExternalService
-			val calledSeff = calledRole.findCalledCharacterizedSeff(calledSignature, context)
+			val calledSeff = calledRole.findCalledCharacterizedSeffThrowing(calledSignature, context)
 			discoveredSeffs += calledSeff
 		}
 		
@@ -181,7 +188,12 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		}
 		val role = elsc.providedRole_EntryLevelSystemCall
 		val signature = elsc.operationSignature__EntryLevelSystemCall
-		val calledSeff = role.findCalledSeff(signature, #[])
+		var calledSeff = null as SeffWithContext
+		try {
+			calledSeff = role.findCalledCharacterizedSeffThrowing(signature, #[])			
+		} catch (IllegalArgumentException e) {
+			throw new IllegalArgumentException('''Failed to find SEFF for ELSC «elsc.entityName» («elsc.id»)''', e)				
+		}
 		val seffEntryProcess = calledSeff.seff.getEntryProcess(calledSeff.context)
 		for (parameter : signature.parameters__OperationSignature) {
 			val outputPin = process.getOutputPin(parameter)
@@ -245,7 +257,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		val outputPin = process.getOutputPin
 		val inputPin = process.getInputPin
 		process.createCopyAssignment(outputPin, inputPin)
-		val calledSeff = elsc.providedRole_EntryLevelSystemCall.findCalledCharacterizedSeff(elsc.operationSignature__EntryLevelSystemCall, #[])
+		val calledSeff = elsc.providedRole_EntryLevelSystemCall.findCalledCharacterizedSeffThrowing(elsc.operationSignature__EntryLevelSystemCall, #[])
 		val seffProcess = calledSeff.characterizedSeff.getExitProcess(calledSeff.context)
 		val seffPin = seffProcess.outputPin
 		val returnDataType = calledSeff.seff.returnDataType
@@ -466,7 +478,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 			createDataFlow(requiredProcess, requiredPin, process, inputPin, returnType).addToDiagram
 		}
 		
-		val calledSeff = eca.role_ExternalService.findCalledCharacterizedSeff(eca.calledService_ExternalService, context)
+		val calledSeff = eca.role_ExternalService.findCalledCharacterizedSeffThrowing(eca.calledService_ExternalService, context)
 		val calledProcess = calledSeff.entryProcess
 		for (parameter : eca.calledService_ExternalService.parameters__OperationSignature) {
 			val outputPin = process.getOutputPin(parameter)
@@ -508,7 +520,7 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		val outputPin = process.outputPin
 		process.createCopyAssignment(outputPin, inputPin)
 		
-		val calledSeff = eca.role_ExternalService.findCalledCharacterizedSeff(eca.calledService_ExternalService, context)
+		val calledSeff = eca.role_ExternalService.findCalledCharacterizedSeffThrowing(eca.calledService_ExternalService, context)
 		val calledProcess = calledSeff.exitProcess
 		val calledOutputPin = calledProcess.outputPin
 		val returnType = calledSeff.seff.returnDataType
@@ -686,6 +698,10 @@ class PcmToDfdTransformationImpl implements PcmToDfdTransformation {
 		literal.name = dataType.entityName
 		literal.addLiteral
 		addTraceEntry(dataType, literal)
+	}
+
+	protected def refersToSEFF(EntryLevelSystemCall elsc) {
+		elsc.providedRole_EntryLevelSystemCall.findCalledSeff(elsc.operationSignature__EntryLevelSystemCall, #[]) !== null
 	}
 
 }

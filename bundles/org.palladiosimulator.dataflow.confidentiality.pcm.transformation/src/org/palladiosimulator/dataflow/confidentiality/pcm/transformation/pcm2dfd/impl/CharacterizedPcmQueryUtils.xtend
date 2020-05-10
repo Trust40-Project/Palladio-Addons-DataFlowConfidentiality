@@ -7,9 +7,11 @@ import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedAct
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.ReturnCharacteristicReference
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.PcmQueryUtils
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.SeffWithContext
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.repository.ProvidedRole
 import org.palladiosimulator.pcm.repository.RequiredRole
+import org.palladiosimulator.pcm.repository.Role
 import org.palladiosimulator.pcm.repository.Signature
 
 class CharacterizedPcmQueryUtils extends PcmQueryUtils {
@@ -23,8 +25,7 @@ class CharacterizedPcmQueryUtils extends PcmQueryUtils {
 	 */
 	def findCalledCharacterizedSeff(RequiredRole requiredRole, Signature calledSignature,
 		List<AssemblyContext> contexts) {
-		val foundSeff = requiredRole.findCalledSeff(calledSignature, contexts)
-		new CharacterizedSeffWithContext(foundSeff.seff, foundSeff.context)
+		requiredRole.findCalledSeff(calledSignature, contexts).convert
 	}
 
 	/**
@@ -34,8 +35,19 @@ class CharacterizedPcmQueryUtils extends PcmQueryUtils {
 	 */
 	def findCalledCharacterizedSeff(ProvidedRole providedRole, Signature calledSignature,
 		List<AssemblyContext> contexts) {
-		val foundSeff = providedRole.findCalledSeff(calledSignature, contexts)
-		new CharacterizedSeffWithContext(foundSeff.seff, foundSeff.context)
+		providedRole.findCalledSeff(calledSignature, contexts).convert
+	}
+
+	def findCalledCharacterizedSeffThrowing(RequiredRole requiredRole, Signature calledSignature,
+		List<AssemblyContext> contexts) {
+		requiredRole.findCalledCharacterizedSeff(calledSignature, contexts).throwIfNull(requiredRole, calledSignature,
+			contexts)
+	}
+
+	def findCalledCharacterizedSeffThrowing(ProvidedRole providedRole, Signature calledSignature,
+		List<AssemblyContext> contexts) {
+		providedRole.findCalledCharacterizedSeff(calledSignature, contexts).throwIfNull(providedRole, calledSignature,
+			contexts)
 	}
 
 	def findRequiriedEntryLevelSystemCalls(CharacterizedEntryLevelSystemCall elsc) {
@@ -47,6 +59,22 @@ class CharacterizedPcmQueryUtils extends PcmQueryUtils {
 			requiredElscs.addAll(elscs)
 		}
 		requiredElscs.sortBy[id]
+	}
+
+	protected static def convert(SeffWithContext foundSeff) {
+		if (foundSeff === null) {
+			return null
+		}
+		new CharacterizedSeffWithContext(foundSeff.seff, foundSeff.context)
+	}
+
+	protected static def throwIfNull(CharacterizedSeffWithContext foundSeff, Role role, Signature calledSignature,
+		List<AssemblyContext> contexts) {
+		if (foundSeff === null) {
+			val ac = contexts.last
+			throw new IllegalArgumentException('''Could not find SEFF«IF ac !== null» for «ac.entityName» («ac.id»)«ENDIF» with role «role.entityName» and signature «calledSignature.entityName»''')
+		}
+		foundSeff
 	}
 
 }
