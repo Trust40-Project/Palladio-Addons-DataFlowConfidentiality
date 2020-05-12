@@ -113,15 +113,6 @@ public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfiguratio
         Jsonb jsonb = JsonbBuilder.create(config);
         String resultString = jsonb.toJson(new ElscDataTypeUsages(result));
 
-//        DataTypeUsageResultConverter converter = new DataTypeUsageResultConverter(result);
-//        List<EntryLevelSystemCallResult> simpleResult = converter.getConversionResult();
-//
-//        GsonBuilder gsonBuilder = new GsonBuilder();
-//        gsonBuilder.enableComplexMapKeySerialization();
-//        gsonBuilder.setPrettyPrinting();
-//        Gson gson = gsonBuilder.create();
-//
-//        String resultString = gson.toJson(simpleResult);
         IFile outputFile = parsedConfig.getOutputFile();
         try (InputStream bais = new ByteArrayInputStream(resultString.getBytes())) {
             if (outputFile.exists()) {
