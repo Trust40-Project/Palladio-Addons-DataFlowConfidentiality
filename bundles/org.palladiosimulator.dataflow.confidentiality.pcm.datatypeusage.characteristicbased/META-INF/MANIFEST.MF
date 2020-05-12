@@ -19,6 +19,5 @@ Require-Bundle: org.eclipse.core.runtime,
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.datatypeusage.characteristicbased
 Bundle-ActivationPolicy: lazy
-Service-Component: OSGI-INF/org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.datatypeusage.characteristicbased.impl.ActualDataTypesAffectingAnalysis.xml,
- OSGI-INF/org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.datatypeusage.characteristicbased.impl.ActualDataTypesAtELSCsAnalysis.xml
+Service-Component: OSGI-INF/org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.datatypeusage.characteristicbased.impl.ActualDataTypesAtELSCsAnalysis.xml
 Import-Package: org.osgi.service.component.annotations;version="1.2.0"

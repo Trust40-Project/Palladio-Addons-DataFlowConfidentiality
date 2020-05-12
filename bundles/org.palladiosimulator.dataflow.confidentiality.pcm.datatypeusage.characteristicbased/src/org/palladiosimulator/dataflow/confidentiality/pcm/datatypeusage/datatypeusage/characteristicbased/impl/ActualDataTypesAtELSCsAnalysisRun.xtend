@@ -1,6 +1,8 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.datatypeusage.characteristicbased.impl
 
+import java.util.ArrayList
 import java.util.Collection
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysisResult
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.dto.DataTypeUsageQueryResultImpl
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.TransitiveTransformationTrace
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
@@ -13,16 +15,9 @@ class ActualDataTypesAtELSCsAnalysisRun extends AnalysisRunBase {
 	}
 
 	override protected performAnalysisForNode(String nodeId, TransitiveTransformationTrace trace) {
-		val readDataTypeIds = nodeId.buildAnalysisQueryForReadData(trace).executeQueryForDataTypes
-		val readDataTypes = readDataTypeIds.getDataTypes(trace).toList
-		val writeDataTypeIds = nodeId.buildAnalysisQueryForWrittenData(trace).executeQueryForDataTypes
-		val writeDataTypes = writeDataTypeIds.getDataTypes(trace).toList
-		new DataTypeUsageQueryResultImpl(readDataTypes, writeDataTypes)
-	}
-
-	protected def executeQueryForDataTypes(Query query) {
-		val result = query.executeQuery(#{"DTS" -> Collection})
-		result.map[get("DTS")].filterNull.flatMap[v|v as Collection<String>].toSet
+		val readDataTypeResult = nodeId.buildAnalysisQueryForReadData(trace).executeQueryForDataTypes
+		val writeDataTypeResult = nodeId.buildAnalysisQueryForWrittenData(trace).executeQueryForDataTypes
+		buildDataTypeUsageQueryResult(readDataTypeResult, writeDataTypeResult, trace)
 	}
 
 	protected def buildAnalysisQueryForWrittenData(String nodeId, TransitiveTransformationTrace trace) {
@@ -60,7 +55,7 @@ class ActualDataTypesAtELSCsAnalysisRun extends AnalysisRunBase {
 	}
 
 	protected def buildAnalysisQueryForDataDummy(String nodeId, TransitiveTransformationTrace trace) {
-		prover.query("TMP = [], DTS = TMP.")
+		prover.query("TMP = [], DTS = TMP, S = TMP.")
 	}
 
 	protected def buildAnalysisQueryForReadDataReal(String nodeId, TransitiveTransformationTrace trace) {
@@ -77,6 +72,32 @@ class ActualDataTypesAtELSCsAnalysisRun extends AnalysisRunBase {
 		query.bind("J$CTDTS", trace.actualDataTypesCharacteristicTypeId)
 		query.bind("J$VNODE", nodeId)
 		query
+	}
+
+	protected def executeQueryForDataTypes(Query query) {
+		val queryResults = query.executeQuery(#{"DTS" -> Collection, "S" -> Collection})
+		val results = new ArrayList()
+		for (queryResult : queryResults) {
+			val dataTypeIds = queryResult.get("DTS") as Collection<String>
+			val traceids = queryResult.get("S") as Collection<Collection<String>>
+			val dataTypeAndTrace = new DataTypeAndTrace(dataTypeIds, traceids)
+			results += dataTypeAndTrace
+		}
+		results
+	}
+	
+	protected def buildDataTypeUsageQueryResult(Collection<DataTypeAndTrace> readDataTypeResult, Collection<DataTypeAndTrace> writeDataTypeResult, TransitiveTransformationTrace trace) {
+		val Collection<DataTypeUsageAnalysisResult> result = new ArrayList
+		val readByFlows = readDataTypeResult.groupBy[dataFlowIds]
+		val writeByFlows = writeDataTypeResult.groupBy[dataFlowIds]
+		val keys = (readByFlows.keySet + writeByFlows.keySet).toSet
+		for (key : keys) {
+			val readDataTypes = readByFlows.getOrDefault(key, #[]).flatMap[dataTypeIds].map[getDataType(trace)].toSet
+			val writeDataTypes = writeByFlows.getOrDefault(key, #[]).flatMap[dataTypeIds].map[getDataType(trace)].toSet
+			val dataFlowGraph = key.flatten.getDataFlowGraph(trace)
+			result += new DataTypeUsageQueryResultImpl(readDataTypes, writeDataTypes, dataFlowGraph)
+		}
+		result
 	}
 
 }

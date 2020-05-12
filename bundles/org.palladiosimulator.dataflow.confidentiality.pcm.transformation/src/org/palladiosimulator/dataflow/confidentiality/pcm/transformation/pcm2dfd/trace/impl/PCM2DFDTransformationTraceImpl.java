@@ -49,14 +49,12 @@ public class PCM2DFDTransformationTraceImpl implements PCM2DFDTransformationTrac
     }
 
     @Override
-    public Collection<PCMSingleTraceElement> getPCMEntries(Identifier dfdElement) {
+    public Collection<PCMTraceElement> getPCMEntries(Identifier dfdElement) {
         return traceEntries.stream()
             .filter(entry -> entry.getDFDEntry()
                 .getElement()
                 .equals(dfdElement))
             .map(TraceEntry::getPCMEntry)
-            .filter(PCMSingleTraceElement.class::isInstance)
-            .map(PCMSingleTraceElement.class::cast)
             .collect(Collectors.toList());
     }
 

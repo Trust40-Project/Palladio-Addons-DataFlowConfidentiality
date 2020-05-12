@@ -12,6 +12,6 @@ public interface PCM2DFDTransformationTrace {
     Collection<DFDTraceElement> getDFDEntries(EObject pcmElement);
     Collection<DFDTraceElement> getDFDEntries(EObject pcmElement, Collection<Identifier> pcmElementContext);
     Collection<DFDTraceElement> getDFDEntries(Predicate<PCMTraceElement> pcmElement);
-    Collection<PCMSingleTraceElement> getPCMEntries(Identifier dfdElement);
+    Collection<PCMTraceElement> getPCMEntries(Identifier dfdElement);
     
 }

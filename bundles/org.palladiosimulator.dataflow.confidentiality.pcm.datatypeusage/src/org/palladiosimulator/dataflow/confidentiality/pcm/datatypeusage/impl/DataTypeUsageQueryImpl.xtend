@@ -6,6 +6,7 @@ import java.util.LinkedList
 import org.eclipse.core.runtime.IProgressMonitor
 import org.osgi.service.component.annotations.Component
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysis
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysisResult.EmptyDataFlowGraph
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.dto.DataTypeUsageQueryResultImpl
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.DBOperationInterface
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
@@ -59,7 +60,7 @@ class DataTypeUsageQueryImpl implements DataTypeUsageAnalysis {
 		readData.cleanup
 		writeData.cleanup
 
-		new DataTypeUsageQueryResultImpl(readData, writeData)
+		#[new DataTypeUsageQueryResultImpl(readData, writeData, EmptyDataFlowGraph.INSTANCE)]
 	}
 	
 	protected def void handleDBSignatureCall(OperationSignature calledSignature, EntryLevelSystemCall elsc,

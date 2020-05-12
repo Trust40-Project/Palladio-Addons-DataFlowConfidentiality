@@ -1,5 +1,6 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage;
 
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -12,12 +13,12 @@ public interface DataTypeUsageAnalysis {
 
     String getUUID();
 
-    DataTypeUsageAnalysisResult getUsedDataTypes(EntryLevelSystemCall elsc, IProgressMonitor monitor)
+    Collection<DataTypeUsageAnalysisResult> getUsedDataTypes(EntryLevelSystemCall elsc, IProgressMonitor monitor)
             throws InterruptedException;
 
-    default Map<EntryLevelSystemCall, DataTypeUsageAnalysisResult> getUsedDataTypes(
+    default Map<EntryLevelSystemCall, Collection<DataTypeUsageAnalysisResult>> getUsedDataTypes(
             Iterable<EntryLevelSystemCall> elscs, IProgressMonitor monitor) throws InterruptedException {
-        Map<EntryLevelSystemCall, DataTypeUsageAnalysisResult> result = new HashMap<>();
+        Map<EntryLevelSystemCall, Collection<DataTypeUsageAnalysisResult>> result = new HashMap<>();
         for (var elsc : elscs) {
             result.put(elsc, getUsedDataTypes(elsc, monitor));
         }

@@ -6,9 +6,12 @@ import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
+
+import javax.json.bind.Jsonb;
+import javax.json.bind.JsonbBuilder;
+import javax.json.bind.JsonbConfig;
 
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.CoreException;
@@ -28,14 +31,15 @@ import org.eclipse.net4j.util.om.monitor.SubMonitor;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysis;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysisResult;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.Activator;
-import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.DataTypeUsageResultConverter.EntryLevelSystemCallResult;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.config.Configuration;
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.config.ConfigurationSerializer;
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.json.DataFlowGraphAdapter;
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.json.DataTypeAdapter;
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.json.ElscDataTypeUsages;
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.json.EntityAdapter;
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.ui.launchconfig.json.EntityInstanceAdapter;
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils;
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall;
-
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
 
 public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfigurationDelegate {
 
@@ -51,8 +55,8 @@ public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfiguratio
         monitor.worked(1);
 
         DataTypeUsageAnalysis analysis = parsedConfig.getAnalysis();
-        Map<EntryLevelSystemCall, DataTypeUsageAnalysisResult> result = getDataTypeUsage(analysis, usageModelUris,
-                monitor.newChild());
+        Map<EntryLevelSystemCall, Collection<DataTypeUsageAnalysisResult>> result = getDataTypeUsage(analysis,
+                usageModelUris, monitor.newChild());
         monitor.worked(1);
 
         serializeToJson(parsedConfig, result, monitor.newChild());
@@ -71,8 +75,9 @@ public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfiguratio
         return usageModelUris;
     }
 
-    protected Map<EntryLevelSystemCall, DataTypeUsageAnalysisResult> getDataTypeUsage(DataTypeUsageAnalysis analysis,
-            Collection<URI> usageModelUris, IProgressMonitor monitor) throws CoreException {
+    protected Map<EntryLevelSystemCall, Collection<DataTypeUsageAnalysisResult>> getDataTypeUsage(
+            DataTypeUsageAnalysis analysis, Collection<URI> usageModelUris, IProgressMonitor monitor)
+            throws CoreException {
         ResourceSetImpl rs = new ResourceSetImpl();
         ModelQueryUtils utils = new ModelQueryUtils();
         Collection<EntryLevelSystemCall> elscs = new ArrayList<>();
@@ -86,7 +91,8 @@ public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfiguratio
             EObject rootObject = r.getContents()
                 .iterator()
                 .next();
-            utils.findChildrenOfType(rootObject, EntryLevelSystemCall.class).forEach(elscs::add);            
+            utils.findChildrenOfType(rootObject, EntryLevelSystemCall.class)
+                .forEach(elscs::add);
         }
         EcoreUtil.resolveAll(rs);
         try {
@@ -98,18 +104,24 @@ public class DataTypeUsageLaunchConfigurationDelegate extends LaunchConfiguratio
     }
 
     protected void serializeToJson(Configuration parsedConfig,
-            Map<EntryLevelSystemCall, DataTypeUsageAnalysisResult> result, IProgressMonitor monitor)
+            Map<EntryLevelSystemCall, Collection<DataTypeUsageAnalysisResult>> result, IProgressMonitor monitor)
             throws CoreException {
 
-        DataTypeUsageResultConverter converter = new DataTypeUsageResultConverter(result);
-        List<EntryLevelSystemCallResult> simpleResult = converter.getConversionResult();
+        JsonbConfig config = new JsonbConfig().withFormatting(true)
+            .withAdapters(new DataTypeAdapter(), new EntityAdapter(), new EntityInstanceAdapter(),
+                    new DataFlowGraphAdapter());
+        Jsonb jsonb = JsonbBuilder.create(config);
+        String resultString = jsonb.toJson(new ElscDataTypeUsages(result));
 
-        GsonBuilder gsonBuilder = new GsonBuilder();
-        gsonBuilder.enableComplexMapKeySerialization();
-        gsonBuilder.setPrettyPrinting();
-        Gson gson = gsonBuilder.create();
-
-        String resultString = gson.toJson(simpleResult);
+//        DataTypeUsageResultConverter converter = new DataTypeUsageResultConverter(result);
+//        List<EntryLevelSystemCallResult> simpleResult = converter.getConversionResult();
+//
+//        GsonBuilder gsonBuilder = new GsonBuilder();
+//        gsonBuilder.enableComplexMapKeySerialization();
+//        gsonBuilder.setPrettyPrinting();
+//        Gson gson = gsonBuilder.create();
+//
+//        String resultString = gson.toJson(simpleResult);
         IFile outputFile = parsedConfig.getOutputFile();
         try (InputStream bais = new ByteArrayInputStream(resultString.getBytes())) {
             if (outputFile.exists()) {

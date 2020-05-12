@@ -1,19 +1,28 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.datatypeusage.characteristicbased.impl
 
+import de.uka.ipd.sdq.identifier.Identifier
 import de.uka.ipd.sdq.workflow.WorkflowExceptionHandler
 import java.io.File
 import java.nio.file.Files
 import java.util.ArrayList
+import java.util.Collection
 import java.util.HashMap
+import java.util.LinkedHashSet
 import java.util.Map
 import java.util.Optional
 import org.eclipse.core.runtime.IProgressMonitor
 import org.eclipse.core.runtime.SubMonitor
 import org.palladiosimulator.dataflow.confidentiality.defaultmodels.DefaultModelConstants
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysisResult
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysisResult.EntityInstance
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.DataTypeUsageAnalysisResult.EntityInstanceRelation
 import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.datatypeusage.characteristicbased.Activator
-import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.dto.DataTypeUsageQueryResultImpl
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.dto.DataFlowGraphImpl
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.dto.EntityInstanceImpl
+import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.dto.EntityInstanceRelationImpl
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMRelatedTraceElement
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMSingleTraceElement
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.TransformPCMDFDToPrologWorkflow
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.TransformPCMDFDToPrologWorkflowFactory
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.TransitiveTransformationTrace
@@ -24,7 +33,6 @@ import org.palladiosimulator.pcm.usagemodel.UsageModel
 import org.prolog4j.Prover
 import org.prolog4j.Query
 import org.prolog4j.Solution
-import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMSingleTraceElement
 
 abstract class AnalysisRunBase {
 
@@ -59,7 +67,7 @@ abstract class AnalysisRunBase {
 
 	protected def performAnalysisForCalls(TransitiveTransformationTrace trace, IProgressMonitor monitor) throws InterruptedException {
 		val subMonitor = SubMonitor.convert(monitor, "ELSC Analysis", elscs.size)
-		val result = new HashMap<EntryLevelSystemCall, DataTypeUsageAnalysisResult>
+		val result = new HashMap<EntryLevelSystemCall, Collection<DataTypeUsageAnalysisResult>>
 		for (elsc : elscs) {
 			val dataTypeUsage = elsc.performAnalysisForCall(trace)
 			result.put(elsc, dataTypeUsage)
@@ -78,12 +86,14 @@ abstract class AnalysisRunBase {
 		for (factId : factIds) {
 			dataTypeUsageResults += factId.performAnalysisForNode(trace)
 		}
-		val readDataTypes = dataTypeUsageResults.flatMap[readDataTypes].toSet
-		val writeDataTypes = dataTypeUsageResults.flatMap[writeDataTypes].toSet
-		new DataTypeUsageQueryResultImpl(readDataTypes, writeDataTypes)
+//		val readDataTypes = dataTypeUsageResults.flatMap[readDataTypes].toSet
+//		val writeDataTypes = dataTypeUsageResults.flatMap[writeDataTypes].toSet
+//		
+//		new DataTypeUsageQueryResultImpl(readDataTypes, writeDataTypes)
+		dataTypeUsageResults
 	}
 
-	protected abstract def DataTypeUsageAnalysisResult performAnalysisForNode(String nodeId, TransitiveTransformationTrace trace);
+	protected abstract def Collection<DataTypeUsageAnalysisResult> performAnalysisForNode(String nodeId, TransitiveTransformationTrace trace);
 
 	protected def isStore(String nodeId) {
 		val isStoreQuery = prover.query('''store(?P).''')
@@ -158,11 +168,35 @@ abstract class AnalysisRunBase {
 		solutions
 	}
 	
-	protected def getDataTypes(Iterable<String> ids, TransitiveTransformationTrace trace) {
-		ids.map[getDataType(trace)]
-	}
+//	protected def getDataTypes(Iterable<DataTypeAndTrace> entries, TransitiveTransformationTrace trace) {
+//		for (entry : entries) {
+//			val dataTypes = entry.dataTypeIds.map[getDataType(trace)]
+//			entry.dataFlowIds.map[]
+//		}
+//		ids.map[getDataType(trace)]
+//	}
 	
 	protected def getDataType(String id, TransitiveTransformationTrace trace) {
 		trace.getPCMEntries(id).filter(PCMSingleTraceElement).map[element].filter(DataType).head
 	}
+	
+	protected def getDataFlowGraph(Iterable<String> dataFlowIds, TransitiveTransformationTrace trace) {
+		val Collection<EntityInstance> nodes = new LinkedHashSet
+		val Collection<EntityInstanceRelation> edges = new ArrayList
+		
+		for (dataFlowId : dataFlowIds) {
+			val pcmRelation = trace.getPCMEntries(dataFlowId).filter(PCMRelatedTraceElement).head
+			
+			val fromEntity = new EntityInstanceImpl(pcmRelation.fromElement.element as Identifier, pcmRelation.fromElement.context)
+			val toEntity = new EntityInstanceImpl(pcmRelation.toElement.element as Identifier, pcmRelation.toElement.context)
+			nodes += fromEntity
+			nodes += toEntity
+			if (fromEntity != toEntity) {
+				edges += new EntityInstanceRelationImpl(fromEntity, toEntity)
+			}
+		}
+		
+		new DataFlowGraphImpl(nodes, edges)
+	}
+	
 }

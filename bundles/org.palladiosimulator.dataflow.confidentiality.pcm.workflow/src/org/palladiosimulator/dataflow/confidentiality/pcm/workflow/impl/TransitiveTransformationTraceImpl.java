@@ -8,9 +8,9 @@ import java.util.stream.Collectors;
 
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.DFDTraceElement;
-import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMTraceElement;
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCM2DFDTransformationTrace;
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMSingleTraceElement;
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMTraceElement;
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.TransitiveTransformationTrace;
 import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.Component;
 import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.DataFlowDiagram;

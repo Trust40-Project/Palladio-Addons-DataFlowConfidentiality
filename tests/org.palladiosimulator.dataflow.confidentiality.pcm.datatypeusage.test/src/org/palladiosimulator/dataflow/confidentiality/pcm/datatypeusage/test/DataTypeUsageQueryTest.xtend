@@ -41,7 +41,10 @@ class DataTypeUsageQueryTest {
 		val elscs = usageModel.eAllContents.filter(EntryLevelSystemCall)
 
 		val queryFlightsElsc = elscs.findFirst[entityName == "queryFlights"]
-		val actualQueryFlights = subject.getUsedDataTypes(queryFlightsElsc, new NullProgressMonitor)
+		val queryResults = subject.getUsedDataTypes(queryFlightsElsc, new NullProgressMonitor)
+		assertEquals(1, queryResults.size)
+		val actualQueryFlights = queryResults.last
+		
 		assertTrue(actualQueryFlights.writeDataTypes.empty)
 		assertEquals(3, actualQueryFlights.readDataTypes.size)
 		assertEquals(1, actualQueryFlights.readDataTypes.filter(PrimitiveDataType).size)
@@ -54,7 +57,9 @@ class DataTypeUsageQueryTest {
 	@Test
 	def void testLoyaltyCardOnlinePurchase() {
 		val elsc = "LoyaltyCard/MakeStorePurchaseOnline.bpusagemodel".findElsc("submit online order")
-		val actual = subject.getUsedDataTypes(elsc, new NullProgressMonitor)
+		val queryResults = subject.getUsedDataTypes(elsc, new NullProgressMonitor)
+		assertEquals(1, queryResults.size)
+		val actual = queryResults.last
 		assertEquals(#{"Order"}, actual.writeDataTypes)
 		assertEquals(#{"Order", "OnlineOrder", "Customer", "INT"}, actual.readDataTypes)
 	}
@@ -62,7 +67,9 @@ class DataTypeUsageQueryTest {
 	@Test
 	def void testLoyaltyCardPurchaseWithLoyaltyProgram() {
 		val elsc = "LoyaltyCard/MakeStorePurchaseWithLoyaltyProgram.bpusagemodel".findElsc("submit order")
-		val actual = subject.getUsedDataTypes(elsc, new NullProgressMonitor)
+		val queryResults = subject.getUsedDataTypes(elsc, new NullProgressMonitor)
+		assertEquals(1, queryResults.size)
+		val actual = queryResults.last
 		assertEquals(#{"Order"}, actual.writeDataTypes)
 		assertEquals(#{"Order", "INT", "Customer", "LoyaltyCustomer", "LoyaltyOrder"}, actual.readDataTypes)
 	}
