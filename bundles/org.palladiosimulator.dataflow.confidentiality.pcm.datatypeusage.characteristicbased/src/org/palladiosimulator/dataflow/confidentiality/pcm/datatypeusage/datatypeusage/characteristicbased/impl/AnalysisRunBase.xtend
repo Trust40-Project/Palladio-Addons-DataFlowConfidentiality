@@ -167,28 +167,20 @@ abstract class AnalysisRunBase {
 		}
 		solutions
 	}
-	
-//	protected def getDataTypes(Iterable<DataTypeAndTrace> entries, TransitiveTransformationTrace trace) {
-//		for (entry : entries) {
-//			val dataTypes = entry.dataTypeIds.map[getDataType(trace)]
-//			entry.dataFlowIds.map[]
-//		}
-//		ids.map[getDataType(trace)]
-//	}
-	
+
 	protected def getDataType(String id, TransitiveTransformationTrace trace) {
 		trace.getPCMEntries(id).filter(PCMSingleTraceElement).map[element].filter(DataType).head
 	}
 	
 	protected def getDataFlowGraph(Iterable<String> dataFlowIds, TransitiveTransformationTrace trace) {
 		val Collection<EntityInstance> nodes = new LinkedHashSet
-		val Collection<EntityInstanceRelation> edges = new ArrayList
+		val Collection<EntityInstanceRelation> edges = new LinkedHashSet
 		
 		for (dataFlowId : dataFlowIds) {
 			val pcmRelation = trace.getPCMEntries(dataFlowId).filter(PCMRelatedTraceElement).head
 			
-			val fromEntity = new EntityInstanceImpl(pcmRelation.fromElement.element as Identifier, pcmRelation.fromElement.context)
-			val toEntity = new EntityInstanceImpl(pcmRelation.toElement.element as Identifier, pcmRelation.toElement.context)
+			val EntityInstance fromEntity = new EntityInstanceImpl(pcmRelation.fromElement.element as Identifier, pcmRelation.fromElement.context).getCached(nodes)
+			val EntityInstance toEntity = new EntityInstanceImpl(pcmRelation.toElement.element as Identifier, pcmRelation.toElement.context).getCached(nodes)
 			nodes += fromEntity
 			nodes += toEntity
 			if (fromEntity != toEntity) {
@@ -197,6 +189,13 @@ abstract class AnalysisRunBase {
 		}
 		
 		new DataFlowGraphImpl(nodes, edges)
+	}
+	
+	protected static def <T> T getCached(T element, Collection<T> cache) {
+		if (cache.contains(element)) {
+			return cache.findFirst[cacheElement | cacheElement.equals(element)]
+		}
+		return element
 	}
 	
 }
