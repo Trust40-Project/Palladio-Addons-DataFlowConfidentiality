@@ -6,5 +6,8 @@ import org.eclipse.xtend.lib.annotations.Data
 @Data
 class DataTypeAndTrace {
 	val Collection<String> dataTypeIds
-	val Collection<Collection<String>> dataFlowIds
+	/**
+	 * Contains nested lists of strings
+	 */
+	val Collection<Object> dataFlowIds
 }

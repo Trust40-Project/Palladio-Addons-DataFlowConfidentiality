@@ -7,6 +7,7 @@ import org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.dto.Data
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.TransitiveTransformationTrace
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 import org.prolog4j.Query
+import java.util.LinkedList
 
 class ActualDataTypesAtELSCsAnalysisRun extends AnalysisRunBase {
 
@@ -79,7 +80,7 @@ class ActualDataTypesAtELSCsAnalysisRun extends AnalysisRunBase {
 		val results = new ArrayList()
 		for (queryResult : queryResults) {
 			val dataTypeIds = queryResult.get("DTS") as Collection<String>
-			val traceids = queryResult.get("S") as Collection<Collection<String>>
+			val traceids = queryResult.get("S") as Collection<Object>
 			val dataTypeAndTrace = new DataTypeAndTrace(dataTypeIds, traceids)
 			results += dataTypeAndTrace
 		}
@@ -94,8 +95,25 @@ class ActualDataTypesAtELSCsAnalysisRun extends AnalysisRunBase {
 		for (key : keys) {
 			val readDataTypes = readByFlows.getOrDefault(key, #[]).flatMap[dataTypeIds].map[getDataType(trace)].toSet
 			val writeDataTypes = writeByFlows.getOrDefault(key, #[]).flatMap[dataTypeIds].map[getDataType(trace)].toSet
-			val dataFlowGraph = key.flatten.getDataFlowGraph(trace)
+			val dataFlowGraph = key.getDataFlowIds.getDataFlowGraph(trace)
 			result += new DataTypeUsageQueryResultImpl(readDataTypes, writeDataTypes, dataFlowGraph)
+		}
+		result
+	}
+
+	protected def getDataFlowIds(Collection<Object> dataFlowPath) {
+		val result = new ArrayList
+		val queue = new LinkedList
+		queue += dataFlowPath
+		while (!queue.isEmpty) {
+			val element = queue.pop
+			if (element instanceof String) {
+				result += element
+			} else if (element instanceof Collection) {
+				queue += element
+			} else {
+				throw new IllegalArgumentException("The data flow path contains an element of a wrong type: " + element.class)
+			}
 		}
 		result
 	}
