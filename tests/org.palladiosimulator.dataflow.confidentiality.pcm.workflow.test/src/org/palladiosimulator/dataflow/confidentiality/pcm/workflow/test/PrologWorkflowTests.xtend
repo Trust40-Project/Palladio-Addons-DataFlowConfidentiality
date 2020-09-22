@@ -1,6 +1,7 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test
 
 import java.util.ArrayList
+import java.util.Arrays
 import java.util.Collection
 import java.util.HashMap
 import java.util.List
@@ -9,29 +10,38 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMSingleTraceElement
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.TransformPCMDFDToPrologWorkflowFactory
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.jobs.TransformPCMDFDToPrologJobBuilder
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 import org.palladiosimulator.pcm.usagemodel.UsageModel
 import org.prolog4j.Prover
-import org.prolog4j.tuprolog.TuPrologProverFactory
+import org.prolog4j.swicli.DefaultSWIPrologExecutableProvider
+import org.prolog4j.swicli.SWIPrologCLIProverFactory
+import org.prolog4j.swicli.SWIPrologCLIProverFactory.SWIPrologExecutableProviderStandalone
+import org.prolog4j.swicli.enabler.SWIPrologEmbeddedFallbackExecutableProvider
 
 import static org.junit.jupiter.api.Assertions.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.StandaloneUtil.getModelURI
-import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMSingleTraceElement
 
 class PrologWorkflowTests {
 
 	Prover prover
+	static SWIPrologCLIProverFactory proverFactory
 
 	@BeforeAll
 	static def init() {
 		StandaloneUtil.init
+		var factory = new SWIPrologCLIProverFactory(
+			Arrays.asList(new SWIPrologExecutableProviderStandalone(new DefaultSWIPrologExecutableProvider(), 2),
+				new SWIPrologExecutableProviderStandalone(new SWIPrologEmbeddedFallbackExecutableProvider(), 1)));
+		proverFactory = factory;
+		return;
 	}
 
 	@BeforeEach
 	def void setup() {
-		prover = new TuPrologProverFactory().createProver
+		prover = proverFactory.createProver
 	}
 
 	@Test
