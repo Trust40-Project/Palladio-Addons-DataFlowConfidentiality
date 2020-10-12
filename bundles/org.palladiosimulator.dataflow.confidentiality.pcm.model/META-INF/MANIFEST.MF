@@ -6,18 +6,6 @@ Bundle-Version: 0.1.0.qualifier
 Bundle-ClassPath: .
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.characteristics,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.characteristics.impl,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.characteristics.util,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.impl,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.util,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.impl,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.impl,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.util,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
  org.eclipse.emf.cdo;visibility:=reexport,
@@ -27,7 +15,19 @@ Require-Bundle: org.eclipse.core.runtime,
  org.palladiosimulator.pcm;visibility:=reexport,
  de.uka.ipd.sdq.probfunction;visibility:=reexport,
  de.uka.ipd.sdq.stoex;visibility:=reexport,
- de.uka.ipd.sdq.units;visibility:=reexport
+ de.uka.ipd.sdq.units;visibility:=reexport,
+ org.palladiosimulator.indirections;bundle-version="4.3.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.model
 Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.util,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.impl,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.util,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.expression,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.expression.impl,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.expression.util,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.impl,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.util

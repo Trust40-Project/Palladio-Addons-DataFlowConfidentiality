@@ -5,13 +5,9 @@ Bundle-SymbolicName: org.palladiosimulator.dataflow.confidentiality.pcm.model.ed
 Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.model.edit
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.provider.CharacterizedActionsEditPlugin$Implementation
+Bundle-Activator: org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.provider.DataFlowConfidentialityEditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.characteristics.provider,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.provider,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.provider,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.provider
 Require-Bundle: org.eclipse.core.runtime,
  org.palladiosimulator.dataflow.confidentiality.pcm.model;visibility:=reexport,
  org.eclipse.emf.edit;visibility:=reexport,
@@ -28,6 +24,11 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.stoex;visibility:=reexport,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
  de.uka.ipd.sdq.units;visibility:=reexport,
- de.uka.ipd.sdq.units.edit;visibility:=reexport
+ de.uka.ipd.sdq.units.edit;visibility:=reexport,
+ org.palladiosimulator.indirections.edit;bundle-version="1.0.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.provider,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.provider,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.expression.provider,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.provider

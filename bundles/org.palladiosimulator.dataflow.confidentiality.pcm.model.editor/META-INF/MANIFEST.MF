@@ -5,13 +5,9 @@ Bundle-SymbolicName: org.palladiosimulator.dataflow.confidentiality.pcm.model.ed
 Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.model.editor
 Bundle-Version: 1.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.presentation.CharacterizedActionsEditorPlugin$Implementation
+Bundle-Activator: org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.presentation.DataFlowConfidentialityEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.characteristics.presentation,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.expressions.presentation,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.presentation,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.characterizedActions.repository.presentation
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.core.resources;visibility:=reexport,
  org.palladiosimulator.dataflow.confidentiality.pcm.model.edit;visibility:=reexport,
@@ -28,3 +24,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.apache.commons.io;bundle-version="2.6.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.presentation,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.expression.presentation,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.presentation

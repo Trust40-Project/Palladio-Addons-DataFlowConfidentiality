@@ -18,4 +18,5 @@ Require-Bundle: tools.mdsd.ecoreworkflow.mwe2lib;bundle-version="0.1.0",
  org.palladiosimulator.pcm;bundle-version="4.2.0",
  org.palladiosimulator.dataflow.dictionary;bundle-version="0.1.0",
  org.palladiosimulator.dataflow.dictionary.characterized;bundle-version="0.1.0",
- org.objectweb.asm;bundle-version="7.1.0"
+ org.objectweb.asm;bundle-version="7.1.0",
+ org.palladiosimulator.indirections;bundle-version="4.3.0"
