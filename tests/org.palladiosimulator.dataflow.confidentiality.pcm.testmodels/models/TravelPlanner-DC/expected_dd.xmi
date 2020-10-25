@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<DataDictionaryCharacterized:DataDictionaryCharacterized xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" id="_eqraYBbTEeu_zcnxGo34_g">
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_e1Q5wBbTEeu_zcnxGo34_g" name="AllowedRoles" type="_e1Q5wRbTEeu_zcnxGo34_g"/>
+  <enumerations id="_e1Q5wRbTEeu_zcnxGo34_g" name="AccessRights">
+    <literals id="_e1SH4BbTEeu_zcnxGo34_g" name="User"/>
+    <literals id="_e1SH4RbTEeu_zcnxGo34_g" name="TravelAgency"/>
+    <literals id="_e1SH4hbTEeu_zcnxGo34_g" name="Airline"/>
+  </enumerations>
+</DataDictionaryCharacterized:DataDictionaryCharacterized>

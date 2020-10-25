@@ -30,27 +30,35 @@
         </eAnnotations>
       </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Characteristic" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="Characteristic" abstract="true" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-        <details key="documentation" value="Concrete characteristic that assigns a characteristic value of a characteristic type to an entity. Assigning a value means that this value is valid for the entity."/>
+        <details key="documentation" value="Abstract characteristic of a certain type. Subclasses have to define the assignment of values. Assigning a value means that this value is valid for the entity."/>
       </eAnnotations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1"
-          eType="ecore:EClass ../../org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//CharacteristicType">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The type this characteristic adheres to."/>
-        </eAnnotations>
-      </eStructuralFeatures>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="value" lowerBound="1"
-          eType="ecore:EClass ../../org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//Literal">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="The value of the selected characteristic type that shall be valid for an entity."/>
-        </eAnnotations>
+      <eTypeParameters name="CT">
+        <eBounds eClassifier="ecore:EClass ../../org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//CharacteristicType"/>
+      </eTypeParameters>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="type" lowerBound="1">
+        <eGenericType eTypeParameter="#//characteristics/Characteristic/CT"/>
       </eStructuralFeatures>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="EnumCharacteristic">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
+          eType="ecore:EClass ../../org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//Literal"/>
+      <eGenericSuperTypes eClassifier="#//characteristics/Characteristic">
+        <eTypeArguments eClassifier="ecore:EClass ../../org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//EnumCharacteristicType"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="DataTypeCharacteristicType" eSuperTypes="../../org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.ecore#//CharacteristicType"/>
-    <eClassifiers xsi:type="ecore:EClass" name="DataTypeCharacteristic" eSuperTypes="#//characteristics/Characteristic">
+    <eClassifiers xsi:type="ecore:EClass" name="DataTypeCharacteristic">
       <eStructuralFeatures xsi:type="ecore:EReference" name="values" upperBound="-1"
           eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/DataType"/>
+      <eGenericSuperTypes eClassifier="#//characteristics/Characteristic">
+        <eTypeArguments eClassifier="#//characteristics/DataTypeCharacteristicType"/>
+      </eGenericSuperTypes>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Characteristics" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="characteristics" upperBound="-1"
+          eType="#//characteristics/Characteristic" containment="true"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="expression" nsURI="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression"

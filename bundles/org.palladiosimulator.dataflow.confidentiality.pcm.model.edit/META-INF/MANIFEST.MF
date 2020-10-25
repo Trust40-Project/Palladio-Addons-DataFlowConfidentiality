@@ -25,7 +25,8 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
  de.uka.ipd.sdq.units;visibility:=reexport,
  de.uka.ipd.sdq.units.edit;visibility:=reexport,
- org.palladiosimulator.indirections.edit;bundle-version="1.0.0";visibility:=reexport
+ org.palladiosimulator.indirections.edit;bundle-version="1.0.0";visibility:=reexport,
+ tools.mdsd.library.emfeditutils;bundle-version="0.1.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.provider,

@@ -1,6 +1,7 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.test.util;
 
 import org.eclipse.emf.common.util.URI;
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.ProfileConstants;
 import org.palladiosimulator.dataflow.confidentiality.pcm.testmodels.Activator;
 
 import tools.mdsd.library.standalone.initialization.StandaloneInitializationException;
@@ -12,6 +13,9 @@ public class StandaloneUtils {
     public static void init() throws StandaloneInitializationException {
         StandaloneInitializerBuilder.builder()
             .registerProjectURI(Activator.class, "org.palladiosimulator.dataflow.confidentiality.pcm.testmodels")
+            .registerProjectURI(ProfileConstants.class,
+                    "org.palladiosimulator.dataflow.confidentiality.pcm.model.profile")
+            .registerMetaModel("org.palladiosimulator.dataflow.confidentiality.pcm.model.profile", "profile.emfprofile_diagram")
             .addCustomTask(new Log4jInitilizationTask())
             .build()
             .init();

@@ -9,4 +9,5 @@ Require-Bundle: org.modelversioning.emfprofile,
  org.palladiosimulator.indirections;bundle-version="4.3.0"
 Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.model.profile
 Bundle-ActivationPolicy: lazy
-Bundle-Activator: org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.Activator
+Bundle-Activator: org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.impl.Activator
+Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.model.profile

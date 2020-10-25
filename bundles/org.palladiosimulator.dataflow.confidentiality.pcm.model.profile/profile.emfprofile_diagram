@@ -1,84 +1,82 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:emfprofile="http://www.modelversioning.org/emfprofile/1.1" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation">
-  <emfprofile:Profile xmi:id="_pNNfEAerEeuEQs1Im2WnqA" name="PCMDataFlowConfidentiality" nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" nsPrefix="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile">
-    <eClassifiers xmi:type="emfprofile:Stereotype" xmi:id="_0hmnoAevEeuLudFLEF6rzA" name="DataChannelBehavior">
-      <eSuperTypes xmi:type="ecore:EClass" href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
-      <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_7e-IwAe3Eeuq4Pv-n-p8MA" name="behavior" lowerBound="1">
-        <eType xmi:type="ecore:EClass" href="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0#//behaviour/DataChannelBehaviour"/>
+<xmi:XMI xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:emfprofile="http://www.modelversioning.org/emfprofile/1.1"
+    xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.3/notation">
+  <emfprofile:Profile
+      xmi:id="_pNNfEAerEeuEQs1Im2WnqA"
+      name="PCMDataFlowConfidentiality"
+      nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile"
+      nsPrefix="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile">
+    <eClassifiers
+        xmi:type="emfprofile:Stereotype"
+        xmi:id="_0hmnoAevEeuLudFLEF6rzA"
+        name="DataChannelBehaviour">
+      <eSuperTypes
+          xmi:type="ecore:EClass"
+          href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
+      <eStructuralFeatures
+          xmi:type="ecore:EReference"
+          xmi:id="_7e-IwAe3Eeuq4Pv-n-p8MA"
+          name="behaviour"
+          lowerBound="1">
+        <eType
+            xmi:type="ecore:EClass"
+            href="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0#//behaviour/DataChannelBehaviour"/>
       </eStructuralFeatures>
-      <extensions xmi:type="emfprofile:Extension" xmi:id="_4YVBkAevEeuLudFLEF6rzA">
-        <target xmi:type="ecore:EClass" href="http://palladiosimulator.org/Indirections/1.0#//repository/DataChannel"/>
+      <extensions
+          xmi:type="emfprofile:Extension"
+          xmi:id="_4YVBkAevEeuLudFLEF6rzA">
+        <target
+            xmi:type="ecore:EClass"
+            href="http://palladiosimulator.org/Indirections/1.0#//repository/DataChannel"/>
+      </extensions>
+    </eClassifiers>
+    <eClassifiers
+        xmi:type="emfprofile:Stereotype"
+        xmi:id="_sGM_8BBzEeucCo3FRAS_1w"
+        name="Characterisable">
+      <eSuperTypes
+          xmi:type="ecore:EClass"
+          href="http://www.modelversioning.org/emfprofile/application/1.1#//StereotypeApplication"/>
+      <eStructuralFeatures
+          xmi:type="ecore:EReference"
+          xmi:id="_sE5GcBB1EeuGl5fMWzDLAw"
+          name="characteristics"
+          upperBound="-1">
+        <eGenericType
+            xmi:type="ecore:EGenericType"
+            xmi:id="_LXRa4BCPEeuN0ORuvMYK5w">
+          <eTypeArguments
+              xmi:type="ecore:EGenericType"
+              xmi:id="_LXRa4RCPEeuN0ORuvMYK5w"/>
+          <eClassifier
+              xmi:type="ecore:EClass"
+              href="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0#//characteristics/Characteristic"/>
+        </eGenericType>
+      </eStructuralFeatures>
+      <extensions
+          xmi:type="emfprofile:Extension"
+          xmi:id="_yqyHQBBzEeucCo3FRAS_1w">
+        <target
+            xmi:type="ecore:EClass"
+            href="http://palladiosimulator.org/PalladioComponentModel/5.2#//usagemodel/UsageScenario"/>
+      </extensions>
+      <extensions
+          xmi:type="emfprofile:Extension"
+          xmi:id="_4o-SEBB1EeuGl5fMWzDLAw">
+        <target
+            xmi:type="ecore:EClass"
+            href="http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment/LinkingResource"/>
+      </extensions>
+      <extensions
+          xmi:type="emfprofile:Extension"
+          xmi:id="_5cGYIBB1EeuGl5fMWzDLAw">
+        <target
+            xmi:type="ecore:EClass"
+            href="http://palladiosimulator.org/PalladioComponentModel/5.2#//resourceenvironment/ResourceContainer"/>
       </extensions>
     </eClassifiers>
   </emfprofile:Profile>
-  <notation:Diagram xmi:id="_pNcIkAerEeuEQs1Im2WnqA" type="EMFProfile" element="_pNNfEAerEeuEQs1Im2WnqA" name="profile.emfprofile_diagram" measurementUnit="Pixel">
-    <children xmi:type="notation:Node" xmi:id="_vzB_sAevEeuLudFLEF6rzA" type="2002">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_vzLJoAevEeuLudFLEF6rzA" source="Shortcut">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_vzLJoQevEeuLudFLEF6rzA" key="modelID" value="EMFProfile"/>
-      </eAnnotations>
-      <children xmi:type="notation:DecorationNode" xmi:id="_vzJUcAevEeuLudFLEF6rzA" type="5002"/>
-      <children xmi:type="notation:BasicCompartment" xmi:id="_vzJUcQevEeuLudFLEF6rzA" type="7004">
-        <styles xmi:type="notation:SortingStyle" xmi:id="_vzJ7gAevEeuLudFLEF6rzA"/>
-        <styles xmi:type="notation:FilteringStyle" xmi:id="_vzJ7gQevEeuLudFLEF6rzA"/>
-      </children>
-      <children xmi:type="notation:BasicCompartment" xmi:id="_vzJ7ggevEeuLudFLEF6rzA" type="7005">
-        <styles xmi:type="notation:SortingStyle" xmi:id="_vzJ7gwevEeuLudFLEF6rzA"/>
-        <styles xmi:type="notation:FilteringStyle" xmi:id="_vzJ7hAevEeuLudFLEF6rzA"/>
-      </children>
-      <styles xmi:type="notation:DescriptionStyle" xmi:id="_vzB_sQevEeuLudFLEF6rzA"/>
-      <styles xmi:type="notation:FontStyle" xmi:id="_vzB_sgevEeuLudFLEF6rzA" fontName="Cantarell"/>
-      <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/Indirections/1.0#//repository/DataChannel"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vzB_swevEeuLudFLEF6rzA" x="288" y="168"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_0ht8YAevEeuLudFLEF6rzA" type="2006" element="_0hmnoAevEeuLudFLEF6rzA">
-      <children xmi:type="notation:DecorationNode" xmi:id="_0hvKgAevEeuLudFLEF6rzA" type="5008"/>
-      <children xmi:type="notation:DecorationNode" xmi:id="_0hvKgQevEeuLudFLEF6rzA" type="7008">
-        <styles xmi:type="notation:SortingStyle" xmi:id="_0hvKggevEeuLudFLEF6rzA"/>
-        <styles xmi:type="notation:FilteringStyle" xmi:id="_0hvKgwevEeuLudFLEF6rzA"/>
-      </children>
-      <styles xmi:type="notation:DescriptionStyle" xmi:id="_0ht8YQevEeuLudFLEF6rzA"/>
-      <styles xmi:type="notation:FontStyle" xmi:id="_0ht8YgevEeuLudFLEF6rzA" fontName="Cantarell"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_0ht8YwevEeuLudFLEF6rzA" x="267" y="260"/>
-    </children>
-    <children xmi:type="notation:Node" xmi:id="_57tmQAe3Eeuq4Pv-n-p8MA" type="2002">
-      <eAnnotations xmi:type="ecore:EAnnotation" xmi:id="_570T8Ae3Eeuq4Pv-n-p8MA" source="Shortcut">
-        <details xmi:type="ecore:EStringToStringMapEntry" xmi:id="_570T8Qe3Eeuq4Pv-n-p8MA" key="modelID" value="EMFProfile"/>
-      </eAnnotations>
-      <children xmi:type="notation:DecorationNode" xmi:id="_57zF0Ae3Eeuq4Pv-n-p8MA" type="5002"/>
-      <children xmi:type="notation:BasicCompartment" xmi:id="_57zF0Qe3Eeuq4Pv-n-p8MA" type="7004">
-        <styles xmi:type="notation:SortingStyle" xmi:id="_57zF0ge3Eeuq4Pv-n-p8MA"/>
-        <styles xmi:type="notation:FilteringStyle" xmi:id="_57zF0we3Eeuq4Pv-n-p8MA"/>
-      </children>
-      <children xmi:type="notation:BasicCompartment" xmi:id="_57zF1Ae3Eeuq4Pv-n-p8MA" type="7005">
-        <styles xmi:type="notation:SortingStyle" xmi:id="_57zF1Qe3Eeuq4Pv-n-p8MA"/>
-        <styles xmi:type="notation:FilteringStyle" xmi:id="_57zF1ge3Eeuq4Pv-n-p8MA"/>
-      </children>
-      <styles xmi:type="notation:DescriptionStyle" xmi:id="_57tmQQe3Eeuq4Pv-n-p8MA"/>
-      <styles xmi:type="notation:FontStyle" xmi:id="_57tmQge3Eeuq4Pv-n-p8MA" fontName="Cantarell"/>
-      <element xmi:type="ecore:EClass" href="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0#//behaviour/DataChannelBehaviour"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_57uNUAe3Eeuq4Pv-n-p8MA" x="276" y="372"/>
-    </children>
-    <styles xmi:type="notation:DiagramStyle" xmi:id="_pNcIkQerEeuEQs1Im2WnqA"/>
-    <edges xmi:type="notation:Edge" xmi:id="_4YYr8AevEeuLudFLEF6rzA" type="4005" element="_4YVBkAevEeuLudFLEF6rzA" source="_0ht8YAevEeuLudFLEF6rzA" target="_vzB_sAevEeuLudFLEF6rzA">
-      <children xmi:type="notation:DecorationNode" xmi:id="_4YZ6EAevEeuLudFLEF6rzA" type="6004">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_4YZ6EQevEeuLudFLEF6rzA" x="10" y="10"/>
-      </children>
-      <styles xmi:type="notation:RoutingStyle" xmi:id="_4YYr8QevEeuLudFLEF6rzA"/>
-      <styles xmi:type="notation:FontStyle" xmi:id="_4YYr8gevEeuLudFLEF6rzA" fontName="Cantarell"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_4YYr8wevEeuLudFLEF6rzA" points="[-5, -5, 122, 152]$[-117, -164, 10, -7]"/>
-      <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_4YgnwAevEeuLudFLEF6rzA" id="(0.5147058823529411,0.11904761904761904)"/>
-      <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_4YgnwQevEeuLudFLEF6rzA" id="(0.7,0.175)"/>
-    </edges>
-    <edges xmi:type="notation:Edge" xmi:id="_7e_98Ae3Eeuq4Pv-n-p8MA" type="4003" element="_7e-IwAe3Eeuq4Pv-n-p8MA" source="_0ht8YAevEeuLudFLEF6rzA" target="_57tmQAe3Eeuq4Pv-n-p8MA">
-      <children xmi:type="notation:DecorationNode" xmi:id="_7fAlAAe3Eeuq4Pv-n-p8MA" type="6001">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_7fBMEAe3Eeuq4Pv-n-p8MA" x="-10" y="-10"/>
-      </children>
-      <children xmi:type="notation:DecorationNode" xmi:id="_7fBMEQe3Eeuq4Pv-n-p8MA" type="6002">
-        <layoutConstraint xmi:type="notation:Location" xmi:id="_7fBMEge3Eeuq4Pv-n-p8MA" x="10" y="10"/>
-      </children>
-      <styles xmi:type="notation:RoutingStyle" xmi:id="_7e_98Qe3Eeuq4Pv-n-p8MA"/>
-      <styles xmi:type="notation:FontStyle" xmi:id="_7e_98ge3Eeuq4Pv-n-p8MA" fontName="Cantarell"/>
-      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_7e_98we3Eeuq4Pv-n-p8MA" points="[5, 21, -7, -90]$[84, 105, 72, -6]"/>
-    </edges>
-  </notation:Diagram>
 </xmi:XMI>

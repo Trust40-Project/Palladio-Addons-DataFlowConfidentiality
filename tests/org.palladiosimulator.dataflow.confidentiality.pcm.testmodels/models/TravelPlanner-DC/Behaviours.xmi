@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<behaviour:Behaviours xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:behaviour="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/behaviour" xmlns:confidentiality="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0" xmlns:expression="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression" xmlns:expressions="http://palladiosimulator.org/dataflow/dictionary/characterized/expressions/1.0" xmlns:org.palladiosimulator.indirections.repository="http://palladiosimulator.org/Indirections/Repository/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" xsi:schemaLocation="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/behaviour http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0#//behaviour http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0#//expression http://palladiosimulator.org/dataflow/dictionary/characterized/expressions/1.0 http://palladiosimulator.org/dataflow/dictionary/characterized/1.0#//expressions http://palladiosimulator.org/Indirections/Repository/1.0 http://palladiosimulator.org/Indirections/1.0#//repository" id="_GTZ-4Ae8EeughqJrgl4ymQ">
+  <dataChannelBehaviour id="_l2BEsQpnEeuR97ixrD9Teg" entityName="CCDStorage">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_jTNcrgpaEeuqN7ohkJglEA"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_1LdksApnEeuR97ixrD9Teg"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_1xH2gwpnEeuR97ixrD9Teg">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="CCDStorage.in.ccd.ccd"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="CCDStorage.out.ccd.ccd"/>
+    </variableUsages>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_BBiWoApvEeu5W7_QEvvNqQ" entityName="FlightStorage">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_qniO0QpuEeu5W7_QEvvNqQ"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_J-o0gApvEeu5W7_QEvvNqQ"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_KphkkwpvEeu5W7_QEvvNqQ">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="FlightStorage.in.flights.flights"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="FlightStorage.out.flights.flights"/>
+    </variableUsages>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_SJMjMAvEEeuTvLpVllC7_g" entityName="TravelAgencyQueryBuilder">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_6HxKjgvDEeuTvLpVllC7_g"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_aR9aEAvEEeuTvLpVllC7_g"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_aksv4wvEEeuTvLpVllC7_g">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="TravelAgencyQueryBuilder.in.criteria.criteria"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="TravelAgencyQueryBuilder.out.query.query"/>
+    </variableUsages>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_IMkFgAvFEeuTvLpVllC7_g" entityName="AirlineFlightSelector">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_7_WhywvEEeuTvLpVllC7_g"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_Sn1xkAvFEeuTvLpVllC7_g"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_TEiUowvFEeuTvLpVllC7_g">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="AirlineFlightSelector.in.flights.flights"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="AirlineFlightSelector.out.flights.flights"/>
+    </variableUsages>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_bGJIsgvHEeuTvLpVllC7_g" entityName="TravelAgencyFlightsDelegator">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_SF_99wvHEeuTvLpVllC7_g"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_hw7lsAvHEeuTvLpVllC7_g"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_iEPjQwvHEeuTvLpVllC7_g">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="TravelAgencyFlightsDelegator.in.flights.flights"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="TravelAgencyFlightsDelegator.out.flights.flights"/>
+    </variableUsages>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_EXiloAvOEeuTvLpVllC7_g" entityName="BookingStorage">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_1BVQtwvNEeuTvLpVllC7_g"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_KrTpwAvOEeuTvLpVllC7_g"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_LysvowvOEeuTvLpVllC7_g">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="BookingStorage.in.booking.booking"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="BookingStorage.out.booking.booking"/>
+    </variableUsages>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_ebAHgAvOEeuTvLpVllC7_g" entityName="AirlineCreateBooking">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_UqCj1wvOEeuTvLpVllC7_g"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_kZ-AUAvOEeuTvLpVllC7_g">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypeDictionary.xmi#_t51CoQcQEeuCO_LUOeqqZQ"/>
+        </lhs>
+        <rhs xsi:type="expressions:And" id="_lG70CQvOEeuTvLpVllC7_g">
+          <left xsi:type="expression:NamedEnumCharacteristicReference" id="_oWHs3wvOEeuTvLpVllC7_g">
+            <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypeDictionary.xmi#_t51CoQcQEeuCO_LUOeqqZQ"/>
+            <namedReference xsi:type="stoex:VariableReference" referenceName="AirlineCreateBooking.in.ccd.ccd"/>
+          </left>
+          <right xsi:type="expression:NamedEnumCharacteristicReference" id="_mq9yowvOEeuTvLpVllC7_g">
+            <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypeDictionary.xmi#_t51CoQcQEeuCO_LUOeqqZQ"/>
+            <namedReference xsi:type="stoex:VariableReference" referenceName="AirlineCreateBooking.in.flight.flight"/>
+          </right>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="AirlineCreateBooking.out.booking.booking"/>
+    </variableUsages>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_XgXbMAvPEeuTvLpVllC7_g" entityName="FlightMultiplexer">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_LuRGNwvPEeuTvLpVllC7_g"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_eBKOsAvPEeuTvLpVllC7_g"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_e1QlIwvPEeuTvLpVllC7_g">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="FlightMultiplexer.in.flight.flight"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="FlightMultiplexer.out.flight1.flight"/>
+    </variableUsages>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_jNslAAvPEeuTvLpVllC7_g"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_j0xMEwvPEeuTvLpVllC7_g">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="FlightMultiplexer.in.flight.flight"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="FlightMultiplexer.out.flight2.flight"/>
+    </variableUsages>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_b9c_oAvREeuTvLpVllC7_g" entityName="AirlineCreateCommission">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_NfzDSQvREeuTvLpVllC7_g"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_lq3gIAvREeuTvLpVllC7_g"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_mAgY8wvREeuTvLpVllC7_g">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="AirlineCreateCommission.in.flight.flight"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="AirlineCreateCommission.out.commission.commission"/>
+    </variableUsages>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_XEqM0AxiEeuTvLpVllC7_g" entityName="CommissionStore">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_OpHj9wxiEeuTvLpVllC7_g"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_gV8yAAxiEeuTvLpVllC7_g"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_gzm-YwxiEeuTvLpVllC7_g">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="CommissionStore.in.commission.commission"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="CommissionStore.out.commission.commission"/>
+    </variableUsages>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_S8hA0AxkEeuTvLpVllC7_g" entityName="CommissionMultiplexer">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#__Wp0lwxjEeuTvLpVllC7_g"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_ZyezEAxkEeuTvLpVllC7_g"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_aLUJ0wxkEeuTvLpVllC7_g">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="CommissionMultiplexer.in.commission.commission"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="CommissionMultiplexer.out.commission1.commission"/>
+    </variableUsages>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_jyRmwAyVEeu_Q-Tz513rsA"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_kk4IYwyVEeu_Q-Tz513rsA">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="CommissionMultiplexer.in.commission.commission"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="CommissionMultiplexer.out.commission2.commission"/>
+    </variableUsages>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_eksk4AxkEeuTvLpVllC7_g" entityName="TravelAgencyConfirmCommission">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_8eBalwxjEeuTvLpVllC7_g"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_qOWvoAxkEeuTvLpVllC7_g">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypeDictionary.xmi#_t51CoQcQEeuCO_LUOeqqZQ"/>
+        </lhs>
+        <rhs xsi:type="expressions:True" id="_tLeBBgxkEeuTvLpVllC7_g"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="TravelAgencyConfirmCommission.out.confirmation.confirmation"/>
+    </variableUsages>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_rhjyAAxmEeuTvLpVllC7_g" entityName="ConfirmationForwarder">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_iLgotwxmEeuTvLpVllC7_g"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_yKDwAAxmEeuTvLpVllC7_g"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_yoQu8wxmEeuTvLpVllC7_g">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="ConfirmationForwarder.in.confirmation.confirmation"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="ConfirmationForwarder.out.confirmation.confirmation"/>
+    </variableUsages>
+  </dataChannelBehaviour>
+</behaviour:Behaviours>

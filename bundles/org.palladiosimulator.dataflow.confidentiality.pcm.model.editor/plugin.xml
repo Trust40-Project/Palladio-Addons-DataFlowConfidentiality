@@ -117,4 +117,5 @@
             contributorClass="org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.presentation.BehaviourActionBarContributor">
       </editor>
    </extension>
+
 </plugin>

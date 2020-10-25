@@ -1,4 +1,4 @@
-package org.palladiosimulator.dataflow.confidentiality.pcm.model.profile;
+package org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.impl;
 
 import org.eclipse.core.runtime.Plugin;
 

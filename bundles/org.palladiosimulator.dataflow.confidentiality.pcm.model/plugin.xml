@@ -37,4 +37,5 @@
             class="org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.BehaviourPackage"
             genModel="model/dataFlowConfidentiality.genmodel"/>
    </extension>
+
 </plugin>

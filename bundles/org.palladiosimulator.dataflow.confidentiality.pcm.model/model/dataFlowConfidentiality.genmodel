@@ -27,15 +27,21 @@
         <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataFlowConfidentiality.ecore#//characteristics/CharacteristicTypeDictionary/characteristicEnumerations"/>
       </genClasses>
       <genClasses ecoreClass="dataFlowConfidentiality.ecore#//characteristics/Characteristic">
+        <genTypeParameters ecoreTypeParameter="dataFlowConfidentiality.ecore#//characteristics/Characteristic/CT"/>
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference dataFlowConfidentiality.ecore#//characteristics/Characteristic/type"/>
+      </genClasses>
+      <genClasses ecoreClass="dataFlowConfidentiality.ecore#//characteristics/EnumCharacteristic">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
-            ecoreFeature="ecore:EReference dataFlowConfidentiality.ecore#//characteristics/Characteristic/value"/>
+            ecoreFeature="ecore:EReference dataFlowConfidentiality.ecore#//characteristics/EnumCharacteristic/values"/>
       </genClasses>
       <genClasses ecoreClass="dataFlowConfidentiality.ecore#//characteristics/DataTypeCharacteristicType"/>
       <genClasses ecoreClass="dataFlowConfidentiality.ecore#//characteristics/DataTypeCharacteristic">
         <genFeatures notify="false" createChild="false" propertySortChoices="true"
             ecoreFeature="ecore:EReference dataFlowConfidentiality.ecore#//characteristics/DataTypeCharacteristic/values"/>
+      </genClasses>
+      <genClasses ecoreClass="dataFlowConfidentiality.ecore#//characteristics/Characteristics">
+        <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference dataFlowConfidentiality.ecore#//characteristics/Characteristics/characteristics"/>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages prefix="Expression" basePackage="org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality"
