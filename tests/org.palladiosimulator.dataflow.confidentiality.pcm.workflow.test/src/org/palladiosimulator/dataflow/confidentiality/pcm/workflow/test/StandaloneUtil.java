@@ -1,6 +1,7 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test;
 
 import org.eclipse.emf.common.util.URI;
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.ProfileConstants;
 import org.palladiosimulator.dataflow.confidentiality.pcm.testmodels.Activator;
 import org.palladiosimulator.supporting.prolog.PrologStandaloneSetup;
 
@@ -17,8 +18,11 @@ public class StandaloneUtil {
 
     public static void init() throws StandaloneInitializationException {
         StandaloneInitializer initializer = StandaloneInitializerBuilder.builder()
-            .registerProjectURI(Activator.class,
-                    "org.palladiosimulator.dataflow.confidentiality.pcm.testmodels")
+            .registerProjectURI(Activator.class, "org.palladiosimulator.dataflow.confidentiality.pcm.testmodels")
+            .registerProjectURI(ProfileConstants.class,
+                    "org.palladiosimulator.dataflow.confidentiality.pcm.model.profile")
+            .registerMetaModel("org.palladiosimulator.dataflow.confidentiality.pcm.model.profile",
+                    "profile.emfprofile_diagram")
             .addCustomTask(new Log4jInitilizationTask())
             .addCustomTask(PrologStandaloneSetup::doSetup)
             .build();
@@ -28,9 +32,10 @@ public class StandaloneUtil {
     public static URI getModelURI(String relativeModelPath) {
         return getRelativePluginURI("models/" + relativeModelPath);
     }
-    
+
     private static URI getRelativePluginURI(String relativePath) {
-        return URI.createPlatformPluginURI("/org.palladiosimulator.dataflow.confidentiality.pcm.testmodels/" + relativePath, false);
+        return URI.createPlatformPluginURI(
+                "/org.palladiosimulator.dataflow.confidentiality.pcm.testmodels/" + relativePath, false);
     }
-    
+
 }
