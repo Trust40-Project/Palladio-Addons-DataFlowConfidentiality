@@ -5,6 +5,7 @@ import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.PcmQueryUtils
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.SeffWithContext
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.test.util.StandaloneUtils
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
@@ -18,10 +19,12 @@ import org.palladiosimulator.pcm.usagemodel.UsageModel
 
 import static org.junit.jupiter.api.Assertions.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.test.util.StandaloneUtils.*
+import java.util.Stack
 
 class PcmQueryUtilsTests {
 	
-	var CharacterizedPcmQueryUtils subject
+	static val EMPTY_STACK = new Stack<AssemblyContext>
+	var PcmQueryUtils subject
 	var Iterable<EntryLevelSystemCall> elscs
 	var ResourceDemandingSEFF implementingSeff
 	var ResourceDemandingSEFF delegatingSeff
@@ -34,7 +37,7 @@ class PcmQueryUtilsTests {
 	
 	@BeforeEach
 	def void setup() {
-		subject = new CharacterizedPcmQueryUtils
+		subject = new PcmQueryUtils
 		val rs = new ResourceSetImpl
 		val usageModel = rs.getResource(getModelURI("SeffFinding/newUsageModel.usagemodel"), true).contents.head as UsageModel
 		elscs = usageModel.usageScenario_UsageModel.head.scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour.filter(EntryLevelSystemCall)
@@ -141,7 +144,7 @@ class PcmQueryUtilsTests {
 		val elsc = elscs.findFirst[entityName == elscName]
 		val signature = elsc.operationSignature__EntryLevelSystemCall
 		val role = elsc.providedRole_EntryLevelSystemCall
-		subject.findCalledSeff(role, signature, #[])
+		subject.findCalledSeff(role, signature, EMPTY_STACK)
 	}
 	
 	protected def getAssemblyContextList(ComposedStructure cs, String... assemblyContextNames) {
@@ -155,7 +158,9 @@ class PcmQueryUtilsTests {
 				currentStructure = component
 			}
 		}
-		foundAssemblyContexts	
+		val stack = new Stack
+		stack += foundAssemblyContexts
+		stack	
 	}
 	
 }

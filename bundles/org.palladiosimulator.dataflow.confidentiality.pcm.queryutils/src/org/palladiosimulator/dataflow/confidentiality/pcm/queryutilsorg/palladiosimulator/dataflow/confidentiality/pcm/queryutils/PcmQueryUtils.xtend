@@ -106,7 +106,7 @@ class PcmQueryUtils {
 		}
 	}
 	
-	private def findProvidedDelegationConnector(ComposedStructure component, ProvidedRole outerRole) {
+	protected def findProvidedDelegationConnector(ComposedStructure component, ProvidedRole outerRole) {
 		component.connectors__ComposedStructure.filter(ProvidedDelegationConnector).
 				findFirst[outerProvidedRole_ProvidedDelegationConnector == outerRole]
 	}
@@ -114,8 +114,6 @@ class PcmQueryUtils {
 	def getStopAction(ResourceDemandingSEFF seff) {
 		seff.steps_Behaviour.filter(StopAction).findFirst[true]
 	}
-	
-	
 	
 	def Iterable<OutgoingDataDestination> findDestinations(DataSourceRole emittingRole, Stack<AssemblyContext> context) {		
 		val result = new ArrayList<OutgoingDataDestination>
@@ -143,7 +141,7 @@ class PcmQueryUtils {
 		result		
 	}
 	
-	def findDestinations(AssemblyDataConnector connector, Stack<AssemblyContext> context) {
+	protected def findDestinations(AssemblyDataConnector connector, Stack<AssemblyContext> context) {
 		val sinkAc = connector.sinkAssemblyContext
 		val sinkRole = connector.dataSinkRole
 		val sinkComponent = sinkAc.encapsulatedComponent__AssemblyContext
@@ -153,7 +151,7 @@ class PcmQueryUtils {
 	}
 	
 	
-	def Iterable<OutgoingDataDestination> findDestinations(RepositoryComponent sinkComponent, DataSinkRole sinkRole,
+	protected def Iterable<OutgoingDataDestination> findDestinations(RepositoryComponent sinkComponent, DataSinkRole sinkRole,
 		Stack<AssemblyContext> context) {
 		val result = new ArrayList<OutgoingDataDestination>
 		if (sinkComponent instanceof CompositeComponent) {
@@ -179,79 +177,10 @@ class PcmQueryUtils {
 		result
 	}
 	
-	def <T> Stack<T> copy(Stack<T> stack) {
+	protected def <T> Stack<T> copy(Stack<T> stack) {
 		val copy = new Stack<T>
 		copy.addAll(stack)
 		copy
 	}
-	
-	
-//	def DataSinkRoleWithContext findDestinationRole(DataSourceRole requiredRole, Stack<AssemblyContext> contexts) {
-//		val composedStructure = contexts.last.parentStructure__AssemblyContext
-//		val newcontext = new Stack()
-//		newcontext += contexts
-//		
-//		// test if there is an assembly connector satisfying the required role
-//		val assemblyConnector = composedStructure.connectors__ComposedStructure
-//			.filter(AssemblyDataConnector)
-//			.findFirst[
-//				dataSourceRole === requiredRole &&
-//				sourceAssemblyContext === newcontext.last
-//			]
-//		if (assemblyConnector !== null) {
-//			newcontext.remove(newcontext.last)
-//			val newAssemblyContext = assemblyConnector.sinkAssemblyContext
-//			val providedRole = assemblyConnector.dataSinkRole
-//			newcontext += newAssemblyContext
-//			return providedRole.findDestinationRole(newcontext)
-//		}
-//		
-//		// go to the parent composed structure to satisfy the required role
-//		val outerRequiredRole = composedStructure.connectors__ComposedStructure
-//			.filter(DataSourceDelegationConnector)
-//			.filter[innerDataSourceRole == requiredRole]
-//			.map[outerDataSourceRole]
-//			.head
-//		newcontext.remove(newcontext.last)
-//		findDestinationRole(outerRequiredRole, newcontext)
-//	}
-//	
-//	
-//	
-//	def findCallingRoles(DataSinkRole providedRole, Stack<AssemblyContext> context) {
-//		val newContexts = new Stack()
-//		newContexts += context
-//		var role = providedRole
-//		var providingComponent = role.providingEntity_ProvidedRole
-//		while (providingComponent instanceof ComposedStructure) {
-//			val connector = providingComponent.findProvidedDelegationConnector(role)
-//			val assemblyContext = connector.assemblyContext
-//			newContexts += assemblyContext
-//			role = connector.innerDataSinkRole
-//			providingComponent = role.providingEntity_ProvidedRole
-//		}
-//	}
-//	
-//		
-//	def findDestinationRole(DataSinkRole providedRole, Stack<AssemblyContext> context) {
-//		val newContexts = new Stack()
-//		newContexts += context
-//		var role = providedRole
-//		var providingComponent = role.providingEntity_ProvidedRole
-//		while (providingComponent instanceof ComposedStructure) {
-//			val connector = providingComponent.findProvidedDelegationConnector(role)
-//			val assemblyContext = connector.assemblyContext
-//			newContexts += assemblyContext
-//			role = connector.innerDataSinkRole
-//			providingComponent = role.providingEntity_ProvidedRole
-//		}
-//		return new DataSinkRoleWithContext(role, context)
-//	}
-//	
-//	private def findProvidedDelegationConnector(ComposedStructure component, DataSinkRole outerRole) {
-//		component.connectors__ComposedStructure.filter(DataSinkDelegationConnector).
-//				findFirst[outerDataSinkRole == outerRole]
-//	}
-//	
 
 }
