@@ -81,7 +81,7 @@ class DataFlowTransformation {
 	def createDataFlows(CharacterizedProcess process, Iterable<VariableUsage> variableUsages,
 		Stack<AssemblyContext> context) {
 		val dataSources = process.collectDataSources(variableUsages, context)
-		for (dataSource : dataSources.entrySet) {
+		for (dataSource : dataSources.entrySet.sortBy[key.name]) {
 			val dstPin = dataSource.key
 			val srcPins = dataSource.value
 			srcPins.createDataFlows(process, dstPin)

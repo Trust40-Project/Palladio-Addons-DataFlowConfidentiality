@@ -12,12 +12,14 @@ import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.PcmToDfdTransformation
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.TransformationResult
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.test.util.StandaloneUtils
 import org.palladiosimulator.pcm.allocation.Allocation
 import org.palladiosimulator.pcm.usagemodel.UsageModel
 
 import static org.junit.jupiter.api.Assertions.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.test.util.StandaloneUtils.*
+import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 
 class TransformationTest {
 
@@ -36,7 +38,25 @@ class TransformationTest {
 	@Test
 	def void testTravelPlanner() {
 		createInput("TravelPlanner-DC/newUsageModel.usagemodel", "TravelPlanner-DC/newAllocation.allocation").
-			assertSameAsReference("TravelPlanner-DC/expected_dd.xmi", "TravelPlanner-DC/expected_dfd.xmi")
+			assertSameAsReference("TravelPlanner-DC/expected_dd.xmi", "TravelPlanner-DC/expected_dfd.xmi", [input,result|
+				val trace = result.trace
+				assertNotNull(trace)
+				
+				// test trace of entry level system calls
+				val elscs = input.getUsageModel.usageScenario_UsageModel.get(0).scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour.filter(EntryLevelSystemCall)
+				for (elsc : elscs) {
+					val traceEntries = trace.getDFDEntries(elsc)
+					var expectedEntries = 2
+					if (elsc.operationSignature__EntryLevelSystemCall.returnType__OperationSignature === null) {
+						expectedEntries--
+					}
+					if (elsc.operationSignature__EntryLevelSystemCall.parameters__OperationSignature.isEmpty) {
+						expectedEntries--
+					}
+					assertEquals(expectedEntries, traceEntries.size)
+				}
+
+			])
 	}
 
 	@Data
@@ -57,6 +77,15 @@ class TransformationTest {
 
 	protected def assertSameAsReference(TransformationInput input, String expectedDdPath,
 		String expectedDfdPath) {
+			input.assertSameAsReference(expectedDdPath, expectedDfdPath, [])
+	}
+
+	interface CustomAssertions {
+		def void doAssertions(TransformationInput input, TransformationResult result)
+	}
+
+	protected def assertSameAsReference(TransformationInput input, String expectedDdPath,
+		String expectedDfdPath, CustomAssertions assertions) {
 		// Uri calculation
 		val ddUri = getModelURI(expectedDdPath)
 		val dfdUri = getModelURI(expectedDfdPath)
@@ -86,6 +115,7 @@ class TransformationTest {
 		// assertions
 		assertEquals(expectedDd.serializeToString, actualDd.serializeToString)
 		assertEquals(expectedDfd.serializeToString, actualDfd.serializeToString)
+		assertions.doAssertions(input, actual)
 	}
 
 	protected def getUsageModel(ResourceSet rs, String folderName, String... modelNames) {

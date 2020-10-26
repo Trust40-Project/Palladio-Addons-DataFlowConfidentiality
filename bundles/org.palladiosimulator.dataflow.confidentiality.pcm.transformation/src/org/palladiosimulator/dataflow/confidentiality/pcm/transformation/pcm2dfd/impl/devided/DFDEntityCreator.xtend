@@ -2,6 +2,7 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2df
 
 import java.util.Stack
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.DFDFactoryUtilities
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.impl.TransformationTraceModifier
 import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.DataFlowDiagram
 import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.ExternalActor
 import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.Node
@@ -18,10 +19,13 @@ import org.palladiosimulator.pcm.usagemodel.AbstractUserAction
 class DFDEntityCreator implements TransformationResultGetter {
 	
 	val extension DFDFactoryUtilities dfdFactoryUtils = new DFDFactoryUtilities
+	val extension TransformationTraceModifier traceRecorder
 	val DataFlowDiagram dfd
 	
-	new(DataFlowDiagram dfd) {
+	
+	new(DataFlowDiagram dfd, TransformationTraceModifier traceRecorder) {
 		this.dfd = dfd
+		this.traceRecorder = traceRecorder
 	}
 	
 	def create actor: createActor getActor(String actorName) {
@@ -42,6 +46,7 @@ class DFDEntityCreator implements TransformationResultGetter {
 		process.name = '''UserAction Exit «action.entityName»'''
 		process.createBehavior
 		dfd.nodes += process
+		addTraceEntry(action, process)
 	}
 	
 	def getEntryProcess(AbstractUserAction action, ExternalActor actor) {
@@ -54,42 +59,49 @@ class DFDEntityCreator implements TransformationResultGetter {
 		process.name = '''UserAction Entry «action.entityName»'''
 		process.createBehavior
 		dfd.nodes += process
+		addTraceEntry(action, process)
 	}
 	
 	override create process : createProcess getExitProcess(AbstractAction action, Stack<AssemblyContext> context) {
 		process.name = '''Action Exit «action.entityName»'''
 		process.createBehavior
 		dfd.nodes += process
+		addTraceEntry(action, context, process)
 	}
 	
 	override create process : createProcess getEntryProcess(AbstractAction action, Stack<AssemblyContext> context) {
 		process.name = '''Action Entry «action.entityName»'''
 		process.createBehavior
 		dfd.nodes += process
+		addTraceEntry(action, context, process)
 	}
 	
 	override create process : createProcess getProcess(AbstractAction action, Stack<AssemblyContext> context) {
 		process.name = '''Action «action.entityName»'''
 		process.createBehavior
 		dfd.nodes += process
+		addTraceEntry(action, context, process)
 	}
 	
 	override create process : createProcess getExitProcess(ServiceEffectSpecification seff, Stack<AssemblyContext> context) {
 		process.name = '''SEFF Exit «seff.describedService__SEFF.entityName»'''
 		process.createBehavior
 		dfd.nodes += process
+		addTraceEntry(seff, context, process)
 	}
 	
 	override create process : createProcess getEntryProcess(ServiceEffectSpecification seff, Stack<AssemblyContext> context) {
 		process.name = '''SEFF Entry «seff.describedService__SEFF.entityName»'''
 		process.createBehavior
 		dfd.nodes += process
+		addTraceEntry(seff, context, process)
 	}
 	
 	override create process : createProcess getProcess(DataChannel dc, Stack<AssemblyContext> context) {
 		process.name = '''DC «dc.entityName»'''
 		process.createBehavior
 		dfd.nodes += process
+		addTraceEntry(dc, context, process)
 	}
 	
 	override create pin: createPin getOutputPin(CharacterizedProcess process, String pinName) {

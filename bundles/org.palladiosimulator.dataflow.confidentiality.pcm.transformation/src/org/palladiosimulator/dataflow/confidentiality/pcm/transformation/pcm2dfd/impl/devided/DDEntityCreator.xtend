@@ -12,14 +12,18 @@ import org.palladiosimulator.pcm.repository.CompositeDataType
 import org.palladiosimulator.pcm.repository.DataType
 import org.palladiosimulator.pcm.repository.PrimitiveDataType
 import org.palladiosimulator.pcm.repository.PrimitiveTypeEnum
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.impl.TransformationTraceModifier
 
 class DDEntityCreator {
 	
 	val extension DFDFactoryUtilities dfdFactoryUtils = new DFDFactoryUtilities
+	val extension TransformationTraceModifier traceModifier
 	val DataDictionaryCharacterized dd
 	
-	new(DataDictionaryCharacterized dd) {
+	
+	new(DataDictionaryCharacterized dd, TransformationTraceModifier traceModifier) {
 		this.dd = dd
+		this.traceModifier = traceModifier
 	}
 	
 	def getCharacteristicType(CharacteristicType ct) {
@@ -30,12 +34,14 @@ class DDEntityCreator {
 		newCt.name = ct.name
 		newCt.type = ct.type.getEnumeration
 		dd.characteristicTypes += newCt
+		addTraceEntry(ct, newCt)
 	}
 	
 	protected def dispatch create newCt : createEnumCharacteristicType getCharacteristicTypeInternal(DataTypeCharacteristicType ct) {
 		newCt.name = ct.name
 		newCt.type = getDataTypeEnumeration()
 		dd.characteristicTypes += newCt
+		addTraceEntry(ct, newCt)
 	}
 	
 	protected def create newEnum: createEnumeration getDataTypeEnumeration() {
@@ -54,21 +60,25 @@ class DDEntityCreator {
 	protected def create newLiteral: createLiteral getLiteralInternal(PrimitiveTypeEnum primitiveType) {
 		newLiteral.name = primitiveType.getName
 		dataTypeEnumeration.literals += newLiteral
+		//FIXME trace recorder is only capable of recording Identifier instances
 	}
 	
 	protected def create newLiteral: createLiteral getLiteralInternal(DataType dataType) {
 		newLiteral.name = dataType.name
 		dataTypeEnumeration.literals += newLiteral
+		addTraceEntry(dataType, newLiteral)
 	}
 	
 	protected def create newEnum: createEnumeration getEnumeration(Enumeration enumeration) {
 		newEnum.name = enumeration.name
 		newEnum.literals += enumeration.literals.map[getLiteral]
 		dd.enumerations += newEnum
+		addTraceEntry(enumeration, newEnum)
 	}
 	
 	def create newLiteral: createLiteral getLiteral(Literal literal) {
 		newLiteral.name = literal.name
+		addTraceEntry(literal, newLiteral)
 	}
 	
 	protected def dispatch getName(PrimitiveDataType dataType) {

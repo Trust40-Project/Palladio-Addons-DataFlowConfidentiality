@@ -23,6 +23,7 @@ import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.DataFlowTransformation
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.TermTransformation
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.queries.AllocationLookup
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.impl.PCM2DFDTransformationTraceImpl
 import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.ExternalActor
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedActorProcess
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedNode
@@ -59,6 +60,7 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 	val extension ModelQueryUtils queryUtils = new ModelQueryUtils
 	val extension PcmQueryUtils pcmQueryUtils = new PcmQueryUtils
 	val extension DFDFactoryUtilities dfdFactoryUtils = new DFDFactoryUtilities
+	val extension PCM2DFDTransformationTraceImpl traceRecorder = new PCM2DFDTransformationTraceImpl
 	val dfd = createDataFlowDiagram
 	val dd = createDataDictionary
 	val extension DFDEntityCreator entityCreator
@@ -68,8 +70,8 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 	var extension AllocationLookup allocationLookup
 
 	new() {
-		entityCreator = new DFDEntityCreator(dfd)
-		characteristicTransformation = new DDEntityCreator(dd)
+		entityCreator = new DFDEntityCreator(dfd, traceRecorder)
+		characteristicTransformation = new DDEntityCreator(dd, traceRecorder)
 		termTransformation = new TermTransformation(characteristicTransformation, entityCreator)
 		dataFlowTransformation = new DataFlowTransformation(entityCreator)
 	}
@@ -91,7 +93,7 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		assemblyContexts.forEach[ac|ac.transform(EMPTY_STACK)]
 
 		// return transformation result
-		new TransformationResultImpl(dfd, dd, null)
+		new TransformationResultImpl(dfd, dd, traceRecorder)
 	}
 	
 	
@@ -429,8 +431,8 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 	}
 	
 	protected def getCharacteristics(EObject eobject) {
-		StereotypeAPI.<List<Characteristic<? extends CharacteristicType>>>getTaggedValueSafe(eobject, CharacterisableStereotype.VALUE_NAME,
-			CharacterisableStereotype.NAME).orElse(#[])
+		StereotypeAPI.<List<Characteristic<? extends CharacteristicType>>>getTaggedValueSafe(eobject,
+			CharacterisableStereotype.VALUE_NAME, CharacterisableStereotype.NAME).orElse(#[])
 	}
 	
 	protected def getConfidentialityBehavior(DataChannel dc) {

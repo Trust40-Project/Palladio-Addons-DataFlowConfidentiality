@@ -1,11 +1,11 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace;
 
-import java.util.Collection;
+import java.util.Stack;
 
 import de.uka.ipd.sdq.identifier.Identifier;
 
 public interface PCMContextHavingTraceElement extends PCMSingleTraceElement {
 
-    Collection<Identifier> getContext();
+    Stack<Identifier> getContext();
     
 }
