@@ -15,6 +15,7 @@ import org.palladiosimulator.dataflow.confidentiality.transformation.workflow.jo
 import org.palladiosimulator.dataflow.confidentiality.transformation.workflow.jobs.LoadExistingModelsJob.ModelContent;
 import org.palladiosimulator.dataflow.confidentiality.transformation.workflow.jobs.SerializeModelToStringJob;
 import org.palladiosimulator.dataflow.confidentiality.transformation.workflow.jobs.TransformDFDToPrologJob;
+import org.palladiosimulator.pcm.allocation.Allocation;
 import org.palladiosimulator.pcm.usagemodel.UsageModel;
 
 import de.uka.ipd.sdq.workflow.jobs.IJob;
@@ -24,7 +25,7 @@ import de.uka.ipd.sdq.workflow.mdsd.blackboard.SavePartitionToDiskJob;
 
 public class TransformPCMDFDToPrologJobBuilder {
 
-    private static final String DEFAULT_USAGEMODEL_PARTITION_ID = "pcm";
+    private static final String DEFAULT_PCM_INPUT_PARTITION_ID = "pcm";
     private static final ModelLocation DEFAULT_DD_LOCATION = new ModelLocation("dfd", URI.createFileURI("tmp/dd.xmi"));
     private static final ModelLocation DEFAULT_DFD_LOCATION = new ModelLocation("dfd",
             URI.createFileURI("tmp/dfd.xmi"));
@@ -39,6 +40,7 @@ public class TransformPCMDFDToPrologJobBuilder {
     private static final String DEFAULT_TRACE_KEY = "transitiveTrace";
 
     private final Collection<ModelContent> usageModels = new ArrayList<>();
+    private ModelContent allocationModel = null;
     private ModelLocation prologLocation = null;
     private boolean serializeToString = false;
     private String prologResultKey;
@@ -54,7 +56,7 @@ public class TransformPCMDFDToPrologJobBuilder {
     public TransformPCMDFDToPrologJobBuilder addUsageModelsByURI(Collection<URI> uris) {
         usageModels.clear();
         usageModels.addAll(uris.stream()
-            .map(uri -> new ModelLocation(DEFAULT_USAGEMODEL_PARTITION_ID, uri))
+            .map(uri -> new ModelLocation(DEFAULT_PCM_INPUT_PARTITION_ID, uri))
             .map(ModelContent::new)
             .collect(Collectors.toList()));
         return this;
@@ -67,11 +69,24 @@ public class TransformPCMDFDToPrologJobBuilder {
     public TransformPCMDFDToPrologJobBuilder addUsageModels(Collection<UsageModel> usageModels) {
         this.usageModels.clear();
         for (UsageModel usageModel : usageModels) {
-            ModelLocation location = new ModelLocation(DEFAULT_USAGEMODEL_PARTITION_ID, usageModel.eResource()
+            ModelLocation location = new ModelLocation(DEFAULT_PCM_INPUT_PARTITION_ID, usageModel.eResource()
                 .getURI());
             ModelContent content = new ModelContent(location, usageModel);
             this.usageModels.add(content);
         }
+        return this;
+    }
+    
+    public TransformPCMDFDToPrologJobBuilder addAllocationModelByURI(URI uri) {
+        var location = new ModelLocation(DEFAULT_PCM_INPUT_PARTITION_ID, uri);
+        allocationModel = new ModelContent(location);
+        return this;
+    }
+    
+    public TransformPCMDFDToPrologJobBuilder addAllocationModel(Allocation allocation) {
+        ModelLocation location = new ModelLocation(DEFAULT_PCM_INPUT_PARTITION_ID, allocation.eResource()
+            .getURI());
+        allocationModel = new ModelContent(location, allocation);
         return this;
     }
 
@@ -97,6 +112,7 @@ public class TransformPCMDFDToPrologJobBuilder {
         // validate builder state
         Validate.notNull(prologLocation);
         Validate.notEmpty(usageModels);
+        Validate.notNull(allocationModel);
         if (serializeToString) {
             Validate.notNull(prologResultKey);
         }
@@ -106,7 +122,10 @@ public class TransformPCMDFDToPrologJobBuilder {
                 prologResultKey, DEFAULT_TRACE_KEY);
 
         // create model loading job
-        IJob loadJob = new LoadExistingModelsJob<MDSDBlackboard>(usageModels);
+        var allModelContents = new ArrayList<ModelContent>();
+        allModelContents.addAll(usageModels);
+        allModelContents.add(allocationModel);
+        IJob loadJob = new LoadExistingModelsJob<MDSDBlackboard>(allModelContents);
         jobSequence.add(loadJob);
 
         // create DFD partition initialization job
@@ -114,7 +133,7 @@ public class TransformPCMDFDToPrologJobBuilder {
         jobSequence.add(initDfdPartitionJob);
 
         // create PCM to DFD transformation job
-        IJob pcmToDfdJob = new TransformPCMtoDFDJob(DEFAULT_USAGEMODEL_PARTITION_ID, DEFAULT_DFD_LOCATION,
+        IJob pcmToDfdJob = new TransformPCMtoDFDJob(DEFAULT_PCM_INPUT_PARTITION_ID, DEFAULT_DFD_LOCATION,
                 DEFAULT_DD_LOCATION, DEFAULT_PCMTRACE_KEY);
         jobSequence.add(pcmToDfdJob);
 

@@ -3,6 +3,7 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.impl;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Objects;
+import java.util.Stack;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -37,7 +38,7 @@ public class TransitiveTransformationTraceImpl implements TransitiveTransformati
     }
 
     @Override
-    public Collection<String> getFactIds(EObject pcmElement, Collection<Identifier> pcmElementContext) {
+    public Collection<String> getFactIds(EObject pcmElement, Stack<Identifier> pcmElementContext) {
         var dfdElements = pcm2dfdTrace.getDFDEntries(pcmElement, pcmElementContext);
         return getFactIds(dfdElements);
     }
