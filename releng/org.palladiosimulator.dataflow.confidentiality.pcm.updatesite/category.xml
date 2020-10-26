@@ -9,9 +9,11 @@
    <feature id="org.palladiosimulator.dataflow.confidentiality.pcm.transformation.feature">
       <category name="org.palladiosimulator.dataflow.confidentiality.category"/>
    </feature>
+   <!--
    <feature id="org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.feature">
       <category name="org.palladiosimulator.dataflow.confidentiality.category"/>
    </feature>
+   -->
    <feature id="org.palladiosimulator.dataflow.confidentiality.pcm.model.feature.source">
       <category name="org.palladiosimulator.dataflow.confidentiality.source.category"/>
    </feature>
@@ -21,9 +23,11 @@
    <feature id="org.palladiosimulator.dataflow.confidentiality.pcm.transformation.feature.source">
       <category name="org.palladiosimulator.dataflow.confidentiality.source.category"/>
    </feature>
+   <!--
    <feature id="org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.feature.source">
       <category name="org.palladiosimulator.dataflow.confidentiality.source.category"/>
    </feature>
+   -->
    <category-def name="org.palladiosimulator.dataflow.confidentiality.pcm.category" label="PCM Data Flow Confidentiality">
    </category-def>
    <category-def name="org.palladiosimulator.dataflow.confidentiality.pcm.source.category" label="PCM Data Flow Confidentiality Developer Resources">

@@ -1,10 +1,12 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test;
 
 import org.eclipse.emf.common.util.URI;
+import org.modelversioning.emfprofile.registry.IProfileRegistry;
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.ProfileConstants;
 import org.palladiosimulator.dataflow.confidentiality.pcm.testmodels.Activator;
 import org.palladiosimulator.supporting.prolog.PrologStandaloneSetup;
 
+import tools.mdsd.library.standalone.initialization.InitializationTask;
 import tools.mdsd.library.standalone.initialization.StandaloneInitializationException;
 import tools.mdsd.library.standalone.initialization.StandaloneInitializer;
 import tools.mdsd.library.standalone.initialization.StandaloneInitializerBuilder;
@@ -25,6 +27,15 @@ public class StandaloneUtil {
                     "profile.emfprofile_diagram")
             .addCustomTask(new Log4jInitilizationTask())
             .addCustomTask(PrologStandaloneSetup::doSetup)
+            .addCustomTask(new InitializationTask() {
+                @Override
+                public void initilizationWithoutPlatform() throws StandaloneInitializationException {
+                }
+                @Override
+                public void initializationWithPlatform() throws StandaloneInitializationException {
+                    IProfileRegistry.eINSTANCE.getClass();
+                }
+            })
             .build();
         initializer.init();
     }

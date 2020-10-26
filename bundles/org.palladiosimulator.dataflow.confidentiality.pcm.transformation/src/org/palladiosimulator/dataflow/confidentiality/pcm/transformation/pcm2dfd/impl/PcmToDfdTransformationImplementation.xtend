@@ -13,8 +13,6 @@ import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.DataTypeCharacteristic
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.EnumCharacteristic
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.expression.AbstractNamedReferenceReference
-import org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.ProfileConstants.CharacterisableStereotype
-import org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.ProfileConstants.DataChannelBehaviorStereotype
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.PcmQueryUtils
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.PcmToDfdTransformation
@@ -53,6 +51,7 @@ import org.palladiosimulator.pcm.usagemodel.UsageScenario
 import static org.apache.commons.lang3.Validate.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.TransformationConstants.EMPTY_STACK
 import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.TransformationConstants.RESULT_PIN_NAME
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.ProfileConstants
 
 class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 
@@ -432,12 +431,12 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 	
 	protected def getCharacteristics(EObject eobject) {
 		StereotypeAPI.<List<Characteristic<? extends CharacteristicType>>>getTaggedValueSafe(eobject,
-			CharacterisableStereotype.VALUE_NAME, CharacterisableStereotype.NAME).orElse(#[])
+			ProfileConstants.characterisable.value, ProfileConstants.characterisable.stereotype).orElse(#[])
 	}
 	
 	protected def getConfidentialityBehavior(DataChannel dc) {
-		StereotypeAPI.<DataChannelBehaviour>getTaggedValueSafe(dc, DataChannelBehaviorStereotype.VALUE_NAME,
-			DataChannelBehaviorStereotype.NAME)
+		StereotypeAPI.<DataChannelBehaviour>getTaggedValueSafe(dc, ProfileConstants.dataChannelBehavior.value,
+			ProfileConstants.dataChannelBehavior.stereotype)
 	}
 
 }
