@@ -67,7 +67,7 @@ class DDEntityCreator {
 		dd.enumerations += newEnum
 	}
 	
-	protected def create newLiteral: createLiteral getLiteral(Literal literal) {
+	def create newLiteral: createLiteral getLiteral(Literal literal) {
 		newLiteral.name = literal.name
 	}
 	

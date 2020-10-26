@@ -8,4 +8,16 @@
     <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypeDictionary.xmi#_zurlgRB5EeuCiqzTNKebcA"/>
     <values href="CharacteristicTypeDictionary.xmi#_2KPpABB5EeuCiqzTNKebcA"/>
   </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_Ut2loBdnEeu98bd9ogearw" entityName="Role_User">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypeDictionary.xmi#_voPsQQcQEeuCO_LUOeqqZQ"/>
+    <values href="CharacteristicTypeDictionary.xmi#_qmC9sAcQEeuCO_LUOeqqZQ"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_Xg4t8BdnEeu98bd9ogearw" entityName="Role_TA">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypeDictionary.xmi#_voPsQQcQEeuCO_LUOeqqZQ"/>
+    <values href="CharacteristicTypeDictionary.xmi#_q6I-YAcQEeuCO_LUOeqqZQ"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_ZqISYBdnEeu98bd9ogearw" entityName="Role_Airline">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypeDictionary.xmi#_voPsQQcQEeuCO_LUOeqqZQ"/>
+    <values href="CharacteristicTypeDictionary.xmi#_rIUkUAcQEeuCO_LUOeqqZQ"/>
+  </characteristics>
 </characteristics:Characteristics>

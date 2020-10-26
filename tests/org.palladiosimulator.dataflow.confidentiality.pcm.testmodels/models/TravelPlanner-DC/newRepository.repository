@@ -300,55 +300,55 @@
   </repository:Repository>
   <emfprofileapplication:ProfileApplication>
     <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_jTNcrgpaEeuqN7ohkJglEA">
-      <extension href="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
       <behaviour href="Behaviours.xmi#_l2BEsQpnEeuR97ixrD9Teg"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_qniO0QpuEeu5W7_QEvvNqQ">
-      <extension href="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
       <behaviour href="Behaviours.xmi#_BBiWoApvEeu5W7_QEvvNqQ"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_6HxKjgvDEeuTvLpVllC7_g">
-      <extension href="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
       <behaviour href="Behaviours.xmi#_SJMjMAvEEeuTvLpVllC7_g"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_7_WhywvEEeuTvLpVllC7_g">
-      <extension href="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
       <behaviour href="Behaviours.xmi#_IMkFgAvFEeuTvLpVllC7_g"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_SF_99wvHEeuTvLpVllC7_g">
-      <extension href="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
       <behaviour href="Behaviours.xmi#_bGJIsgvHEeuTvLpVllC7_g"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_1BVQtwvNEeuTvLpVllC7_g">
-      <extension href="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
       <behaviour href="Behaviours.xmi#_EXiloAvOEeuTvLpVllC7_g"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_UqCj1wvOEeuTvLpVllC7_g">
-      <extension href="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
       <behaviour href="Behaviours.xmi#_ebAHgAvOEeuTvLpVllC7_g"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_LuRGNwvPEeuTvLpVllC7_g">
-      <extension href="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
       <behaviour href="Behaviours.xmi#_XgXbMAvPEeuTvLpVllC7_g"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_NfzDSQvREeuTvLpVllC7_g">
-      <extension href="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
       <behaviour href="Behaviours.xmi#_b9c_oAvREeuTvLpVllC7_g"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_OpHj9wxiEeuTvLpVllC7_g">
-      <extension href="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
       <behaviour href="Behaviours.xmi#_XEqM0AxiEeuTvLpVllC7_g"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="__Wp0lwxjEeuTvLpVllC7_g">
-      <extension href="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
       <behaviour href="Behaviours.xmi#_S8hA0AxkEeuTvLpVllC7_g"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_8eBalwxjEeuTvLpVllC7_g">
-      <extension href="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
       <behaviour href="Behaviours.xmi#_eksk4AxkEeuTvLpVllC7_g"/>
     </stereotypeApplications>
     <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_iLgotwxmEeuTvLpVllC7_g">
-      <extension href="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
       <behaviour href="Behaviours.xmi#_rhjyAAxmEeuTvLpVllC7_g"/>
     </stereotypeApplications>
     <importedProfiles nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" location="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram"/>

@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
-<DataDictionaryCharacterized:DataDictionaryCharacterized xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" id="_eqraYBbTEeu_zcnxGo34_g">
-  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_e1Q5wBbTEeu_zcnxGo34_g" name="AllowedRoles" type="_e1Q5wRbTEeu_zcnxGo34_g"/>
-  <enumerations id="_e1Q5wRbTEeu_zcnxGo34_g" name="AccessRights">
-    <literals id="_e1SH4BbTEeu_zcnxGo34_g" name="User"/>
-    <literals id="_e1SH4RbTEeu_zcnxGo34_g" name="TravelAgency"/>
-    <literals id="_e1SH4hbTEeu_zcnxGo34_g" name="Airline"/>
+<DataDictionaryCharacterized:DataDictionaryCharacterized xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" id="_tJ1QsBeFEeuCtuCwHEj1RQ">
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_tVnp8BeFEeuCtuCwHEj1RQ" name="AllowedRoles" type="_tVoRABeFEeuCtuCwHEj1RQ"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_tVr7YBeFEeuCtuCwHEj1RQ" name="OwnedRoles" type="_tVoRABeFEeuCtuCwHEj1RQ"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_tVr7YheFEeuCtuCwHEj1RQ" name="CorrespondingActor" type="_tVr7YxeFEeuCtuCwHEj1RQ"/>
+  <enumerations id="_tVoRABeFEeuCtuCwHEj1RQ" name="AccessRights">
+    <literals id="_tVo4EBeFEeuCtuCwHEj1RQ" name="User"/>
+    <literals id="_tVo4EReFEeuCtuCwHEj1RQ" name="TravelAgency"/>
+    <literals id="_tVo4EheFEeuCtuCwHEj1RQ" name="Airline"/>
+  </enumerations>
+  <enumerations id="_tVr7YxeFEeuCtuCwHEj1RQ" name="Actors">
+    <literals id="_tVr7ZBeFEeuCtuCwHEj1RQ" name="User"/>
+    <literals id="_tVr7ZReFEeuCtuCwHEj1RQ" name="FlightPlanner"/>
   </enumerations>
 </DataDictionaryCharacterized:DataDictionaryCharacterized>

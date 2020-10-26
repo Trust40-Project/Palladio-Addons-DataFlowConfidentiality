@@ -1,12 +1,16 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl
 
+import java.util.ArrayList
 import java.util.Collection
+import java.util.HashMap
+import java.util.List
 import java.util.Stack
 import org.apache.log4j.Logger
 import org.eclipse.emf.ecore.EObject
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.ConfidentialityVariableCharacterisation
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.DataChannelBehaviour
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.Characteristic
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.DataTypeCharacteristic
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.EnumCharacteristic
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.expression.AbstractNamedReferenceReference
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.ProfileConstants.CharacterisableStereotype
@@ -14,15 +18,21 @@ import org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.ProfileC
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.PcmQueryUtils
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.PcmToDfdTransformation
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.DDEntityCreator
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.DFDEntityCreator
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.DataFlowTransformation
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.TermTransformation
+import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.queries.AllocationLookup
 import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.ExternalActor
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedActorProcess
+import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedNode
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedProcess
+import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.CharacteristicType
 import org.palladiosimulator.indirections.actions.ConsumeDataAction
 import org.palladiosimulator.indirections.actions.EmitDataAction
 import org.palladiosimulator.indirections.repository.DataChannel
 import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI
+import org.palladiosimulator.pcm.allocation.Allocation
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.core.entity.ComposedProvidingRequiringEntity
 import org.palladiosimulator.pcm.parameter.VariableUsage
@@ -37,13 +47,11 @@ import org.palladiosimulator.pcm.system.System
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour
 import org.palladiosimulator.pcm.usagemodel.UsageModel
+import org.palladiosimulator.pcm.usagemodel.UsageScenario
 
 import static org.apache.commons.lang3.Validate.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.TransformationConstants.EMPTY_STACK
 import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.TransformationConstants.RESULT_PIN_NAME
-import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.DFDEntityCreator
-import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.DDEntityCreator
-import org.palladiosimulator.pcm.usagemodel.UsageScenario
 
 class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 
@@ -57,6 +65,7 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 	val extension TermTransformation termTransformation
 	val extension DDEntityCreator characteristicTransformation
 	val extension DataFlowTransformation dataFlowTransformation
+	var extension AllocationLookup allocationLookup
 
 	new() {
 		entityCreator = new DFDEntityCreator(dfd)
@@ -65,7 +74,9 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		dataFlowTransformation = new DataFlowTransformation(entityCreator)
 	}
 
-	override transform(Collection<UsageModel> usageModels) {
+	override transform(Collection<UsageModel> usageModels, Allocation allocationModel) {
+		allocationLookup = new AllocationLookup(allocationModel)
+		
 		// transform all scenario behaviours, i.e. the user behaviour
 		var scenarioBehaviours = usageModels.flatMap[usageScenario_UsageModel].map[scenarioBehaviour_UsageScenario]
 		for (scenarioBehaviour : scenarioBehaviours) {
@@ -136,6 +147,8 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 			process.createCopyAssignment(outputPin, inputPin)
 		}
 		
+		process.createCharacteristics(context, seff)
+		
 		// the callers have to create the incoming data flows
 		// the users of parameters have to create outgoing data flows
 
@@ -149,6 +162,8 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		val inputPin = process.getInputPin(RESULT_PIN_NAME)
 		val outputPin = process.getOutputPin(RESULT_PIN_NAME)
 		process.createCopyAssignment(outputPin, inputPin)
+		
+		process.createCharacteristics(context, seff)
 		
 		process.createDataFlowsToSeffExitProcess(seff, context)
 		
@@ -178,6 +193,7 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		val outputPin = process.getOutputPin(action.dataSourceRole)
 		process.createCopyAssignment(outputPin, inputPin)
 		process.createOutgoingDataFlows(action.dataSourceRole, context)
+		process.createCharacteristics(context, action)
 		process.createDataFlows(action.variableReference, context)
 		process
 	}
@@ -187,6 +203,7 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		val inputPin = process.getInputPin(action.dataSinkRole)
 		val outputPin = process.getOutputPin(action.variableReference.referenceName)
 		process.createCopyAssignment(outputPin, inputPin)
+		process.createCharacteristics(context, action)
 		// emit actions and data channels already provide data flows to these actions
 		process
 	}
@@ -194,6 +211,7 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 	protected def dispatch transformAction(SetVariableAction action, Stack<AssemblyContext> context) {
 		val process = action.getProcess(context)
 		process.addPinsAndBehavior(action.localVariableUsages_SetVariableAction, context, true)
+		process.createCharacteristics(context, action)
 		process
 	}
 	
@@ -204,12 +222,14 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 	protected def transformToEntryProcess(ExternalCallAction eca, Stack<AssemblyContext> context) {
 		val process = eca.getEntryProcess(context)
 		process.addPinsAndBehavior(eca.inputVariableUsages__CallAction, context, true)
+		process.createCharacteristics(context, eca)
 		process
 	}
 	
 	protected def transformToExitProcess(ExternalCallAction eca, Stack<AssemblyContext> context) {
 		val process = eca.getExitProcess(context)
 		process.addPinsAndBehavior(eca.returnVariableUsage__CallReturnAction, context, true)
+		process.createCharacteristics(context, eca)
 		process
 	}
 	
@@ -227,6 +247,9 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		// create behaviour		
 		val behaviour = dc.confidentialityBehavior.orElseThrow
 		process.addPinsAndBehavior(behaviour.variableUsages, context, false)
+		
+		// create characteristics
+		process.createCharacteristics(context, dc)
 		
 		// create data flows
 		dc.dataSourceRoles.forEach[role | process.createOutgoingDataFlows(role, context)]
@@ -267,6 +290,7 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 	protected def transformToEntryProcess(EntryLevelSystemCall elsc, ExternalActor actor) {
 		val process = elsc.getEntryProcess(actor)
 		process.addPinsAndBehavior(elsc.inputParameterUsages_EntryLevelSystemCall)
+		process.createCharacteristics(EMPTY_STACK, elsc)
 		process.createDataFlows(elsc.inputParameterUsages_EntryLevelSystemCall, EMPTY_STACK)
 		
 		val calledSeff = elsc.providedRole_EntryLevelSystemCall.findCalledSeff(elsc.operationSignature__EntryLevelSystemCall, EMPTY_STACK)
@@ -284,6 +308,7 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 	protected def transformToExitProcess(EntryLevelSystemCall elsc, ExternalActor actor) {
 		val process = elsc.getExitProcess(actor)
 		process.addPinsAndBehavior(elsc.outputParameterUsages_EntryLevelSystemCall)
+		process.createCharacteristics(EMPTY_STACK, elsc)
 		process.createDataFlows(elsc.outputParameterUsages_EntryLevelSystemCall, EMPTY_STACK)
 		process
 	}
@@ -331,6 +356,33 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		newStack.push(newTop)
 		newStack
 	}
+			
+	
+	
+	/* =========== Characteristics Transformations =========== */
+	
+	protected def createCharacteristics(CharacterizedNode node, Stack<AssemblyContext> context, EObject... pcmElements) {
+		val characterisedElements = new ArrayList<EObject>
+		if (!context.isEmpty) {
+			characterisedElements += context.peek
+			characterisedElements += context.findResourceContainer
+		}
+		characterisedElements += pcmElements
+		
+		for (characteristic : characterisedElements.applicableCharacteristics) {
+			val ct = characteristic.type.characteristicType
+			val values = characteristic.determineLiterals
+			node.characteristics += createCharacteristic(ct, values)
+		}
+	}
+	
+	protected def dispatch determineLiterals(EnumCharacteristic characteristic) {
+		characteristic.values.map[getLiteral]
+	}
+	
+	protected def dispatch determineLiterals(DataTypeCharacteristic characteristic) {
+		characteristic.values.map[getLiteral]
+	}
 	
 	
 	
@@ -341,22 +393,43 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		if (usageScenario === null) {
 			return null
 		}
-		eobject.characteristics.correspondingActorName ?: usageScenario.characteristics.correspondingActorName ?:
+		eobject.applicableCharacteristics.correspondingActorName ?:
 			'''Actor_«usageScenario.entityName»_«usageScenario.id»'''
 	}
 	
-	protected def getCorrespondingActorName(Collection<Characteristic<?>> characteristics) {
+	protected def getCorrespondingActorName(Collection<Characteristic<? extends CharacteristicType>> characteristics) {
 		characteristics.filter(EnumCharacteristic).filter [
 			type.name == "CorrespondingActor"
 		].flatMap[values].map[name].findFirst[true]
 	}
-	
-	
 
 	/* =========== Profiles Handling =========== */
 	
+	protected def getApplicableCharacteristics(List<EObject> eobjects) {
+		eobjects.map[getApplicableCharacteristics].effectiveCharacteristics
+	}
+	
+	protected def getApplicableCharacteristics(EObject eobject) {
+		val collectedCharacteristics = new ArrayList<List<Characteristic<? extends CharacteristicType>>>
+		for(var current = eobject; current !== null; current = current.eContainer) {
+			collectedCharacteristics += current.characteristics
+		}
+		val characteristicStack = collectedCharacteristics.reverseView
+		characteristicStack.effectiveCharacteristics
+	}
+	
+	protected def effectiveCharacteristics(List<List<Characteristic<? extends CharacteristicType>>> characteristics) {
+		val calculatedCharacteristics = new HashMap<CharacteristicType, Characteristic<? extends CharacteristicType>>
+		for (characteristicLevel : characteristics) {
+			for (characteristic : characteristicLevel) {
+				calculatedCharacteristics.putIfAbsent(characteristic.type, characteristic)
+			}
+		}
+		calculatedCharacteristics.values.sortBy[id]
+	}
+	
 	protected def getCharacteristics(EObject eobject) {
-		StereotypeAPI.<Collection<Characteristic<?>>>getTaggedValueSafe(eobject, CharacterisableStereotype.VALUE_NAME,
+		StereotypeAPI.<List<Characteristic<? extends CharacteristicType>>>getTaggedValueSafe(eobject, CharacterisableStereotype.VALUE_NAME,
 			CharacterisableStereotype.NAME).orElse(#[])
 	}
 	
