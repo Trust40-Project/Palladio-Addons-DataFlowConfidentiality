@@ -184,7 +184,12 @@ class DataFlowTransformation {
 	
 	protected def dispatch getPinInternal(SEFFActionVariableReferenceTarget target, Stack<AssemblyContext> contexts) {
 		val seffAction = target.getTarget
-		val process = seffAction.getExitProcess(contexts)
+		var process = null as CharacterizedProcess
+		if (seffAction instanceof ExternalCallAction) {
+			process = seffAction.getExitProcess(contexts)
+		} else {
+			process = seffAction.getProcess(contexts)
+		}
 		return process.getOutputPin(target.getReferenceName)
 	}
 	
