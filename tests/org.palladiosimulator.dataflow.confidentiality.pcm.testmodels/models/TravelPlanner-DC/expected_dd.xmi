@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="ASCII"?>
-<DataDictionaryCharacterized:DataDictionaryCharacterized xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" id="_gOsWUBeNEeuzpJDY0apULg">
-  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_gW-IkBeNEeuzpJDY0apULg" name="AllowedRoles" type="_gW-IkReNEeuzpJDY0apULg"/>
-  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_gXDoIBeNEeuzpJDY0apULg" name="OwnedRoles" type="_gW-IkReNEeuzpJDY0apULg"/>
-  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_gXEPMBeNEeuzpJDY0apULg" name="CorrespondingActor" type="_gXEPMReNEeuzpJDY0apULg"/>
-  <enumerations id="_gW-IkReNEeuzpJDY0apULg" name="AccessRights">
-    <literals id="_gW_WsBeNEeuzpJDY0apULg" name="User"/>
-    <literals id="_gW_WsReNEeuzpJDY0apULg" name="TravelAgency"/>
-    <literals id="_gW_WsheNEeuzpJDY0apULg" name="Airline"/>
+<DataDictionaryCharacterized:DataDictionaryCharacterized xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" id="_ORMN4BhcEeuQ2c_5X0ZS8A">
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_Ocxy0BhcEeuQ2c_5X0ZS8A" name="AllowedRoles" type="_OcyZ4BhcEeuQ2c_5X0ZS8A"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_Oc3SYBhcEeuQ2c_5X0ZS8A" name="OwnedRoles" type="_OcyZ4BhcEeuQ2c_5X0ZS8A"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_Oc35cRhcEeuQ2c_5X0ZS8A" name="CorrespondingActor" type="_Oc35chhcEeuQ2c_5X0ZS8A"/>
+  <enumerations id="_OcyZ4BhcEeuQ2c_5X0ZS8A" name="AccessRights">
+    <literals id="_OczA8BhcEeuQ2c_5X0ZS8A" name="User"/>
+    <literals id="_OczA8RhcEeuQ2c_5X0ZS8A" name="TravelAgency"/>
+    <literals id="_OczA8hhcEeuQ2c_5X0ZS8A" name="Airline"/>
   </enumerations>
-  <enumerations id="_gXEPMReNEeuzpJDY0apULg" name="Actors">
-    <literals id="_gXEPMheNEeuzpJDY0apULg" name="User"/>
-    <literals id="_gXEPMxeNEeuzpJDY0apULg" name="FlightPlanner"/>
+  <enumerations id="_Oc35chhcEeuQ2c_5X0ZS8A" name="Actors">
+    <literals id="_Oc35cxhcEeuQ2c_5X0ZS8A" name="User"/>
+    <literals id="_Oc35dBhcEeuQ2c_5X0ZS8A" name="FlightPlanner"/>
   </enumerations>
 </DataDictionaryCharacterized:DataDictionaryCharacterized>

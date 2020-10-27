@@ -8,6 +8,8 @@ import java.util.stream.Collectors;
 import org.apache.commons.lang3.Validate;
 import org.eclipse.emf.common.util.URI;
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.jobs.impl.TransformPCMDFDtoPrologJobImpl;
+import org.palladiosimulator.dataflow.confidentiality.transformation.prolog.configuration.DefaultCharacteristicsUsage;
+import org.palladiosimulator.dataflow.confidentiality.transformation.prolog.configuration.NameDerivationMethod;
 import org.palladiosimulator.dataflow.confidentiality.transformation.workflow.blackboards.KeyValueMDSDBlackboard;
 import org.palladiosimulator.dataflow.confidentiality.transformation.workflow.jobs.DFDToPrologTraceCreationJob;
 import org.palladiosimulator.dataflow.confidentiality.transformation.workflow.jobs.InitPartitionJob;
@@ -43,6 +45,7 @@ public class TransformPCMDFDToPrologJobBuilder {
     private ModelContent allocationModel = null;
     private ModelLocation prologLocation = null;
     private boolean serializeToString = false;
+    private DefaultCharacteristicsUsage defaultCharacteristicsUsage = DefaultCharacteristicsUsage.TRUE;
     private String prologResultKey;
 
     public static TransformPCMDFDToPrologJobBuilder create() {
@@ -108,6 +111,11 @@ public class TransformPCMDFDToPrologJobBuilder {
         return this;
     }
 
+    public TransformPCMDFDToPrologJobBuilder useDefaultCharacteristics(boolean flag) {
+        defaultCharacteristicsUsage  = flag ? DefaultCharacteristicsUsage.TRUE : DefaultCharacteristicsUsage.FALSE;
+        return this;
+    }
+    
     public TransformPCMDFDtoPrologJob<? extends KeyValueMDSDBlackboard> build() {
         // validate builder state
         Validate.notNull(prologLocation);
@@ -143,7 +151,7 @@ public class TransformPCMDFDToPrologJobBuilder {
         
         // create DFD to prolog transformation job
         IJob dfdToPrologJob = new TransformDFDToPrologJob(DEFAULT_DFD_LOCATION, prologLocation,
-                DEFAULT_DFDTRACE_LOCATION);
+                DEFAULT_DFDTRACE_LOCATION, NameDerivationMethod.NAME_AND_ID, defaultCharacteristicsUsage);
         jobSequence.add(dfdToPrologJob);
         
         // create trace creation job
