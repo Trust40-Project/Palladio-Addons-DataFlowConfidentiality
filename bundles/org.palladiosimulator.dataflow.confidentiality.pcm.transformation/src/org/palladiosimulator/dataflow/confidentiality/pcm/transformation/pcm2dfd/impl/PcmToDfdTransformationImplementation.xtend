@@ -52,6 +52,8 @@ import static org.apache.commons.lang3.Validate.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.TransformationConstants.EMPTY_STACK
 import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.TransformationConstants.RESULT_PIN_NAME
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.ProfileConstants
+import org.palladiosimulator.indirections.actions.CreateDateAction
+import org.apache.commons.lang3.Validate
 
 class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 
@@ -186,6 +188,18 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		if (requiresExitProcess) {
 			action.transformToExitProcess(context)
 		}
+	}
+	
+	protected def dispatch transformAction(CreateDateAction action, Stack<AssemblyContext> context) {
+		Validate.isTrue(action.variableUsages.map[namedReference__VariableUsage.referenceName].forall [
+			equals(action.variableReference.referenceName)
+		],
+			"Limitation: all variable characterisations in a create date action have to refer to the same variable as the action.")
+		
+		val process = action.getProcess(context)
+		process.addPinsAndBehavior(action.variableUsages, context, true)
+		process.createCharacteristics(context, action)
+		process
 	}
 	
 	protected def dispatch transformAction(EmitDataAction action, Stack<AssemblyContext> context) {

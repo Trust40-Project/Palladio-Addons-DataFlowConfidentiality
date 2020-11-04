@@ -29,6 +29,7 @@ import org.palladiosimulator.pcm.usagemodel.Stop
 import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.TransformationConstants.*
 import org.palladiosimulator.pcm.seff.StartAction
 import org.palladiosimulator.pcm.repository.OperationSignature
+import org.palladiosimulator.indirections.actions.CreateDateAction
 
 class NamedReferenceTargetFinder {
 	
@@ -201,6 +202,14 @@ class NamedReferenceTargetFinder {
 	
 	protected def dispatch Iterable<VariableReferenceTarget> findTargetInternalSeff(AbstractNamedReference reference,
 		ConsumeDataAction currentAction) {
+		if (currentAction.variableReference.matchesName(reference.referenceName)) {
+			return #[new SEFFActionVariableReferenceTarget(reference, currentAction)]
+		}
+		#[]
+	}
+	
+	protected def dispatch Iterable<VariableReferenceTarget> findTargetInternalSeff(AbstractNamedReference reference,
+		CreateDateAction currentAction) {
 		if (currentAction.variableReference.matchesName(reference.referenceName)) {
 			return #[new SEFFActionVariableReferenceTarget(reference, currentAction)]
 		}

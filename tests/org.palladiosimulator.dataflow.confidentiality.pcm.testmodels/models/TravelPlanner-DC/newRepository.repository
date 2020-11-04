@@ -6,10 +6,23 @@
       <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_5c_1uQfSEeuo_qwmXnjVvw" entityName="CreditCardCenterFacade.required.CCD" dataInterface="_MDHPvwpZEeu74bTg6F24cQ"/>
       <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_rfsp2gfREeuo_qwmXnjVvw" entityName="CreditCardCenterFacade.source.CCD" dataInterface="_MDHPvwpZEeu74bTg6F24cQ"/>
       <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_IrTQMAZEEeuTVv_2RzcyRA" describedService__SEFF="_d-rjsAZDEeuTVv_2RzcyRA">
-        <steps_Behaviour xsi:type="seff:StartAction" id="_IrVFYAZEEeuTVv_2RzcyRA" entityName="CreditCardCenterLogic.addCCD.start" successor_AbstractAction="_oonvEQfREeuo_qwmXnjVvw"/>
+        <steps_Behaviour xsi:type="seff:StartAction" id="_IrVFYAZEEeuTVv_2RzcyRA" entityName="CreditCardCenterLogic.addCCD.start" successor_AbstractAction="_CbhR0B56EeuYAPYPj_T7gw"/>
         <steps_Behaviour xsi:type="seff:StopAction" id="_IrVscAZEEeuTVv_2RzcyRA" entityName="CreditCardCenterLogic.addCCD.stop" predecessor_AbstractAction="_oonvEQfREeuo_qwmXnjVvw"/>
-        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_oonvEQfREeuo_qwmXnjVvw" entityName="CreditCardCenterLogic.addCCD.emit" predecessor_AbstractAction="_IrVFYAZEEeuTVv_2RzcyRA" successor_AbstractAction="_IrVscAZEEeuTVv_2RzcyRA" dataSourceRole="_rfsp2gfREeuo_qwmXnjVvw">
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_oonvEQfREeuo_qwmXnjVvw" entityName="CreditCardCenterLogic.addCCD.emit" predecessor_AbstractAction="_CbhR0B56EeuYAPYPj_T7gw" successor_AbstractAction="_IrVscAZEEeuTVv_2RzcyRA" dataSourceRole="_rfsp2gfREeuo_qwmXnjVvw">
           <variableReference referenceName="ccd"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_CbhR0B56EeuYAPYPj_T7gw" entityName="CreditCardCenterLogic.addCCD.createCCDDate" predecessor_AbstractAction="_IrVFYAZEEeuTVv_2RzcyRA" successor_AbstractAction="_oonvEQfREeuo_qwmXnjVvw">
+          <variableReference referenceName="ccdDate"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_RVao0B57EeuYAPYPj_T7gw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_SGPBwx57EeuYAPYPj_T7gw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="ccd"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="ccdDate"/>
+          </variableUsages>
         </steps_Behaviour>
       </serviceEffectSpecifications__BasicComponent>
       <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_hefUlwcWEeumXJMH97cslw" describedService__SEFF="_A_aaIAcWEeumXJMH97cslw">
@@ -40,9 +53,9 @@
       <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_W1f-ygpaEeuqN7ohkJglEA" entityName="TravelPlannerFacade.out.flight" dataInterface="_ZQrn0ApaEeuqN7ohkJglEA"/>
       <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_A8h9egoEEeutS7WfGIqduw" entityName="TravelPlannerFacade.out.criteria" dataInterface="_FJd3UApZEeu74bTg6F24cQ"/>
       <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_K-eFUAZHEeuTVv_2RzcyRA" describedService__SEFF="_7Wd1sAZGEeuTVv_2RzcyRA">
-        <steps_Behaviour xsi:type="seff:StartAction" id="_K-esYAZHEeuTVv_2RzcyRA" entityName="TravelPlannerFacade.findFlights.start" successor_AbstractAction="_FvrgPQoAEeunc5L08jViCA"/>
-        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_FvrgPQoAEeunc5L08jViCA" entityName="TravelPlannerFacade.findFlights.emitCriteria" predecessor_AbstractAction="_K-esYAZHEeuTVv_2RzcyRA" successor_AbstractAction="__NWUSwoCEeutS7WfGIqduw" dataSourceRole="_A8h9egoEEeutS7WfGIqduw">
-          <variableReference referenceName="criteria"/>
+        <steps_Behaviour xsi:type="seff:StartAction" id="_K-esYAZHEeuTVv_2RzcyRA" entityName="TravelPlannerFacade.findFlights.start" successor_AbstractAction="_QriiMB53Eeub9rQ1rJH5OA"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_FvrgPQoAEeunc5L08jViCA" entityName="TravelPlannerFacade.findFlights.emitCriteria" predecessor_AbstractAction="_QriiMB53Eeub9rQ1rJH5OA" successor_AbstractAction="__NWUSwoCEeutS7WfGIqduw" dataSourceRole="_A8h9egoEEeutS7WfGIqduw">
+          <variableReference referenceName="criteriaDate"/>
         </steps_Behaviour>
         <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:ConsumeDataAction" id="__NWUSwoCEeutS7WfGIqduw" entityName="TravelPlannerFacade.findFlights.consumeflights" predecessor_AbstractAction="_FvrgPQoAEeunc5L08jViCA" successor_AbstractAction="_jVCz2QoGEeuqRKfhGJupQQ" dataSinkRole="_66I12QoGEeuqRKfhGJupQQ">
           <variableReference referenceName="flights"/>
@@ -60,14 +73,27 @@
           </localVariableUsages_SetVariableAction>
         </steps_Behaviour>
         <steps_Behaviour xsi:type="seff:StopAction" id="_K-esYQZHEeuTVv_2RzcyRA" entityName="TravelPlannerFacade.findFlights.stop" predecessor_AbstractAction="_jVCz2QoGEeuqRKfhGJupQQ"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_QriiMB53Eeub9rQ1rJH5OA" entityName="TravelPlannerFacade.findFlights.createCriteriaDate" predecessor_AbstractAction="_K-esYAZHEeuTVv_2RzcyRA" successor_AbstractAction="_FvrgPQoAEeunc5L08jViCA">
+          <variableReference referenceName="criteriaDate"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_K3rQsB54EeuYAPYPj_T7gw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_LxcxUx54EeuYAPYPj_T7gw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="criteria"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="criteriaDate"/>
+          </variableUsages>
+        </steps_Behaviour>
       </serviceEffectSpecifications__BasicComponent>
       <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_K-0DkAZHEeuTVv_2RzcyRA" describedService__SEFF="_G9hYYAZHEeuTVv_2RzcyRA">
-        <steps_Behaviour xsi:type="seff:StartAction" id="_K-0DkQZHEeuTVv_2RzcyRA" entityName="TravelPlannerFacade.bookFlight.start" successor_AbstractAction="_FdD_cQpyEeu5W7_QEvvNqQ"/>
-        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_FdD_cQpyEeu5W7_QEvvNqQ" entityName="TravelPlannerFacade.bookflight.emitflight" predecessor_AbstractAction="_K-0DkQZHEeuTVv_2RzcyRA" successor_AbstractAction="_I1gh8QpyEeu5W7_QEvvNqQ" dataSourceRole="_W1f-ygpaEeuqN7ohkJglEA">
-          <variableReference referenceName="flight"/>
+        <steps_Behaviour xsi:type="seff:StartAction" id="_K-0DkQZHEeuTVv_2RzcyRA" entityName="TravelPlannerFacade.bookFlight.start" successor_AbstractAction="_Pf7_0B55EeuYAPYPj_T7gw"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_FdD_cQpyEeu5W7_QEvvNqQ" entityName="TravelPlannerFacade.bookflight.emitflight" predecessor_AbstractAction="_SQKEsB55EeuYAPYPj_T7gw" successor_AbstractAction="_I1gh8QpyEeu5W7_QEvvNqQ" dataSourceRole="_W1f-ygpaEeuqN7ohkJglEA">
+          <variableReference referenceName="flightDate"/>
         </steps_Behaviour>
         <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_I1gh8QpyEeu5W7_QEvvNqQ" entityName="TravelPlannerFacade.bookflight.emitccd" predecessor_AbstractAction="_FdD_cQpyEeu5W7_QEvvNqQ" successor_AbstractAction="_QoUW8ApyEeu5W7_QEvvNqQ" dataSourceRole="_7PRtegoIEeuqRKfhGJupQQ">
-          <variableReference referenceName="ccd"/>
+          <variableReference referenceName="ccdDate"/>
         </steps_Behaviour>
         <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:ConsumeDataAction" id="_QoUW8ApyEeu5W7_QEvvNqQ" entityName="TravelPlannerFacade.bookflight.consumeconfirmation" predecessor_AbstractAction="_I1gh8QpyEeu5W7_QEvvNqQ" successor_AbstractAction="_RGW9yQpyEeu5W7_QEvvNqQ" dataSinkRole="_4nyGyQoIEeuqRKfhGJupQQ">
           <variableReference referenceName="confirmation"/>
@@ -85,16 +111,55 @@
           </localVariableUsages_SetVariableAction>
         </steps_Behaviour>
         <steps_Behaviour xsi:type="seff:StopAction" id="_K-0DkgZHEeuTVv_2RzcyRA" entityName="TravelPlannerFacade.bookFlight.stop" predecessor_AbstractAction="_RGW9yQpyEeu5W7_QEvvNqQ"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_Pf7_0B55EeuYAPYPj_T7gw" entityName="TravelPlannerFacade.bookflight.createFlightDate" predecessor_AbstractAction="_K-0DkQZHEeuTVv_2RzcyRA" successor_AbstractAction="_SQKEsB55EeuYAPYPj_T7gw">
+          <variableReference referenceName="flightDate"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_sDoCwB55EeuYAPYPj_T7gw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_s63z0x55EeuYAPYPj_T7gw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="flight"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="flightDate"/>
+          </variableUsages>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_SQKEsB55EeuYAPYPj_T7gw" entityName="TravelPlannerFacade.bookflight.createCCDDate" predecessor_AbstractAction="_Pf7_0B55EeuYAPYPj_T7gw" successor_AbstractAction="_FdD_cQpyEeu5W7_QEvvNqQ">
+          <variableReference referenceName="ccdDate"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_03z1MB55EeuYAPYPj_T7gw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_2CHsMx55EeuYAPYPj_T7gw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="ccd"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="ccdDate"/>
+          </variableUsages>
+        </steps_Behaviour>
       </serviceEffectSpecifications__BasicComponent>
     </components__Repository>
     <components__Repository xsi:type="repository:BasicComponent" id="_YXH7wAY3Eeuv9OmE7aVAxA" entityName="AirlineFacade">
       <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_-puEIQfQEeuo_qwmXnjVvw" entityName="AirlineFacade.provided.FlightPlanner" providedInterface__OperationProvidedRole="_0pRqRwcdEeubY9P78o028Q"/>
       <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_CvqzmgfWEeu-M8JAYJSQDQ" entityName="AirlineFacade.source.Flight" dataInterface="_ZQrn0ApaEeuqN7ohkJglEA"/>
       <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_AhVtFwfREeuo_qwmXnjVvw" describedService__SEFF="_4TLwMAcdEeubY9P78o028Q">
-        <steps_Behaviour xsi:type="seff:StartAction" id="_CQxqYgfREeuo_qwmXnjVvw" entityName="AirlineFacade.addFlight.start" successor_AbstractAction="_8JGIMgfVEeu-M8JAYJSQDQ"/>
+        <steps_Behaviour xsi:type="seff:StartAction" id="_CQxqYgfREeuo_qwmXnjVvw" entityName="AirlineFacade.addFlight.start" successor_AbstractAction="_ZfywoB54EeuYAPYPj_T7gw"/>
         <steps_Behaviour xsi:type="seff:StopAction" id="_Dk9PEAfREeuo_qwmXnjVvw" entityName="AirlineFacade.addFlight.stop" predecessor_AbstractAction="_8JGIMgfVEeu-M8JAYJSQDQ"/>
-        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_8JGIMgfVEeu-M8JAYJSQDQ" entityName="AirlineFacade.addFlight.emit" predecessor_AbstractAction="_CQxqYgfREeuo_qwmXnjVvw" successor_AbstractAction="_Dk9PEAfREeuo_qwmXnjVvw" dataSourceRole="_CvqzmgfWEeu-M8JAYJSQDQ">
-          <variableReference referenceName="flight"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_8JGIMgfVEeu-M8JAYJSQDQ" entityName="AirlineFacade.addFlight.emit" predecessor_AbstractAction="_ZfywoB54EeuYAPYPj_T7gw" successor_AbstractAction="_Dk9PEAfREeuo_qwmXnjVvw" dataSourceRole="_CvqzmgfWEeu-M8JAYJSQDQ">
+          <variableReference referenceName="flightDate"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_ZfywoB54EeuYAPYPj_T7gw" entityName="AirlineFacade.addFlight.createFlightDate" predecessor_AbstractAction="_CQxqYgfREeuo_qwmXnjVvw" successor_AbstractAction="_8JGIMgfVEeu-M8JAYJSQDQ">
+          <variableReference referenceName="flightDate"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_syqIcB54EeuYAPYPj_T7gw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_uIq5Ix54EeuYAPYPj_T7gw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="flight"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="flightDate"/>
+          </variableUsages>
         </steps_Behaviour>
       </serviceEffectSpecifications__BasicComponent>
     </components__Repository>
