@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: PCM DataFlow Confidentiality Profile
+Bundle-SymbolicName: org.palladiosimulator.dataflow.confidentiality.pcm.model.profile;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Require-Bundle: org.modelversioning.emfprofile,
+ org.modelversioning.emfprofile.registry,
+ org.palladiosimulator.indirections;bundle-version="4.3.0"
+Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.model.profile
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.impl.Activator
+Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.model.profile

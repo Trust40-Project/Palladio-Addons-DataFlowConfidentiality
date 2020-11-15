@@ -23,10 +23,13 @@ import org.prolog4j.swicli.enabler.SWIPrologEmbeddedFallbackExecutableProvider
 
 import static org.junit.jupiter.api.Assertions.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.StandaloneUtil.getModelURI
+import org.eclipse.emf.ecore.resource.ResourceSet
+import org.palladiosimulator.pcm.allocation.Allocation
 
 class PrologWorkflowTests {
 
 	Prover prover
+	ResourceSet rs
 	static SWIPrologCLIProverFactory proverFactory
 
 	@BeforeAll
@@ -42,28 +45,12 @@ class PrologWorkflowTests {
 	@BeforeEach
 	def void setup() {
 		prover = proverFactory.createProver
+		rs = new ResourceSetImpl
 	}
 
 	@Test
 	def void testActorProcessGeneration() {
-		val usageModelUris = getModelURIs("LoyaltyCard", "MakeStorePurchaseOnline.bpusagemodel",
-			"MakeStorePurchaseWithLoyaltyProgram.bpusagemodel",
-			"Prepare Advertisements and Discounts.bpusagemodel", "RegisterLoyaltyCustomer.usagemodel",
-			"RegisterOnlineCustomer.usagemodel")
-
-		val rs = new ResourceSetImpl
-		val elscs = usageModelUris.map[uri|rs.getResource(uri, true).contents.head as UsageModel].flatMap [
-			usageScenario_UsageModel
-		].map[scenarioBehaviour_UsageScenario].toMap([sb|sb], [sb|sb.eAllContents.toList.filter(EntryLevelSystemCall)])
-
-		initializeProver(usageModelUris)
-
-		val query = prover.query('''
-			actorProcess(P, A).
-		''')
-		val solution = query.solve()
-		assertTrue(solution.isSuccess)
-
+		val solution = initWithTravelPlanner("actorProcess(P, A).")
 		val actorProcessMap = new HashMap<String, Collection<String>>
 		for (var solutionIter = solution.iterator; solutionIter.hasNext; solutionIter.next) {
 			val processName = solutionIter.get("P", String)
@@ -72,49 +59,27 @@ class PrologWorkflowTests {
 			processNames.add(processName)
 		}
 
-		for (sb : elscs.keySet) {
-
-			val key = actorProcessMap.keySet.findFirst[contains(sb.entityName)]
-			val processNames = actorProcessMap.get(key)
-
-			for (elsc : elscs.get(sb)) {
-				var requiredProcesses = 2;
-				if (elsc.operationSignature__EntryLevelSystemCall.returnType__OperationSignature === null) {
-					requiredProcesses--
-				}
-				if (elsc.operationSignature__EntryLevelSystemCall.parameters__OperationSignature.isEmpty) {
-					requiredProcesses--
-				}
-
-				val relatedElscs = processNames.filter[contains(elsc.entityName)]
-				assertEquals(requiredProcesses, relatedElscs.size,
-					"The required amount of processes is not met for " + elsc.id)
-				processNames.removeAll(relatedElscs)
-			}
-
-			assertTrue(processNames.isEmpty)
-			actorProcessMap.remove(key);
-
-		}
-
-		assertTrue(actorProcessMap.isEmpty)
+		val userActorName = actorProcessMap.keySet.findFirst[contains("User")]
+		val flightPlannerActorName = actorProcessMap.keySet.findFirst[contains("FlightPlanner")]
+		assertEquals(2, actorProcessMap.keySet.size)
+		assertEquals(5, actorProcessMap.get(userActorName).size)
+		assertEquals(1, actorProcessMap.get(flightPlannerActorName).size)
 	}
+
 
 	@Test
 	def void testTrace() {
-		val usageModelUris = getModelURIs("LoyaltyCard", "MakeStorePurchaseOnline.bpusagemodel",
-			"MakeStorePurchaseWithLoyaltyProgram.bpusagemodel",
-			"Prepare Advertisements and Discounts.bpusagemodel", "RegisterLoyaltyCustomer.usagemodel",
-			"RegisterOnlineCustomer.usagemodel")
-
-		val rs = new ResourceSetImpl
-		val usageModels = usageModelUris.map[uri|rs.getResource(uri, true).contents.head as UsageModel]
-		val elscs = usageModels.flatMap[usageScenario_UsageModel].map[scenarioBehaviour_UsageScenario].
+		val modelURIs = getModelURIs("TravelPlanner-DC", "newUsageModel.usagemodel", "newAllocation.allocation")
+		val models = modelURIs.map[uri|rs.getResource(uri, true).contents.head]
+		val usageModel = models.filter(UsageModel).findFirst[true]
+		val allocationModel = models.filter(Allocation).findFirst[true]
+		val elscs = usageModel.usageScenario_UsageModel.map[scenarioBehaviour_UsageScenario].
 			toMap([sb|sb], [ sb |
 				sb.eAllContents.toList.filter(EntryLevelSystemCall)
 			])
 
-		val job = new TransformPCMDFDToPrologJobBuilder().addSerializeModelToString.addUsageModels(usageModels).build
+		val job = new TransformPCMDFDToPrologJobBuilder().addSerializeModelToString.addUsageModels(usageModel).
+			addAllocationModel(allocationModel).build
 		val workflow = TransformPCMDFDToPrologWorkflowFactory.createWorkflow(job)
 		workflow.run
 
@@ -134,10 +99,21 @@ class PrologWorkflowTests {
 
 		}
 	}
+	
+	
+	protected def initWithTravelPlanner(String queryString) {
+		val usageModelURIs = getModelURIs("TravelPlanner-DC", "newUsageModel.usagemodel")
+		val allocationModelURI = getModelURIs("TravelPlanner-DC", "newAllocation.allocation").get(0)
+		initializeProver(usageModelURIs, allocationModelURI)
+		val query = prover.query(queryString)
+		val solution = query.solve()
+		assertTrue(solution.isSuccess)
+		solution
+	}
 
-	protected def void initializeProver(List<URI> usageModelUris) {
+	protected def void initializeProver(List<URI> usageModelUris, URI allocationModelUri) {
 		val job = new TransformPCMDFDToPrologJobBuilder().addSerializeModelToString.addUsageModelsByURI(usageModelUris).
-			build
+			addAllocationModelByURI(allocationModelUri).build
 		val workflow = TransformPCMDFDToPrologWorkflowFactory.createWorkflow(job)
 		workflow.run
 

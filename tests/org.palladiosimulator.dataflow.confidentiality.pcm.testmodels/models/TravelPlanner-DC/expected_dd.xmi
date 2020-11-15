@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="ASCII"?>
+<DataDictionaryCharacterized:DataDictionaryCharacterized xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" id="_xXDAAB6AEeudW5WjzIppVQ">
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_xevjcB6AEeudW5WjzIppVQ" name="AllowedRoles" type="_xevjcR6AEeudW5WjzIppVQ"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_xe0b8B6AEeudW5WjzIppVQ" name="OwnedRoles" type="_xevjcR6AEeudW5WjzIppVQ"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_xe1DAB6AEeudW5WjzIppVQ" name="CorrespondingActor" type="_xe1DAR6AEeudW5WjzIppVQ"/>
+  <enumerations id="_xevjcR6AEeudW5WjzIppVQ" name="AccessRights">
+    <literals id="_xewKgB6AEeudW5WjzIppVQ" name="User"/>
+    <literals id="_xewKgR6AEeudW5WjzIppVQ" name="TravelAgency"/>
+    <literals id="_xewKgh6AEeudW5WjzIppVQ" name="Airline"/>
+  </enumerations>
+  <enumerations id="_xe1DAR6AEeudW5WjzIppVQ" name="Actors">
+    <literals id="_xe1DAh6AEeudW5WjzIppVQ" name="User"/>
+    <literals id="_xe1DAx6AEeudW5WjzIppVQ" name="FlightPlanner"/>
+  </enumerations>
+</DataDictionaryCharacterized:DataDictionaryCharacterized>

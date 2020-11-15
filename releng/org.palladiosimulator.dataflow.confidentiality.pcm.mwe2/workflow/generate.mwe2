@@ -78,6 +78,10 @@ Workflow {
 			from = "platform:/plugin/org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.genmodel"
 			to = "platform:/resource/org.palladiosimulator.dataflow.dictionary.characterized/model/DataDictionaryCharacterized.genmodel"
 		}
+		uriMap = {
+			from = "platform:/plugin/org.palladiosimulator.indirections.genmodel"
+			to = "platform:/resource/org.palladiosimulator.indirections.genmodel"
+		}
 		
 		registerGeneratedEPackage = "org.eclipse.uml2.codegen.ecore.genmodel.GenModelPackage"
 	}
@@ -86,13 +90,17 @@ Workflow {
 		generateCustomClasses = false
 		generateEdit = true
 		generateEditor = true
-		genModel = "platform:/resource/org.palladiosimulator.dataflow.confidentiality.pcm.model/model/characterizedActions.genmodel"
+		genModel = "platform:/resource/org.palladiosimulator.dataflow.confidentiality.pcm.model/model/dataFlowConfidentiality.genmodel"
 		srcPath = "platform:/resource/org.palladiosimulator.dataflow.confidentiality.pcm.model/src"
 		srcPath = "platform:/resource/org.palladiosimulator.dataflow.confidentiality.pcm.model.edit/src"
 		srcPath = "platform:/resource/org.palladiosimulator.dataflow.confidentiality.pcm.model.editor/src"
 	}
 
 	component = GapPatternPostProcessor {
+		folders = {
+			gen = "platform:/resource/org.palladiosimulator.dataflow.confidentiality.pcm.model/src-gen"
+			src = "platform:/resource/org.palladiosimulator.dataflow.confidentiality.pcm.model/src"
+		}
 		folders = {
 			gen = "platform:/resource/org.palladiosimulator.dataflow.confidentiality.pcm.model.edit/src-gen"
 			src = "platform:/resource/org.palladiosimulator.dataflow.confidentiality.pcm.model.edit/src"

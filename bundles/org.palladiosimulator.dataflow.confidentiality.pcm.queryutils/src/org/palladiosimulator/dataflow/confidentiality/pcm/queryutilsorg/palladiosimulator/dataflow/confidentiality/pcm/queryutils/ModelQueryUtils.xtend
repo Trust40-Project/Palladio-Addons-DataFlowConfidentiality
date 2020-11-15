@@ -16,8 +16,8 @@ class ModelQueryUtils {
 		obj.eAllContents.filter(clz).toIterable
 	}
 	
-	def <T> T findParentOfType(EObject obj, Class<T> clz) {
-		var currentObject = obj
+	def <T> T findParentOfType(EObject obj, Class<T> clz, boolean includeSelf) {
+		var currentObject = includeSelf ? obj : obj.eContainer
 		for (; currentObject !== null && !clz.isInstance(currentObject); currentObject = currentObject.eContainer) {}
 		currentObject as T
 	}

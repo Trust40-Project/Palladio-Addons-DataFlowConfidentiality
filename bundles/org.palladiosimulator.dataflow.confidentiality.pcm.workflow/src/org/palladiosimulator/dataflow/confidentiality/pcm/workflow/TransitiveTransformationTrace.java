@@ -1,6 +1,7 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow;
 
 import java.util.Collection;
+import java.util.Stack;
 import java.util.function.Predicate;
 
 import org.eclipse.emf.ecore.EObject;
@@ -13,7 +14,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
 public interface TransitiveTransformationTrace {
 
     Collection<String> getFactIds(EObject pcmElement);
-    Collection<String> getFactIds(EObject pcmElement, Collection<Identifier> pcmElementContext);
+    Collection<String> getFactIds(EObject pcmElement, Stack<Identifier> pcmElementContext);
     Collection<String> getFactId(Predicate<CharacteristicType> predicate);
     Collection<String> getLiteralFactIds(EObject pcmElement);
     Collection<PCMTraceElement> getPCMEntries(String factId);

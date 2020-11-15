@@ -102,6 +102,10 @@ class DFDFactoryUtilities {
 		reference
 	}
 	
+	def createDataFlow() {
+		createCharacterizedDataFlow
+	}
+	
 	def createDataFlow(Node source, Pin sourcePin, Node destination, Pin destinationPin, DataType dataType) {
 		val flow = createCharacterizedDataFlow
 		//TODO calculate and set name

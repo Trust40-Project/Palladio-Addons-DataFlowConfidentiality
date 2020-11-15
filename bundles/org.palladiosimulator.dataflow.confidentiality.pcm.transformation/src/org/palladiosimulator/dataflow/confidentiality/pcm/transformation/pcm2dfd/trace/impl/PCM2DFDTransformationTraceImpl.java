@@ -2,6 +2,7 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2df
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Stack;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
@@ -39,7 +40,7 @@ public class PCM2DFDTransformationTraceImpl implements PCM2DFDTransformationTrac
     }
 
     @Override
-    public Collection<DFDTraceElement> getDFDEntries(EObject pcmElement, Collection<Identifier> pcmElementContext) {
+    public Collection<DFDTraceElement> getDFDEntries(EObject pcmElement, Stack<Identifier> pcmElementContext) {
         return traceEntries.stream()
             .filter(entry -> entry.getPCMEntry() instanceof PCMContextHavingTraceElement)
             .filter(entry -> ((PCMContextHavingTraceElement) entry.getPCMEntry()).getContext()
