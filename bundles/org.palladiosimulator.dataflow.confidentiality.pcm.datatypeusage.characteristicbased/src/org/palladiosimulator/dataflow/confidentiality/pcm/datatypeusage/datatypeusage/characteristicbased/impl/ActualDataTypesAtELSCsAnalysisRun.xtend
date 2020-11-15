@@ -32,17 +32,17 @@ class ActualDataTypesAtELSCsAnalysisRun extends AnalysisRunBase {
 
 	protected def buildAnalysisQueryForWrittenDataReal(String nodeId, TransitiveTransformationTrace trace) {
 		val query = prover.query('''
-			CTNODE = ?CTNODE,
-			VNODE = ?VNODE,
-			CTDTS = ?CTDTS,
+			CTNODE = ?CTNODE2,
+			VNODE = ?VNODE2,
+			CTDTS = ?CTDTS2,
 			store(P),
 			inputPin(P, PIN),
 			characteristic(P, PIN, CTNODE, VNODE, S),
-			setof(X, characteristic(P, PIN, CTDTS, X, S), DTS).
+			setof_characteristics(P, PIN, CTDTS, DTS, S).
 		''')
-		query.bind("J$CTNODE", trace.traversedNodesCharacteristicTypeId)
-		query.bind("J$VNODE", nodeId)
-		query.bind("J$CTDTS", trace.actualDataTypesCharacteristicTypeId)
+		query.bind("CTNODE2", trace.traversedNodesCharacteristicTypeId)
+		query.bind("VNODE2", nodeId)
+		query.bind("CTDTS2", trace.actualDataTypesCharacteristicTypeId)
 		query
 	}
 
@@ -61,17 +61,17 @@ class ActualDataTypesAtELSCsAnalysisRun extends AnalysisRunBase {
 
 	protected def buildAnalysisQueryForReadDataReal(String nodeId, TransitiveTransformationTrace trace) {
 		val query = prover.query('''
-			CTDTS = ?CTDTS,
-			VNODE = ?VNODE,
+			CTDTS = ?CTDTS2,
+			VNODE = ?VNODE2,
 			nodeLiteral(VNODE, P),
 			(
 				inputPin(P, PIN);
 				outputPin(P, PIN)
 			),
-			setof(X, characteristic(P, PIN, CTDTS, X, S), DTS).
+			setof_characteristics(P, PIN, CTDTS, DTS, S).
 		''')
-		query.bind("J$CTDTS", trace.actualDataTypesCharacteristicTypeId)
-		query.bind("J$VNODE", nodeId)
+		query.bind("CTDTS2", trace.actualDataTypesCharacteristicTypeId)
+		query.bind("VNODE2", nodeId)
 		query
 	}
 

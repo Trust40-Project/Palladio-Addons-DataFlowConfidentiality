@@ -2,8 +2,6 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.datatypeusage.datatyp
 
 import de.uka.ipd.sdq.identifier.Identifier
 import de.uka.ipd.sdq.workflow.WorkflowExceptionHandler
-import java.io.File
-import java.nio.file.Files
 import java.util.ArrayList
 import java.util.Collection
 import java.util.HashMap
@@ -86,10 +84,6 @@ abstract class AnalysisRunBase {
 		for (factId : factIds) {
 			dataTypeUsageResults += factId.performAnalysisForNode(trace)
 		}
-//		val readDataTypes = dataTypeUsageResults.flatMap[readDataTypes].toSet
-//		val writeDataTypes = dataTypeUsageResults.flatMap[writeDataTypes].toSet
-//		
-//		new DataTypeUsageQueryResultImpl(readDataTypes, writeDataTypes)
 		dataTypeUsageResults
 	}
 
@@ -97,13 +91,12 @@ abstract class AnalysisRunBase {
 
 	protected def isStore(String nodeId) {
 		val isStoreQuery = prover.query('''store(?P).''')
-		isStoreQuery.bind("J$P", nodeId);
+		isStoreQuery.bind("P", nodeId);
 		isStoreQuery.solve().isSuccess
 	}
 
 	protected def initializeProver(TransformPCMDFDToPrologWorkflow job) {
 		val prologProgram = job.prologProgram.orElseThrow
-		Files.writeString(new File("D:\\tmp\\loyalty.pl").toPath, prologProgram) //FIXME remove
 		prover.addTheory(prologProgram)
 	}
 
@@ -122,7 +115,7 @@ abstract class AnalysisRunBase {
 
 	protected static def getProverFactory() {
 		val provers = Activator.instance.proverManager.getProvers()
-		val preferredProver = provers.filter[proverInfo, prover|!proverInfo.needsNativeExecutables].values.head
+		val preferredProver = provers.filter[proverInfo, prover|proverInfo.name.toLowerCase.contains("swi")].values.head
 		var prover = Optional.ofNullable(preferredProver)
 		if (prover.isEmpty) {
 			prover = Optional.ofNullable(provers.values.head)
@@ -156,8 +149,13 @@ abstract class AnalysisRunBase {
 		for (var solutionIter = solution.iterator; solutionIter.hasNext; solutionIter.next) {
 			val solutionEntry = new HashMap<String, Object>();
 			for (variable : expectedVariables.keySet) {
-				val value = solutionIter.get(variable)
+				var value = solutionIter.get(variable)
 				val valueType = expectedVariables.get(variable)
+				if (value.isAnonymous) {
+					if (Collection.isAssignableFrom(valueType)) {
+						value = #[]
+					}
+				}
 				if (!valueType.isInstance(value)) {
 					throw new IllegalArgumentException('''Wrong type «valueType.simpleName» for variable «variable».''')
 				}
@@ -166,6 +164,10 @@ abstract class AnalysisRunBase {
 			solutions.add(solutionEntry)
 		}
 		solutions
+	}
+	
+	protected def isAnonymous(Object value) {
+		return value instanceof String && (value as String).startsWith("_")
 	}
 
 	protected def getDataType(String id, TransitiveTransformationTrace trace) {
