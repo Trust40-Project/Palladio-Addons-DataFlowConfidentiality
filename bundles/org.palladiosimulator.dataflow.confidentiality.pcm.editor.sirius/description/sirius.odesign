@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" name="sirius" version="12.0.0.2017041100">
+  <ownedViewpoints name="PCM-Confidentiality">
+    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="PCM Confidentiality SEFF" viewpointURI="viewpoint:/org.palladiosimulator.editors.sirius.seff/Seff" representationName="Seff Diagram">
+      <metamodel href="../../org.palladiosimulator.dataflow.confidentiality.pcm.model/model/dataFlowConfidentiality.ecore#/"/>
+      <metamodel href="../../org.palladiosimulator.dataflow.confidentiality.pcm.model/model/dataFlowConfidentiality.ecore#//characteristics"/>
+      <metamodel href="../../org.palladiosimulator.dataflow.confidentiality.pcm.model/model/dataFlowConfidentiality.ecore#//expression"/>
+      <metamodel href="../../org.palladiosimulator.dataflow.confidentiality.pcm.model/model/dataFlowConfidentiality.ecore#//behaviour"/>
+      <metamodel href="../../org.palladiosimulator.indirections/model/indirections.ecore#/"/>
+      <metamodel href="../../org.palladiosimulator.indirections/model/indirections.ecore#//actions"/>
+      <metamodel href="../../org.palladiosimulator.indirections/model/indirections.ecore#//composition"/>
+      <metamodel href="../../org.palladiosimulator.indirections/model/indirections.ecore#//repository"/>
+      <metamodel href="../../org.palladiosimulator.indirections/model/indirections.ecore#//composition/abstract"/>
+      <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.2#//parameter"/>
+      <layers name="org.palladiosimulator.dataflow.confidentiality.pcm.editor.sirius" label="PCM Confidentiality" activeByDefault="true" optional="false">
+        <containerMappings xsi:type="description_1:ContainerMappingImport" name="CreateDateAction" semanticCandidatesExpression="feature:steps_Behaviour" childrenPresentation="VerticalStack">
+          <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="OutputVariableUsageCompartment" semanticCandidatesExpression="var:self" domainClass="CreateDateAction">
+            <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="OutputVariableUsage" semanticCandidatesExpression="feature:variableUsages" domainClass="parameter::VariableUsage" childrenPresentation="List">
+              <subNodeMappings xsi:type="description_1:NodeMappingImport" name="VariableCharacterisationOutput" semanticCandidatesExpression="aql:self.variableCharacterisation_VariableUsage->select(u | not u.oclIsKindOf(confidentiality::ConfidentialityVariableCharacterisation))" domainClass="parameter::VariableCharacterisation">
+                <importedMapping href="../../org.palladiosimulator.indirections.editor.sirius/description/indirections.odesign#//@ownedViewpoints[name='PCM-Indirections']/@ownedRepresentationExtensions[name='PCM%20Indirections%20SEFF']/@layers[name='org.palladiosimulator.indirections.editor.sirius.Indirections.seff']/@containerMappings[name='CreateDateAction']/@subContainerMappings[name='OutputVariableUsageCompartment']/@subContainerMappings[name='OutputVariableUsage']/@subNodeMappings[name='VariableCharacterisationOutput']"/>
+              </subNodeMappings>
+              <subNodeMappings name="ConfidentialityVariableCharacterisationOutput" semanticCandidatesExpression="aql:self.variableCharacterisation_VariableUsage->select(u | u.oclIsKindOf(confidentiality::ConfidentialityVariableCharacterisation))" domainClass="ConfidentialityVariableCharacterisation">
+                <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="service:getConfidentialityVariableCharacterisationLabel()" labelPosition="node" resizeKind="NSEW">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                </style>
+              </subNodeMappings>
+              <importedMapping href="../../org.palladiosimulator.indirections.editor.sirius/description/indirections.odesign#//@ownedViewpoints[name='PCM-Indirections']/@ownedRepresentationExtensions[name='PCM%20Indirections%20SEFF']/@layers[name='org.palladiosimulator.indirections.editor.sirius.Indirections.seff']/@containerMappings[name='CreateDateAction']/@subContainerMappings[name='OutputVariableUsageCompartment']/@subContainerMappings[name='OutputVariableUsage']"/>
+            </subContainerMappings>
+            <importedMapping href="../../org.palladiosimulator.indirections.editor.sirius/description/indirections.odesign#//@ownedViewpoints[name='PCM-Indirections']/@ownedRepresentationExtensions[name='PCM%20Indirections%20SEFF']/@layers[name='org.palladiosimulator.indirections.editor.sirius.Indirections.seff']/@containerMappings[name='CreateDateAction']/@subContainerMappings[name='OutputVariableUsageCompartment']"/>
+          </subContainerMappings>
+          <importedMapping href="../../org.palladiosimulator.indirections.editor.sirius/description/indirections.odesign#//@ownedViewpoints[name='PCM-Indirections']/@ownedRepresentationExtensions[name='PCM%20Indirections%20SEFF']/@layers[name='org.palladiosimulator.indirections.editor.sirius.Indirections.seff']/@containerMappings[name='CreateDateAction']"/>
+        </containerMappings>
+      </layers>
+    </ownedRepresentationExtensions>
+    <ownedJavaExtensions qualifiedClassName="org.palladiosimulator.dataflow.confidentiality.pcm.editor.sirius.Services"/>
+  </ownedViewpoints>
+</description:Group>

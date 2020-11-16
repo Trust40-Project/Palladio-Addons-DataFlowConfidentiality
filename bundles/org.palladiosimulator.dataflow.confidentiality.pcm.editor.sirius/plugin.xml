@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+<plugin>
+  <extension point="org.eclipse.sirius.componentization">
+    <component class="org.palladiosimulator.dataflow.confidentiality.pcm.editor.sirius.Activator"
+               id="org.palladiosimulator.dataflow.confidentiality.pcm.editor.sirius"
+	       name="sirius">
+    </component>
+  </extension>
+</plugin>
