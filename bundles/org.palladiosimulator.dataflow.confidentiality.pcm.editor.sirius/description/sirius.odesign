@@ -12,7 +12,7 @@
       <metamodel href="../../org.palladiosimulator.indirections/model/indirections.ecore#//repository"/>
       <metamodel href="../../org.palladiosimulator.indirections/model/indirections.ecore#//composition/abstract"/>
       <metamodel href="http://palladiosimulator.org/PalladioComponentModel/5.2#//parameter"/>
-      <layers name="org.palladiosimulator.dataflow.confidentiality.pcm.editor.sirius" label="PCM Confidentiality" activeByDefault="true" optional="false">
+      <layers name="org.palladiosimulator.dataflow.confidentiality.pcm.editor.sirius.seff" label="PCM Confidentiality" activeByDefault="true" optional="false">
         <containerMappings xsi:type="description_1:ContainerMappingImport" name="CreateDateAction" semanticCandidatesExpression="feature:steps_Behaviour" childrenPresentation="VerticalStack">
           <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="OutputVariableUsageCompartment" semanticCandidatesExpression="var:self" domainClass="CreateDateAction">
             <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="OutputVariableUsage" semanticCandidatesExpression="feature:variableUsages" domainClass="parameter::VariableUsage" childrenPresentation="List">
@@ -31,6 +31,78 @@
             <importedMapping href="../../org.palladiosimulator.indirections.editor.sirius/description/indirections.odesign#//@ownedViewpoints[name='PCM-Indirections']/@ownedRepresentationExtensions[name='PCM%20Indirections%20SEFF']/@layers[name='org.palladiosimulator.indirections.editor.sirius.Indirections.seff']/@containerMappings[name='CreateDateAction']/@subContainerMappings[name='OutputVariableUsageCompartment']"/>
           </subContainerMappings>
           <importedMapping href="../../org.palladiosimulator.indirections.editor.sirius/description/indirections.odesign#//@ownedViewpoints[name='PCM-Indirections']/@ownedRepresentationExtensions[name='PCM%20Indirections%20SEFF']/@layers[name='org.palladiosimulator.indirections.editor.sirius.Indirections.seff']/@containerMappings[name='CreateDateAction']"/>
+        </containerMappings>
+      </layers>
+    </ownedRepresentationExtensions>
+    <ownedRepresentationExtensions xsi:type="description_1:DiagramExtensionDescription" name="PCM Confidentiality UsageModel" viewpointURI="viewpoint:/org.palladiosimulator.editors.sirius.usage/UsageModel" representationName="UsageModel Diagram">
+      <layers name="org.palladiosimulator.dataflow.confidentiality.pcm.editor.sirius.usagemodel" label="PCM  Confidentiality" activeByDefault="true" optional="false">
+        <containerMappings xsi:type="description_1:ContainerMappingImport" name="usageScenario" semanticCandidatesExpression="aql: self.usageScenario_UsageModel" domainClass="usagemodel.UsageScenario">
+          <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="scenarioBehavior" semanticCandidatesExpression="aql: self.scenarioBehaviour_UsageScenario" domainClass="usagemodel.ScenarioBehaviour">
+            <reusedNodeMappings href="../../org.palladiosimulator.editors.sirius.usage/description/usage.odesign#//@ownedViewpoints[name='UsageModel']/@ownedRepresentations[name='UsageModel%20Diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='start']"/>
+            <reusedNodeMappings href="../../org.palladiosimulator.editors.sirius.usage/description/usage.odesign#//@ownedViewpoints[name='UsageModel']/@ownedRepresentations[name='UsageModel%20Diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subNodeMappings[name='stop']"/>
+            <subContainerMappings xsi:type="description_1:ContainerMappingImport" name="entryLevelSystemCall" semanticCandidatesExpression="feature:actions_ScenarioBehaviour" domainClass="usagemodel.EntryLevelSystemCall">
+              <subContainerMappings name="VariableUsageInputCompartment" semanticCandidatesExpression="var:self" domainClass="usagemodel.EntryLevelSystemCall">
+                <subContainerMappings name="VariableUsageInput" semanticCandidatesExpression="feature:inputParameterUsages_EntryLevelSystemCall" domainClass="parameter.VariableUsage" childrenPresentation="List">
+                  <subNodeMappings xsi:type="description_1:NodeMappingImport" name="variableCharacterisation" semanticCandidatesExpression="aql:self.variableCharacterisation_VariableUsage->select(u | not u.oclIsKindOf(confidentiality::ConfidentialityVariableCharacterisation))" domainClass="parameter.VariableCharacterisation">
+                    <importedMapping href="../../org.palladiosimulator.editors.sirius.usage/description/usage.odesign#//@ownedViewpoints[name='UsageModel']/@ownedRepresentations[name='UsageModel%20Diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall']/@subContainerMappings[name='variableUsage']/@subNodeMappings[name='variableCharacterisation']"/>
+                  </subNodeMappings>
+                  <subNodeMappings name="ConfidentialityVariableCharacterisation" semanticCandidatesExpression="aql:self.variableCharacterisation_VariableUsage->select(u | u.oclIsKindOf(confidentiality::ConfidentialityVariableCharacterisation))" domainClass="ConfidentialityVariableCharacterisation">
+                    <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="service:getConfidentialityVariableCharacterisationLabel()" labelPosition="node" resizeKind="NSEW">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                    </style>
+                  </subNodeMappings>
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="service:getFullName()">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+                  </style>
+                </subContainerMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="InputVariableUsageCompartment">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                </style>
+              </subContainerMappings>
+              <subContainerMappings name="VariableUsageOutputCompartment" semanticCandidatesExpression="var:self" domainClass="usagemodel.EntryLevelSystemCall">
+                <subContainerMappings name="VariableUsageOutput" semanticCandidatesExpression="feature:outputParameterUsages_EntryLevelSystemCall" domainClass="parameter.VariableUsage" childrenPresentation="List">
+                  <subNodeMappings xsi:type="description_1:NodeMappingImport" name="variableCharacterisation" semanticCandidatesExpression="aql:self.variableCharacterisation_VariableUsage->select(u | not u.oclIsKindOf(confidentiality::ConfidentialityVariableCharacterisation))" domainClass="parameter.VariableCharacterisation">
+                    <importedMapping href="../../org.palladiosimulator.editors.sirius.usage/description/usage.odesign#//@ownedViewpoints[name='UsageModel']/@ownedRepresentations[name='UsageModel%20Diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall']/@subContainerMappings[name='variableUsage']/@subNodeMappings[name='variableCharacterisation']"/>
+                  </subNodeMappings>
+                  <subNodeMappings name="ConfidentialityVariableCharacterisation" semanticCandidatesExpression="aql:self.variableCharacterisation_VariableUsage->select(u | u.oclIsKindOf(confidentiality::ConfidentialityVariableCharacterisation))" domainClass="ConfidentialityVariableCharacterisation">
+                    <style xsi:type="style:SquareDescription" showIcon="false" labelExpression="service:getConfidentialityVariableCharacterisationLabel()" labelPosition="node" resizeKind="NSEW">
+                      <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                      <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                    </style>
+                  </subNodeMappings>
+                  <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelExpression="service:getFullName()">
+                    <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                    <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+                    <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+                  </style>
+                </subContainerMappings>
+                <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" showIcon="false" labelExpression="OutputVariableUsageCompartment">
+                  <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                  <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+                  <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+                </style>
+              </subContainerMappings>
+              <importedMapping href="../../org.palladiosimulator.editors.sirius.usage/description/usage.odesign#//@ownedViewpoints[name='UsageModel']/@ownedRepresentations[name='UsageModel%20Diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='entryLevelSystemCall']"/>
+            </subContainerMappings>
+            <reusedContainerMappings href="../../org.palladiosimulator.editors.sirius.usage/description/usage.odesign#//@ownedViewpoints[name='UsageModel']/@ownedRepresentations[name='UsageModel%20Diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='branch']"/>
+            <reusedContainerMappings href="../../org.palladiosimulator.editors.sirius.usage/description/usage.odesign#//@ownedViewpoints[name='UsageModel']/@ownedRepresentations[name='UsageModel%20Diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='delay']"/>
+            <reusedContainerMappings href="../../org.palladiosimulator.editors.sirius.usage/description/usage.odesign#//@ownedViewpoints[name='UsageModel']/@ownedRepresentations[name='UsageModel%20Diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']/@subContainerMappings[name='loop']"/>
+            <importedMapping href="../../org.palladiosimulator.editors.sirius.usage/description/usage.odesign#//@ownedViewpoints[name='UsageModel']/@ownedRepresentations[name='UsageModel%20Diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='scenarioBehavior']"/>
+          </subContainerMappings>
+          <reusedContainerMappings href="../../org.palladiosimulator.editors.sirius.usage/description/usage.odesign#//@ownedViewpoints[name='UsageModel']/@ownedRepresentations[name='UsageModel%20Diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='closedWorkload']"/>
+          <reusedContainerMappings href="../../org.palladiosimulator.editors.sirius.usage/description/usage.odesign#//@ownedViewpoints[name='UsageModel']/@ownedRepresentations[name='UsageModel%20Diagram']/@defaultLayer/@containerMappings[name='usageScenario']/@subContainerMappings[name='openWorkload']"/>
+          <importedMapping href="../../org.palladiosimulator.editors.sirius.usage/description/usage.odesign#//@ownedViewpoints[name='UsageModel']/@ownedRepresentations[name='UsageModel%20Diagram']/@defaultLayer/@containerMappings[name='usageScenario']"/>
         </containerMappings>
       </layers>
     </ownedRepresentationExtensions>
