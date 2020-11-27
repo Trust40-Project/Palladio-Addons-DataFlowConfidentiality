@@ -115,10 +115,40 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="variableUsages" upperBound="-1"
           eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//parameter/VariableUsage"
           containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="reusedBehaviours" upperBound="-1"
+          eType="#//behaviour/BehaviourReuse" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="Behaviours" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataChannelBehaviour"
-          lowerBound="1" upperBound="-1" eType="#//behaviour/DataChannelBehaviour"
+          upperBound="-1" eType="#//behaviour/DataChannelBehaviour" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="reusableBehaviours" upperBound="-1"
+          eType="#//behaviour/ReusableBehaviour" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ReusableBehaviour" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="inputVariables" upperBound="-1"
+          eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//VariableReference"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="outputVariables" upperBound="-1"
+          eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//VariableReference"
+          containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableUsages" upperBound="-1"
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//parameter/VariableUsage"
+          containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="BehaviourReuse" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="reusedBehaviour" lowerBound="1"
+          eType="#//behaviour/ReusableBehaviour"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableBindings" upperBound="-1"
+          eType="#//behaviour/VariableBinding" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="variableUsages" upperBound="-1"
+          eType="ecore:EClass ../../org.palladiosimulator.pcm/model/pcm.ecore#//parameter/VariableUsage"
+          changeable="false" transient="true" containment="true"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="VariableBinding" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="boundVariable" lowerBound="1"
+          eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="boundValue" lowerBound="1"
+          eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"
           containment="true"/>
     </eClassifiers>
   </eSubpackages>

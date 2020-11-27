@@ -261,7 +261,10 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		
 		// create behaviour		
 		val behaviour = dc.confidentialityBehavior.orElseThrow
-		process.addPinsAndBehavior(behaviour.variableUsages, context, false)
+		val variableUsages = new ArrayList
+		variableUsages += behaviour.reusedBehaviours.flatMap[variableUsages]
+		variableUsages += behaviour.variableUsages
+		process.addPinsAndBehavior(variableUsages, context, false)
 		
 		// create characteristics
 		process.createCharacteristics(context, dc)
