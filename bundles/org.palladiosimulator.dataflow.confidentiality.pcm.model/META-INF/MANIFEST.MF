@@ -22,6 +22,7 @@ Automatic-Module-Name: org.palladiosimulator.dataflow.confidentiality.pcm.model
 Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality,
  org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.impl,
  org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.util,
  org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics,
  org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.impl,
@@ -30,4 +31,7 @@ Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.model.confide
  org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.expression.impl,
  org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.expression.util,
  org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.impl,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.impl,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.util,
  org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.util

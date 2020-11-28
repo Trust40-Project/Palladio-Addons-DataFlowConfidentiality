@@ -118,4 +118,32 @@
       </editor>
    </extension>
 
+   <extension point="org.eclipse.ui.newWizards">
+      <!-- @generated dataFlowConfidentiality -->
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.presentation.RepositoryModelWizardID"
+            name="%_UI_RepositoryModelWizard_label"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.presentation.RepositoryModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/RepositoryModelFile.gif">
+         <description>%_UI_RepositoryModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <!-- @generated dataFlowConfidentiality -->
+      <editor
+            id="org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.presentation.RepositoryEditorID"
+            name="%_UI_RepositoryEditor_label"
+            icon="icons/full/obj16/RepositoryModelFile.gif"
+            extensions="repository"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.presentation.RepositoryEditor"
+            contributorClass="org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.presentation.RepositoryActionBarContributor">
+      </editor>
+   </extension>
+
 </plugin>

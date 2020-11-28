@@ -152,4 +152,20 @@
           containment="true"/>
     </eClassifiers>
   </eSubpackages>
+  <eSubpackages name="repository" nsURI="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/repository"
+      nsPrefix="repository">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL"/>
+    </eAnnotations>
+    <eClassifiers xsi:type="ecore:EClass" name="OperationalDataStoreComponent" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//repository/BasicComponent">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="onlyProvidesDataStoreInterface noRequiredInterfaces allSeffsAreEmpty"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <details key="onlyProvidesDataStoreInterface" value="self.providedRoles_InterfaceProvidingEntity->size() = 1 and&#xA;let opInterface : pcm::repository::OperationInterface = self.providedRoles_InterfaceProvidingEntity->selectByKind(pcm::repository::OperationProvidedRole).providedInterface__OperationProvidedRole->any(true) in&#xA;    opInterface.signatures__OperationInterface->size() = 2 and&#xA;    let addSignature : pcm::repository::OperationSignature = opInterface.signatures__OperationInterface->any(signature | signature.entityName.substring(1,3) = 'add') in&#xA;        addSignature.parameters__OperationSignature->size() = 1 and addSignature.returnType__OperationSignature.oclIsUndefined() and&#xA;        let getSignature : pcm::repository::OperationSignature = opInterface.signatures__OperationInterface->any(signature | signature.entityName.substring(1,3) = 'get') in&#xA;            getSignature.parameters__OperationSignature->size() = 0 and not getSignature.returnType__OperationSignature.oclIsUndefined() and&#xA;            addSignature.parameters__OperationSignature->any(true).dataType__Parameter = getSignature.returnType__OperationSignature"/>
+        <details key="noRequiredInterfaces" value="self.requiredRoles_InterfaceRequiringEntity->isEmpty()"/>
+        <details key="allSeffsAreEmpty" value="self.serviceEffectSpecifications__BasicComponent->selectByKind(pcm::seff::ResourceDemandingBehaviour)->forAll(seff | seff.steps_Behaviour->size() = 2)"/>
+      </eAnnotations>
+    </eClassifiers>
+  </eSubpackages>
 </ecore:EPackage>

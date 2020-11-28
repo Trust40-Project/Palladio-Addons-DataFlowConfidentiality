@@ -82,4 +82,24 @@
                org.eclipse.emf.edit.provider.IItemPropertySource"/>
    </extension>
 
+   <extension point="org.eclipse.emf.edit.itemProviderAdapterFactories">
+      <!-- @generated dataFlowConfidentiality -->
+      <factory
+            uri="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/repository"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.provider.RepositoryItemProviderAdapterFactory"
+            supportedTypes=
+              "org.eclipse.emf.edit.provider.IEditingDomainItemProvider
+               org.eclipse.emf.edit.provider.IStructuredItemContentProvider
+               org.eclipse.emf.edit.provider.ITreeItemContentProvider
+               org.eclipse.emf.edit.provider.IItemLabelProvider
+               org.eclipse.emf.edit.provider.IItemPropertySource"/>
+   </extension>
+
+   <extension point="org.eclipse.emf.edit.childCreationExtenders">
+      <!-- @generated dataFlowConfidentiality -->
+      <extender
+            uri="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2"
+            class="org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.provider.RepositoryItemProviderAdapterFactory$RepositoryChildCreationExtender"/>
+   </extension>
+
 </plugin>

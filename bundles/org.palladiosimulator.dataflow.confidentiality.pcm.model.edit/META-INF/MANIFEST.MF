@@ -32,4 +32,5 @@ Bundle-RequiredExecutionEnvironment: JavaSE-11
 Export-Package: org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.provider,
  org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.provider,
  org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.expression.provider,
- org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.provider
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.provider,
+ org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.provider

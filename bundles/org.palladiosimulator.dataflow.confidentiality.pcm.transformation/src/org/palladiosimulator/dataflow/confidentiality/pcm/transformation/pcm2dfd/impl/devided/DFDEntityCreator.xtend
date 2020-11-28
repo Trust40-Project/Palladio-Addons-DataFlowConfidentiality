@@ -15,6 +15,8 @@ import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.seff.AbstractAction
 import org.palladiosimulator.pcm.seff.ServiceEffectSpecification
 import org.palladiosimulator.pcm.usagemodel.AbstractUserAction
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.OperationalDataStoreComponent
+import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedStore
 
 class DFDEntityCreator implements TransformationResultGetter {
 	
@@ -84,24 +86,32 @@ class DFDEntityCreator implements TransformationResultGetter {
 	}
 	
 	override create process : createProcess getExitProcess(ServiceEffectSpecification seff, Stack<AssemblyContext> context) {
-		process.name = '''SEFF Exit «seff.describedService__SEFF.entityName»'''
+		process.name = '''SEFF Exit «context.peek.entityName».«seff.describedService__SEFF.entityName»'''
 		process.createBehavior
 		dfd.nodes += process
 		addTraceEntry(seff, context, process)
 	}
 	
 	override create process : createProcess getEntryProcess(ServiceEffectSpecification seff, Stack<AssemblyContext> context) {
-		process.name = '''SEFF Entry «seff.describedService__SEFF.entityName»'''
+		
+		process.name = '''SEFF Entry «context.peek.entityName».«seff.describedService__SEFF.entityName»'''
 		process.createBehavior
 		dfd.nodes += process
 		addTraceEntry(seff, context, process)
 	}
 	
 	override create process : createProcess getProcess(DataChannel dc, Stack<AssemblyContext> context) {
-		process.name = '''DC «dc.entityName»'''
+		process.name = '''DC «context.peek.entityName».«dc.entityName»'''
 		process.createBehavior
 		dfd.nodes += process
 		addTraceEntry(dc, context, process)
+	}
+	
+	override create store : createStore getStore(OperationalDataStoreComponent component, Stack<AssemblyContext> context) {
+		store.name = '''Store «context.peek.entityName».«component.entityName»'''
+		store.createBehavior
+		dfd.nodes += store
+		addTraceEntry(component, context, store)
 	}
 	
 	override create pin: createPin getOutputPin(CharacterizedProcess process, String pinName) {
@@ -124,6 +134,16 @@ class DFDEntityCreator implements TransformationResultGetter {
 	override getInputPin(CharacterizedProcess process, DataSinkRole role) {
 		val pinName = '''«role.entityName».«role.dataInterface.dataSignature.parameter.parameterName»'''
 		process.getInputPin(pinName);
+	}
+	
+	override create pin: createPin getOutputPin(CharacterizedStore store) {
+		pin.name = TransformationConstants.STORE_OUTPUT_PIN_NAME
+		store.behavior.outputs += pin
+	}
+	
+	override create pin: createPin getInputPin(CharacterizedStore store) {
+		pin.name = TransformationConstants.STORE_INPUT_PIN_NAME
+		store.behavior.inputs += pin
 	}
 	
 	override create flow : createDataFlow getDataFlow(Node source, Pin sourcePin, Node destination, Pin destinationPin) {

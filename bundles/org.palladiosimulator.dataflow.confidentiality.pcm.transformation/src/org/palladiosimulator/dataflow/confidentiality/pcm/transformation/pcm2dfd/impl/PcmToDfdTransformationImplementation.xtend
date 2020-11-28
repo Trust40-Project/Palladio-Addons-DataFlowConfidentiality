@@ -54,6 +54,8 @@ import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.ProfileConstants
 import org.palladiosimulator.indirections.actions.CreateDateAction
 import org.apache.commons.lang3.Validate
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.OperationalDataStoreComponent
+import org.palladiosimulator.pcm.repository.OperationProvidedRole
 
 class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 
@@ -117,6 +119,14 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 	}
 	
 	protected def dispatch transformSEFF(ResourceDemandingSEFF seff, Stack<AssemblyContext> context) {
+		if (seff.basicComponent_ServiceEffectSpecification instanceof OperationalDataStoreComponent) {
+			seff.transformToDataStore(context)			
+		} else {
+			seff.transformToSeffProcesses(context)			
+		}
+	}
+	
+	protected def void transformToSeffProcesses(ResourceDemandingSEFF seff, Stack<AssemblyContext> context) {
 		isInstanceOf(OperationSignature, seff.describedService__SEFF)
 		val operationSignature = seff.describedService__SEFF as OperationSignature
 		
@@ -128,10 +138,35 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		
 		val requiresExitProcess = operationSignature.returnType__OperationSignature !== null
 		if (requiresExitProcess) {
-			seff.transformToExitProcess(context)
+			seff.transformToExitProcess(context, true)
 		}
 		
-		seff.findAllChildrenIncludingSelfOfType(AbstractAction).forEach[action | action.transformAction(context)]
+		seff.findAllChildrenIncludingSelfOfType(AbstractAction).forEach[action | action.transformAction(context)]			
+	}
+	
+	protected def void transformToDataStore(ResourceDemandingSEFF seff, Stack<AssemblyContext> context) {
+		Validate.isInstanceOf(OperationalDataStoreComponent, seff.basicComponent_ServiceEffectSpecification)
+		val component = seff.basicComponent_ServiceEffectSpecification as OperationalDataStoreComponent
+		val store = component.getStore(context)
+		val storeInputPin = store.inputPin
+		val storeOutputPin = store.outputPin
+		
+		val signature = seff.describedService__SEFF as OperationSignature
+		if (!signature.parameters__OperationSignature.isEmpty) {
+			val parameters = component.providedRoles_InterfaceProvidingEntity.filter(OperationProvidedRole).map[providedInterface__OperationProvidedRole].flatMap[signatures__OperationInterface].flatMap[parameters__OperationSignature]
+			if (parameters.size != 1) {
+				throw new IllegalStateException(OperationalDataStoreComponent.simpleName + "s must only provide one signature with a parameter.")
+			}
+			val parameter = parameters.findFirst[true]	
+			val entryProcess = seff.transformToEntryProcess(context)
+			val entryProcessOutputPin = entryProcess.getOutputPin(parameter.parameterName)
+			getDataFlow(entryProcess, entryProcessOutputPin, store, storeInputPin)
+		} else {
+			val exitProcess = seff.transformToExitProcess(context, false)
+			val exitProcessInputPin = exitProcess.getInputPin(RESULT_PIN_NAME)
+			exitProcess.createCharacteristics(context, seff)		
+			getDataFlow(store, storeOutputPin, exitProcess, exitProcessInputPin)
+		}
 	}
 	
 	
@@ -158,7 +193,7 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		process
 	}
 	
-	protected def transformToExitProcess(ResourceDemandingSEFF seff, Stack<AssemblyContext> context) {
+	protected def transformToExitProcess(ResourceDemandingSEFF seff, Stack<AssemblyContext> context, boolean createProvidingDataFlows) {
 		isInstanceOf(OperationSignature, seff.describedService__SEFF)
 		notNull((seff.describedService__SEFF as OperationSignature).returnType__OperationSignature)
 		val process = getExitProcess(seff, context)
@@ -168,7 +203,9 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		
 		process.createCharacteristics(context, seff)
 		
-		process.createDataFlowsToSeffExitProcess(seff, context)
+		if (createProvidingDataFlows) {
+			process.createDataFlowsToSeffExitProcess(seff, context)			
+		}
 		
 		process
 	}
@@ -238,6 +275,7 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		val process = eca.getEntryProcess(context)
 		process.addPinsAndBehavior(eca.inputVariableUsages__CallAction, context, true)
 		process.createCharacteristics(context, eca)
+		process.createOutgoingDataFlows(eca.calledService_ExternalService, eca.role_ExternalService, context)
 		process
 	}
 	

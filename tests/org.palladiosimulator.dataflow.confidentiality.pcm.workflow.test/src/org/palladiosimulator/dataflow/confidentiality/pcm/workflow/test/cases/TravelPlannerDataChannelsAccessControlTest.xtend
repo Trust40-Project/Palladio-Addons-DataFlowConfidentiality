@@ -11,7 +11,7 @@ import org.palladiosimulator.pcm.usagemodel.UsageModel
 import static org.junit.jupiter.api.Assertions.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.StandaloneUtil.getModelURI
 
-class TravelPlannerAccessControlTest extends TestBase {
+class TravelPlannerDataChannelsAccessControlTest extends TestBase {
 
 	@Test
 	def void testNoIssueFound() {

@@ -59,6 +59,12 @@ class TransformationTest {
 			])
 	}
 
+	@Test
+	def void testTravelPlannerCallAndReturn() {
+		createInput("TravelPlanner-CallReturn/newUsageModel.usagemodel", "TravelPlanner-CallReturn/newAllocation.allocation").
+			assertSameAsReference("TravelPlanner-CallReturn/expected_dd.xmi", "TravelPlanner-CallReturn/expected_dfd.xmi")
+	}
+
 	@Data
 	protected static class TransformationInput {
 		val UsageModel usageModel

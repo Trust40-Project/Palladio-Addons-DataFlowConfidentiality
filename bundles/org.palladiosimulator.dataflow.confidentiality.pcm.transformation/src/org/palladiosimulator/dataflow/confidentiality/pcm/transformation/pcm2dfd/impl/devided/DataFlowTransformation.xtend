@@ -2,6 +2,7 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2df
 
 import de.uka.ipd.sdq.stoex.AbstractNamedReference
 import de.uka.ipd.sdq.stoex.StoexFactory
+import de.uka.ipd.sdq.stoex.VariableReference
 import java.util.HashMap
 import java.util.Stack
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.DataActionWithContext
@@ -24,12 +25,13 @@ import org.palladiosimulator.indirections.repository.DataSourceRole
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.parameter.VariableUsage
 import org.palladiosimulator.pcm.repository.BasicComponent
+import org.palladiosimulator.pcm.repository.OperationRequiredRole
+import org.palladiosimulator.pcm.repository.OperationSignature
 import org.palladiosimulator.pcm.seff.ExternalCallAction
 import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 
 import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.TransformationConstants.*
-import de.uka.ipd.sdq.stoex.VariableReference
 
 class DataFlowTransformation {
 	
@@ -49,9 +51,19 @@ class DataFlowTransformation {
 
 		val virtualReference = StoexFactory.eINSTANCE.createVariableReference
 		virtualReference.referenceName = RESULT_PIN_NAME
-		val srcPins = virtualReference.findTarget(lastAction).map[getPinInternal(context)]
+		val srcPins = virtualReference.findTarget(lastAction, context).map[getPinInternal(context)]
 
 		srcPins.createDataFlows(process, dstPin)
+	}
+	
+	def createOutgoingDataFlows(CharacterizedProcess process, OperationSignature operationSignature, OperationRequiredRole requiredRole, Stack<AssemblyContext> context) {
+		val destinationSeff = requiredRole.findCalledSeff(operationSignature, context)
+		val destinationProcess = getEntryProcess(destinationSeff.seff, destinationSeff.context)
+		for (parameter : operationSignature.parameters__OperationSignature.map[parameterName]) {
+			val outputPin = process.getOutputPin(parameter)
+			val inputPin = destinationProcess.getInputPin(parameter)
+			getDataFlow(process, outputPin, destinationProcess, inputPin)
+		}
 	}
 	
 	def createOutgoingDataFlows(CharacterizedProcess process, DataSourceRole dataSourceRole, Stack<AssemblyContext> context) {
@@ -136,8 +148,8 @@ class DataFlowTransformation {
 	 * ==================================================
 	 */
 	
-	protected def getPins(AbstractNamedReference reference, Stack<AssemblyContext> contexts) {
-		reference.findTarget.map[getPinInternal(contexts)]
+	protected def getPins(AbstractNamedReference reference, Stack<AssemblyContext> context) {
+		reference.findTarget(context).map[getPinInternal(context)]
 	}
 	
 	protected def dispatch getPinInternal(VariableReferenceTarget target, Stack<AssemblyContext> contexts) {

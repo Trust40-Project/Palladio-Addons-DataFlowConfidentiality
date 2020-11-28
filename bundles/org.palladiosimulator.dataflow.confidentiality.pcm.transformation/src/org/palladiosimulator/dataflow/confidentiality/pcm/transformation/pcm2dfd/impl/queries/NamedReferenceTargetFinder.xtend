@@ -2,13 +2,17 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2df
 
 import de.uka.ipd.sdq.stoex.AbstractNamedReference
 import java.util.ArrayList
+import java.util.Stack
 import org.eclipse.emf.ecore.EObject
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.DataChannelBehaviour
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
 import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.PcmQueryUtils
 import org.palladiosimulator.indirections.actions.ConsumeDataAction
+import org.palladiosimulator.indirections.actions.CreateDateAction
 import org.palladiosimulator.indirections.repository.DataSinkRole
+import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.parameter.VariableUsage
+import org.palladiosimulator.pcm.repository.OperationSignature
 import org.palladiosimulator.pcm.repository.Parameter
 import org.palladiosimulator.pcm.seff.AbstractAction
 import org.palladiosimulator.pcm.seff.BranchAction
@@ -18,6 +22,7 @@ import org.palladiosimulator.pcm.seff.LoopAction
 import org.palladiosimulator.pcm.seff.ResourceDemandingBehaviour
 import org.palladiosimulator.pcm.seff.ResourceDemandingSEFF
 import org.palladiosimulator.pcm.seff.SetVariableAction
+import org.palladiosimulator.pcm.seff.StartAction
 import org.palladiosimulator.pcm.seff.StopAction
 import org.palladiosimulator.pcm.usagemodel.AbstractUserAction
 import org.palladiosimulator.pcm.usagemodel.Branch
@@ -27,9 +32,6 @@ import org.palladiosimulator.pcm.usagemodel.ScenarioBehaviour
 import org.palladiosimulator.pcm.usagemodel.Stop
 
 import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.TransformationConstants.*
-import org.palladiosimulator.pcm.seff.StartAction
-import org.palladiosimulator.pcm.repository.OperationSignature
-import org.palladiosimulator.indirections.actions.CreateDateAction
 
 class NamedReferenceTargetFinder {
 	
@@ -42,7 +44,7 @@ class NamedReferenceTargetFinder {
 	 * ===============================================
 	 */
 	
-	def findTarget(AbstractNamedReference reference) {
+	def findTarget(AbstractNamedReference reference, Stack<AssemblyContext> context) {
 		val containingUserAction = reference.findParentOfType(AbstractUserAction, false)
 		if (containingUserAction !== null) {
 			return reference.findTarget(containingUserAction)
@@ -50,7 +52,7 @@ class NamedReferenceTargetFinder {
 		
 		val containingAction = reference.findParentOfType(AbstractAction, false)
 		if (containingAction !== null) {
-			return reference.findTarget(containingAction)
+			return reference.findTarget(containingAction, context)
 		}
 		
 		val dcBehaviour = reference.findParentOfType(DataChannelBehaviour, false)
@@ -151,25 +153,33 @@ class NamedReferenceTargetFinder {
 	 * ===========================================================
 	 */
 	
-	def Iterable<VariableReferenceTarget> findTarget(AbstractNamedReference reference, AbstractAction usingAction) {
+	def Iterable<VariableReferenceTarget> findTarget(AbstractNamedReference reference, AbstractAction usingAction, Stack<AssemblyContext> context) {
+		if (usingAction instanceof ExternalCallAction && reference.referenceName == RESULT_PIN_NAME) {
+			val call = (usingAction as ExternalCallAction)
+			val role = call.role_ExternalService
+			val signature = call.calledService_ExternalService
+			val calledSeff = role.findCalledSeff(signature, context)
+			return #[new SEFFReferenceTarget(reference, calledSeff.seff)]
+		}
+		
 		for (var currentAction = usingAction; currentAction !== null; currentAction = currentAction.predecessor_AbstractAction) {
-			val result = reference.findTargetInternalSeff(currentAction)
+			val result = reference.findTargetInternalSeff(currentAction, context)
 			if (!result.isEmpty) {
 				return result
 			}
 		}
 		val parentAction = usingAction.findParentOfType(AbstractAction, false)
 		if (parentAction !== null) {
-			return reference.findTarget(parentAction)
+			return reference.findTarget(parentAction, context)
 		}
 		#[]
 	}
 	
-	protected def dispatch Iterable<VariableReferenceTarget> findTargetInternalSeff(AbstractNamedReference reference, AbstractAction currentAction) {
+	protected def dispatch Iterable<VariableReferenceTarget> findTargetInternalSeff(AbstractNamedReference reference, AbstractAction currentAction, Stack<AssemblyContext> context) {
 		#[]
 	}
 	
-	protected def dispatch Iterable<VariableReferenceTarget> findTargetInternalSeff(AbstractNamedReference reference, StartAction currentAction) {
+	protected def dispatch Iterable<VariableReferenceTarget> findTargetInternalSeff(AbstractNamedReference reference, StartAction currentAction, Stack<AssemblyContext> context) {
 		val parent = currentAction.findParentOfType(AbstractAction, false)
 		if (parent !== null) {
 			return #[]
@@ -185,7 +195,7 @@ class NamedReferenceTargetFinder {
 	}
 	
 	protected def dispatch Iterable<VariableReferenceTarget> findTargetInternalSeff(AbstractNamedReference reference,
-		SetVariableAction currentAction) {
+		SetVariableAction currentAction, Stack<AssemblyContext> context) {
 		if (currentAction.localVariableUsages_SetVariableAction.findVariableDefinition(reference) !== null) {
 			return #[new SEFFActionVariableReferenceTarget(reference, currentAction)]
 		}
@@ -193,7 +203,7 @@ class NamedReferenceTargetFinder {
 	}
 	
 	protected def dispatch Iterable<VariableReferenceTarget> findTargetInternalSeff(AbstractNamedReference reference,
-		ExternalCallAction currentAction) {
+		ExternalCallAction currentAction, Stack<AssemblyContext> context) {
 		if (currentAction.returnVariableUsage__CallReturnAction.findVariableDefinition(reference) !== null) {
 			return #[new SEFFActionVariableReferenceTarget(reference, currentAction)]
 		}
@@ -201,7 +211,7 @@ class NamedReferenceTargetFinder {
 	}
 	
 	protected def dispatch Iterable<VariableReferenceTarget> findTargetInternalSeff(AbstractNamedReference reference,
-		ConsumeDataAction currentAction) {
+		ConsumeDataAction currentAction, Stack<AssemblyContext> context) {
 		if (currentAction.variableReference.matchesName(reference.referenceName)) {
 			return #[new SEFFActionVariableReferenceTarget(reference, currentAction)]
 		}
@@ -209,7 +219,7 @@ class NamedReferenceTargetFinder {
 	}
 	
 	protected def dispatch Iterable<VariableReferenceTarget> findTargetInternalSeff(AbstractNamedReference reference,
-		CreateDateAction currentAction) {
+		CreateDateAction currentAction, Stack<AssemblyContext> context) {
 		if (currentAction.variableReference.matchesName(reference.referenceName)) {
 			return #[new SEFFActionVariableReferenceTarget(reference, currentAction)]
 		}
@@ -217,26 +227,26 @@ class NamedReferenceTargetFinder {
 	}
 	
 	protected def dispatch Iterable<VariableReferenceTarget> findTargetInternalSeff(AbstractNamedReference reference,
-		LoopAction currentAction) {
-		reference.findTargetInternal(currentAction.bodyBehaviour_Loop)
+		LoopAction currentAction, Stack<AssemblyContext> context) {
+		reference.findTargetInternal(currentAction.bodyBehaviour_Loop, context)
 	}
 
 	protected def dispatch Iterable<VariableReferenceTarget> findTargetInternalSeff(AbstractNamedReference reference,
-		BranchAction currentAction) {
+		BranchAction currentAction, Stack<AssemblyContext> context) {
 		currentAction.branches_Branch.map[branchBehaviour_BranchTransition].flatMap [ behaviour |
-			reference.findTargetInternal(behaviour)
+			reference.findTargetInternal(behaviour, context)
 		]
 	}
 
 	protected def dispatch Iterable<VariableReferenceTarget> findTargetInternalSeff(AbstractNamedReference reference,
-		ForkAction currentAction) {
+		ForkAction currentAction, Stack<AssemblyContext> context) {
 		currentAction.asynchronousForkedBehaviours_ForkAction.flatMap [ behaviour |
-			reference.findTargetInternal(behaviour)
+			reference.findTargetInternal(behaviour, context)
 		]
 	}
 
-	protected def findTargetInternal(AbstractNamedReference reference, ResourceDemandingBehaviour behaviour) {
-		reference.findTarget(behaviour.steps_Behaviour.filter(StopAction).findFirst[true])
+	protected def findTargetInternal(AbstractNamedReference reference, ResourceDemandingBehaviour behaviour, Stack<AssemblyContext> context) {
+		reference.findTarget(behaviour.steps_Behaviour.filter(StopAction).findFirst[true], context)
 	}
 	
 	static class SEFFReferenceTarget extends SingleTargetVariableReferenceTarget<ResourceDemandingSEFF> {
