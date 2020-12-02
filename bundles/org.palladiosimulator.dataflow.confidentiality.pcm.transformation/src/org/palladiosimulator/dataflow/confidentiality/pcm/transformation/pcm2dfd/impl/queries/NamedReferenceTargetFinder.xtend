@@ -5,8 +5,8 @@ import java.util.ArrayList
 import java.util.Stack
 import org.eclipse.emf.ecore.EObject
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.DataChannelBehaviour
-import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
-import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.PcmQueryUtils
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutils.PcmQueryUtils
 import org.palladiosimulator.indirections.actions.ConsumeDataAction
 import org.palladiosimulator.indirections.actions.CreateDateAction
 import org.palladiosimulator.indirections.repository.DataSinkRole

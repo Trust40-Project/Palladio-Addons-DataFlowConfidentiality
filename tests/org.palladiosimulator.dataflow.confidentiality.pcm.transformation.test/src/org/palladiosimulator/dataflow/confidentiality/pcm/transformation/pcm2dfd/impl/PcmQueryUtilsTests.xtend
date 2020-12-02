@@ -1,12 +1,13 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl
 
 import java.util.ArrayList
+import java.util.Stack
 import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl
 import org.junit.jupiter.api.BeforeAll
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
-import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.PcmQueryUtils
-import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.SeffWithContext
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutils.PcmQueryUtils
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutils.SeffWithContext
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.test.util.StandaloneUtils
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.core.composition.ComposedStructure
@@ -19,7 +20,6 @@ import org.palladiosimulator.pcm.usagemodel.UsageModel
 
 import static org.junit.jupiter.api.Assertions.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.test.util.StandaloneUtils.*
-import java.util.Stack
 
 class PcmQueryUtilsTests {
 	

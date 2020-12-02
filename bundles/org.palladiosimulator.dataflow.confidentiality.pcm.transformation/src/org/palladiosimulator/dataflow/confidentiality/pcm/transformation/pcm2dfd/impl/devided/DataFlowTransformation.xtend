@@ -5,11 +5,11 @@ import de.uka.ipd.sdq.stoex.StoexFactory
 import de.uka.ipd.sdq.stoex.VariableReference
 import java.util.HashMap
 import java.util.Stack
-import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.DataActionWithContext
-import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.DataSinkRoleWithContext
-import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
-import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.PcmQueryUtils
-import org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils.SeffWithContext
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutils.DataActionWithContext
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutils.DataSinkRoleWithContext
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutils.ModelQueryUtils
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutils.PcmQueryUtils
+import org.palladiosimulator.dataflow.confidentiality.pcm.queryutils.SeffWithContext
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.queries.NamedReferenceTargetFinder
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.queries.NamedReferenceTargetFinder.DataSinkRoleReferenceTarget
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.queries.NamedReferenceTargetFinder.ParameterVariableReferenceTarget

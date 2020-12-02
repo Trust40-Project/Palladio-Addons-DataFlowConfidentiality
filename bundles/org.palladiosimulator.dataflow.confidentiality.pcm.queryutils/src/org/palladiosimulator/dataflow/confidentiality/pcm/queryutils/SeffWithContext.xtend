@@ -1,4 +1,4 @@
-package org.palladiosimulator.dataflow.confidentiality.pcm.queryutilsorg.palladiosimulator.dataflow.confidentiality.pcm.queryutils
+package org.palladiosimulator.dataflow.confidentiality.pcm.queryutils
 
 import java.util.Stack
 import org.eclipse.xtend.lib.annotations.Data
