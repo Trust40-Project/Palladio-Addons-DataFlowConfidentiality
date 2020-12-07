@@ -70,7 +70,7 @@ class TestBase {
 		// use first given variable as starting point
 		var variableIter = variableNames.iterator();
 		if (variableIter.hasNext()) {
-			solution.on(variableIter.next());			
+			solution.on(variableIter.next());
 		}
 
 		assertTrue(solution.isSuccess());

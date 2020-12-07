@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:confidentiality="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:expression="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression" xmlns:org.palladiosimulator.dataflow.confidentiality.pcm.model.profile="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" xmlns:org.palladiosimulator.indirections.actions="http://palladiosimulator.org/Indirections/Actions/1.0" xmlns:org.palladiosimulator.indirections.composition="http://palladiosimulator.org/Indirections/Composition/1.0" xmlns:org.palladiosimulator.indirections.repository="http://palladiosimulator.org/Indirections/Repository/1.0" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2">
+  <repository:Repository id="_s5eG8DfmEeusE-zPODCq0A" entityName="New Repository">
+    <components__Repository xsi:type="repository:CompositeComponent" id="_oPMTsDfnEeusE-zPODCq0A" entityName="DistanceTracker">
+      <assemblyContexts__ComposedStructure id="_fJnXYDh4EeuVm5YY9CyZ8g" entityName="Assembly_DistanceTrackerFacade" encapsulatedComponent__AssemblyContext="_rztjUDfnEeusE-zPODCq0A"/>
+      <assemblyContexts__ComposedStructure id="_iMw_UDh4EeuVm5YY9CyZ8g" entityName="Assembly_DistanceTracker.DistanceCalculator" encapsulatedComponent__AssemblyContext="_mz4x4DhsEeu4z9Yg1vsUDg"/>
+      <assemblyContexts__ComposedStructure id="_msoc4Dh4EeuVm5YY9CyZ8g" entityName="Assembly_DistanceTracker.LocationCollector" encapsulatedComponent__AssemblyContext="_avYYQDfqEeusE-zPODCq0A"/>
+      <assemblyContexts__ComposedStructure id="_rul64Dh4EeuVm5YY9CyZ8g" entityName="Assembly_DistanceTracker.LocationStorage" encapsulatedComponent__AssemblyContext="_GzDerzfoEeusE-zPODCq0A"/>
+      <assemblyContexts__ComposedStructure id="_2_IbADh4EeuVm5YY9CyZ8g" entityName="Assembly_DistanceTracker.GPS" encapsulatedComponent__AssemblyContext="_eGfTcDfpEeusE-zPODCq0A"/>
+      <assemblyContexts__ComposedStructure id="_pM5wgDiUEeuut4QVVe5DpA" entityName="Assembly_DistanceTracker.DeclassifyDistance" encapsulatedComponent__AssemblyContext="_0tci4DiREeuut4QVVe5DpA"/>
+      <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_gwXSwDh4EeuVm5YY9CyZ8g" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_tSKeUDfnEeusE-zPODCq0A" outerProvidedRole_ProvidedDelegationConnector="_pYVGADfnEeusE-zPODCq0A" assemblyContext_ProvidedDelegationConnector="_fJnXYDh4EeuVm5YY9CyZ8g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_lANXUDh4EeuVm5YY9CyZ8g" entityName="newAssemblyDataConnector" dataSourceRole="_28ND0DhtEeu6asT8UrHbgw" dataSinkRole="_YThpUDh4EeuVm5YY9CyZ8g" sinkAssemblyContext="_fJnXYDh4EeuVm5YY9CyZ8g" sourceAssemblyContext="_iMw_UDh4EeuVm5YY9CyZ8g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_vBf2EDh4EeuVm5YY9CyZ8g" entityName="newAssemblyDataConnector" dataSourceRole="_bCgagDfoEeusE-zPODCq0A" dataSinkRole="_iN1t4DfqEeusE-zPODCq0A" sinkAssemblyContext="_msoc4Dh4EeuVm5YY9CyZ8g" sourceAssemblyContext="_rul64Dh4EeuVm5YY9CyZ8g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_z-J9UDh4EeuVm5YY9CyZ8g" entityName="newAssemblyDataConnector" dataSourceRole="_8N_dEDfqEeusE-zPODCq0A" dataSinkRole="_vn8zEDhtEeu6asT8UrHbgw" sinkAssemblyContext="_iMw_UDh4EeuVm5YY9CyZ8g" sourceAssemblyContext="_msoc4Dh4EeuVm5YY9CyZ8g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_4czS4Dh4EeuVm5YY9CyZ8g" entityName="newAssemblyDataConnector" dataSourceRole="_iWizYDfpEeusE-zPODCq0A" dataSinkRole="_Z8qMwDfoEeusE-zPODCq0A" sinkAssemblyContext="_rul64Dh4EeuVm5YY9CyZ8g" sourceAssemblyContext="_2_IbADh4EeuVm5YY9CyZ8g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_vKnsIDiUEeuut4QVVe5DpA" entityName="newAssemblyDataConnector" dataSourceRole="_qvdk4DiTEeuut4QVVe5DpA" dataSinkRole="_AQfIQDiSEeuut4QVVe5DpA" sinkAssemblyContext="_pM5wgDiUEeuut4QVVe5DpA" sourceAssemblyContext="_fJnXYDh4EeuVm5YY9CyZ8g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_vl-ycDiUEeuut4QVVe5DpA" entityName="newAssemblyDataConnector" dataSourceRole="_oCscoDiTEeuut4QVVe5DpA" dataSinkRole="_3I5RoDiREeuut4QVVe5DpA" sinkAssemblyContext="_pM5wgDiUEeuut4QVVe5DpA" sourceAssemblyContext="_fJnXYDh4EeuVm5YY9CyZ8g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_2HohkDiUEeuut4QVVe5DpA" entityName="newDataSourceDelegationConnector" assemblyContext="_pM5wgDiUEeuut4QVVe5DpA" innerDataSourceRole="_ZL-VcDiSEeuut4QVVe5DpA" outerDataSourceRole="_zEoqoDiUEeuut4QVVe5DpA"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_pYVGADfnEeusE-zPODCq0A" entityName="DistanceTracker.provided.DistanceTracker" providedInterface__OperationProvidedRole="_H4GQkDfnEeusE-zPODCq0A"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_zEoqoDiUEeuut4QVVe5DpA" entityName="DistanceTracker.source.Distance" dataInterface="_xzp1oDhtEeu6asT8UrHbgw"/>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" id="_rztjUDfnEeusE-zPODCq0A" entityName="DistanceTrackerFacade">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_tSKeUDfnEeusE-zPODCq0A" entityName="DistanceTrackerFacade.provided.DistanceTracker" providedInterface__OperationProvidedRole="_H4GQkDfnEeusE-zPODCq0A"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_YThpUDh4EeuVm5YY9CyZ8g" entityName="DistanceTrackerFacade.sink.Distance" dataInterface="_xzp1oDhtEeu6asT8UrHbgw"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_oCscoDiTEeuut4QVVe5DpA" entityName="DistanceTrackerFacade.source.Distance" dataInterface="_xzp1oDhtEeu6asT8UrHbgw"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_qvdk4DiTEeuut4QVVe5DpA" entityName="DistanceTrackerFacade.source.Consent" dataInterface="_tJFeADfrEeusE-zPODCq0A"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_tScyMDfnEeusE-zPODCq0A" describedService__SEFF="_LODfwDfnEeusE-zPODCq0A">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_tSenYDfnEeusE-zPODCq0A" successor_AbstractAction="_tSfOcDfnEeusE-zPODCq0A"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_tSfOcDfnEeusE-zPODCq0A" predecessor_AbstractAction="_tSenYDfnEeusE-zPODCq0A"/>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_tUKpcDfnEeusE-zPODCq0A" describedService__SEFF="_d5LiIDfnEeusE-zPODCq0A">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_tULQgDfnEeusE-zPODCq0A" successor_AbstractAction="_fwjnIDhuEeu6asT8UrHbgw"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_tULQgTfnEeusE-zPODCq0A" predecessor_AbstractAction="_jtq88DhuEeu6asT8UrHbgw"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:ConsumeDataAction" id="_fwjnIDhuEeu6asT8UrHbgw" entityName="DistanceTrackerFacade.stopTracking.getDistance" predecessor_AbstractAction="_tULQgDfnEeusE-zPODCq0A" successor_AbstractAction="_jtq88DhuEeu6asT8UrHbgw" dataSinkRole="_YThpUDh4EeuVm5YY9CyZ8g">
+          <variableReference referenceName="distance"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="seff:SetVariableAction" id="_jtq88DhuEeu6asT8UrHbgw" entityName="DistanceTrackerFacade.stopTracking.returnDistance" predecessor_AbstractAction="_fwjnIDhuEeu6asT8UrHbgw" successor_AbstractAction="_tULQgTfnEeusE-zPODCq0A">
+          <localVariableUsages_SetVariableAction>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_SgcxEDhwEeuFgeJH5KuzJA"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_TP_XozhwEeuFgeJH5KuzJA">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="distance"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+          </localVariableUsages_SetVariableAction>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_LXbK0DhuEeu6asT8UrHbgw" describedService__SEFF="_E4OSwDhuEeu6asT8UrHbgw">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_LsVD0DhuEeu6asT8UrHbgw" successor_AbstractAction="_qiiPEDiGEeuVm5YY9CyZ8g"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_LsVD0ThuEeu6asT8UrHbgw" predecessor_AbstractAction="_zaUIEDiGEeuVm5YY9CyZ8g"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_qiiPEDiGEeuVm5YY9CyZ8g" entityName="DistanceTrackerFacade.uploadDistance.createDistance" predecessor_AbstractAction="_LsVD0DhuEeu6asT8UrHbgw" successor_AbstractAction="_uhjCUDiGEeuVm5YY9CyZ8g">
+          <variableReference referenceName="distanceData"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_xLmCMDiQEeuut4QVVe5DpA"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_xwNyMziQEeuut4QVVe5DpA">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="distance"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="distanceData"/>
+          </variableUsages>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_uhjCUDiGEeuVm5YY9CyZ8g" entityName="DistanceTrackerFacade.uploadDistance.consent" predecessor_AbstractAction="_qiiPEDiGEeuVm5YY9CyZ8g" successor_AbstractAction="_Kpd40DiTEeuut4QVVe5DpA">
+          <variableReference referenceName="consentData"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="__fgMsDiQEeuut4QVVe5DpA"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="__-iSEziQEeuut4QVVe5DpA">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="consent"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="consentData"/>
+          </variableUsages>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_zaUIEDiGEeuVm5YY9CyZ8g" entityName="DistanceTrackerFacade.uploadDistance.emitDistance" predecessor_AbstractAction="_Kpd40DiTEeuut4QVVe5DpA" successor_AbstractAction="_LsVD0ThuEeu6asT8UrHbgw" dataSourceRole="_oCscoDiTEeuut4QVVe5DpA">
+          <variableReference referenceName="distanceData"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_Kpd40DiTEeuut4QVVe5DpA" entityName="DistanceTrackerFacade.uploadDistance.emitConsent" predecessor_AbstractAction="_uhjCUDiGEeuVm5YY9CyZ8g" successor_AbstractAction="_zaUIEDiGEeuVm5YY9CyZ8g" dataSourceRole="_qvdk4DiTEeuut4QVVe5DpA">
+          <variableReference referenceName="consentData"/>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_GzDerzfoEeusE-zPODCq0A" entityName="DistanceTracker.LocationStorage" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_Z8qMwDfoEeusE-zPODCq0A" entityName="DistanceTracker.LocationStorage.sinkl.Location" dataInterface="_QB7pADfoEeusE-zPODCq0A"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_bCgagDfoEeusE-zPODCq0A" entityName="DistanceTracker.LocationStorage.source.Location" dataInterface="_QB7pADfoEeusE-zPODCq0A"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_eGfTcDfpEeusE-zPODCq0A" entityName="DistanceTracker.GPS" realizingClassFqn="n/a">
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_iWizYDfpEeusE-zPODCq0A" entityName="DistanceTracker.GPS.source.Location" dataInterface="_QB7pADfoEeusE-zPODCq0A"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_avYYQDfqEeusE-zPODCq0A" entityName="DistanceTracker.LocationCollector" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_iN1t4DfqEeusE-zPODCq0A" entityName="DistanceTracker.LocationCollector.sink.Location" dataInterface="_QB7pADfoEeusE-zPODCq0A"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_8N_dEDfqEeusE-zPODCq0A" entityName="DistanceTracker.LocationCollector.source.Locations" dataInterface="_0k16YDfqEeusE-zPODCq0A"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_mz4x4DhsEeu4z9Yg1vsUDg" entityName="DistanceTracker.DistanceCalculator" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_vn8zEDhtEeu6asT8UrHbgw" entityName="DistanceTracker.DistanceCalculator.sinkl.Locations" dataInterface="_0k16YDfqEeusE-zPODCq0A"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_28ND0DhtEeu6asT8UrHbgw" entityName="DistanceTracker.DistanceCalculator.source.Distance" dataInterface="_xzp1oDhtEeu6asT8UrHbgw"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_GmfpEDiHEeuVm5YY9CyZ8g" entityName="TrackingService.DistanceStorage" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_fx7WwDiHEeuut4QVVe5DpA" entityName="TrackingService.DistanceStorage.sink.Distance" dataInterface="_xzp1oDhtEeu6asT8UrHbgw"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_iObOYDiHEeuut4QVVe5DpA" entityName="TrackingService.DistanceStorage.source.Distance" dataInterface="_xzp1oDhtEeu6asT8UrHbgw"/>
+    </components__Repository>
+    <components__Repository xsi:type="repository:CompositeComponent" id="_qX0XYDiHEeuut4QVVe5DpA" entityName="TrackingService">
+      <assemblyContexts__ComposedStructure id="_nlwC8DiIEeuut4QVVe5DpA" entityName="Assembly_TrackingService.DistanceStorage" encapsulatedComponent__AssemblyContext="_GmfpEDiHEeuVm5YY9CyZ8g"/>
+      <assemblyContexts__ComposedStructure id="_qBfsoDiIEeuut4QVVe5DpA" entityName="Assembly_TrackingService.Storer" encapsulatedComponent__AssemblyContext="_1Jl34DiHEeuut4QVVe5DpA"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_vCgIYDiIEeuut4QVVe5DpA" entityName="newDataSinkDelegationConnector" assemblyContext="_qBfsoDiIEeuut4QVVe5DpA" innerDataSinkRole="_35QjIDiHEeuut4QVVe5DpA" outerDataSinkRole="_veHi0DiHEeuut4QVVe5DpA"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_vZ3fgDiIEeuut4QVVe5DpA" entityName="newAssemblyDataConnector" dataSourceRole="_6B98EDiHEeuut4QVVe5DpA" dataSinkRole="_fx7WwDiHEeuut4QVVe5DpA" sinkAssemblyContext="_nlwC8DiIEeuut4QVVe5DpA" sourceAssemblyContext="_qBfsoDiIEeuut4QVVe5DpA"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_veHi0DiHEeuut4QVVe5DpA" entityName="TrackingService.sink.Distance" dataInterface="_xzp1oDhtEeu6asT8UrHbgw"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_1Jl34DiHEeuut4QVVe5DpA" entityName="TrackingService.Storer" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_35QjIDiHEeuut4QVVe5DpA" entityName="TrackingService.Storer.sink.Distance" dataInterface="_xzp1oDhtEeu6asT8UrHbgw"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_6B98EDiHEeuut4QVVe5DpA" entityName="TrackingService.Storer.source.Distance" dataInterface="_xzp1oDhtEeu6asT8UrHbgw"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_0tci4DiREeuut4QVVe5DpA" entityName="DistanceTracker.DeclassifyDistance" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_3I5RoDiREeuut4QVVe5DpA" entityName="DistanceTracker.DeclassifyDistance.sink.Distance" dataInterface="_xzp1oDhtEeu6asT8UrHbgw"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_AQfIQDiSEeuut4QVVe5DpA" entityName="DistanceTracker.DeclassifyDistance.sink.Consent" dataInterface="_tJFeADfrEeusE-zPODCq0A"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_ZL-VcDiSEeuut4QVVe5DpA" entityName="DistanceTracker.DeclassifyDistance.source.Distance" dataInterface="_xzp1oDhtEeu6asT8UrHbgw"/>
+    </components__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_H4GQkDfnEeusE-zPODCq0A" entityName="DistanceTracker">
+      <signatures__OperationInterface id="_LODfwDfnEeusE-zPODCq0A" entityName="startTracking"/>
+      <signatures__OperationInterface id="_d5LiIDfnEeusE-zPODCq0A" entityName="stopTracking" returnType__OperationSignature="_L5nlQDfnEeusE-zPODCq0A"/>
+      <signatures__OperationInterface id="_E4OSwDhuEeu6asT8UrHbgw" entityName="uploadDistance">
+        <parameters__OperationSignature dataType__Parameter="_L5nlQDfnEeusE-zPODCq0A" parameterName="distance"/>
+        <parameters__OperationSignature dataType__Parameter="_PIdf0DfnEeusE-zPODCq0A" parameterName="consent"/>
+      </signatures__OperationInterface>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_QB7pADfoEeusE-zPODCq0A" entityName="Location">
+      <dataSignature id="_d0HmgDfoEeusE-zPODCq0A" entityName="location">
+        <parameter dataType__Parameter="_MlAEkDfnEeusE-zPODCq0A" parameterName="location"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_0k16YDfqEeusE-zPODCq0A" entityName="Locations">
+      <dataSignature id="_1pbj4DfqEeusE-zPODCq0A" entityName="locations">
+        <parameter dataType__Parameter="_2blg8DfnEeusE-zPODCq0A" parameterName="locations"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_tJFeADfrEeusE-zPODCq0A" entityName="Consent">
+      <dataSignature id="_u4RjsDfrEeusE-zPODCq0A" entityName="consent">
+        <parameter dataType__Parameter="_PIdf0DfnEeusE-zPODCq0A" parameterName="consent"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_xzp1oDhtEeu6asT8UrHbgw" entityName="Distance">
+      <dataSignature id="_zQfAADhtEeu6asT8UrHbgw" entityName="distance">
+        <parameter dataType__Parameter="_L5nlQDfnEeusE-zPODCq0A" parameterName="distance"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_L5nlQDfnEeusE-zPODCq0A" entityName="Distance"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_MlAEkDfnEeusE-zPODCq0A" entityName="Location"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_PIdf0DfnEeusE-zPODCq0A" entityName="Consent"/>
+    <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_2blg8DfnEeusE-zPODCq0A" entityName="Locations" innerType_CollectionDataType="_MlAEkDfnEeusE-zPODCq0A"/>
+  </repository:Repository>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_GzDerzfoEeusE-zPODCq0A">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="newBehaviour.behaviour#_HHbUQDh5EeuVm5YY9CyZ8g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_eGfTcDfpEeusE-zPODCq0A">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="newBehaviour.behaviour#_odh9UDh5EeuVm5YY9CyZ8g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_avYYQDfqEeusE-zPODCq0A">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="newBehaviour.behaviour#_O4UBMDh6EeuVm5YY9CyZ8g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_mz4x4DhsEeu4z9Yg1vsUDg">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="newBehaviour.behaviour#_fMFxsDh6EeuVm5YY9CyZ8g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_1Jl34DiHEeuut4QVVe5DpA">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="newBehaviour.behaviour#_BxnvYDiIEeuut4QVVe5DpA"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_GmfpEDiHEeuVm5YY9CyZ8g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="newBehaviour.behaviour#_JsukwDiIEeuut4QVVe5DpA"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_0tci4DiREeuut4QVVe5DpA">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="newBehaviour.behaviour#_HGA1oDiSEeuut4QVVe5DpA"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" location="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<behaviour:Behaviours xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:behaviour="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/behaviour" xmlns:confidentiality="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0" xmlns:expression="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression" xmlns:expressions="http://palladiosimulator.org/dataflow/dictionary/characterized/expressions/1.0" xmlns:org.palladiosimulator.indirections.repository="http://palladiosimulator.org/Indirections/Repository/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" id="_-iLVsDh4EeuVm5YY9CyZ8g">
+  <dataChannelBehaviour id="_HHbUQDh5EeuVm5YY9CyZ8g" entityName="DistanceTracker.LocationStorage">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_GzDerzfoEeusE-zPODCq0A"/>
+    <reusedBehaviours id="_UHBXMDh5EeuVm5YY9CyZ8g" reusedBehaviour="_-31coDh4EeuVm5YY9CyZ8g">
+      <variableBindings id="_VWT00Dh5EeuVm5YY9CyZ8g" boundVariable="//@reusableBehaviours.0/@inputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="DistanceTracker.LocationStorage.sinkl.Location.location"/>
+      </variableBindings>
+      <variableBindings id="_Vx-dIDh5EeuVm5YY9CyZ8g" boundVariable="//@reusableBehaviours.0/@outputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="DistanceTracker.LocationStorage.source.Location.location"/>
+      </variableBindings>
+    </reusedBehaviours>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_odh9UDh5EeuVm5YY9CyZ8g" entityName="DistanceTracker.GPS">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_eGfTcDfpEeusE-zPODCq0A"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_1mHkMDh5EeuVm5YY9CyZ8g">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="newCharacteristics.characteristics#_BTP5sTh6EeuVm5YY9CyZ8g"/>
+          <literal href="newCharacteristics.characteristics#_9-iAoDh5EeuVm5YY9CyZ8g"/>
+        </lhs>
+        <rhs xsi:type="expressions:True" id="_EWQXtjh6EeuVm5YY9CyZ8g"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="DistanceTracker.GPS.source.Location.location"/>
+    </variableUsages>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_O4UBMDh6EeuVm5YY9CyZ8g" entityName="DistanceTracker.LocationCollector">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_avYYQDfqEeusE-zPODCq0A"/>
+    <reusedBehaviours id="_Sh4I4Dh6EeuVm5YY9CyZ8g" reusedBehaviour="_-31coDh4EeuVm5YY9CyZ8g">
+      <variableBindings id="_TA3K8Dh6EeuVm5YY9CyZ8g" boundVariable="//@reusableBehaviours.0/@inputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="DistanceTracker.LocationCollector.sink.Location.location"/>
+      </variableBindings>
+      <variableBindings id="_Ved10Dh6EeuVm5YY9CyZ8g" boundVariable="//@reusableBehaviours.0/@outputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="DistanceTracker.LocationCollector.source.Locations.locations"/>
+      </variableBindings>
+    </reusedBehaviours>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_fMFxsDh6EeuVm5YY9CyZ8g" entityName="DistanceTracker.DistanceCalculator">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_mz4x4DhsEeu4z9Yg1vsUDg"/>
+    <reusedBehaviours id="_6zlSIDh6EeuVm5YY9CyZ8g" reusedBehaviour="_i_QhUTh6EeuVm5YY9CyZ8g">
+      <variableBindings id="_7tri4Dh6EeuVm5YY9CyZ8g" boundVariable="//@reusableBehaviours.1/@inputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="DistanceTracker.DistanceCalculator.sinkl.Locations.locations"/>
+      </variableBindings>
+      <variableBindings id="_79VvgDh6EeuVm5YY9CyZ8g" boundVariable="//@reusableBehaviours.1/@outputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="DistanceTracker.DistanceCalculator.source.Distance.distance"/>
+      </variableBindings>
+    </reusedBehaviours>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_BxnvYDiIEeuut4QVVe5DpA" entityName="TrackingService.Storer">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_1Jl34DiHEeuut4QVVe5DpA"/>
+    <reusedBehaviours id="_PFjqoDiIEeuut4QVVe5DpA" reusedBehaviour="_-31coDh4EeuVm5YY9CyZ8g">
+      <variableBindings id="_QecwMDiIEeuut4QVVe5DpA" boundVariable="//@reusableBehaviours.0/@inputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="TrackingService.DistanceStorage.sink.Distance.distance"/>
+      </variableBindings>
+      <variableBindings id="_Q8YCUDiIEeuut4QVVe5DpA" boundVariable="//@reusableBehaviours.0/@outputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="TrackingService.DistanceStorage.source.Distance.distance"/>
+      </variableBindings>
+    </reusedBehaviours>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_JsukwDiIEeuut4QVVe5DpA" entityName="TrackingService.DistanceStorage">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_GmfpEDiHEeuVm5YY9CyZ8g"/>
+    <reusedBehaviours id="_YqlEIDiIEeuut4QVVe5DpA" reusedBehaviour="_-31coDh4EeuVm5YY9CyZ8g">
+      <variableBindings id="_af0HcDiIEeuut4QVVe5DpA" boundVariable="//@reusableBehaviours.0/@inputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="TrackingService.Storer.sink.Distance.distance"/>
+      </variableBindings>
+      <variableBindings id="_a3mVUDiIEeuut4QVVe5DpA" boundVariable="//@reusableBehaviours.0/@outputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="TrackingService.Storer.source.Distance.distance"/>
+      </variableBindings>
+    </reusedBehaviours>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_HGA1oDiSEeuut4QVVe5DpA" entityName="DistanceTracker.DeclassifyDistance">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_0tci4DiREeuut4QVVe5DpA"/>
+    <reusedBehaviours id="_PiEb8DiSEeuut4QVVe5DpA" reusedBehaviour="_IcxDoTiGEeuVm5YY9CyZ8g">
+      <variableBindings id="_S1k0EDiSEeuut4QVVe5DpA" boundVariable="//@reusableBehaviours.2/@inputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="DistanceTracker.DeclassifyDistance.sink.Distance.distance"/>
+      </variableBindings>
+      <variableBindings id="_T4xWcDiSEeuut4QVVe5DpA" boundVariable="//@reusableBehaviours.2/@inputVariables.1">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="DistanceTracker.DeclassifyDistance.sink.Consent.consent"/>
+      </variableBindings>
+      <variableBindings id="_UooGEDiSEeuut4QVVe5DpA" boundVariable="//@reusableBehaviours.2/@outputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="DistanceTracker.DeclassifyDistance.source.Distance.distance"/>
+      </variableBindings>
+    </reusedBehaviours>
+  </dataChannelBehaviour>
+  <reusableBehaviours id="_-31coDh4EeuVm5YY9CyZ8g" entityName="Forward1">
+    <inputVariables referenceName="input"/>
+    <outputVariables referenceName="output"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_D7b5YDh5EeuVm5YY9CyZ8g"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_EcNrMzh5EeuVm5YY9CyZ8g">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="input"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="output"/>
+    </variableUsages>
+  </reusableBehaviours>
+  <reusableBehaviours id="_i_QhUTh6EeuVm5YY9CyZ8g" entityName="DeclassifyToDistance">
+    <inputVariables referenceName="locations"/>
+    <outputVariables referenceName="distance"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_pi830Dh6EeuVm5YY9CyZ8g"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_qKCtAzh6EeuVm5YY9CyZ8g">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="locations"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_xNRfMDh6EeuVm5YY9CyZ8g">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="newCharacteristics.characteristics#_BTP5sTh6EeuVm5YY9CyZ8g"/>
+        </lhs>
+        <rhs xsi:type="expressions:False" id="_yTNMhzh6EeuVm5YY9CyZ8g"/>
+      </variableCharacterisation_VariableUsage>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_ucnVcDh6EeuVm5YY9CyZ8g">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="newCharacteristics.characteristics#_BTP5sTh6EeuVm5YY9CyZ8g"/>
+          <literal href="newCharacteristics.characteristics#_9GjPwDh5EeuVm5YY9CyZ8g"/>
+        </lhs>
+        <rhs xsi:type="expressions:True" id="_zgPnZjh6EeuVm5YY9CyZ8g"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="distance"/>
+    </variableUsages>
+  </reusableBehaviours>
+  <reusableBehaviours id="_IcxDoTiGEeuVm5YY9CyZ8g" entityName="DeclassifyToTrackingService">
+    <inputVariables referenceName="input"/>
+    <inputVariables referenceName="consent"/>
+    <outputVariables referenceName="output"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_Sb9QoDiGEeuVm5YY9CyZ8g"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_TAQQgziGEeuVm5YY9CyZ8g">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="input"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_YRReMDiGEeuVm5YY9CyZ8g">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="newCharacteristics.characteristics#_BTP5sTh6EeuVm5YY9CyZ8g"/>
+        </lhs>
+        <rhs xsi:type="expressions:False" id="_ctACpziGEeuVm5YY9CyZ8g"/>
+      </variableCharacterisation_VariableUsage>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_de4LgDiGEeuVm5YY9CyZ8g">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="newCharacteristics.characteristics#_BTP5sTh6EeuVm5YY9CyZ8g"/>
+          <literal href="newCharacteristics.characteristics#_7znoQDh5EeuVm5YY9CyZ8g"/>
+        </lhs>
+        <rhs xsi:type="expressions:True" id="_eBSVBjiGEeuVm5YY9CyZ8g"/>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="output"/>
+    </variableUsages>
+  </reusableBehaviours>
+</behaviour:Behaviours>
