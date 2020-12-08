@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:CharacteristicTypeDictionary
+    xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0"
+    xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics"
+    xsi:schemaLocation="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0#//characteristics"
+    id="_osmIwAcQEeuCO_LUOeqqZQ">
+  <characteristicTypes
+      xsi:type="DataDictionaryCharacterized:EnumCharacteristicType"
+      id="_t51CoQcQEeuCO_LUOeqqZQ"
+      name="DataClassification"
+      type="_o-OrUgcQEeuCO_LUOeqqZQ"/>
+  <characteristicTypes
+      xsi:type="DataDictionaryCharacterized:EnumCharacteristicType"
+      id="_voPsQQcQEeuCO_LUOeqqZQ"
+      name="NodeClearance"
+      type="_o-OrUgcQEeuCO_LUOeqqZQ"/>
+  <characteristicTypes
+      xsi:type="DataDictionaryCharacterized:EnumCharacteristicType"
+      id="_zurlgRB5EeuCiqzTNKebcA"
+      name="CorrespondingActor"
+      type="_ywLV4hB5EeuCiqzTNKebcA"/>
+  <characteristicEnumerations
+      id="_o-OrUgcQEeuCO_LUOeqqZQ"
+      name="Levels">
+    <literals
+        id="_q6I-YAcQEeuCO_LUOeqqZQ"
+        name="User,Airline,TravelAgency"/>
+    <literals
+        id="_rIUkUAcQEeuCO_LUOeqqZQ"
+        name="User,Airline"/>
+    <literals
+        id="_qmC9sAcQEeuCO_LUOeqqZQ"
+        name="User"/>
+  </characteristicEnumerations>
+  <characteristicEnumerations
+      id="_ywLV4hB5EeuCiqzTNKebcA"
+      name="Actors">
+    <literals
+        id="_1VMQUBB5EeuCiqzTNKebcA"
+        name="User"/>
+    <literals
+        id="_2KPpABB5EeuCiqzTNKebcA"
+        name="FlightPlanner"/>
+  </characteristicEnumerations>
+</characteristics:CharacteristicTypeDictionary>

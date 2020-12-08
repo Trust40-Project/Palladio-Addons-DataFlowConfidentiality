@@ -1,4 +1,4 @@
-package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases
+package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl
 
 import java.util.ArrayList
 import java.util.Arrays

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:Characteristics xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" xsi:schemaLocation="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0#//characteristics" id="_O2J-kBB5EeuCiqzTNKebcA">
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_WU60MBCPEeuDPuyaiSQSEA" entityName="UM_CorrespondingActor_User">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypeDictionary.xmi#_zurlgRB5EeuCiqzTNKebcA"/>
+    <values href="CharacteristicTypeDictionary.xmi#_1VMQUBB5EeuCiqzTNKebcA"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_J-nJYBCQEeu-b9hKjizy9g" entityName="UM_CorrespondingActor_FlightPlanner">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypeDictionary.xmi#_zurlgRB5EeuCiqzTNKebcA"/>
+    <values href="CharacteristicTypeDictionary.xmi#_2KPpABB5EeuCiqzTNKebcA"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_Ut2loBdnEeu98bd9ogearw" entityName="Clearance_User">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypeDictionary.xmi#_voPsQQcQEeuCO_LUOeqqZQ"/>
+    <values href="CharacteristicTypeDictionary.xmi#_qmC9sAcQEeuCO_LUOeqqZQ"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_Xg4t8BdnEeu98bd9ogearw" entityName="Clearance_TA">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypeDictionary.xmi#_voPsQQcQEeuCO_LUOeqqZQ"/>
+    <values href="CharacteristicTypeDictionary.xmi#_q6I-YAcQEeuCO_LUOeqqZQ"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_ZqISYBdnEeu98bd9ogearw" entityName="Clearance_Airline">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypeDictionary.xmi#_voPsQQcQEeuCO_LUOeqqZQ"/>
+    <values href="CharacteristicTypeDictionary.xmi#_rIUkUAcQEeuCO_LUOeqqZQ"/>
+  </characteristics>
+</characteristics:Characteristics>
