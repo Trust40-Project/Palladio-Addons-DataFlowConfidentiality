@@ -37,8 +37,8 @@ class TransformationTest {
 
 	@Test
 	def void testTravelPlanner() {
-		createInput("TravelPlanner-DC/newUsageModel.usagemodel", "TravelPlanner-DC/newAllocation.allocation").
-			assertSameAsReference("TravelPlanner-DC/expected_dd.xmi", "TravelPlanner-DC/expected_dfd.xmi", [input,result|
+		createInput("TravelPlanner-DC-AC/newUsageModel.usagemodel", "TravelPlanner-DC-AC/newAllocation.allocation").
+			assertSameAsReference("TravelPlanner-DC-AC/expected_dd.xmi", "TravelPlanner-DC-AC/expected_dfd.xmi", [input,result|
 				val trace = result.trace
 				assertNotNull(trace)
 				
@@ -61,8 +61,8 @@ class TransformationTest {
 
 	@Test
 	def void testTravelPlannerCallAndReturn() {
-		createInput("TravelPlanner-CallReturn/newUsageModel.usagemodel", "TravelPlanner-CallReturn/newAllocation.allocation").
-			assertSameAsReference("TravelPlanner-CallReturn/expected_dd.xmi", "TravelPlanner-CallReturn/expected_dfd.xmi")
+		createInput("TravelPlanner-CallReturn-AC/newUsageModel.usagemodel", "TravelPlanner-CallReturn-AC/newAllocation.allocation").
+			assertSameAsReference("TravelPlanner-CallReturn-AC/expected_dd.xmi", "TravelPlanner-CallReturn-AC/expected_dfd.xmi")
 	}
 
 	@Data

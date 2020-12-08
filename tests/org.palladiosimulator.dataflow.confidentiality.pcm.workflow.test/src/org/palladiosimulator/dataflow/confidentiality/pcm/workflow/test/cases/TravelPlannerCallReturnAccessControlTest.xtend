@@ -23,8 +23,8 @@ class TravelPlannerCallReturnAccessControlTest extends TestBase {
 	def void testIssueFound() {
 		val solution = deriveSolution([ um |
 			val elsc = um.usageScenario_UsageModel.get(1).scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour.
-				filter(EntryLevelSystemCall).findFirst[entityName.contains("getCCD")]
-			val outputCharacterisations = elsc.outputParameterUsages_EntryLevelSystemCall.get(0).
+				filter(EntryLevelSystemCall).findFirst[entityName.contains("User.bookFlight.bookFlight")]
+			val outputCharacterisations = elsc.inputParameterUsages_EntryLevelSystemCall.get(0).
 				variableCharacterisation_VariableUsage
 			outputCharacterisations.remove(1)
 		])
@@ -32,9 +32,9 @@ class TravelPlannerCallReturnAccessControlTest extends TestBase {
 	}
 	
 	def deriveSolution(Consumer<UsageModel> usageModelModifier) {
-		val usageModelURI = getModelURI("TravelPlanner-CallReturn/newUsageModel.usagemodel")
+		val usageModelURI = getModelURI("TravelPlanner-CallReturn-AC/newUsageModel.usagemodel")
 		val usageModel = rs.getResource(usageModelURI, true).contents.get(0) as UsageModel
-		val allocationModelURI = getModelURI("TravelPlanner-CallReturn/newAllocation.allocation")
+		val allocationModelURI = getModelURI("TravelPlanner-CallReturn-AC/newAllocation.allocation")
 		val allocationModel = rs.getResource(allocationModelURI, true).contents.get(0) as Allocation
 		
 		usageModelModifier.accept(usageModel)

@@ -1,0 +1,834 @@
+<?xml version="1.0" encoding="ASCII"?>
+<DataFlowDiagram:DataFlowDiagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:DataFlowDiagram="http://palladiosimulator.org/dataflow/diagram/1.0" xmlns:DataFlowDiagramCharacterized="http://palladiosimulator.org/dataflow/diagram/characterized/1.0" xmlns:expressions="http://palladiosimulator.org/dataflow/dictionary/characterized/expressions/1.0" id="_MkqvcDl-EeuliI2ZE6xSxA">
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedExternalActor" id="_MphaQDl-EeuliI2ZE6xSxA" name="FlightPlanner">
+    <ownedBehavior id="_MpiBUDl-EeuliI2ZE6xSxA"/>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_MpjPcDl-EeuliI2ZE6xSxA" name="UserAction Entry FlightPlanner.addFlight.call" actor="_MphaQDl-EeuliI2ZE6xSxA">
+    <ownedBehavior id="_Mpj2gDl-EeuliI2ZE6xSxA">
+      <outputs id="_Mpng4Dl-EeuliI2ZE6xSxA" name="flight"/>
+      <assignments id="_MrUxEDl-EeuliI2ZE6xSxA">
+        <lhs id="_MrTi8Dl-EeuliI2ZE6xSxA" pin="_Mpng4Dl-EeuliI2ZE6xSxA">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrRtwDl-EeuliI2ZE6xSxA"/>
+        </lhs>
+        <rhs xsi:type="expressions:True" id="_MrUKATl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MrYbcDl-EeuliI2ZE6xSxA" name="CorrespondingActor">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrXNUDl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrXNUzl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MrYbcjl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MrZCgDl-EeuliI2ZE6xSxA" name="SEFF Entry Assembly_AirlineLogic.addFlight">
+    <ownedBehavior id="_MrZCgTl-EeuliI2ZE6xSxA">
+      <inputs id="_MrZpkDl-EeuliI2ZE6xSxA" name="flight"/>
+      <outputs id="_MsZvIDl-EeuliI2ZE6xSxA" name="flight"/>
+      <assignments id="_MsZvIzl-EeuliI2ZE6xSxA">
+        <lhs id="_MsZvITl-EeuliI2ZE6xSxA" pin="_MsZvIDl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MsZvIjl-EeuliI2ZE6xSxA" pin="_MrZpkDl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsaWMDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedExternalActor" id="_MrcF0Dl-EeuliI2ZE6xSxA" name="User">
+    <ownedBehavior id="_MrcF0Tl-EeuliI2ZE6xSxA"/>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_MrcF0jl-EeuliI2ZE6xSxA" name="UserAction Entry User.bookFlight.findFlights" actor="_MrcF0Dl-EeuliI2ZE6xSxA">
+    <ownedBehavior id="_MrcF0zl-EeuliI2ZE6xSxA">
+      <outputs id="_MrcF1Dl-EeuliI2ZE6xSxA" name="criteria"/>
+      <assignments id="_MrcF2Dl-EeuliI2ZE6xSxA">
+        <lhs id="_MrcF1Tl-EeuliI2ZE6xSxA" pin="_MrcF1Dl-EeuliI2ZE6xSxA">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrRtwDl-EeuliI2ZE6xSxA"/>
+        </lhs>
+        <rhs xsi:type="expressions:True" id="_MrcF1zl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MrdT8Dl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Mrd7ADl-EeuliI2ZE6xSxA" name="CorrespondingActor">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrXNUDl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrXNUjl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Mrd7ATl-EeuliI2ZE6xSxA" name="SEFF Entry Assembly_TravelPlannerLogic.findFlights">
+    <ownedBehavior id="_Mrd7Ajl-EeuliI2ZE6xSxA">
+      <inputs id="_Mrd7Azl-EeuliI2ZE6xSxA" name="criteria"/>
+      <outputs id="_MszXwzl-EeuliI2ZE6xSxA" name="criteria"/>
+      <assignments id="_MszXxjl-EeuliI2ZE6xSxA">
+        <lhs id="_MszXxDl-EeuliI2ZE6xSxA" pin="_MszXwzl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MszXxTl-EeuliI2ZE6xSxA" pin="_Mrd7Azl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Msz-0Dl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_Mrd7BTl-EeuliI2ZE6xSxA" name="UserAction Exit User.bookFlight.findFlights" actor="_MrcF0Dl-EeuliI2ZE6xSxA">
+    <ownedBehavior id="_Mrd7Bjl-EeuliI2ZE6xSxA">
+      <inputs id="_Mrd7Bzl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_Mrd7CDl-EeuliI2ZE6xSxA" name="flights"/>
+      <assignments id="_MreiEjl-EeuliI2ZE6xSxA">
+        <lhs id="_MreiEDl-EeuliI2ZE6xSxA" pin="_Mrd7CDl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MreiETl-EeuliI2ZE6xSxA" pin="_Mrd7Bzl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsG0MDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsG0MTl-EeuliI2ZE6xSxA" name="CorrespondingActor">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrXNUDl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrXNUjl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MrfwMDl-EeuliI2ZE6xSxA" name="SEFF Exit Assembly_TravelPlannerLogic.findFlights">
+    <ownedBehavior id="_MrfwMTl-EeuliI2ZE6xSxA">
+      <inputs id="_Msz-0Tl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_MrfwMjl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_Msz-1Dl-EeuliI2ZE6xSxA">
+        <lhs id="_Msz-0jl-EeuliI2ZE6xSxA" pin="_MrfwMjl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Msz-0zl-EeuliI2ZE6xSxA" pin="_Msz-0Tl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Ms0l4Dl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_MsIpYDl-EeuliI2ZE6xSxA" name="UserAction Exit User.bookFlight.getCCD" actor="_MrcF0Dl-EeuliI2ZE6xSxA">
+    <ownedBehavior id="_MsIpYTl-EeuliI2ZE6xSxA">
+      <inputs id="_MsIpYjl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_MsIpYzl-EeuliI2ZE6xSxA" name="ccd"/>
+      <assignments id="_MsIpZjl-EeuliI2ZE6xSxA">
+        <lhs id="_MsIpZDl-EeuliI2ZE6xSxA" pin="_MsIpYzl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MsIpZTl-EeuliI2ZE6xSxA" pin="_MsIpYjl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsJ3gDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsJ3gTl-EeuliI2ZE6xSxA" name="CorrespondingActor">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrXNUDl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrXNUjl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MsIpZzl-EeuliI2ZE6xSxA" name="SEFF Exit Assembly_CreditCardCenter.getCCD">
+    <ownedBehavior id="_MsIpaDl-EeuliI2ZE6xSxA">
+      <inputs id="_Ms8hsDl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_MsIpaTl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_Ms8hszl-EeuliI2ZE6xSxA">
+        <lhs id="_Ms8hsTl-EeuliI2ZE6xSxA" pin="_MsIpaTl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Ms8hsjl-EeuliI2ZE6xSxA" pin="_Ms8hsDl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Ms8htDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Ms9IwDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_MsLFoDl-EeuliI2ZE6xSxA" name="UserAction Entry User.bookFlight.bookFlight" actor="_MrcF0Dl-EeuliI2ZE6xSxA">
+    <ownedBehavior id="_MsLFoTl-EeuliI2ZE6xSxA">
+      <inputs id="_MsLssDl-EeuliI2ZE6xSxA" name="ccd"/>
+      <inputs id="_MsLssTl-EeuliI2ZE6xSxA" name="flights"/>
+      <outputs id="_MsLssjl-EeuliI2ZE6xSxA" name="ccd"/>
+      <outputs id="_MsLsujl-EeuliI2ZE6xSxA" name="flight"/>
+      <assignments id="_MsLstTl-EeuliI2ZE6xSxA">
+        <lhs id="_MsLsszl-EeuliI2ZE6xSxA" pin="_MsLssjl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MsLstDl-EeuliI2ZE6xSxA" pin="_MsLssDl-EeuliI2ZE6xSxA"/>
+      </assignments>
+      <assignments id="_MsLsuTl-EeuliI2ZE6xSxA">
+        <lhs id="_MsLstjl-EeuliI2ZE6xSxA" pin="_MsLssjl-EeuliI2ZE6xSxA">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrRtwDl-EeuliI2ZE6xSxA"/>
+          <literal href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+        </lhs>
+        <rhs xsi:type="expressions:True" id="_MsLsuDl-EeuliI2ZE6xSxA"/>
+      </assignments>
+      <assignments id="_MsMTwjl-EeuliI2ZE6xSxA">
+        <lhs id="_MsMTwDl-EeuliI2ZE6xSxA" pin="_MsLsujl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MsMTwTl-EeuliI2ZE6xSxA" pin="_MsLssTl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsNh4Dl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsNh4Tl-EeuliI2ZE6xSxA" name="CorrespondingActor">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrXNUDl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrXNUjl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MsNh4jl-EeuliI2ZE6xSxA" name="SEFF Entry Assembly_TravelPlannerLogic.bookFlight">
+    <ownedBehavior id="_MsNh4zl-EeuliI2ZE6xSxA">
+      <inputs id="_MsOI8Dl-EeuliI2ZE6xSxA" name="flight"/>
+      <inputs id="_MsOI8jl-EeuliI2ZE6xSxA" name="ccd"/>
+      <outputs id="_Ms3CITl-EeuliI2ZE6xSxA" name="flight"/>
+      <outputs id="_Ms3CJTl-EeuliI2ZE6xSxA" name="ccd"/>
+      <assignments id="_Ms3CJDl-EeuliI2ZE6xSxA">
+        <lhs id="_Ms3CIjl-EeuliI2ZE6xSxA" pin="_Ms3CITl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Ms3CIzl-EeuliI2ZE6xSxA" pin="_MsOI8Dl-EeuliI2ZE6xSxA"/>
+      </assignments>
+      <assignments id="_Ms3CKDl-EeuliI2ZE6xSxA">
+        <lhs id="_Ms3CJjl-EeuliI2ZE6xSxA" pin="_Ms3CJTl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Ms3CJzl-EeuliI2ZE6xSxA" pin="_MsOI8jl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Ms3pMDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_MsOI9Dl-EeuliI2ZE6xSxA" name="UserAction Exit User.bookFlight.bookFlight" actor="_MrcF0Dl-EeuliI2ZE6xSxA">
+    <ownedBehavior id="_MsOI9Tl-EeuliI2ZE6xSxA">
+      <inputs id="_MsOI9jl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_MsOI9zl-EeuliI2ZE6xSxA" name="confirmation"/>
+      <assignments id="_MsOI-jl-EeuliI2ZE6xSxA">
+        <lhs id="_MsOI-Dl-EeuliI2ZE6xSxA" pin="_MsOI9zl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MsOI-Tl-EeuliI2ZE6xSxA" pin="_MsOI9jl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsP-IDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsP-ITl-EeuliI2ZE6xSxA" name="CorrespondingActor">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrXNUDl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrXNUjl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MsOwADl-EeuliI2ZE6xSxA" name="SEFF Exit Assembly_TravelPlannerLogic.bookFlight">
+    <ownedBehavior id="_MsOwATl-EeuliI2ZE6xSxA">
+      <inputs id="_Ms3pMTl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_MsOwAjl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_Ms3pNDl-EeuliI2ZE6xSxA">
+        <lhs id="_Ms3pMjl-EeuliI2ZE6xSxA" pin="_MsOwAjl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Ms3pMzl-EeuliI2ZE6xSxA" pin="_Ms3pMTl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Ms4QQDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedActorProcess" id="_MsRzUDl-EeuliI2ZE6xSxA" name="UserAction Entry User.addCCD.call" actor="_MrcF0Dl-EeuliI2ZE6xSxA">
+    <ownedBehavior id="_MsRzUTl-EeuliI2ZE6xSxA">
+      <outputs id="_MsRzUjl-EeuliI2ZE6xSxA" name="ccd"/>
+      <assignments id="_MsRzVjl-EeuliI2ZE6xSxA">
+        <lhs id="_MsRzUzl-EeuliI2ZE6xSxA" pin="_MsRzUjl-EeuliI2ZE6xSxA">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrRtwDl-EeuliI2ZE6xSxA"/>
+          <literal href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+        </lhs>
+        <rhs xsi:type="expressions:True" id="_MsRzVTl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsTBcDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsTBcTl-EeuliI2ZE6xSxA" name="CorrespondingActor">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrXNUDl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrXNUjl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MsTogDl-EeuliI2ZE6xSxA" name="SEFF Entry Assembly_CreditCardCenter.addCCD">
+    <ownedBehavior id="_MsTogTl-EeuliI2ZE6xSxA">
+      <inputs id="_MsTogjl-EeuliI2ZE6xSxA" name="ccd"/>
+      <outputs id="_Ms76oTl-EeuliI2ZE6xSxA" name="ccd"/>
+      <assignments id="_Ms76pDl-EeuliI2ZE6xSxA">
+        <lhs id="_Ms76ojl-EeuliI2ZE6xSxA" pin="_Ms76oTl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Ms76ozl-EeuliI2ZE6xSxA" pin="_MsTogjl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Ms76pTl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Msa9QDl-EeuliI2ZE6xSxA" name="Action Entry AirlineLogic.addFlight.call">
+    <ownedBehavior id="_Msa9QTl-EeuliI2ZE6xSxA">
+      <inputs id="_Msa9Qjl-EeuliI2ZE6xSxA" name="flight"/>
+      <outputs id="_Msa9Qzl-EeuliI2ZE6xSxA" name="flight"/>
+      <assignments id="_Msa9Rjl-EeuliI2ZE6xSxA">
+        <lhs id="_Msa9RDl-EeuliI2ZE6xSxA" pin="_Msa9Qzl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Msa9RTl-EeuliI2ZE6xSxA" pin="_Msa9Qjl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MscycDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MscycTl-EeuliI2ZE6xSxA" name="SEFF Entry Assembly_FlightDB.addFlight">
+    <ownedBehavior id="_Mscycjl-EeuliI2ZE6xSxA">
+      <inputs id="_MsdZgDl-EeuliI2ZE6xSxA" name="flight"/>
+      <outputs id="_MspmwDl-EeuliI2ZE6xSxA" name="flight"/>
+      <assignments id="_Mspmwzl-EeuliI2ZE6xSxA">
+        <lhs id="_MspmwTl-EeuliI2ZE6xSxA" pin="_MspmwDl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Mspmwjl-EeuliI2ZE6xSxA" pin="_MsdZgDl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsqN0Dl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MsdZgjl-EeuliI2ZE6xSxA" name="SEFF Entry Assembly_AirlineLogic.bookFlight">
+    <ownedBehavior id="_MsdZgzl-EeuliI2ZE6xSxA">
+      <inputs id="_MsdZhDl-EeuliI2ZE6xSxA" name="flight"/>
+      <inputs id="_MseAkzl-EeuliI2ZE6xSxA" name="ccd"/>
+      <outputs id="_MsdZhTl-EeuliI2ZE6xSxA" name="flight"/>
+      <outputs id="_MseAlDl-EeuliI2ZE6xSxA" name="ccd"/>
+      <assignments id="_MseAkjl-EeuliI2ZE6xSxA">
+        <lhs id="_MseAkDl-EeuliI2ZE6xSxA" pin="_MsdZhTl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MseAkTl-EeuliI2ZE6xSxA" pin="_MsdZhDl-EeuliI2ZE6xSxA"/>
+      </assignments>
+      <assignments id="_MseAlzl-EeuliI2ZE6xSxA">
+        <lhs id="_MseAlTl-EeuliI2ZE6xSxA" pin="_MseAlDl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MseAljl-EeuliI2ZE6xSxA" pin="_MseAkzl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsenoDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MsenoTl-EeuliI2ZE6xSxA" name="SEFF Exit Assembly_AirlineLogic.bookFlight">
+    <ownedBehavior id="_Msenojl-EeuliI2ZE6xSxA">
+      <inputs id="_Msenozl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_MsenpDl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_Msenpzl-EeuliI2ZE6xSxA">
+        <lhs id="_MsenpTl-EeuliI2ZE6xSxA" pin="_MsenpDl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Msenpjl-EeuliI2ZE6xSxA" pin="_Msenozl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsfOsDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MsfOsTl-EeuliI2ZE6xSxA" name="Action AirlineLogic.bookFlight.return">
+    <ownedBehavior id="_MsfOsjl-EeuliI2ZE6xSxA">
+      <outputs id="_MsfOszl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_MsjgIzl-EeuliI2ZE6xSxA">
+        <lhs id="_MsjgIDl-EeuliI2ZE6xSxA" pin="_MsfOszl-EeuliI2ZE6xSxA">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrRtwDl-EeuliI2ZE6xSxA"/>
+        </lhs>
+        <rhs xsi:type="expressions:True" id="_MsjgIjl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MskHMDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Msf1wTl-EeuliI2ZE6xSxA" name="Action Entry AirlineLogic.bookFlight.callDB">
+    <ownedBehavior id="_Msf1wjl-EeuliI2ZE6xSxA">
+      <inputs id="_Msf1wzl-EeuliI2ZE6xSxA" name="ccd"/>
+      <inputs id="_Msf1xDl-EeuliI2ZE6xSxA" name="flight"/>
+      <outputs id="_Msf1xTl-EeuliI2ZE6xSxA" name="booking"/>
+      <assignments id="_Msf1yjl-EeuliI2ZE6xSxA">
+        <lhs id="_Msf1xjl-EeuliI2ZE6xSxA" pin="_Msf1xTl-EeuliI2ZE6xSxA">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrRtwDl-EeuliI2ZE6xSxA"/>
+        </lhs>
+        <rhs xsi:type="expressions:And" id="_Msf1xzl-EeuliI2ZE6xSxA">
+          <left xsi:type="expressions:DataCharacteristicReference" id="_Msf1yDl-EeuliI2ZE6xSxA" pin="_Msf1wzl-EeuliI2ZE6xSxA">
+            <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrRtwDl-EeuliI2ZE6xSxA"/>
+          </left>
+          <right xsi:type="expressions:DataCharacteristicReference" id="_Msf1yTl-EeuliI2ZE6xSxA" pin="_Msf1xDl-EeuliI2ZE6xSxA">
+            <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrRtwDl-EeuliI2ZE6xSxA"/>
+          </right>
+        </rhs>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MshD4Dl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MshD4Tl-EeuliI2ZE6xSxA" name="SEFF Entry Assembly_BookingStorage.addBooking">
+    <ownedBehavior id="_MshD4jl-EeuliI2ZE6xSxA">
+      <inputs id="_MshD4zl-EeuliI2ZE6xSxA" name="booking"/>
+      <outputs id="_MsqN1jl-EeuliI2ZE6xSxA" name="booking"/>
+      <assignments id="_MsqN2Tl-EeuliI2ZE6xSxA">
+        <lhs id="_MsqN1zl-EeuliI2ZE6xSxA" pin="_MsqN1jl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MsqN2Dl-EeuliI2ZE6xSxA" pin="_MshD4zl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Msq04Dl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MshD5Tl-EeuliI2ZE6xSxA" name="Action Entry AirlineLogic.bookFlight.callTA">
+    <ownedBehavior id="_MshD5jl-EeuliI2ZE6xSxA">
+      <outputs id="_MshD5zl-EeuliI2ZE6xSxA" name="commission"/>
+      <assignments id="_MshD6zl-EeuliI2ZE6xSxA">
+        <lhs id="_MshD6Dl-EeuliI2ZE6xSxA" pin="_MshD5zl-EeuliI2ZE6xSxA">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrRtwDl-EeuliI2ZE6xSxA"/>
+          <literal href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+        </lhs>
+        <rhs xsi:type="expressions:True" id="_MshD6jl-EeuliI2ZE6xSxA"/>
+      </assignments>
+      <assignments id="_MshD7zl-EeuliI2ZE6xSxA">
+        <lhs id="_MshD7Dl-EeuliI2ZE6xSxA" pin="_MshD5zl-EeuliI2ZE6xSxA">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrRtwDl-EeuliI2ZE6xSxA"/>
+          <literal href="expected_dd.xmi#_MrS74Tl-EeuliI2ZE6xSxA"/>
+        </lhs>
+        <rhs xsi:type="expressions:True" id="_MshD7jl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Mshq8Dl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MsiSADl-EeuliI2ZE6xSxA" name="SEFF Entry Assembly_TravelAgencyLogic.receiveCommission">
+    <ownedBehavior id="_MsiSATl-EeuliI2ZE6xSxA">
+      <inputs id="_MsiSAjl-EeuliI2ZE6xSxA" name="commission"/>
+      <outputs id="_MssDAjl-EeuliI2ZE6xSxA" name="commission"/>
+      <assignments id="_MssDBTl-EeuliI2ZE6xSxA">
+        <lhs id="_MssDAzl-EeuliI2ZE6xSxA" pin="_MssDAjl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MssDBDl-EeuliI2ZE6xSxA" pin="_MsiSAjl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MssDBjl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Tl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MsiSBDl-EeuliI2ZE6xSxA" name="Action Exit AirlineLogic.bookFlight.callTA">
+    <ownedBehavior id="_MsiSBTl-EeuliI2ZE6xSxA">
+      <inputs id="_MsiSBjl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_MsiSBzl-EeuliI2ZE6xSxA" name="confirmation"/>
+      <assignments id="_MsiSCjl-EeuliI2ZE6xSxA">
+        <lhs id="_MsiSCDl-EeuliI2ZE6xSxA" pin="_MsiSBzl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MsiSCTl-EeuliI2ZE6xSxA" pin="_MsiSBjl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Msi5FDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Msi5EDl-EeuliI2ZE6xSxA" name="SEFF Exit Assembly_TravelAgencyLogic.receiveCommission">
+    <ownedBehavior id="_Msi5ETl-EeuliI2ZE6xSxA">
+      <inputs id="_MssqEDl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_Msi5Ejl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_MssqEzl-EeuliI2ZE6xSxA">
+        <lhs id="_MssqETl-EeuliI2ZE6xSxA" pin="_Msi5Ejl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MssqEjl-EeuliI2ZE6xSxA" pin="_MssqEDl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MssqFDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Tl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MskHMTl-EeuliI2ZE6xSxA" name="SEFF Entry Assembly_AirlineLogic.findFlights">
+    <ownedBehavior id="_MskHMjl-EeuliI2ZE6xSxA">
+      <inputs id="_MskHMzl-EeuliI2ZE6xSxA" name="query"/>
+      <outputs id="_MskHNDl-EeuliI2ZE6xSxA" name="query"/>
+      <assignments id="_MskHNzl-EeuliI2ZE6xSxA">
+        <lhs id="_MskHNTl-EeuliI2ZE6xSxA" pin="_MskHNDl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MskHNjl-EeuliI2ZE6xSxA" pin="_MskHMzl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MskHODl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MskHOTl-EeuliI2ZE6xSxA" name="SEFF Exit Assembly_AirlineLogic.findFlights">
+    <ownedBehavior id="_MskHOjl-EeuliI2ZE6xSxA">
+      <inputs id="_MskuQDl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_MskuQTl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_MskuRDl-EeuliI2ZE6xSxA">
+        <lhs id="_MskuQjl-EeuliI2ZE6xSxA" pin="_MskuQTl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MskuQzl-EeuliI2ZE6xSxA" pin="_MskuQDl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MskuRTl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MskuRjl-EeuliI2ZE6xSxA" name="Action AirlineLogic.findFlights.return">
+    <ownedBehavior id="_MskuRzl-EeuliI2ZE6xSxA">
+      <inputs id="_Msl8ZTl-EeuliI2ZE6xSxA" name="flights"/>
+      <outputs id="_MskuSDl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_Msmjcjl-EeuliI2ZE6xSxA">
+        <lhs id="_MsmjcDl-EeuliI2ZE6xSxA" pin="_MskuSDl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MsmjcTl-EeuliI2ZE6xSxA" pin="_Msl8ZTl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsnKgDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MslVUTl-EeuliI2ZE6xSxA" name="Action Exit AirlineLogic.findFlights.callDB">
+    <ownedBehavior id="_MslVUjl-EeuliI2ZE6xSxA">
+      <inputs id="_MslVUzl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_MslVVDl-EeuliI2ZE6xSxA" name="flights"/>
+      <assignments id="_MslVVzl-EeuliI2ZE6xSxA">
+        <lhs id="_MslVVTl-EeuliI2ZE6xSxA" pin="_MslVVDl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MslVVjl-EeuliI2ZE6xSxA" pin="_MslVUzl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Msl8ZDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Msl8YDl-EeuliI2ZE6xSxA" name="SEFF Exit Assembly_FlightDB.getFlight">
+    <ownedBehavior id="_Msl8YTl-EeuliI2ZE6xSxA">
+      <inputs id="_MsnxlDl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_Msl8Yjl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_Msnxlzl-EeuliI2ZE6xSxA">
+        <lhs id="_MsnxlTl-EeuliI2ZE6xSxA" pin="_Msl8Yjl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Msnxljl-EeuliI2ZE6xSxA" pin="_MsnxlDl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsoYoDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Mso_sDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_MsnxkDl-EeuliI2ZE6xSxA" name="Store Assembly_FlightDB.FlightDB">
+    <ownedBehavior id="_MsnxkTl-EeuliI2ZE6xSxA">
+      <inputs id="_Msnxkjl-EeuliI2ZE6xSxA" name="input"/>
+      <outputs id="_Msnxkzl-EeuliI2ZE6xSxA" name="output"/>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_MsqN0jl-EeuliI2ZE6xSxA" name="Store Assembly_BookingStorage.BookingStorage">
+    <ownedBehavior id="_MsqN0zl-EeuliI2ZE6xSxA">
+      <inputs id="_MsqN1Dl-EeuliI2ZE6xSxA" name="input"/>
+      <outputs id="_MsqN1Tl-EeuliI2ZE6xSxA" name="output"/>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Msq04jl-EeuliI2ZE6xSxA" name="SEFF Exit Assembly_BookingStorage.getBooking">
+    <ownedBehavior id="_Msq04zl-EeuliI2ZE6xSxA">
+      <inputs id="_Msq05Dl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_Msq05Tl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_Msq06Dl-EeuliI2ZE6xSxA">
+        <lhs id="_Msq05jl-EeuliI2ZE6xSxA" pin="_Msq05Tl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Msq05zl-EeuliI2ZE6xSxA" pin="_Msq05Dl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Msrb8Dl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MssDADl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MssqFTl-EeuliI2ZE6xSxA" name="Action TravelAgencyLogic.receiveCommission.return">
+    <ownedBehavior id="_MstRIDl-EeuliI2ZE6xSxA">
+      <outputs id="_MstRITl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_Mst4ODl-EeuliI2ZE6xSxA">
+        <lhs id="_Mst4NTl-EeuliI2ZE6xSxA" pin="_MstRITl-EeuliI2ZE6xSxA">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrRtwDl-EeuliI2ZE6xSxA"/>
+          <literal href="expected_dd.xmi#_MrS74jl-EeuliI2ZE6xSxA"/>
+        </lhs>
+        <rhs xsi:type="expressions:True" id="_Mst4Nzl-EeuliI2ZE6xSxA"/>
+      </assignments>
+      <assignments id="_Mst4PDl-EeuliI2ZE6xSxA">
+        <lhs id="_Mst4OTl-EeuliI2ZE6xSxA" pin="_MstRITl-EeuliI2ZE6xSxA">
+          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrRtwDl-EeuliI2ZE6xSxA"/>
+          <literal href="expected_dd.xmi#_MrS74Tl-EeuliI2ZE6xSxA"/>
+        </lhs>
+        <rhs xsi:type="expressions:True" id="_Mst4Ozl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsufQDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Tl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MstRIzl-EeuliI2ZE6xSxA" name="Action Entry TravelAgencyLogic.receiveCommission.call">
+    <ownedBehavior id="_MstRJDl-EeuliI2ZE6xSxA">
+      <inputs id="_MstRJTl-EeuliI2ZE6xSxA" name="commission"/>
+      <outputs id="_MstRJjl-EeuliI2ZE6xSxA" name="commission"/>
+      <assignments id="_MstRKTl-EeuliI2ZE6xSxA">
+        <lhs id="_MstRJzl-EeuliI2ZE6xSxA" pin="_MstRJjl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MstRKDl-EeuliI2ZE6xSxA" pin="_MstRJTl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Mst4MDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Tl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Mst4MTl-EeuliI2ZE6xSxA" name="SEFF Entry Assembly_CommissionDB.addCommission">
+    <ownedBehavior id="_Mst4Mjl-EeuliI2ZE6xSxA">
+      <inputs id="_Mst4Mzl-EeuliI2ZE6xSxA" name="commission"/>
+      <outputs id="_MsyJpTl-EeuliI2ZE6xSxA" name="commission"/>
+      <assignments id="_MsyJqDl-EeuliI2ZE6xSxA">
+        <lhs id="_MsyJpjl-EeuliI2ZE6xSxA" pin="_MsyJpTl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MsyJpzl-EeuliI2ZE6xSxA" pin="_Mst4Mzl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsywsDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Tl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MsufQTl-EeuliI2ZE6xSxA" name="SEFF Entry Assembly_TravelAgencyLogic.findFlights">
+    <ownedBehavior id="_MsufQjl-EeuliI2ZE6xSxA">
+      <inputs id="_MsufQzl-EeuliI2ZE6xSxA" name="criteria"/>
+      <outputs id="_MsufRDl-EeuliI2ZE6xSxA" name="criteria"/>
+      <assignments id="_MsufRzl-EeuliI2ZE6xSxA">
+        <lhs id="_MsufRTl-EeuliI2ZE6xSxA" pin="_MsufRDl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MsufRjl-EeuliI2ZE6xSxA" pin="_MsufQzl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsvGUDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Tl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MsvGUTl-EeuliI2ZE6xSxA" name="SEFF Exit Assembly_TravelAgencyLogic.findFlights">
+    <ownedBehavior id="_MsvGUjl-EeuliI2ZE6xSxA">
+      <inputs id="_MsvGUzl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_MsvGVDl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_MsvGVzl-EeuliI2ZE6xSxA">
+        <lhs id="_MsvGVTl-EeuliI2ZE6xSxA" pin="_MsvGVDl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MsvGVjl-EeuliI2ZE6xSxA" pin="_MsvGUzl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsvtYDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Tl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MsvtYTl-EeuliI2ZE6xSxA" name="Action TravelAgencyLogic.findFlights.return">
+    <ownedBehavior id="_MsvtYjl-EeuliI2ZE6xSxA">
+      <inputs id="_MsxikTl-EeuliI2ZE6xSxA" name="flights"/>
+      <outputs id="_MsvtYzl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_MsxilDl-EeuliI2ZE6xSxA">
+        <lhs id="_Msxikjl-EeuliI2ZE6xSxA" pin="_MsvtYzl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Msxikzl-EeuliI2ZE6xSxA" pin="_MsxikTl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsyJoDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Tl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_MsvtZTl-EeuliI2ZE6xSxA" name="Action Entry TravelAgencyLogic.findFlights.call">
+    <ownedBehavior id="_MsvtZjl-EeuliI2ZE6xSxA">
+      <inputs id="_MsvtZzl-EeuliI2ZE6xSxA" name="criteria"/>
+      <outputs id="_MswUcDl-EeuliI2ZE6xSxA" name="query"/>
+      <assignments id="_MswUczl-EeuliI2ZE6xSxA">
+        <lhs id="_MswUcTl-EeuliI2ZE6xSxA" pin="_MswUcDl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_MswUcjl-EeuliI2ZE6xSxA" pin="_MsvtZzl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MswUdTl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Tl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Msw7gTl-EeuliI2ZE6xSxA" name="Action Exit TravelAgencyLogic.findFlights.call">
+    <ownedBehavior id="_Msw7gjl-EeuliI2ZE6xSxA">
+      <inputs id="_Msw7gzl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_Msw7hDl-EeuliI2ZE6xSxA" name="flights"/>
+      <assignments id="_Msw7hzl-EeuliI2ZE6xSxA">
+        <lhs id="_Msw7hTl-EeuliI2ZE6xSxA" pin="_Msw7hDl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Msw7hjl-EeuliI2ZE6xSxA" pin="_Msw7gzl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MsxikDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Tl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_MsyJoTl-EeuliI2ZE6xSxA" name="Store Assembly_CommissionDB.CommissionDB">
+    <ownedBehavior id="_MsyJojl-EeuliI2ZE6xSxA">
+      <inputs id="_MsyJozl-EeuliI2ZE6xSxA" name="input"/>
+      <outputs id="_MsyJpDl-EeuliI2ZE6xSxA" name="output"/>
+    </ownedBehavior>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Msywsjl-EeuliI2ZE6xSxA" name="SEFF Exit Assembly_CommissionDB.getCommission">
+    <ownedBehavior id="_Msywszl-EeuliI2ZE6xSxA">
+      <inputs id="_MsywtDl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_MsywtTl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_MsywuDl-EeuliI2ZE6xSxA">
+        <lhs id="_Msywtjl-EeuliI2ZE6xSxA" pin="_MsywtTl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Msywtzl-EeuliI2ZE6xSxA" pin="_MsywtDl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MszXwDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Tl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_MszXwTl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Tl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Ms0l4Tl-EeuliI2ZE6xSxA" name="Action TravelPlannerLogic.findFlights.return">
+    <ownedBehavior id="_Ms0l4jl-EeuliI2ZE6xSxA">
+      <inputs id="_Ms2bETl-EeuliI2ZE6xSxA" name="flights"/>
+      <outputs id="_Ms0l4zl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_Ms2bFDl-EeuliI2ZE6xSxA">
+        <lhs id="_Ms2bEjl-EeuliI2ZE6xSxA" pin="_Ms0l4zl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Ms2bEzl-EeuliI2ZE6xSxA" pin="_Ms2bETl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Ms3CIDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Ms0l5Tl-EeuliI2ZE6xSxA" name="Action Entry TravelPlannerLogic.findFlights.call">
+    <ownedBehavior id="_Ms0l5jl-EeuliI2ZE6xSxA">
+      <inputs id="_Ms0l5zl-EeuliI2ZE6xSxA" name="criteria"/>
+      <outputs id="_Ms0l6Dl-EeuliI2ZE6xSxA" name="criteria"/>
+      <assignments id="_Ms1M8jl-EeuliI2ZE6xSxA">
+        <lhs id="_Ms1M8Dl-EeuliI2ZE6xSxA" pin="_Ms0l6Dl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Ms1M8Tl-EeuliI2ZE6xSxA" pin="_Ms0l5zl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Ms1M9Dl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Ms1M9jl-EeuliI2ZE6xSxA" name="Action Exit TravelPlannerLogic.findFlights.call">
+    <ownedBehavior id="_Ms1M9zl-EeuliI2ZE6xSxA">
+      <inputs id="_Ms10ADl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_Ms10ATl-EeuliI2ZE6xSxA" name="flights"/>
+      <assignments id="_Ms10BDl-EeuliI2ZE6xSxA">
+        <lhs id="_Ms10Ajl-EeuliI2ZE6xSxA" pin="_Ms10ATl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Ms10Azl-EeuliI2ZE6xSxA" pin="_Ms10ADl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Ms2bEDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Ms4QQTl-EeuliI2ZE6xSxA" name="Action TravelPlannerLogic.bookFlight.return">
+    <ownedBehavior id="_Ms4QQjl-EeuliI2ZE6xSxA">
+      <inputs id="_Ms6sgjl-EeuliI2ZE6xSxA" name="confirmation"/>
+      <outputs id="_Ms4QQzl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <assignments id="_Ms7TkTl-EeuliI2ZE6xSxA">
+        <lhs id="_Ms6sgzl-EeuliI2ZE6xSxA" pin="_Ms4QQzl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Ms7TkDl-EeuliI2ZE6xSxA" pin="_Ms6sgjl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Ms7Tkzl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Ms4QRTl-EeuliI2ZE6xSxA" name="Action Entry TravelPlannerLogic.bookFlight.call">
+    <ownedBehavior id="_Ms4QRjl-EeuliI2ZE6xSxA">
+      <inputs id="_Ms4QRzl-EeuliI2ZE6xSxA" name="ccd"/>
+      <inputs id="_Ms4QSDl-EeuliI2ZE6xSxA" name="flight"/>
+      <outputs id="_Ms43UDl-EeuliI2ZE6xSxA" name="ccd"/>
+      <outputs id="_Ms43VDl-EeuliI2ZE6xSxA" name="flight"/>
+      <assignments id="_Ms43Uzl-EeuliI2ZE6xSxA">
+        <lhs id="_Ms43UTl-EeuliI2ZE6xSxA" pin="_Ms43UDl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Ms43Ujl-EeuliI2ZE6xSxA" pin="_Ms4QRzl-EeuliI2ZE6xSxA"/>
+      </assignments>
+      <assignments id="_Ms43Vzl-EeuliI2ZE6xSxA">
+        <lhs id="_Ms43VTl-EeuliI2ZE6xSxA" pin="_Ms43VDl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Ms43Vjl-EeuliI2ZE6xSxA" pin="_Ms4QSDl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Ms6FcDl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedProcess" id="_Ms6Fczl-EeuliI2ZE6xSxA" name="Action Exit TravelPlannerLogic.bookFlight.call">
+    <ownedBehavior id="_Ms6FdDl-EeuliI2ZE6xSxA">
+      <inputs id="_Ms6FdTl-EeuliI2ZE6xSxA" name="RETURN"/>
+      <outputs id="_Ms6Fdjl-EeuliI2ZE6xSxA" name="confirmation"/>
+      <assignments id="_Ms6FeTl-EeuliI2ZE6xSxA">
+        <lhs id="_Ms6Fdzl-EeuliI2ZE6xSxA" pin="_Ms6Fdjl-EeuliI2ZE6xSxA"/>
+        <rhs xsi:type="expressions:DataCharacteristicReference" id="_Ms6FeDl-EeuliI2ZE6xSxA" pin="_Ms6FdTl-EeuliI2ZE6xSxA"/>
+      </assignments>
+    </ownedBehavior>
+    <characteristics xsi:type="DataFlowDiagramCharacterized:EnumCharacteristic" id="_Ms6sgTl-EeuliI2ZE6xSxA" name="OwnedRoles">
+      <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="expected_dd.xmi#_MrYbcTl-EeuliI2ZE6xSxA"/>
+      <values href="expected_dd.xmi#_MrS74Dl-EeuliI2ZE6xSxA"/>
+    </characteristics>
+  </nodes>
+  <nodes xsi:type="DataFlowDiagramCharacterized:CharacterizedStore" id="_Ms7TlDl-EeuliI2ZE6xSxA" name="Store Assembly_CreditCardCenter.CreditCardCenter">
+    <ownedBehavior id="_Ms7TlTl-EeuliI2ZE6xSxA">
+      <inputs id="_Ms7Tljl-EeuliI2ZE6xSxA" name="input"/>
+      <outputs id="_Ms76oDl-EeuliI2ZE6xSxA" name="output"/>
+    </ownedBehavior>
+  </nodes>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Mra3sDl-EeuliI2ZE6xSxA" name="data" target="_MrZCgDl-EeuliI2ZE6xSxA" source="_MpjPcDl-EeuliI2ZE6xSxA" sourcePin="_Mpng4Dl-EeuliI2ZE6xSxA" targetPin="_MrZpkDl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Mrd7BDl-EeuliI2ZE6xSxA" name="data" target="_Mrd7ATl-EeuliI2ZE6xSxA" source="_MrcF0jl-EeuliI2ZE6xSxA" sourcePin="_MrcF1Dl-EeuliI2ZE6xSxA" targetPin="_Mrd7Azl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MsFmEDl-EeuliI2ZE6xSxA" name="data" target="_Mrd7BTl-EeuliI2ZE6xSxA" source="_MrfwMDl-EeuliI2ZE6xSxA" sourcePin="_MrfwMjl-EeuliI2ZE6xSxA" targetPin="_Mrd7Bzl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MsJQcDl-EeuliI2ZE6xSxA" name="data" target="_MsIpYDl-EeuliI2ZE6xSxA" source="_MsIpZzl-EeuliI2ZE6xSxA" sourcePin="_MsIpaTl-EeuliI2ZE6xSxA" targetPin="_MsIpYjl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MsMTwzl-EeuliI2ZE6xSxA" name="data" target="_MsLFoDl-EeuliI2ZE6xSxA" source="_MsIpYDl-EeuliI2ZE6xSxA" sourcePin="_MsIpYzl-EeuliI2ZE6xSxA" targetPin="_MsLssDl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MsM60Dl-EeuliI2ZE6xSxA" name="data" target="_MsLFoDl-EeuliI2ZE6xSxA" source="_Mrd7BTl-EeuliI2ZE6xSxA" sourcePin="_Mrd7CDl-EeuliI2ZE6xSxA" targetPin="_MsLssTl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MsOI8Tl-EeuliI2ZE6xSxA" name="data" target="_MsNh4jl-EeuliI2ZE6xSxA" source="_MsLFoDl-EeuliI2ZE6xSxA" sourcePin="_MsLsujl-EeuliI2ZE6xSxA" targetPin="_MsOI8Dl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MsOI8zl-EeuliI2ZE6xSxA" name="data" target="_MsNh4jl-EeuliI2ZE6xSxA" source="_MsLFoDl-EeuliI2ZE6xSxA" sourcePin="_MsLssjl-EeuliI2ZE6xSxA" targetPin="_MsOI8jl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MsOwAzl-EeuliI2ZE6xSxA" name="data" target="_MsOI9Dl-EeuliI2ZE6xSxA" source="_MsOwADl-EeuliI2ZE6xSxA" sourcePin="_MsOwAjl-EeuliI2ZE6xSxA" targetPin="_MsOI9jl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MsTogzl-EeuliI2ZE6xSxA" name="data" target="_MsTogDl-EeuliI2ZE6xSxA" source="_MsRzUDl-EeuliI2ZE6xSxA" sourcePin="_MsRzUjl-EeuliI2ZE6xSxA" targetPin="_MsTogjl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MscLYDl-EeuliI2ZE6xSxA" name="data" target="_Msa9QDl-EeuliI2ZE6xSxA" source="_MrZCgDl-EeuliI2ZE6xSxA" sourcePin="_MsZvIDl-EeuliI2ZE6xSxA" targetPin="_Msa9Qjl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MsdZgTl-EeuliI2ZE6xSxA" name="data" target="_MscycTl-EeuliI2ZE6xSxA" source="_Msa9QDl-EeuliI2ZE6xSxA" sourcePin="_Msa9Qzl-EeuliI2ZE6xSxA" targetPin="_MsdZgDl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Msf1wDl-EeuliI2ZE6xSxA" name="data" target="_MsenoTl-EeuliI2ZE6xSxA" source="_MsfOsTl-EeuliI2ZE6xSxA" sourcePin="_MsfOszl-EeuliI2ZE6xSxA" targetPin="_Msenozl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Msgc0Dl-EeuliI2ZE6xSxA" name="data" target="_Msf1wTl-EeuliI2ZE6xSxA" source="_MsdZgjl-EeuliI2ZE6xSxA" sourcePin="_MseAlDl-EeuliI2ZE6xSxA" targetPin="_Msf1wzl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Msgc0Tl-EeuliI2ZE6xSxA" name="data" target="_Msf1wTl-EeuliI2ZE6xSxA" source="_MsdZgjl-EeuliI2ZE6xSxA" sourcePin="_MsdZhTl-EeuliI2ZE6xSxA" targetPin="_Msf1xDl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MshD5Dl-EeuliI2ZE6xSxA" name="data" target="_MshD4Tl-EeuliI2ZE6xSxA" source="_Msf1wTl-EeuliI2ZE6xSxA" sourcePin="_Msf1xTl-EeuliI2ZE6xSxA" targetPin="_MshD4zl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MsiSAzl-EeuliI2ZE6xSxA" name="data" target="_MsiSADl-EeuliI2ZE6xSxA" source="_MshD5Tl-EeuliI2ZE6xSxA" sourcePin="_MshD5zl-EeuliI2ZE6xSxA" targetPin="_MsiSAjl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Msi5Ezl-EeuliI2ZE6xSxA" name="data" target="_MsiSBDl-EeuliI2ZE6xSxA" source="_Msi5EDl-EeuliI2ZE6xSxA" sourcePin="_Msi5Ejl-EeuliI2ZE6xSxA" targetPin="_MsiSBjl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MslVUDl-EeuliI2ZE6xSxA" name="data" target="_MskHOTl-EeuliI2ZE6xSxA" source="_MskuRjl-EeuliI2ZE6xSxA" sourcePin="_MskuSDl-EeuliI2ZE6xSxA" targetPin="_MskuQDl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Msl8Yzl-EeuliI2ZE6xSxA" name="data" target="_MslVUTl-EeuliI2ZE6xSxA" source="_Msl8YDl-EeuliI2ZE6xSxA" sourcePin="_Msl8Yjl-EeuliI2ZE6xSxA" targetPin="_MslVUzl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Msmjczl-EeuliI2ZE6xSxA" name="data" target="_MskuRjl-EeuliI2ZE6xSxA" source="_MslVUTl-EeuliI2ZE6xSxA" sourcePin="_MslVVDl-EeuliI2ZE6xSxA" targetPin="_Msl8ZTl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Mso_sTl-EeuliI2ZE6xSxA" name="data" target="_Msl8YDl-EeuliI2ZE6xSxA" source="_MsnxkDl-EeuliI2ZE6xSxA" sourcePin="_Msnxkzl-EeuliI2ZE6xSxA" targetPin="_MsnxlDl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MsqN0Tl-EeuliI2ZE6xSxA" name="data" target="_MsnxkDl-EeuliI2ZE6xSxA" source="_MscycTl-EeuliI2ZE6xSxA" sourcePin="_MspmwDl-EeuliI2ZE6xSxA" targetPin="_Msnxkjl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Msq04Tl-EeuliI2ZE6xSxA" name="data" target="_MsqN0jl-EeuliI2ZE6xSxA" source="_MshD4Tl-EeuliI2ZE6xSxA" sourcePin="_MsqN1jl-EeuliI2ZE6xSxA" targetPin="_MsqN1Dl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MssDATl-EeuliI2ZE6xSxA" name="data" target="_Msq04jl-EeuliI2ZE6xSxA" source="_MsqN0jl-EeuliI2ZE6xSxA" sourcePin="_MsqN1Tl-EeuliI2ZE6xSxA" targetPin="_Msq05Dl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MstRIjl-EeuliI2ZE6xSxA" name="data" target="_Msi5EDl-EeuliI2ZE6xSxA" source="_MssqFTl-EeuliI2ZE6xSxA" sourcePin="_MstRITl-EeuliI2ZE6xSxA" targetPin="_MssqEDl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MstRKjl-EeuliI2ZE6xSxA" name="data" target="_MstRIzl-EeuliI2ZE6xSxA" source="_MsiSADl-EeuliI2ZE6xSxA" sourcePin="_MssDAjl-EeuliI2ZE6xSxA" targetPin="_MstRJTl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Mst4NDl-EeuliI2ZE6xSxA" name="data" target="_Mst4MTl-EeuliI2ZE6xSxA" source="_MstRIzl-EeuliI2ZE6xSxA" sourcePin="_MstRJjl-EeuliI2ZE6xSxA" targetPin="_Mst4Mzl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MsvtZDl-EeuliI2ZE6xSxA" name="data" target="_MsvGUTl-EeuliI2ZE6xSxA" source="_MsvtYTl-EeuliI2ZE6xSxA" sourcePin="_MsvtYzl-EeuliI2ZE6xSxA" targetPin="_MsvGUzl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MswUdDl-EeuliI2ZE6xSxA" name="data" target="_MsvtZTl-EeuliI2ZE6xSxA" source="_MsufQTl-EeuliI2ZE6xSxA" sourcePin="_MsufRDl-EeuliI2ZE6xSxA" targetPin="_MsvtZzl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Msw7gDl-EeuliI2ZE6xSxA" name="data" target="_MskHMTl-EeuliI2ZE6xSxA" source="_MsvtZTl-EeuliI2ZE6xSxA" sourcePin="_MswUcDl-EeuliI2ZE6xSxA" targetPin="_MskHMzl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Msw7iDl-EeuliI2ZE6xSxA" name="data" target="_Msw7gTl-EeuliI2ZE6xSxA" source="_MskHOTl-EeuliI2ZE6xSxA" sourcePin="_MskuQTl-EeuliI2ZE6xSxA" targetPin="_Msw7gzl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MsxilTl-EeuliI2ZE6xSxA" name="data" target="_MsvtYTl-EeuliI2ZE6xSxA" source="_Msw7gTl-EeuliI2ZE6xSxA" sourcePin="_Msw7hDl-EeuliI2ZE6xSxA" targetPin="_MsxikTl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MsywsTl-EeuliI2ZE6xSxA" name="data" target="_MsyJoTl-EeuliI2ZE6xSxA" source="_Mst4MTl-EeuliI2ZE6xSxA" sourcePin="_MsyJpTl-EeuliI2ZE6xSxA" targetPin="_MsyJozl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_MszXwjl-EeuliI2ZE6xSxA" name="data" target="_Msywsjl-EeuliI2ZE6xSxA" source="_MsyJoTl-EeuliI2ZE6xSxA" sourcePin="_MsyJpDl-EeuliI2ZE6xSxA" targetPin="_MsywtDl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Ms0l5Dl-EeuliI2ZE6xSxA" name="data" target="_MrfwMDl-EeuliI2ZE6xSxA" source="_Ms0l4Tl-EeuliI2ZE6xSxA" sourcePin="_Ms0l4zl-EeuliI2ZE6xSxA" targetPin="_Msz-0Tl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Ms1M8zl-EeuliI2ZE6xSxA" name="data" target="_Ms0l5Tl-EeuliI2ZE6xSxA" source="_Mrd7ATl-EeuliI2ZE6xSxA" sourcePin="_MszXwzl-EeuliI2ZE6xSxA" targetPin="_Ms0l5zl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Ms1M9Tl-EeuliI2ZE6xSxA" name="data" target="_MsufQTl-EeuliI2ZE6xSxA" source="_Ms0l5Tl-EeuliI2ZE6xSxA" sourcePin="_Ms0l6Dl-EeuliI2ZE6xSxA" targetPin="_MsufQzl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Ms10BTl-EeuliI2ZE6xSxA" name="data" target="_Ms1M9jl-EeuliI2ZE6xSxA" source="_MsvGUTl-EeuliI2ZE6xSxA" sourcePin="_MsvGVDl-EeuliI2ZE6xSxA" targetPin="_Ms10ADl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Ms2bFTl-EeuliI2ZE6xSxA" name="data" target="_Ms0l4Tl-EeuliI2ZE6xSxA" source="_Ms1M9jl-EeuliI2ZE6xSxA" sourcePin="_Ms10ATl-EeuliI2ZE6xSxA" targetPin="_Ms2bETl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Ms4QRDl-EeuliI2ZE6xSxA" name="data" target="_MsOwADl-EeuliI2ZE6xSxA" source="_Ms4QQTl-EeuliI2ZE6xSxA" sourcePin="_Ms4QQzl-EeuliI2ZE6xSxA" targetPin="_Ms3pMTl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Ms43WDl-EeuliI2ZE6xSxA" name="data" target="_Ms4QRTl-EeuliI2ZE6xSxA" source="_MsNh4jl-EeuliI2ZE6xSxA" sourcePin="_Ms3CJTl-EeuliI2ZE6xSxA" targetPin="_Ms4QRzl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Ms5eYDl-EeuliI2ZE6xSxA" name="data" target="_Ms4QRTl-EeuliI2ZE6xSxA" source="_MsNh4jl-EeuliI2ZE6xSxA" sourcePin="_Ms3CITl-EeuliI2ZE6xSxA" targetPin="_Ms4QSDl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Ms6FcTl-EeuliI2ZE6xSxA" name="data" target="_MsdZgjl-EeuliI2ZE6xSxA" source="_Ms4QRTl-EeuliI2ZE6xSxA" sourcePin="_Ms43VDl-EeuliI2ZE6xSxA" targetPin="_MsdZhDl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Ms6Fcjl-EeuliI2ZE6xSxA" name="data" target="_MsdZgjl-EeuliI2ZE6xSxA" source="_Ms4QRTl-EeuliI2ZE6xSxA" sourcePin="_Ms43UDl-EeuliI2ZE6xSxA" targetPin="_MseAkzl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Ms6sgDl-EeuliI2ZE6xSxA" name="data" target="_Ms6Fczl-EeuliI2ZE6xSxA" source="_MsenoTl-EeuliI2ZE6xSxA" sourcePin="_MsenpDl-EeuliI2ZE6xSxA" targetPin="_Ms6FdTl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Ms7Tkjl-EeuliI2ZE6xSxA" name="data" target="_Ms4QQTl-EeuliI2ZE6xSxA" source="_Ms6Fczl-EeuliI2ZE6xSxA" sourcePin="_Ms6Fdjl-EeuliI2ZE6xSxA" targetPin="_Ms6sgjl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Ms76pjl-EeuliI2ZE6xSxA" name="data" target="_Ms7TlDl-EeuliI2ZE6xSxA" source="_MsTogDl-EeuliI2ZE6xSxA" sourcePin="_Ms76oTl-EeuliI2ZE6xSxA" targetPin="_Ms7Tljl-EeuliI2ZE6xSxA"/>
+  <edges xsi:type="DataFlowDiagramCharacterized:CharacterizedDataFlow" id="_Ms9IwTl-EeuliI2ZE6xSxA" name="data" target="_MsIpZzl-EeuliI2ZE6xSxA" source="_Ms7TlDl-EeuliI2ZE6xSxA" sourcePin="_Ms76oDl-EeuliI2ZE6xSxA" targetPin="_Ms8hsDl-EeuliI2ZE6xSxA"/>
+</DataFlowDiagram:DataFlowDiagram>

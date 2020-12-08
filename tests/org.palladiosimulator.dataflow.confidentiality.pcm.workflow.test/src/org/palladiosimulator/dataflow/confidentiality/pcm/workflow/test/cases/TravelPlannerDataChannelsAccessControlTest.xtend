@@ -32,9 +32,9 @@ class TravelPlannerDataChannelsAccessControlTest extends TestBase {
 	}
 	
 	def deriveSolution(Consumer<UsageModel> usageModelModifier) {
-		val usageModelURI = getModelURI("TravelPlanner-DC/newUsageModel.usagemodel")
+		val usageModelURI = getModelURI("TravelPlanner-DC-AC/newUsageModel.usagemodel")
 		val usageModel = rs.getResource(usageModelURI, true).contents.get(0) as UsageModel
-		val allocationModelURI = getModelURI("TravelPlanner-DC/newAllocation.allocation")
+		val allocationModelURI = getModelURI("TravelPlanner-DC-AC/newAllocation.allocation")
 		val allocationModel = rs.getResource(allocationModelURI, true).contents.get(0) as Allocation
 		
 		usageModelModifier.accept(usageModel)
