@@ -110,13 +110,6 @@
       </variableCharacterisation_VariableUsage>
       <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
         <specification_VariableCharacterisation specification="false"/>
-        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_xNRfMDh6EeuVm5YY9CyZ8g">
-          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="newCharacteristics.characteristics#_BTP5sTh6EeuVm5YY9CyZ8g"/>
-        </lhs>
-        <rhs xsi:type="expressions:False" id="_yTNMhzh6EeuVm5YY9CyZ8g"/>
-      </variableCharacterisation_VariableUsage>
-      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
-        <specification_VariableCharacterisation specification="false"/>
         <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_ucnVcDh6EeuVm5YY9CyZ8g">
           <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="newCharacteristics.characteristics#_BTP5sTh6EeuVm5YY9CyZ8g"/>
           <literal href="newCharacteristics.characteristics#_9GjPwDh5EeuVm5YY9CyZ8g"/>
@@ -137,13 +130,6 @@
         <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_TAQQgziGEeuVm5YY9CyZ8g">
           <namedReference xsi:type="stoex:VariableReference" referenceName="input"/>
         </rhs>
-      </variableCharacterisation_VariableUsage>
-      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
-        <specification_VariableCharacterisation specification="false"/>
-        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_YRReMDiGEeuVm5YY9CyZ8g">
-          <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="newCharacteristics.characteristics#_BTP5sTh6EeuVm5YY9CyZ8g"/>
-        </lhs>
-        <rhs xsi:type="expressions:False" id="_ctACpziGEeuVm5YY9CyZ8g"/>
       </variableCharacterisation_VariableUsage>
       <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
         <specification_VariableCharacterisation specification="false"/>

@@ -18,7 +18,7 @@ class DistanceTrackerDataChannelsInformationFlowTest extends InformationFlowTuma
 	
 	@Test
 	def void testMissingDistanceDeclassificationFound() {
-		runTest(1, [um |
+		runTest(2, [um |
 			val rs = um.eResource.resourceSet
 			EcoreUtil.resolveAll(rs)
 			val behaviorResource = rs.resources.findFirst[URI.lastSegment.contains(".behaviour")]

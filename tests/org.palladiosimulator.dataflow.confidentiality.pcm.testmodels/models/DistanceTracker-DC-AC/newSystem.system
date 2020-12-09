@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="ASCII"?>
+<system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:org.palladiosimulator.indirections.composition="http://palladiosimulator.org/Indirections/Composition/1.0" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.2" id="_ncRq8DiVEeuut4QVVe5DpA" entityName="New System">
+  <assemblyContexts__ComposedStructure id="_qCsTkDiVEeuut4QVVe5DpA" entityName="Assembly_DistanceTracker">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:CompositeComponent" href="newRepository.repository#_oPMTsDfnEeusE-zPODCq0A"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_rMz9UDiVEeuut4QVVe5DpA" entityName="Assembly_TrackingService">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:CompositeComponent" href="newRepository.repository#_qX0XYDiHEeuut4QVVe5DpA"/>
+  </assemblyContexts__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_tvBbYDiVEeuut4QVVe5DpA" entityName="newAssemblyDataConnector" sinkAssemblyContext="_rMz9UDiVEeuut4QVVe5DpA" sourceAssemblyContext="_qCsTkDiVEeuut4QVVe5DpA">
+    <dataSourceRole href="newRepository.repository#_zEoqoDiUEeuut4QVVe5DpA"/>
+    <dataSinkRole href="newRepository.repository#_veHi0DiHEeuut4QVVe5DpA"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_vrw04DiVEeuut4QVVe5DpA" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_uxvcoDiVEeuut4QVVe5DpA" assemblyContext_ProvidedDelegationConnector="_qCsTkDiVEeuut4QVVe5DpA">
+    <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_pYVGADfnEeusE-zPODCq0A"/>
+  </connectors__ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_uxvcoDiVEeuut4QVVe5DpA" entityName="DistanceTrackerProvidedRole">
+    <providedInterface__OperationProvidedRole href="newRepository.repository#_H4GQkDfnEeusE-zPODCq0A"/>
+  </providedRoles_InterfaceProvidingEntity>
+</system:System>

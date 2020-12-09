@@ -8,6 +8,7 @@ import org.palladiosimulator.pcm.usagemodel.UsageModel
 
 import static org.junit.jupiter.api.Assertions.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.StandaloneUtil.getModelURI
+import org.eclipse.emf.ecore.util.EcoreUtil
 
 class InformationFlowTumaTestBase extends TestBase {
 	
@@ -31,6 +32,7 @@ class InformationFlowTumaTestBase extends TestBase {
 		val usageModel = rs.getResource(usageModelURI, true).contents.get(0) as UsageModel
 		val allocationModelURI = getModelURI(folderName + "/newAllocation.allocation")
 		val allocationModel = rs.getResource(allocationModelURI, true).contents.get(0) as Allocation
+		EcoreUtil.resolveAll(rs)
 		
 		usageModelModifier.accept(usageModel)
 		
