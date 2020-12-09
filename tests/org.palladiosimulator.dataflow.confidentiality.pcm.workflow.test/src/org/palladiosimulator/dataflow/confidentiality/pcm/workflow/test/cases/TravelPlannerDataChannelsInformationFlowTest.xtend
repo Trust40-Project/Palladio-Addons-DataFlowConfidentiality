@@ -1,10 +1,10 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases
 
 import org.junit.jupiter.api.Test
-import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowTumaTestBase
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
+import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowHierarchicalLaticesTestBase
 
-class TravelPlannerDataChannelsInformationFlowTest extends InformationFlowTumaTestBase {
+class TravelPlannerDataChannelsInformationFlowTest extends InformationFlowHierarchicalLaticesTestBase {
 	
 	new() {
 		super("TravelPlanner-DC-IF")

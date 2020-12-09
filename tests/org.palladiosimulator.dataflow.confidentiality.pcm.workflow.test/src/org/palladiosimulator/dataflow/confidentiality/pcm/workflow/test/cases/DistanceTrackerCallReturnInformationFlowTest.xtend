@@ -3,11 +3,11 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases
 import org.junit.jupiter.api.Test
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.ConfidentialityVariableCharacterisation
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.expression.LhsEnumCharacteristicReference
-import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowTumaTestBase
 import org.palladiosimulator.pcm.seff.ExternalCallAction
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
+import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowHierarchicalLaticesTestBase
 
-class DistanceTrackerCallReturnInformationFlowTest extends InformationFlowTumaTestBase {
+class DistanceTrackerCallReturnInformationFlowTest extends InformationFlowHierarchicalLaticesTestBase {
 	
 	new() {
 		super("DistanceTracker-CallReturn-IF")

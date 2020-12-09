@@ -3,9 +3,9 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.junit.jupiter.api.Test
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.Behaviours
-import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowTumaTestBase
+import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowHierarchicalLaticesTestBase
 
-class DistanceTrackerDataChannelsInformationFlowTest extends InformationFlowTumaTestBase {
+class DistanceTrackerDataChannelsInformationFlowTest extends InformationFlowHierarchicalLaticesTestBase {
 	
 	new() {
 		super("DistanceTracker-DC-InformationFlow")

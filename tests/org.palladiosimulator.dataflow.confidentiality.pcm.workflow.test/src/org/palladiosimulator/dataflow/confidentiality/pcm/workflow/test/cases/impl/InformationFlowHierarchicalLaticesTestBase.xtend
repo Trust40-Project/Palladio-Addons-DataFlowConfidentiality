@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.StandaloneUtil.getModelURI
 import org.eclipse.emf.ecore.util.EcoreUtil
 
-class InformationFlowTumaTestBase extends TestBase {
+class InformationFlowHierarchicalLaticesTestBase extends TestBase {
 	
 	val String folderName
 	
