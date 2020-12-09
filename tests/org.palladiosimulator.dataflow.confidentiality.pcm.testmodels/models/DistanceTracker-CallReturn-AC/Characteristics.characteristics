@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:Characteristics xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" id="_rYDtcDopEeujr6PSMKhjng">
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_GSX-0DoqEeujr6PSMKhjng" entityName="Role_User">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_wttjgTopEeujr6PSMKhjng"/>
+    <values href="CharacteristicTypes.characteristics#_ySDrIDopEeujr6PSMKhjng"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_KDNMIDoqEeujr6PSMKhjng" entityName="Role_DistanceTracker">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_wttjgTopEeujr6PSMKhjng"/>
+    <values href="CharacteristicTypes.characteristics#_yhRL0DopEeujr6PSMKhjng"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_MOv2oDoqEeujr6PSMKhjng" entityName="Role_TrackingService">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_wttjgTopEeujr6PSMKhjng"/>
+    <values href="CharacteristicTypes.characteristics#_yuhksDopEeujr6PSMKhjng"/>
+  </characteristics>
+</characteristics:Characteristics>
