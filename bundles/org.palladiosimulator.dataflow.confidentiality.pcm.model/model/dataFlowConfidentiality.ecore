@@ -90,11 +90,12 @@
     </eAnnotations>
     <eClassifiers xsi:type="ecore:EClass" name="DataChannelBehaviour" eSuperTypes="../../org.palladiosimulator.pcm/model/pcm.ecore#//core/entity/Entity">
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
-        <details key="constraints" value="variableUsagesReferToValidSourceRoleParameter variableReferencesReferToValidSinkRoleParameter"/>
+        <details key="constraints" value="variableUsagesReferToValidSourceRoleParameter variableReferencesReferToValidSinkRoleParameter reusedBehavioursOnlyBindValidVariables"/>
       </eAnnotations>
       <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
         <details key="variableUsagesReferToValidSourceRoleParameter" value="self.variableUsages->forAll(usage |&#xA;&#x9;self.dataSources->collect(&#xA;&#x9;&#x9;role | role.entityName.concat('.').concat(role.dataInterface.dataSignature.parameter.parameterName)&#x9;&#x9;&#xA;&#x9;)->includes(usage.namedReference__VariableUsage.referenceName)&#xA;)"/>
         <details key="variableReferencesReferToValidSinkRoleParameter" value="self.variableUsages.variableCharacterisation_VariableUsage->selectByKind(confidentiality::ConfidentialityVariableCharacterisation)->forAll(characterisation |&#xA;&#x9;characterisation.rhs.oclAsType(ecore::EObject)->closure(eContents()->selectByKind(ecore::EObject))->selectByKind(stoex::VariableReference)->forAll(reference |&#xA;&#x9;&#x9;self.dataSinks->collect(&#xA;&#x9;&#x9;&#x9;role | role.entityName.concat('.').concat(role.dataInterface.dataSignature.parameter.parameterName)&#xA;&#x9;&#x9;)->includes(reference.referenceName)&#xA;&#x9;)&#xA;)"/>
+        <details key="reusedBehavioursOnlyBindValidVariables" value="let validSourceNames : Set(String) = self.dataSources->collect(&#xA;&#x9;role | role.entityName.concat('.').concat(role.dataInterface.dataSignature.parameter.parameterName)&#xA;)->asSet() in&#xA;&#xA;    let validSinkNames : Set(String) = self.dataSinks->collect(&#xA;        role | role.entityName.concat('.').concat(role.dataInterface.dataSignature.parameter.parameterName)&#xA;    )->asSet() in&#xA;&#xA;        let validReferenceNames : Set(String) = validSourceNames->union(validSinkNames) in&#xA;&#xA;            let usedReferenceNames : Set(String) = self.reusedBehaviours->collect(variableBindings)->flatten()->collect(boundValue.referenceName)->asSet() in&#xA;&#xA;                validReferenceNames->includesAll(usedReferenceNames)"/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataChannel" lowerBound="1"
           eType="ecore:EClass ../../org.palladiosimulator.indirections/model/indirections.ecore#//repository/DataChannel"/>
@@ -145,6 +146,12 @@
           changeable="false" transient="true" containment="true"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="VariableBinding" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+        <details key="constraints" value="boundVariableBelongsToReusedBehaviour"/>
+      </eAnnotations>
+      <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL">
+        <details key="boundVariableBelongsToReusedBehaviour" value="let reusedBehaviour : ReusableBehaviour = self.oclAsType(ecore::EObject).eContainer().oclAsType(BehaviourReuse).reusedBehaviour in&#xA;&#x9;reusedBehaviour.outputVariables->union(reusedBehaviour.inputVariables)->includes(self.boundVariable)"/>
+      </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="boundVariable" lowerBound="1"
           eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.ecore#//AbstractNamedReference"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="boundValue" lowerBound="1"
