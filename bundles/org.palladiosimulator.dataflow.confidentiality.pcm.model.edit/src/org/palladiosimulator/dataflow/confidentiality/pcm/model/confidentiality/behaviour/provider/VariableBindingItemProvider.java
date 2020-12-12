@@ -1,21 +1,35 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.provider;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collection;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.EStructuralFeature;
+import org.eclipse.emf.edit.provider.ViewerNotification;
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.BehaviourPackage;
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.BehaviourReuse;
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.VariableBinding;
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.impl.NamedReferenceUtils;
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.util.LabelFeatureMonitoringAdapter;
 
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import de.uka.ipd.sdq.stoex.StoexPackage;
 import tools.mdsd.library.emfeditutils.itempropertydescriptor.ItemPropertyDescriptorUtils;
 import tools.mdsd.library.emfeditutils.itempropertydescriptor.ValueChoiceCalculatorBase;
 
 public class VariableBindingItemProvider extends VariableBindingItemProviderGen {
+
+    private static final Set<EStructuralFeature> LABEL_FEATURES = new HashSet<>(
+            Arrays.asList(BehaviourPackage.Literals.VARIABLE_BINDING__BOUND_VALUE,
+                    BehaviourPackage.Literals.VARIABLE_BINDING__BOUND_VARIABLE,
+                    StoexPackage.Literals.ABSTRACT_NAMED_REFERENCE__REFERENCE_NAME));
 
     public VariableBindingItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
@@ -44,6 +58,21 @@ public class VariableBindingItemProvider extends VariableBindingItemProviderGen 
                             .orElse(typedList);
                     }
                 });
+    }
+
+    @Override
+    public void notifyChanged(Notification notification) {
+        if (LABEL_FEATURES.contains(notification.getFeature())) {
+            var notifier = notification.getNotifier();
+            if (notifier instanceof AbstractNamedReference) {
+                notifier = ((AbstractNamedReference) notifier).eContainer();
+            }
+            fireNotifyChanged(new ViewerNotification(notification, notifier, false, true));
+        }
+        if (notification.getFeature() == BehaviourPackage.Literals.VARIABLE_BINDING__BOUND_VALUE) {
+            LabelFeatureMonitoringAdapter.handleFeatureChange(notification, this::notifyChanged);
+        }
+        super.notifyChanged(notification);
     }
 
     @Override
