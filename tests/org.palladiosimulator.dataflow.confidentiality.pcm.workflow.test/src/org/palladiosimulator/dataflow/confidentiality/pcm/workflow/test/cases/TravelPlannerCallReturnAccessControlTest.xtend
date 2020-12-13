@@ -17,7 +17,7 @@ class TravelPlannerCallReturnAccessControlTest extends RBACTestBase {
 	
 	@Test
 	def void testIssueFound() {
-		runTest(4, [ um |
+		runTest(5, [ um |
 			val elsc = um.usageScenario_UsageModel.get(1).scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour.
 				filter(EntryLevelSystemCall).findFirst[entityName.contains("User.bookFlight.bookFlight")]
 			val outputCharacterisations = elsc.inputParameterUsages_EntryLevelSystemCall.get(0).

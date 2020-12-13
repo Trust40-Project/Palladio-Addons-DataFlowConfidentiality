@@ -18,7 +18,7 @@ class DistanceTrackerCallReturnAccessControlTest extends RBACTestBase {
 
 	@Test
 	def void testIssueFound() {
-		runTest(4, [ um |
+		runTest(5, [ um |
 			val repository = um.usageScenario_UsageModel.map[scenarioBehaviour_UsageScenario].flatMap[actions_ScenarioBehaviour].filter(EntryLevelSystemCall).findFirst[true].operationSignature__EntryLevelSystemCall.interface__OperationSignature.repository__Interface
 			val eca = repository.eAllContents.filter(ExternalCallAction).findFirst[entityName == "DistanceTrackerLogic.uploadDistance.callTrackingService"]
 			eca.inputVariableUsages__CallAction.get(0).variableCharacterisation_VariableUsage.remove(1)

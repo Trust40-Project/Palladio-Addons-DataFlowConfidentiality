@@ -17,7 +17,7 @@ class TravelPlannerCallReturnInformationFlowTest extends InformationFlowHierarch
 	
 	@Test
 	def testIssue() {
-		runTest(5, [um | 
+		runTest(7, [um | 
 			val elsc = um.usageScenario_UsageModel.map[scenarioBehaviour_UsageScenario].flatMap[actions_ScenarioBehaviour].filter(EntryLevelSystemCall).findFirst[entityName == "User.bookFlight.bookFlight"]
 			val characterisations = elsc.inputParameterUsages_EntryLevelSystemCall.get(0).variableCharacterisation_VariableUsage
 			characterisations.remove(2)

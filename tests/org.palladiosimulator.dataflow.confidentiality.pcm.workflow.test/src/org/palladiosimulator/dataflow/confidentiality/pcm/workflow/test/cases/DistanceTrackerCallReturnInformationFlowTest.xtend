@@ -20,7 +20,7 @@ class DistanceTrackerCallReturnInformationFlowTest extends InformationFlowHierar
 	
 	@Test
 	def void testIssueFound() {
-		runTest(5, [ um |
+		runTest(7, [ um |
 			val repository = um.usageScenario_UsageModel.map[scenarioBehaviour_UsageScenario].flatMap[actions_ScenarioBehaviour].filter(EntryLevelSystemCall).findFirst[true].operationSignature__EntryLevelSystemCall.interface__OperationSignature.repository__Interface
 			val eca = repository.eAllContents.filter(ExternalCallAction).findFirst[entityName == "DistanceTrackerLogic.uploadDistance.callTrackingService"]
 			val declassCharacterization = eca.inputVariableUsages__CallAction.get(0).variableCharacterisation_VariableUsage.get(2) as ConfidentialityVariableCharacterisation
