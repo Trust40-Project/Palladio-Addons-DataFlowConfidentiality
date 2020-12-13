@@ -3,10 +3,12 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.jobs;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
+import java.util.List;
 import java.util.stream.Collectors;
 
 import org.apache.commons.lang3.Validate;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.jobs.impl.TransformPCMDFDtoPrologJobImpl;
 import org.palladiosimulator.dataflow.confidentiality.transformation.prolog.configuration.DefaultCharacteristicsUsage;
 import org.palladiosimulator.dataflow.confidentiality.transformation.prolog.configuration.NameDerivationMethod;
@@ -74,7 +76,19 @@ public class TransformPCMDFDToPrologJobBuilder {
         for (UsageModel usageModel : usageModels) {
             ModelLocation location = new ModelLocation(DEFAULT_PCM_INPUT_PARTITION_ID, usageModel.eResource()
                 .getURI());
-            ModelContent content = new ModelContent(location, usageModel);
+            List<EObject> elementsToAdd = new ArrayList<>();
+            elementsToAdd.add(usageModel);
+            if (usageModel.eResource() != null) {
+                // assumption: usage model is a root node and there might be required profile applications
+                var additionalRoots = usageModel.eResource()
+                    .getContents()
+                    .stream()
+                    .filter(o -> o != usageModel)
+                    .collect(Collectors.toList());
+                elementsToAdd
+                    .addAll(additionalRoots);
+            }
+            ModelContent content = new ModelContent(location, elementsToAdd);
             this.usageModels.add(content);
         }
         return this;
