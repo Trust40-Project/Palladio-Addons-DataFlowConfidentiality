@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:Characteristics xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" id="_j4s88Dy7EeuXmedn0l6p7g">
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_kQfK0Dy7EeuXmedn0l6p7g" entityName="AttackZone">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_f_WFwTy7EeuXmedn0l6p7g"/>
+    <values href="CharacteristicTypes.characteristics#_do_5cDy7EeuXmedn0l6p7g"/>
+  </characteristics>
+</characteristics:Characteristics>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.dataflow.confidentiality.pcm.model.profile="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2">
+  <resourceenvironment:ResourceEnvironment entityName="New ResourceEnvironment">
+    <linkingResources__ResourceEnvironment id="_XE3lcDy4EeuXmedn0l6p7g" entityName="LinkingResource1" connectedResourceContainers_LinkingResource="_UfA9gDy4EeuXmedn0l6p7g _VIA3MDy4EeuXmedn0l6p7g _WiaYoDy4EeuXmedn0l6p7g _TMqk0Dy4EeuXmedn0l6p7g">
+      <communicationLinkResourceSpecifications_LinkingResource id="_XE5aoDy4EeuXmedn0l6p7g">
+        <latency_CommunicationLinkResourceSpecification/>
+        <throughput_CommunicationLinkResourceSpecification/>
+      </communicationLinkResourceSpecifications_LinkingResource>
+    </linkingResources__ResourceEnvironment>
+    <resourceContainer_ResourceEnvironment id="_TMqk0Dy4EeuXmedn0l6p7g" entityName="Alice"/>
+    <resourceContainer_ResourceEnvironment id="_UfA9gDy4EeuXmedn0l6p7g" entityName="Bob"/>
+    <resourceContainer_ResourceEnvironment id="_VIA3MDy4EeuXmedn0l6p7g" entityName="Internet"/>
+    <resourceContainer_ResourceEnvironment id="_WiaYoDy4EeuXmedn0l6p7g" entityName="Policy"/>
+  </resourceenvironment:ResourceEnvironment>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_VIA3MDy4EeuXmedn0l6p7g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_5cGYIBB1EeuGl5fMWzDLAw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_kQfK0Dy7EeuXmedn0l6p7g"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" location="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

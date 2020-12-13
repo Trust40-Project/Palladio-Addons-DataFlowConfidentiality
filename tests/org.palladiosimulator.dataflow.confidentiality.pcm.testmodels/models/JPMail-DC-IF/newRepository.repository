@@ -1,0 +1,346 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:confidentiality="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:expression="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression" xmlns:org.palladiosimulator.dataflow.confidentiality.pcm.model.profile="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" xmlns:org.palladiosimulator.indirections.actions="http://palladiosimulator.org/Indirections/Actions/1.0" xmlns:org.palladiosimulator.indirections.composition="http://palladiosimulator.org/Indirections/Composition/1.0" xmlns:org.palladiosimulator.indirections.repository="http://palladiosimulator.org/Indirections/Repository/1.0" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2">
+  <repository:Repository id="_p0uhMDyUEeufcY0HJdw_SQ" entityName="New Repository">
+    <components__Repository xsi:type="repository:BasicComponent" id="_k4sPkDyVEeufcY0HJdw_SQ" entityName="MailSendingFacade">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_no-l4DyVEeufcY0HJdw_SQ" entityName="MailSendingFacade.MailSending.OperationProvidedRole1" providedInterface__OperationProvidedRole="_vl6csDyUEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_kngQkDyjEeufcY0HJdw_SQ" entityName="MailSendingFacade.EMail.source" dataInterface="_08-9IDyWEeufcY0HJdw_SQ"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_npaDsDyVEeufcY0HJdw_SQ" describedService__SEFF="_x1ujMDyUEeufcY0HJdw_SQ">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_npb44DyVEeufcY0HJdw_SQ" successor_AbstractAction="_jCG3QD0rEeurDcfsJ2WyKg"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_npcf8DyVEeufcY0HJdw_SQ" predecessor_AbstractAction="_lizSYD0rEeurDcfsJ2WyKg"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_jCG3QD0rEeurDcfsJ2WyKg" entityName="MailSendingFacade.sendMail.createDate" predecessor_AbstractAction="_npb44DyVEeufcY0HJdw_SQ" successor_AbstractAction="_lizSYD0rEeurDcfsJ2WyKg">
+          <variableReference referenceName="mailData"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_51E4wD0rEeurDcfsJ2WyKg"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_6MIG0z0rEeurDcfsJ2WyKg">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="email"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="mailData"/>
+          </variableUsages>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_lizSYD0rEeurDcfsJ2WyKg" entityName="MailSendingFacade.sendMail.emitMail" predecessor_AbstractAction="_jCG3QD0rEeurDcfsJ2WyKg" successor_AbstractAction="_npcf8DyVEeufcY0HJdw_SQ" dataSourceRole="_kngQkDyjEeufcY0HJdw_SQ">
+          <variableReference referenceName="mailData"/>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="repository:CompositeComponent" id="_lvQrMDyVEeufcY0HJdw_SQ" entityName="MailSending">
+      <assemblyContexts__ComposedStructure id="_2baZQDyyEeufcY0HJdw_SQ" entityName="Assembly_MailSendingFacade" encapsulatedComponent__AssemblyContext="_k4sPkDyVEeufcY0HJdw_SQ"/>
+      <assemblyContexts__ComposedStructure id="_jmgTUDyzEeuXmedn0l6p7g" entityName="Assembly_Authorise" encapsulatedComponent__AssemblyContext="_Yi0NIDyXEeufcY0HJdw_SQ"/>
+      <assemblyContexts__ComposedStructure id="_nMp6oDyzEeuXmedn0l6p7g" entityName="Assembly_Sending.splitMail" encapsulatedComponent__AssemblyContext="_yunoIDyWEeufcY0HJdw_SQ"/>
+      <assemblyContexts__ComposedStructure id="_wmNrADyzEeuXmedn0l6p7g" entityName="Assembly_Sending.encrypt" encapsulatedComponent__AssemblyContext="_ftkjoDyXEeufcY0HJdw_SQ"/>
+      <assemblyContexts__ComposedStructure id="_p8UCkD0mEeurDcfsJ2WyKg" entityName="Assembly_Sending.declassifyHeader" encapsulatedComponent__AssemblyContext="_YH2icD0mEeurDcfsJ2WyKg"/>
+      <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_4idlUDyyEeufcY0HJdw_SQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_no-l4DyVEeufcY0HJdw_SQ" outerProvidedRole_ProvidedDelegationConnector="_qDv_MDyVEeufcY0HJdw_SQ" assemblyContext_ProvidedDelegationConnector="_2baZQDyyEeufcY0HJdw_SQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_mK7-8DyzEeuXmedn0l6p7g" entityName="newDataSinkDelegationConnector" assemblyContext="_jmgTUDyzEeuXmedn0l6p7g" innerDataSinkRole="_bc1HMDyXEeufcY0HJdw_SQ" outerDataSinkRole="_iL2tgDyjEeufcY0HJdw_SQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_rI5twDyzEeuXmedn0l6p7g" entityName="newAssemblyDataConnector" dataSourceRole="_kngQkDyjEeufcY0HJdw_SQ" dataSinkRole="_LK5JwDyXEeufcY0HJdw_SQ" sinkAssemblyContext="_nMp6oDyzEeuXmedn0l6p7g" sourceAssemblyContext="_2baZQDyyEeufcY0HJdw_SQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_4yJxsDyzEeuXmedn0l6p7g" entityName="newAssemblyDataConnector" dataSourceRole="_NWVtoDyXEeufcY0HJdw_SQ" dataSinkRole="_herU4DyXEeufcY0HJdw_SQ" sinkAssemblyContext="_wmNrADyzEeuXmedn0l6p7g" sourceAssemblyContext="_nMp6oDyzEeuXmedn0l6p7g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_BX2cMDy0EeuXmedn0l6p7g" entityName="newDataSourceDelegationConnector" assemblyContext="_wmNrADyzEeuXmedn0l6p7g" innerDataSourceRole="_xrm2gDyXEeufcY0HJdw_SQ" outerDataSourceRole="_7_TDIDyzEeuXmedn0l6p7g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_Tj1rgDy0EeuXmedn0l6p7g" entityName="newDataSinkDelegationConnector" assemblyContext="_wmNrADyzEeuXmedn0l6p7g" innerDataSinkRole="_mIQvIDyXEeufcY0HJdw_SQ" outerDataSinkRole="_PURTwDy0EeuXmedn0l6p7g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_z_ibAD0mEeurDcfsJ2WyKg" entityName="newDataSourceDelegationConnector" assemblyContext="_p8UCkD0mEeurDcfsJ2WyKg" innerDataSourceRole="_dJpoYD0mEeurDcfsJ2WyKg" outerDataSourceRole="_-LFlQDyzEeuXmedn0l6p7g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_-QNZkD0mEeurDcfsJ2WyKg" entityName="newAssemblyDataConnector" dataSourceRole="_aaBmYDyXEeufcY0HJdw_SQ" dataSinkRole="_ix64cD0mEeurDcfsJ2WyKg" sinkAssemblyContext="_p8UCkD0mEeurDcfsJ2WyKg" sourceAssemblyContext="_jmgTUDyzEeuXmedn0l6p7g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="__HJBkD0mEeurDcfsJ2WyKg" entityName="newAssemblyDataConnector" dataSourceRole="_P1c0YDyXEeufcY0HJdw_SQ" dataSinkRole="_f7W7AD0mEeurDcfsJ2WyKg" sinkAssemblyContext="_p8UCkD0mEeurDcfsJ2WyKg" sourceAssemblyContext="_nMp6oDyzEeuXmedn0l6p7g"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_qDv_MDyVEeufcY0HJdw_SQ" entityName="MailSending.MailSending.OperationProvidedRole1" providedInterface__OperationProvidedRole="_vl6csDyUEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_iL2tgDyjEeufcY0HJdw_SQ" entityName="MailSending.Policy.sink" dataInterface="_ZLJN4DyWEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_PURTwDy0EeuXmedn0l6p7g" entityName="MailSending.PublicKey.sink" dataInterface="_IOnbUDyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_7_TDIDyzEeuXmedn0l6p7g" entityName="MailSending.EMailBody.source" dataInterface="_4ZSr8DyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_-LFlQDyzEeuXmedn0l6p7g" entityName="MailSending.EMailHeader.source" dataInterface="_7z4jgDyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" id="_taKhYDyVEeufcY0HJdw_SQ" entityName="MailReceivingFacade">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_xYFvgDyVEeufcY0HJdw_SQ" entityName="MailReceivingFacade.MailReceiving.OperationProvidedRole1" providedInterface__OperationProvidedRole="_Oz90IDyVEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_2iIygDyVEeufcY0HJdw_SQ" entityName="MailReceivingFacade.PrivateKeyStorage.OperationProvidedRole2" providedInterface__OperationProvidedRole="_YOfN0DyVEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_jRWXsD0sEeurDcfsJ2WyKg" entityName="MailReceivingFacade.EMail.sink" dataInterface="_08-9IDyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_nRdssDy0EeuXmedn0l6p7g" entityName="MailReceivingFacade.PrivateKey.source" dataInterface="_JF_vQDyWEeufcY0HJdw_SQ"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_xYjCgDyVEeufcY0HJdw_SQ" describedService__SEFF="_PqX3sDyVEeufcY0HJdw_SQ">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_xYjpkDyVEeufcY0HJdw_SQ" successor_AbstractAction="_Hfk54D0sEeurDcfsJ2WyKg"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_xYjpkTyVEeufcY0HJdw_SQ" predecessor_AbstractAction="_GHiTcD0tEeurDcfsJ2WyKg"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:ConsumeDataAction" id="_Hfk54D0sEeurDcfsJ2WyKg" entityName="MailReceivingFacade.receiveMail.consumeMail" predecessor_AbstractAction="_xYjpkDyVEeufcY0HJdw_SQ" successor_AbstractAction="_GHiTcD0tEeurDcfsJ2WyKg" dataSinkRole="_jRWXsD0sEeurDcfsJ2WyKg">
+          <variableReference referenceName="email"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="seff:SetVariableAction" id="_GHiTcD0tEeurDcfsJ2WyKg" entityName="MailReceivingFacade.receiveMail.return" predecessor_AbstractAction="_Hfk54D0sEeurDcfsJ2WyKg" successor_AbstractAction="_xYjpkTyVEeufcY0HJdw_SQ">
+          <localVariableUsages_SetVariableAction>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_O5vv8D0tEeurDcfsJ2WyKg"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_Pji64z0tEeurDcfsJ2WyKg">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="email"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+          </localVariableUsages_SetVariableAction>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_2iMc4DyVEeufcY0HJdw_SQ" describedService__SEFF="_ZiOtoDyVEeufcY0HJdw_SQ">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_2iND8DyVEeufcY0HJdw_SQ" successor_AbstractAction="_ViSKMD0tEeurDcfsJ2WyKg"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_2iNrADyVEeufcY0HJdw_SQ" predecessor_AbstractAction="_X8qh8D0tEeurDcfsJ2WyKg"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_ViSKMD0tEeurDcfsJ2WyKg" entityName="MailReceivingFacade.addPrivateKey.createData" predecessor_AbstractAction="_2iND8DyVEeufcY0HJdw_SQ" successor_AbstractAction="_X8qh8D0tEeurDcfsJ2WyKg">
+          <variableReference referenceName="privateKeyData"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_hYduAD0tEeurDcfsJ2WyKg"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_h0dGcz0tEeurDcfsJ2WyKg">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="privateKeyData"/>
+          </variableUsages>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_X8qh8D0tEeurDcfsJ2WyKg" entityName="MailReceivingFacade.addPrivateKey.emit" predecessor_AbstractAction="_ViSKMD0tEeurDcfsJ2WyKg" successor_AbstractAction="_2iNrADyVEeufcY0HJdw_SQ" dataSourceRole="_nRdssDy0EeuXmedn0l6p7g">
+          <variableReference referenceName="privateKeyData"/>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="repository:CompositeComponent" id="_vdIesDyVEeufcY0HJdw_SQ" entityName="MailReceiving">
+      <assemblyContexts__ComposedStructure id="_qcjqUDyhEeufcY0HJdw_SQ" entityName="Assembly_MailReceivingFacade" encapsulatedComponent__AssemblyContext="_taKhYDyVEeufcY0HJdw_SQ"/>
+      <assemblyContexts__ComposedStructure id="_xBpH8DyhEeufcY0HJdw_SQ" entityName="Assembly_Authorise" encapsulatedComponent__AssemblyContext="_Yi0NIDyXEeufcY0HJdw_SQ"/>
+      <assemblyContexts__ComposedStructure id="_dKjHEDy0EeuXmedn0l6p7g" entityName="Assembly_Receiver.PrivateKeyStorage" encapsulatedComponent__AssemblyContext="_fKqgUDyWEeufcY0HJdw_SQ"/>
+      <assemblyContexts__ComposedStructure id="_tYf8YDy0EeuXmedn0l6p7g" entityName="Assembly_Receiving.ReadPrivateKey" encapsulatedComponent__AssemblyContext="_GNHcoDyhEeufcY0HJdw_SQ"/>
+      <assemblyContexts__ComposedStructure id="_CiTAoDy1EeuXmedn0l6p7g" entityName="Assembly_Receiving.Decrypt" encapsulatedComponent__AssemblyContext="_Wl1-kDyhEeufcY0HJdw_SQ"/>
+      <assemblyContexts__ComposedStructure id="_uGiYkD0sEeurDcfsJ2WyKg" entityName="Assembly_Receiving.BuildMail" encapsulatedComponent__AssemblyContext="_L4jsXz0sEeurDcfsJ2WyKg"/>
+      <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_vKnU4DyhEeufcY0HJdw_SQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_xYFvgDyVEeufcY0HJdw_SQ" outerProvidedRole_ProvidedDelegationConnector="_w-_TADyVEeufcY0HJdw_SQ" assemblyContext_ProvidedDelegationConnector="_qcjqUDyhEeufcY0HJdw_SQ"/>
+      <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_v0gmcDyhEeufcY0HJdw_SQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_2iIygDyVEeufcY0HJdw_SQ" outerProvidedRole_ProvidedDelegationConnector="_z-RHkDyVEeufcY0HJdw_SQ" assemblyContext_ProvidedDelegationConnector="_qcjqUDyhEeufcY0HJdw_SQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_Ox09wDyjEeufcY0HJdw_SQ" entityName="newDataSinkDelegationConnector" assemblyContext="_xBpH8DyhEeufcY0HJdw_SQ" innerDataSinkRole="_bc1HMDyXEeufcY0HJdw_SQ" outerDataSinkRole="_J6TOIDyjEeufcY0HJdw_SQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_rHTV0Dy0EeuXmedn0l6p7g" entityName="newAssemblyDataConnector" dataSourceRole="_nRdssDy0EeuXmedn0l6p7g" dataSinkRole="_lYDPoDyWEeufcY0HJdw_SQ" sinkAssemblyContext="_dKjHEDy0EeuXmedn0l6p7g" sourceAssemblyContext="_qcjqUDyhEeufcY0HJdw_SQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_2GfnQDy0EeuXmedn0l6p7g" entityName="newAssemblyDataConnector" dataSourceRole="_aaBmYDyXEeufcY0HJdw_SQ" dataSinkRole="_Mzc3cDyhEeufcY0HJdw_SQ" sinkAssemblyContext="_tYf8YDy0EeuXmedn0l6p7g" sourceAssemblyContext="_xBpH8DyhEeufcY0HJdw_SQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_2e6uUDy0EeuXmedn0l6p7g" entityName="newAssemblyDataConnector" dataSourceRole="_mcnD8DyWEeufcY0HJdw_SQ" dataSinkRole="_Krg6kDyhEeufcY0HJdw_SQ" sinkAssemblyContext="_tYf8YDy0EeuXmedn0l6p7g" sourceAssemblyContext="_dKjHEDy0EeuXmedn0l6p7g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_GW8W8Dy1EeuXmedn0l6p7g" entityName="newAssemblyDataConnector" dataSourceRole="_AZBnADy1EeuXmedn0l6p7g" dataSinkRole="_aHAYMDyhEeufcY0HJdw_SQ" sinkAssemblyContext="_CiTAoDy1EeuXmedn0l6p7g" sourceAssemblyContext="_tYf8YDy0EeuXmedn0l6p7g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_x9ZVYD0sEeurDcfsJ2WyKg" entityName="newAssemblyDataConnector" dataSourceRole="_Zx7P4D0sEeurDcfsJ2WyKg" dataSinkRole="_jRWXsD0sEeurDcfsJ2WyKg" sinkAssemblyContext="_qcjqUDyhEeufcY0HJdw_SQ" sourceAssemblyContext="_uGiYkD0sEeurDcfsJ2WyKg"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_zsYmwD0sEeurDcfsJ2WyKg" entityName="newAssemblyDataConnector" dataSourceRole="_cK3tYDyhEeufcY0HJdw_SQ" dataSinkRole="_WZi-0D0sEeurDcfsJ2WyKg" sinkAssemblyContext="_uGiYkD0sEeurDcfsJ2WyKg" sourceAssemblyContext="_CiTAoDy1EeuXmedn0l6p7g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_7Np_0D0sEeurDcfsJ2WyKg" entityName="newDataSinkDelegationConnector" assemblyContext="_CiTAoDy1EeuXmedn0l6p7g" innerDataSinkRole="_Yq_tMDyhEeufcY0HJdw_SQ" outerDataSinkRole="_3K8_YD0sEeurDcfsJ2WyKg"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_7suhcD0sEeurDcfsJ2WyKg" entityName="newDataSinkDelegationConnector" assemblyContext="_uGiYkD0sEeurDcfsJ2WyKg" innerDataSinkRole="_YA_dwD0sEeurDcfsJ2WyKg" outerDataSinkRole="_4Q1CUD0sEeurDcfsJ2WyKg"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_w-_TADyVEeufcY0HJdw_SQ" entityName="MailReceiving.MailReceiving.OperationProvidedRole1" providedInterface__OperationProvidedRole="_Oz90IDyVEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_z-RHkDyVEeufcY0HJdw_SQ" entityName="MailReceiving.PrivateKeyStorage.OperationProvidedRole2" providedInterface__OperationProvidedRole="_YOfN0DyVEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_J6TOIDyjEeufcY0HJdw_SQ" entityName="MailReceiving.Policy.sink" dataInterface="_ZLJN4DyWEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_3K8_YD0sEeurDcfsJ2WyKg" entityName="MailReceiving.EMailBody.sink" dataInterface="_4ZSr8DyWEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_4Q1CUD0sEeurDcfsJ2WyKg" entityName="MailReceiving.EMailHeader.sink" dataInterface="_7z4jgDyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" id="_3-5rcDyVEeufcY0HJdw_SQ" entityName="PolicyManagementFacade">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_9alRADyVEeufcY0HJdw_SQ" entityName="PolicyManagementFacade.PolicyStorage.OperationProvidedRole1" providedInterface__OperationProvidedRole="_dlNa4DyVEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_ebJ4gDyiEeufcY0HJdw_SQ" entityName="PolicyManagementFacade.Policy.source" dataInterface="_ZLJN4DyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_gS9HoDyiEeufcY0HJdw_SQ" entityName="PolicyManagementFacade.PublicKey.source" dataInterface="_IOnbUDyWEeufcY0HJdw_SQ"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_9aoUUDyVEeufcY0HJdw_SQ" describedService__SEFF="_eZewcDyVEeufcY0HJdw_SQ">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_9ao7YDyVEeufcY0HJdw_SQ" successor_AbstractAction="_XqyPID0qEeurDcfsJ2WyKg"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_9apicDyVEeufcY0HJdw_SQ" predecessor_AbstractAction="_aF18UD0qEeurDcfsJ2WyKg"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_XqyPID0qEeurDcfsJ2WyKg" entityName="PolicyManagementFacade.addPublicKey.createPublicKey" predecessor_AbstractAction="_9ao7YDyVEeufcY0HJdw_SQ" successor_AbstractAction="_aF18UD0qEeurDcfsJ2WyKg">
+          <variableReference referenceName="publicKeyData"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_kv0ywD0qEeurDcfsJ2WyKg"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_lUjQcz0qEeurDcfsJ2WyKg">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="publicKey"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="publicKeyData"/>
+          </variableUsages>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_aF18UD0qEeurDcfsJ2WyKg" entityName="PolicyManagementFacade.addPublicKey.emitPublicKey" predecessor_AbstractAction="_XqyPID0qEeurDcfsJ2WyKg" successor_AbstractAction="_9apicDyVEeufcY0HJdw_SQ" dataSourceRole="_gS9HoDyiEeufcY0HJdw_SQ">
+          <variableReference referenceName="publicKeyData"/>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_9bBV4DyVEeufcY0HJdw_SQ" describedService__SEFF="_gYOVEDyVEeufcY0HJdw_SQ">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_9bBV4TyVEeufcY0HJdw_SQ" successor_AbstractAction="__ZLFYD0pEeurDcfsJ2WyKg"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_9bB88DyVEeufcY0HJdw_SQ" predecessor_AbstractAction="_C0umQD0qEeurDcfsJ2WyKg"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="__ZLFYD0pEeurDcfsJ2WyKg" entityName="PolicyManagementFacade.addPolicy.createPolicy" predecessor_AbstractAction="_9bBV4TyVEeufcY0HJdw_SQ" successor_AbstractAction="_C0umQD0qEeurDcfsJ2WyKg">
+          <variableReference referenceName="policyData"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_O4X-UD0qEeurDcfsJ2WyKg"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_Pgg8Yz0qEeurDcfsJ2WyKg">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="policy"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="policyData"/>
+          </variableUsages>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_C0umQD0qEeurDcfsJ2WyKg" entityName="PolicyManagementFacade.addPolicy.emit" predecessor_AbstractAction="__ZLFYD0pEeurDcfsJ2WyKg" successor_AbstractAction="_9bB88DyVEeufcY0HJdw_SQ" dataSourceRole="_ebJ4gDyiEeufcY0HJdw_SQ">
+          <variableReference referenceName="policyData"/>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="repository:CompositeComponent" id="_5NiBwDyVEeufcY0HJdw_SQ" entityName="PolicyManagement">
+      <assemblyContexts__ComposedStructure id="_FBQRADyiEeufcY0HJdw_SQ" entityName="Assembly_PolicyManagement.PolicyStorage" encapsulatedComponent__AssemblyContext="_DBq1UDyWEeufcY0HJdw_SQ"/>
+      <assemblyContexts__ComposedStructure id="_GQDmcDyiEeufcY0HJdw_SQ" entityName="Assembly_PolicyManagement.PublicKeyStorage" encapsulatedComponent__AssemblyContext="_EzxFEDyWEeufcY0HJdw_SQ"/>
+      <assemblyContexts__ComposedStructure id="_IrREoDyiEeufcY0HJdw_SQ" entityName="Assembly_PolicyManagementFacade" encapsulatedComponent__AssemblyContext="_3-5rcDyVEeufcY0HJdw_SQ"/>
+      <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_KUuVwDyiEeufcY0HJdw_SQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_9alRADyVEeufcY0HJdw_SQ" outerProvidedRole_ProvidedDelegationConnector="_92HWcDyVEeufcY0HJdw_SQ" assemblyContext_ProvidedDelegationConnector="_IrREoDyiEeufcY0HJdw_SQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_kSh7kDyiEeufcY0HJdw_SQ" entityName="newAssemblyDataConnector" dataSourceRole="_ebJ4gDyiEeufcY0HJdw_SQ" dataSinkRole="_c1-g4DyWEeufcY0HJdw_SQ" sinkAssemblyContext="_FBQRADyiEeufcY0HJdw_SQ" sourceAssemblyContext="_IrREoDyiEeufcY0HJdw_SQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_k74akDyiEeufcY0HJdw_SQ" entityName="newAssemblyDataConnector" dataSourceRole="_gS9HoDyiEeufcY0HJdw_SQ" dataSinkRole="_Sh1-oDyWEeufcY0HJdw_SQ" sinkAssemblyContext="_GQDmcDyiEeufcY0HJdw_SQ" sourceAssemblyContext="_IrREoDyiEeufcY0HJdw_SQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_tcH9UDyiEeufcY0HJdw_SQ" entityName="newDataSourceDelegationConnector" assemblyContext="_GQDmcDyiEeufcY0HJdw_SQ" innerDataSourceRole="_XIQJEDyWEeufcY0HJdw_SQ" outerDataSourceRole="_pGcWgDyiEeufcY0HJdw_SQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_t8QO4DyiEeufcY0HJdw_SQ" entityName="newDataSourceDelegationConnector" assemblyContext="_FBQRADyiEeufcY0HJdw_SQ" innerDataSourceRole="_d1wi4DyWEeufcY0HJdw_SQ" outerDataSourceRole="_q2BdwDyiEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_92HWcDyVEeufcY0HJdw_SQ" entityName="PolicyManagement.PolicyStorage.OperationProvidedRole1" providedInterface__OperationProvidedRole="_dlNa4DyVEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_pGcWgDyiEeufcY0HJdw_SQ" entityName="PolicyManagement.PublicKey.source" dataInterface="_IOnbUDyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_q2BdwDyiEeufcY0HJdw_SQ" entityName="PolicyManagement.Policy.source" dataInterface="_ZLJN4DyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_DBq1UDyWEeufcY0HJdw_SQ" entityName="PolicyManagement.PolicyStorage" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_c1-g4DyWEeufcY0HJdw_SQ" entityName="PolicyManagement.PolicyStorage.Policy.sink" dataInterface="_ZLJN4DyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_d1wi4DyWEeufcY0HJdw_SQ" entityName="PolicyManagement.PolicyStorage.Policy.source" dataInterface="_ZLJN4DyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_EzxFEDyWEeufcY0HJdw_SQ" entityName="PolicyManagement.PublicKeyStorage" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_Sh1-oDyWEeufcY0HJdw_SQ" entityName="PolicyManagement.PublicKeyStorage.PublicKey.sink" dataInterface="_IOnbUDyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_XIQJEDyWEeufcY0HJdw_SQ" entityName="PolicyManagement.PublicKeyStorage.PublicKey.source" dataInterface="_IOnbUDyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_fKqgUDyWEeufcY0HJdw_SQ" entityName="Receiver.PrivateKeyStorage" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_lYDPoDyWEeufcY0HJdw_SQ" entityName="Receiving.PrivateKeyStorage.PrivateKey.sink" dataInterface="_JF_vQDyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_mcnD8DyWEeufcY0HJdw_SQ" entityName="Receiving.PrivateKeyStorage.PrivateKey.source" dataInterface="_JF_vQDyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_yunoIDyWEeufcY0HJdw_SQ" entityName="Sending.splitMail" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_LK5JwDyXEeufcY0HJdw_SQ" entityName="Sending.splitMail.EMail.sink" dataInterface="_08-9IDyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_NWVtoDyXEeufcY0HJdw_SQ" entityName="Sending.splitMail.EMailBody.source" dataInterface="_4ZSr8DyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_P1c0YDyXEeufcY0HJdw_SQ" entityName="Sending.splitMail.EMailHeader.source" dataInterface="_7z4jgDyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_Yi0NIDyXEeufcY0HJdw_SQ" entityName="Authorise" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_bc1HMDyXEeufcY0HJdw_SQ" entityName="Sending.authorise.Policy.sink" dataInterface="_ZLJN4DyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_aaBmYDyXEeufcY0HJdw_SQ" entityName="Sending.authorise.Policy.source" dataInterface="_ZLJN4DyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_ftkjoDyXEeufcY0HJdw_SQ" entityName="Sending.encrypt" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_herU4DyXEeufcY0HJdw_SQ" entityName="Sending.prepareEncryption.EMailBody.sink" dataInterface="_4ZSr8DyWEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_mIQvIDyXEeufcY0HJdw_SQ" entityName="Sending.prepareEncryption.PublicKey.sink" dataInterface="_IOnbUDyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_xrm2gDyXEeufcY0HJdw_SQ" entityName="encrypt.EMailBody.source" dataInterface="_4ZSr8DyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_z2pKsDyXEeufcY0HJdw_SQ" entityName="SMTP" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_29aHUDyXEeufcY0HJdw_SQ" entityName="SMTP.EMailBody.sink" dataInterface="_4ZSr8DyWEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_367fgDyXEeufcY0HJdw_SQ" entityName="SMTP.EMailHeader.sink" dataInterface="_7z4jgDyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_41uT0DyXEeufcY0HJdw_SQ" entityName="SMTP.EMailBody.source" dataInterface="_4ZSr8DyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_5xdjUDyXEeufcY0HJdw_SQ" entityName="SMTP.EMailHeader.source" dataInterface="_7z4jgDyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_8MpMUDyXEeufcY0HJdw_SQ" entityName="POP3" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_9BeikDyXEeufcY0HJdw_SQ" entityName="POP3.EMailBody.sink" dataInterface="_4ZSr8DyWEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_-HDDgDyXEeufcY0HJdw_SQ" entityName="POP3.EMailHeader.sink" dataInterface="_7z4jgDyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_--mWkDyXEeufcY0HJdw_SQ" entityName="POP3.EMailBody.source" dataInterface="_4ZSr8DyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="__6BdADyXEeufcY0HJdw_SQ" entityName="POP3.EMailHeader.source" dataInterface="_7z4jgDyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_GNHcoDyhEeufcY0HJdw_SQ" entityName="Receiving.ReadPrivateKey" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_Krg6kDyhEeufcY0HJdw_SQ" entityName="Receiving.ReadPrivateKey.PrivateKey.sink" dataInterface="_JF_vQDyWEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_Mzc3cDyhEeufcY0HJdw_SQ" entityName="Receiving.ReadPrivateKey.Policy.sink" dataInterface="_ZLJN4DyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_AZBnADy1EeuXmedn0l6p7g" entityName="Receiving.ReadPrivateKey.PrivateKey.source" dataInterface="_JF_vQDyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_Wl1-kDyhEeufcY0HJdw_SQ" entityName="Receiving.Decrypt" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_Yq_tMDyhEeufcY0HJdw_SQ" entityName="Receiving.Decrypt.EMailBody.sink" dataInterface="_4ZSr8DyWEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_aHAYMDyhEeufcY0HJdw_SQ" entityName="Receiving.Decrypt.PrivateKey.sink" dataInterface="_JF_vQDyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_cK3tYDyhEeufcY0HJdw_SQ" entityName="Receiving.Decrypt.EMailBody.source" dataInterface="_4ZSr8DyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_YH2icD0mEeurDcfsJ2WyKg" entityName="Sending.declassifyHeader" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_f7W7AD0mEeurDcfsJ2WyKg" entityName="Sending.declassifyHeader.EMailHeader.sink" dataInterface="_7z4jgDyWEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_ix64cD0mEeurDcfsJ2WyKg" entityName="Sending.declassifyHeader.Policy.sink" dataInterface="_ZLJN4DyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_dJpoYD0mEeurDcfsJ2WyKg" entityName="Sending.declassifyHeader.EMailHeader.source" dataInterface="_7z4jgDyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_L4jsXz0sEeurDcfsJ2WyKg" entityName="Receiving.BuildMail" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_WZi-0D0sEeurDcfsJ2WyKg" entityName="Receiving.buildMail.EMailBody.sink" dataInterface="_4ZSr8DyWEeufcY0HJdw_SQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_YA_dwD0sEeurDcfsJ2WyKg" entityName="Receiving.buildMail.EMailHeader.sink" dataInterface="_7z4jgDyWEeufcY0HJdw_SQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_Zx7P4D0sEeurDcfsJ2WyKg" entityName="Receiving.buildMail.EMail.source" dataInterface="_08-9IDyWEeufcY0HJdw_SQ"/>
+    </components__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_vl6csDyUEeufcY0HJdw_SQ" entityName="MailSending">
+      <signatures__OperationInterface id="_x1ujMDyUEeufcY0HJdw_SQ" entityName="sendMail">
+        <parameters__OperationSignature dataType__Parameter="_2goMEDyUEeufcY0HJdw_SQ" parameterName="email"/>
+      </signatures__OperationInterface>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_Oz90IDyVEeufcY0HJdw_SQ" entityName="MailReceiving">
+      <signatures__OperationInterface id="_PqX3sDyVEeufcY0HJdw_SQ" entityName="receiveMail" returnType__OperationSignature="_2goMEDyUEeufcY0HJdw_SQ"/>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_YOfN0DyVEeufcY0HJdw_SQ" entityName="PrivateKeyStorage">
+      <signatures__OperationInterface id="_ZiOtoDyVEeufcY0HJdw_SQ" entityName="addPrivateKey">
+        <parameters__OperationSignature dataType__Parameter="_EH56EDyVEeufcY0HJdw_SQ" parameterName="privateKey"/>
+      </signatures__OperationInterface>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_dlNa4DyVEeufcY0HJdw_SQ" entityName="PolicyStorage">
+      <signatures__OperationInterface id="_eZewcDyVEeufcY0HJdw_SQ" entityName="addPublicKey">
+        <parameters__OperationSignature dataType__Parameter="_DBfEkDyVEeufcY0HJdw_SQ" parameterName="publicKey"/>
+      </signatures__OperationInterface>
+      <signatures__OperationInterface id="_gYOVEDyVEeufcY0HJdw_SQ" entityName="addPolicy">
+        <parameters__OperationSignature dataType__Parameter="_HwrXkDyVEeufcY0HJdw_SQ" parameterName="policy"/>
+      </signatures__OperationInterface>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_IOnbUDyWEeufcY0HJdw_SQ" entityName="PublicKey">
+      <dataSignature id="_MElAQDyWEeufcY0HJdw_SQ" entityName="publicKey">
+        <parameter dataType__Parameter="_DBfEkDyVEeufcY0HJdw_SQ" parameterName="publicKey"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_JF_vQDyWEeufcY0HJdw_SQ" entityName="PrivateKey">
+      <dataSignature id="_Jz3h4DyWEeufcY0HJdw_SQ" entityName="privateKey">
+        <parameter dataType__Parameter="_EH56EDyVEeufcY0HJdw_SQ" parameterName="privateKey"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_ZLJN4DyWEeufcY0HJdw_SQ" entityName="Policy">
+      <dataSignature id="_Z-IKADyWEeufcY0HJdw_SQ" entityName="policy">
+        <parameter dataType__Parameter="_HwrXkDyVEeufcY0HJdw_SQ" parameterName="policy"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_08-9IDyWEeufcY0HJdw_SQ" entityName="EMail">
+      <dataSignature id="_1sQd8DyWEeufcY0HJdw_SQ" entityName="email">
+        <parameter dataType__Parameter="_2goMEDyUEeufcY0HJdw_SQ" parameterName="email"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_4ZSr8DyWEeufcY0HJdw_SQ" entityName="EMailBody">
+      <dataSignature id="_5US7oDyWEeufcY0HJdw_SQ" entityName="emailbody">
+        <parameter dataType__Parameter="_3r33MDyUEeufcY0HJdw_SQ" parameterName="emailbody"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_7z4jgDyWEeufcY0HJdw_SQ" entityName="EMailHeader">
+      <dataSignature id="_8gGJQDyWEeufcY0HJdw_SQ" entityName="emailheader">
+        <parameter dataType__Parameter="_6hmHIDyUEeufcY0HJdw_SQ" parameterName="emailheader"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_2goMEDyUEeufcY0HJdw_SQ" entityName="EMail">
+      <innerDeclaration_CompositeDataType entityName="header" datatype_InnerDeclaration="_6hmHIDyUEeufcY0HJdw_SQ"/>
+      <innerDeclaration_CompositeDataType entityName="body" datatype_InnerDeclaration="_3r33MDyUEeufcY0HJdw_SQ"/>
+    </dataTypes__Repository>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_3r33MDyUEeufcY0HJdw_SQ" entityName="EMailBody"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_6hmHIDyUEeufcY0HJdw_SQ" entityName="EMailHeader"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_DBfEkDyVEeufcY0HJdw_SQ" entityName="PublicKey"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_EH56EDyVEeufcY0HJdw_SQ" entityName="PrivateKey"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_HwrXkDyVEeufcY0HJdw_SQ" entityName="Policy"/>
+  </repository:Repository>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_DBq1UDyWEeufcY0HJdw_SQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_lF5WkDzAEeuo9rEgSC7QrA"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_EzxFEDyWEeufcY0HJdw_SQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_SXC24D0lEeurDcfsJ2WyKg"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_fKqgUDyWEeufcY0HJdw_SQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_poincD0lEeurDcfsJ2WyKg"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_yunoIDyWEeufcY0HJdw_SQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_zfMjgD0lEeurDcfsJ2WyKg"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_Yi0NIDyXEeufcY0HJdw_SQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_o0NVkD0nEeurDcfsJ2WyKg"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_ftkjoDyXEeufcY0HJdw_SQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_1ycGkD0nEeurDcfsJ2WyKg"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_z2pKsDyXEeufcY0HJdw_SQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_D9q2MD0oEeurDcfsJ2WyKg"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_8MpMUDyXEeufcY0HJdw_SQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_ekKMoD0oEeurDcfsJ2WyKg"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_GNHcoDyhEeufcY0HJdw_SQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_tuFZID0oEeurDcfsJ2WyKg"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_Wl1-kDyhEeufcY0HJdw_SQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_DsWAMD0pEeurDcfsJ2WyKg"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_YH2icD0mEeurDcfsJ2WyKg">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_PfznMD0pEeurDcfsJ2WyKg"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_L4jsXz0sEeurDcfsJ2WyKg">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_QVejkD0sEeurDcfsJ2WyKg"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" location="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:CharacteristicTypeDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" id="_140v8Dy6EeuXmedn0l6p7g">
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_eX6N4Ty7EeuXmedn0l6p7g" name="Classification" type="_2KYaADy6EeuXmedn0l6p7g"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_f_WFwTy7EeuXmedn0l6p7g" name="Zone" type="_bPay8jy7EeuXmedn0l6p7g"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_VQN0ITy8EeuXmedn0l6p7g" name="EncryptedClassification" type="_2KYaADy6EeuXmedn0l6p7g"/>
+  <characteristicEnumerations id="_2KYaADy6EeuXmedn0l6p7g" name="Level">
+    <literals id="_3Gom4Dy6EeuXmedn0l6p7g" name="Low"/>
+    <literals id="_34Xl0Dy6EeuXmedn0l6p7g" name="High"/>
+  </characteristicEnumerations>
+  <characteristicEnumerations id="_bPay8jy7EeuXmedn0l6p7g" name="Zone">
+    <literals id="_c0wZEDy7EeuXmedn0l6p7g" name="Trusted"/>
+    <literals id="_do_5cDy7EeuXmedn0l6p7g" name="Attack"/>
+  </characteristicEnumerations>
+</characteristics:CharacteristicTypeDictionary>

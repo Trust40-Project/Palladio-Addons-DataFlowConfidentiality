@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="ASCII"?>
+<system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:org.palladiosimulator.indirections.composition="http://palladiosimulator.org/Indirections/Composition/1.0" xmlns:org.palladiosimulator.indirections.repository="http://palladiosimulator.org/Indirections/Repository/1.0" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.2" id="_pkykwDy1EeuXmedn0l6p7g" entityName="New System">
+  <assemblyContexts__ComposedStructure id="_vO9SQDy1EeuXmedn0l6p7g" entityName="Assembly_MailReceiving">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:CompositeComponent" href="newRepository.repository#_vdIesDyVEeufcY0HJdw_SQ"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_wUQGYDy1EeuXmedn0l6p7g" entityName="Assembly_MailSending">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:CompositeComponent" href="newRepository.repository#_lvQrMDyVEeufcY0HJdw_SQ"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_w1mf8Dy1EeuXmedn0l6p7g" entityName="Assembly_PolicyManagement">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:CompositeComponent" href="newRepository.repository#_5NiBwDyVEeufcY0HJdw_SQ"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_xtZqoDy1EeuXmedn0l6p7g" entityName="Assembly_POP3">
+    <encapsulatedComponent__AssemblyContext xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_8MpMUDyXEeufcY0HJdw_SQ"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_ytYg8Dy1EeuXmedn0l6p7g" entityName="Assembly_SMTP">
+    <encapsulatedComponent__AssemblyContext xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_z2pKsDyXEeufcY0HJdw_SQ"/>
+  </assemblyContexts__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_18kZwDy1EeuXmedn0l6p7g" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_sS80IDy1EeuXmedn0l6p7g" assemblyContext_ProvidedDelegationConnector="_wUQGYDy1EeuXmedn0l6p7g">
+    <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_qDv_MDyVEeufcY0HJdw_SQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_HKrrkDy2EeuXmedn0l6p7g" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_tEtBMDy1EeuXmedn0l6p7g" assemblyContext_ProvidedDelegationConnector="_w1mf8Dy1EeuXmedn0l6p7g">
+    <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_92HWcDyVEeufcY0HJdw_SQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_MJuYcDy2EeuXmedn0l6p7g" entityName="newAssemblyDataConnector" sinkAssemblyContext="_wUQGYDy1EeuXmedn0l6p7g" sourceAssemblyContext="_w1mf8Dy1EeuXmedn0l6p7g">
+    <dataSourceRole href="newRepository.repository#_pGcWgDyiEeufcY0HJdw_SQ"/>
+    <dataSinkRole href="newRepository.repository#_PURTwDy0EeuXmedn0l6p7g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_NlGKQDy2EeuXmedn0l6p7g" entityName="newAssemblyDataConnector" sinkAssemblyContext="_wUQGYDy1EeuXmedn0l6p7g" sourceAssemblyContext="_w1mf8Dy1EeuXmedn0l6p7g">
+    <dataSourceRole href="newRepository.repository#_q2BdwDyiEeufcY0HJdw_SQ"/>
+    <dataSinkRole href="newRepository.repository#_iL2tgDyjEeufcY0HJdw_SQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_UVECMDy2EeuXmedn0l6p7g" entityName="newAssemblyDataConnector" sinkAssemblyContext="_ytYg8Dy1EeuXmedn0l6p7g" sourceAssemblyContext="_wUQGYDy1EeuXmedn0l6p7g">
+    <dataSourceRole href="newRepository.repository#_7_TDIDyzEeuXmedn0l6p7g"/>
+    <dataSinkRole href="newRepository.repository#_29aHUDyXEeufcY0HJdw_SQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_UznmcDy2EeuXmedn0l6p7g" entityName="newAssemblyDataConnector" sinkAssemblyContext="_ytYg8Dy1EeuXmedn0l6p7g" sourceAssemblyContext="_wUQGYDy1EeuXmedn0l6p7g">
+    <dataSourceRole href="newRepository.repository#_-LFlQDyzEeuXmedn0l6p7g"/>
+    <dataSinkRole href="newRepository.repository#_367fgDyXEeufcY0HJdw_SQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_cke6sDy2EeuXmedn0l6p7g" entityName="newAssemblyDataConnector" sinkAssemblyContext="_xtZqoDy1EeuXmedn0l6p7g" sourceAssemblyContext="_ytYg8Dy1EeuXmedn0l6p7g">
+    <dataSourceRole href="newRepository.repository#_5xdjUDyXEeufcY0HJdw_SQ"/>
+    <dataSinkRole href="newRepository.repository#_-HDDgDyXEeufcY0HJdw_SQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_c9vvQDy2EeuXmedn0l6p7g" entityName="newAssemblyDataConnector" sinkAssemblyContext="_xtZqoDy1EeuXmedn0l6p7g" sourceAssemblyContext="_ytYg8Dy1EeuXmedn0l6p7g">
+    <dataSourceRole href="newRepository.repository#_41uT0DyXEeufcY0HJdw_SQ"/>
+    <dataSinkRole href="newRepository.repository#_9BeikDyXEeufcY0HJdw_SQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_hxz7MDy2EeuXmedn0l6p7g" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_tdyPkDy1EeuXmedn0l6p7g" assemblyContext_ProvidedDelegationConnector="_vO9SQDy1EeuXmedn0l6p7g">
+    <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_z-RHkDyVEeufcY0HJdw_SQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_iL85gDy2EeuXmedn0l6p7g" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_rlbm0Dy1EeuXmedn0l6p7g" assemblyContext_ProvidedDelegationConnector="_vO9SQDy1EeuXmedn0l6p7g">
+    <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_w-_TADyVEeufcY0HJdw_SQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_n4rLwDy2EeuXmedn0l6p7g" entityName="newAssemblyDataConnector" sinkAssemblyContext="_vO9SQDy1EeuXmedn0l6p7g" sourceAssemblyContext="_w1mf8Dy1EeuXmedn0l6p7g">
+    <dataSourceRole href="newRepository.repository#_q2BdwDyiEeufcY0HJdw_SQ"/>
+    <dataSinkRole href="newRepository.repository#_J6TOIDyjEeufcY0HJdw_SQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_-2Wk0D0sEeurDcfsJ2WyKg" entityName="newAssemblyDataConnector" sinkAssemblyContext="_vO9SQDy1EeuXmedn0l6p7g" sourceAssemblyContext="_xtZqoDy1EeuXmedn0l6p7g">
+    <dataSourceRole href="newRepository.repository#__6BdADyXEeufcY0HJdw_SQ"/>
+    <dataSinkRole href="newRepository.repository#_4Q1CUD0sEeurDcfsJ2WyKg"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="__MwSoD0sEeurDcfsJ2WyKg" entityName="newAssemblyDataConnector" sinkAssemblyContext="_vO9SQDy1EeuXmedn0l6p7g" sourceAssemblyContext="_xtZqoDy1EeuXmedn0l6p7g">
+    <dataSourceRole href="newRepository.repository#_--mWkDyXEeufcY0HJdw_SQ"/>
+    <dataSinkRole href="newRepository.repository#_3K8_YD0sEeurDcfsJ2WyKg"/>
+  </connectors__ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_rlbm0Dy1EeuXmedn0l6p7g" entityName="MailReceivingProvidedRole">
+    <providedInterface__OperationProvidedRole href="newRepository.repository#_Oz90IDyVEeufcY0HJdw_SQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_sS80IDy1EeuXmedn0l6p7g" entityName="MailSendingProvidedRole">
+    <providedInterface__OperationProvidedRole href="newRepository.repository#_vl6csDyUEeufcY0HJdw_SQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_tEtBMDy1EeuXmedn0l6p7g" entityName="PolicyStorageProvidedRole">
+    <providedInterface__OperationProvidedRole href="newRepository.repository#_dlNa4DyVEeufcY0HJdw_SQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_tdyPkDy1EeuXmedn0l6p7g" entityName="PrivateKeyStorageProvidedRole">
+    <providedInterface__OperationProvidedRole href="newRepository.repository#_YOfN0DyVEeufcY0HJdw_SQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+</system:System>
