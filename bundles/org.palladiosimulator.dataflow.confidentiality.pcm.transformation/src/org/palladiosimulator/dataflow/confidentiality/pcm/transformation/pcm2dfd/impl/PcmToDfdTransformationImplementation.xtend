@@ -148,6 +148,7 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		Validate.isInstanceOf(OperationalDataStoreComponent, seff.basicComponent_ServiceEffectSpecification)
 		val component = seff.basicComponent_ServiceEffectSpecification as OperationalDataStoreComponent
 		val store = component.getStore(context)
+		store.createCharacteristics(context, seff)	
 		val storeInputPin = store.inputPin
 		val storeOutputPin = store.outputPin
 		
