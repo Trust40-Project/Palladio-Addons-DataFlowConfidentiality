@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:repository_1="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/repository" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" id="_w74RYD1VEeuNWouTGsQ1xw" entityName="New Repository">
+  <components__Repository xsi:type="repository_1:OperationalDataStoreComponent" id="_y_E4Pj1VEeuNWouTGsQ1xw" entityName="ImageStorage">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_7GiHgD1VEeuNWouTGsQ1xw" entityName="ImageStorage.Interface1.OperationProvidedRole1" providedInterface__OperationProvidedRole="_2hmjwD1VEeuNWouTGsQ1xw"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_hCB1ED1bEeuNWouTGsQ1xw" describedService__SEFF="_3lKSgD1VEeuNWouTGsQ1xw">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_hVqiwD1bEeuNWouTGsQ1xw" successor_AbstractAction="_hVqiwT1bEeuNWouTGsQ1xw"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_hVqiwT1bEeuNWouTGsQ1xw" predecessor_AbstractAction="_hVqiwD1bEeuNWouTGsQ1xw"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_hoVAED1bEeuNWouTGsQ1xw" describedService__SEFF="_2x1YID1VEeuNWouTGsQ1xw">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_h3CxgD1bEeuNWouTGsQ1xw" successor_AbstractAction="_h3DYkD1bEeuNWouTGsQ1xw"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_h3DYkD1bEeuNWouTGsQ1xw" predecessor_AbstractAction="_h3CxgD1bEeuNWouTGsQ1xw"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_2hmjwD1VEeuNWouTGsQ1xw" entityName="ImageStorage">
+    <signatures__OperationInterface id="_2x1YID1VEeuNWouTGsQ1xw" entityName="getImage" returnType__OperationSignature="_1kSm8D1VEeuNWouTGsQ1xw"/>
+    <signatures__OperationInterface id="_3lKSgD1VEeuNWouTGsQ1xw" entityName="addImage">
+      <parameters__OperationSignature dataType__Parameter="_1kSm8D1VEeuNWouTGsQ1xw" parameterName="image"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_1kSm8D1VEeuNWouTGsQ1xw" entityName="Image"/>
+</repository:Repository>

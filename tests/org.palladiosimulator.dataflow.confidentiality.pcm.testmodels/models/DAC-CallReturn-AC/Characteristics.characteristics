@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:Characteristics xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" id="_6WPdkD1WEeuNWouTGsQ1xw">
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_7lamcD1WEeuNWouTGsQ1xw" entityName="Identity_Parents">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_2EyPcT1WEeuNWouTGsQ1xw"/>
+    <values href="CharacteristicTypes.characteristics#_vIVasD1WEeuNWouTGsQ1xw"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_92recD1WEeuNWouTGsQ1xw" entityName="Identity_Relatives">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_2EyPcT1WEeuNWouTGsQ1xw"/>
+    <values href="CharacteristicTypes.characteristics#_vV-OED1WEeuNWouTGsQ1xw"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="__yC-8D1WEeuNWouTGsQ1xw" entityName="Identity_IndexingBot">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_2EyPcT1WEeuNWouTGsQ1xw"/>
+    <values href="CharacteristicTypes.characteristics#_vlhF8D1WEeuNWouTGsQ1xw"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_ByBSoD1XEeuNWouTGsQ1xw" entityName="ReadPermission_Parents+Relatives">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_0NogkT1WEeuNWouTGsQ1xw"/>
+    <values href="CharacteristicTypes.characteristics#_vIVasD1WEeuNWouTGsQ1xw"/>
+    <values href="CharacteristicTypes.characteristics#_vV-OED1WEeuNWouTGsQ1xw"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_FO1XwD1XEeuNWouTGsQ1xw" entityName="WritePermission_Parents">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ynkhsT1WEeuNWouTGsQ1xw"/>
+    <values href="CharacteristicTypes.characteristics#_vIVasD1WEeuNWouTGsQ1xw"/>
+  </characteristics>
+</characteristics:Characteristics>

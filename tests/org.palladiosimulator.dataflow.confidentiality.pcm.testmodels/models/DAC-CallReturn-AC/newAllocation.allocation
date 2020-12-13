@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="ASCII"?>
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" id="_Nv0W0D1WEeuNWouTGsQ1xw" entityName="New Allocation">
+  <targetResourceEnvironment_Allocation href="newResourceEnvironment.resourceenvironment#/"/>
+  <system_Allocation href="newSystem.system#_ExKZwD1WEeuNWouTGsQ1xw"/>
+  <allocationContexts_Allocation id="_RCtq8D1WEeuNWouTGsQ1xw" entityName="Allocation_Assembly_ImageStorage">
+    <resourceContainer_AllocationContext href="newResourceEnvironment.resourceenvironment#_LIl14D1WEeuNWouTGsQ1xw"/>
+    <assemblyContext_AllocationContext href="newSystem.system#_IZVaUD1WEeuNWouTGsQ1xw"/>
+  </allocationContexts_Allocation>
+</allocation:Allocation>
