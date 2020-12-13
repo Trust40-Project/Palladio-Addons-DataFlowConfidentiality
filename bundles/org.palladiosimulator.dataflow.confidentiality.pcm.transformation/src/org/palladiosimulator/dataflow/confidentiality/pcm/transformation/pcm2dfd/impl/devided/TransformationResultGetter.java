@@ -36,6 +36,7 @@ public interface TransformationResultGetter {
     CharacterizedProcess getProcess(DataChannel dc, Stack<AssemblyContext> context);
     
     CharacterizedStore getStore(OperationalDataStoreComponent component, Stack<AssemblyContext> context);
+    CharacterizedStore getStore(DataChannel dc, Stack<AssemblyContext> context);
     
     Pin getOutputPin(CharacterizedProcess process, DataSourceRole sourceRole);
     Pin getOutputPin(CharacterizedProcess process, String pinName);

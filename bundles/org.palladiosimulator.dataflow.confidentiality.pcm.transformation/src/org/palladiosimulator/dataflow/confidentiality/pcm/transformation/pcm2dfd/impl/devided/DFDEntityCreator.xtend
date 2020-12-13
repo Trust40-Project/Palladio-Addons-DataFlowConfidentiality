@@ -114,6 +114,13 @@ class DFDEntityCreator implements TransformationResultGetter {
 		addTraceEntry(component, context, store)
 	}
 	
+	override create store : createStore getStore(DataChannel dc, Stack<AssemblyContext> context) {
+		store.name = '''Store «context.peek.entityName».«dc.entityName»'''
+		store.createBehavior
+		dfd.nodes += store
+		addTraceEntry(dc, context, store)
+	}
+	
 	override create pin: createPin getOutputPin(CharacterizedProcess process, String pinName) {
 		pin.name = pinName
 		process.behavior.outputs += pin

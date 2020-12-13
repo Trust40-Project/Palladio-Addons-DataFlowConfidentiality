@@ -10,6 +10,7 @@ public final class TransformationConstants {
     public static String RESULT_PIN_NAME = "RETURN";
     public static String STORE_INPUT_PIN_NAME = "input";
     public static String STORE_OUTPUT_PIN_NAME = "output";
+    public static String STORE_BEHAVIOUR_NAME = "Store";
     
     private TransformationConstants() {
         // intentionally left blank
