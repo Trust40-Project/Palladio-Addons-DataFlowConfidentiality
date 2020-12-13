@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.dataflow.confidentiality.pcm.model.profile="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" xmlns:org.palladiosimulator.indirections.composition="http://palladiosimulator.org/Indirections/Composition/1.0" xmlns:org.palladiosimulator.indirections.repository="http://palladiosimulator.org/Indirections/Repository/1.0" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.2">
+  <system:System id="_ExKZwD1WEeuNWouTGsQ1xw" entityName="New System">
+    <assemblyContexts__ComposedStructure id="_IZVaUD1WEeuNWouTGsQ1xw" entityName="Assembly_ImageStorage">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:BasicComponent" href="newRepository.repository#_y_E4Pj1VEeuNWouTGsQ1xw"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_fq4yQD13EeuZ_cSwBj7psQ" entityName="Assembly_ImageStore">
+      <encapsulatedComponent__AssemblyContext xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_aXUSwD1qEeuZ_cSwBj7psQ"/>
+    </assemblyContexts__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_I5BnAD1WEeuNWouTGsQ1xw" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_IAmxQD1WEeuNWouTGsQ1xw" assemblyContext_ProvidedDelegationConnector="_IZVaUD1WEeuNWouTGsQ1xw">
+      <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_7GiHgD1VEeuNWouTGsQ1xw"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_ieN1gD13EeuZ_cSwBj7psQ" entityName="newAssemblyDataConnector" sinkAssemblyContext="_IZVaUD1WEeuNWouTGsQ1xw" sourceAssemblyContext="_fq4yQD13EeuZ_cSwBj7psQ">
+      <dataSourceRole href="newRepository.repository#_j6qRQD1qEeuZ_cSwBj7psQ"/>
+      <dataSinkRole href="newRepository.repository#_nfjUUD1qEeuZ_cSwBj7psQ"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_i7BGQD13EeuZ_cSwBj7psQ" entityName="newAssemblyDataConnector" sinkAssemblyContext="_fq4yQD13EeuZ_cSwBj7psQ" sourceAssemblyContext="_IZVaUD1WEeuNWouTGsQ1xw">
+      <dataSourceRole href="newRepository.repository#_og1LID1qEeuZ_cSwBj7psQ"/>
+      <dataSinkRole href="newRepository.repository#_jnrq4D1qEeuZ_cSwBj7psQ"/>
+    </connectors__ComposedStructure>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_IAmxQD1WEeuNWouTGsQ1xw" entityName="ImageStorageProvidedRole">
+      <providedInterface__OperationProvidedRole href="newRepository.repository#_2hmjwD1VEeuNWouTGsQ1xw"/>
+    </providedRoles_InterfaceProvidingEntity>
+  </system:System>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_fq4yQD13EeuZ_cSwBj7psQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_YMF8MBdpEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_ByBSoD1XEeuNWouTGsQ1xw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_FO1XwD1XEeuNWouTGsQ1xw"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" location="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

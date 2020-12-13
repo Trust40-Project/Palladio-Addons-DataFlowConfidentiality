@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" xmlns:confidentiality="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:expression="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression" xmlns:expressions="http://palladiosimulator.org/dataflow/dictionary/characterized/expressions/1.0" xmlns:org.palladiosimulator.dataflow.confidentiality.pcm.model.profile="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" xmlns:usagemodel="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.2">
+  <usagemodel:UsageModel>
+    <usageScenario_UsageModel id="_UZ5pMD1WEeuNWouTGsQ1xw" entityName="Parents">
+      <scenarioBehaviour_UsageScenario id="_aV34YD1WEeuNWouTGsQ1xw" entityName="ScenarioBehaviour">
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_aV34YT1WEeuNWouTGsQ1xw" successor="_bXl0ED1WEeuNWouTGsQ1xw"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_aV34Yj1WEeuNWouTGsQ1xw" predecessor="_eyktMD1WEeuNWouTGsQ1xw"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_bXl0ED1WEeuNWouTGsQ1xw" entityName="Parents.addImage" successor="_eyktMD1WEeuNWouTGsQ1xw" predecessor="_aV34YT1WEeuNWouTGsQ1xw">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_IAmxQD1WEeuNWouTGsQ1xw"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_3lKSgD1VEeuNWouTGsQ1xw"/>
+          <outputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_hYmlMD1fEeuNWouTGsQ1xw"/>
+              <rhs xsi:type="expressions:False" id="_lm_RNz1fEeuNWouTGsQ1xw"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="image"/>
+          </outputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_eyktMD1WEeuNWouTGsQ1xw" entityName="Parents.getImage" successor="_aV34Yj1WEeuNWouTGsQ1xw" predecessor="_bXl0ED1WEeuNWouTGsQ1xw">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_IAmxQD1WEeuNWouTGsQ1xw"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_2x1YID1VEeuNWouTGsQ1xw"/>
+          <outputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_n1SUwD1fEeuNWouTGsQ1xw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_oUOTgz1fEeuNWouTGsQ1xw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="image"/>
+          </outputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+      </scenarioBehaviour_UsageScenario>
+      <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload" population="1">
+        <thinkTime_ClosedWorkload specification="0.0"/>
+      </workload_UsageScenario>
+    </usageScenario_UsageModel>
+    <usageScenario_UsageModel id="_VsTFMD1WEeuNWouTGsQ1xw" entityName="Relatives">
+      <scenarioBehaviour_UsageScenario id="_aJqBUD1WEeuNWouTGsQ1xw" entityName="ScenarioBehaviour">
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_aJqoYD1WEeuNWouTGsQ1xw" successor="_jMWJ0D1WEeuNWouTGsQ1xw"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_aJqoYT1WEeuNWouTGsQ1xw" predecessor="_jMWJ0D1WEeuNWouTGsQ1xw"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_jMWJ0D1WEeuNWouTGsQ1xw" entityName="Relatives.getImage" successor="_aJqoYT1WEeuNWouTGsQ1xw" predecessor="_aJqoYD1WEeuNWouTGsQ1xw">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_IAmxQD1WEeuNWouTGsQ1xw"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_2x1YID1VEeuNWouTGsQ1xw"/>
+          <outputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_dgBxID1fEeuNWouTGsQ1xw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_d-jgMz1fEeuNWouTGsQ1xw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="image"/>
+          </outputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+      </scenarioBehaviour_UsageScenario>
+      <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload" population="1">
+        <thinkTime_ClosedWorkload specification="0.0"/>
+      </workload_UsageScenario>
+    </usageScenario_UsageModel>
+    <usageScenario_UsageModel id="_WOvD4D1WEeuNWouTGsQ1xw" entityName="IndexingBot">
+      <scenarioBehaviour_UsageScenario id="_Z66asD1WEeuNWouTGsQ1xw" entityName="ScenarioBehaviour">
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_Z66asT1WEeuNWouTGsQ1xw" successor="_Z66asj1WEeuNWouTGsQ1xw"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_Z66asj1WEeuNWouTGsQ1xw" predecessor="_Z66asT1WEeuNWouTGsQ1xw"/>
+      </scenarioBehaviour_UsageScenario>
+      <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload" population="1">
+        <thinkTime_ClosedWorkload specification="0.0"/>
+      </workload_UsageScenario>
+    </usageScenario_UsageModel>
+  </usagemodel:UsageModel>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_UZ5pMD1WEeuNWouTGsQ1xw">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_yqyHQBBzEeucCo3FRAS_1w"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_7lamcD1WEeuNWouTGsQ1xw"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_VsTFMD1WEeuNWouTGsQ1xw">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_yqyHQBBzEeucCo3FRAS_1w"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_92recD1WEeuNWouTGsQ1xw"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_WOvD4D1WEeuNWouTGsQ1xw">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_yqyHQBBzEeucCo3FRAS_1w"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#__yC-8D1WEeuNWouTGsQ1xw"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" location="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

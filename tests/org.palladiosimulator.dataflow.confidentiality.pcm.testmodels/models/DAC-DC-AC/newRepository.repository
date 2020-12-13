@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:confidentiality="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:expression="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression" xmlns:org.palladiosimulator.dataflow.confidentiality.pcm.model.profile="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" xmlns:org.palladiosimulator.indirections.actions="http://palladiosimulator.org/Indirections/Actions/1.0" xmlns:org.palladiosimulator.indirections.repository="http://palladiosimulator.org/Indirections/Repository/1.0" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2">
+  <repository:Repository id="_w74RYD1VEeuNWouTGsQ1xw" entityName="New Repository">
+    <components__Repository xsi:type="repository:BasicComponent" id="_y_E4Pj1VEeuNWouTGsQ1xw" entityName="ImageStorage">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_7GiHgD1VEeuNWouTGsQ1xw" entityName="ImageStorage.Interface1.OperationProvidedRole1" providedInterface__OperationProvidedRole="_2hmjwD1VEeuNWouTGsQ1xw"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_nfjUUD1qEeuZ_cSwBj7psQ" entityName="ImageStorage.Image.sink" dataInterface="_bnvY0D1qEeuZ_cSwBj7psQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_og1LID1qEeuZ_cSwBj7psQ" entityName="ImageStorage.Image.source" dataInterface="_bnvY0D1qEeuZ_cSwBj7psQ"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_hCB1ED1bEeuNWouTGsQ1xw" describedService__SEFF="_3lKSgD1VEeuNWouTGsQ1xw">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_hVqiwD1bEeuNWouTGsQ1xw" successor_AbstractAction="_u81u0D12EeuZ_cSwBj7psQ"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_hVqiwT1bEeuNWouTGsQ1xw" predecessor_AbstractAction="_wSn2AD12EeuZ_cSwBj7psQ"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_u81u0D12EeuZ_cSwBj7psQ" entityName="ImageStorage.addImage.create" predecessor_AbstractAction="_hVqiwD1bEeuNWouTGsQ1xw" successor_AbstractAction="_wSn2AD12EeuZ_cSwBj7psQ">
+          <variableReference referenceName="imageData"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_NUiGAD13EeuZ_cSwBj7psQ"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_N206wz13EeuZ_cSwBj7psQ">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="image"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="imageData"/>
+          </variableUsages>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_wSn2AD12EeuZ_cSwBj7psQ" entityName="ImageStorage.addImage.emit" predecessor_AbstractAction="_u81u0D12EeuZ_cSwBj7psQ" successor_AbstractAction="_hVqiwT1bEeuNWouTGsQ1xw" dataSourceRole="_og1LID1qEeuZ_cSwBj7psQ">
+          <variableReference referenceName="imageData"/>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_hoVAED1bEeuNWouTGsQ1xw" describedService__SEFF="_2x1YID1VEeuNWouTGsQ1xw">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_h3CxgD1bEeuNWouTGsQ1xw" successor_AbstractAction="_3SnG8D12EeuZ_cSwBj7psQ"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_h3DYkD1bEeuNWouTGsQ1xw" predecessor_AbstractAction="_7tRUYD12EeuZ_cSwBj7psQ"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:ConsumeDataAction" id="_3SnG8D12EeuZ_cSwBj7psQ" entityName="ImageStorage.getImage.consume" predecessor_AbstractAction="_h3CxgD1bEeuNWouTGsQ1xw" successor_AbstractAction="_7tRUYD12EeuZ_cSwBj7psQ" dataSinkRole="_nfjUUD1qEeuZ_cSwBj7psQ">
+          <variableReference referenceName="image"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="seff:SetVariableAction" id="_7tRUYD12EeuZ_cSwBj7psQ" entityName="ImageStorage.getImage.return" predecessor_AbstractAction="_3SnG8D12EeuZ_cSwBj7psQ" successor_AbstractAction="_h3DYkD1bEeuNWouTGsQ1xw">
+          <localVariableUsages_SetVariableAction>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_Rt56AD13EeuZ_cSwBj7psQ"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_SKtx0z13EeuZ_cSwBj7psQ">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="image"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+          </localVariableUsages_SetVariableAction>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_aXUSwD1qEeuZ_cSwBj7psQ" entityName="ImageStore" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_jnrq4D1qEeuZ_cSwBj7psQ" entityName="ImageStore.Image.sink" dataInterface="_bnvY0D1qEeuZ_cSwBj7psQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_j6qRQD1qEeuZ_cSwBj7psQ" entityName="ImageStore.Image.source" dataInterface="_bnvY0D1qEeuZ_cSwBj7psQ"/>
+    </components__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_2hmjwD1VEeuNWouTGsQ1xw" entityName="ImageStorage">
+      <signatures__OperationInterface id="_2x1YID1VEeuNWouTGsQ1xw" entityName="getImage" returnType__OperationSignature="_1kSm8D1VEeuNWouTGsQ1xw"/>
+      <signatures__OperationInterface id="_3lKSgD1VEeuNWouTGsQ1xw" entityName="addImage">
+        <parameters__OperationSignature dataType__Parameter="_1kSm8D1VEeuNWouTGsQ1xw" parameterName="image"/>
+      </signatures__OperationInterface>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_bnvY0D1qEeuZ_cSwBj7psQ" entityName="Image">
+      <dataSignature id="_f2aYsD1qEeuZ_cSwBj7psQ" entityName="image">
+        <parameter dataType__Parameter="_1kSm8D1VEeuNWouTGsQ1xw" parameterName="image"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_1kSm8D1VEeuNWouTGsQ1xw" entityName="Image"/>
+  </repository:Repository>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_aXUSwD1qEeuZ_cSwBj7psQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviours.behaviour#_YxUH0D12EeuZ_cSwBj7psQ"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" location="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

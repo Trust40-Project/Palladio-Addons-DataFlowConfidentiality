@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<behaviour:Behaviours xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:behaviour="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/behaviour" xmlns:confidentiality="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0" xmlns:expression="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression" xmlns:org.palladiosimulator.indirections.repository="http://palladiosimulator.org/Indirections/Repository/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" id="_tIGRMD1qEeuZ_cSwBj7psQ">
+  <dataChannelBehaviour id="_YxUH0D12EeuZ_cSwBj7psQ" entityName="ImageStore">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_aXUSwD1qEeuZ_cSwBj7psQ"/>
+    <reusedBehaviours id="_e7YdYD12EeuZ_cSwBj7psQ" reusedBehaviour="_SNoYYD12EeuZ_cSwBj7psQ">
+      <variableBindings id="_fbSsgD12EeuZ_cSwBj7psQ" boundVariable="//@reusableBehaviours.0/@inputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="ImageStore.Image.sink.image"/>
+      </variableBindings>
+      <variableBindings id="_gA4F0D12EeuZ_cSwBj7psQ" boundVariable="//@reusableBehaviours.0/@outputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="ImageStore.Image.source.image"/>
+      </variableBindings>
+    </reusedBehaviours>
+  </dataChannelBehaviour>
+  <reusableBehaviours id="_SNoYYD12EeuZ_cSwBj7psQ" entityName="Store">
+    <inputVariables referenceName="input"/>
+    <outputVariables referenceName="output"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_WFLRsD12EeuZ_cSwBj7psQ"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_WgQrMz12EeuZ_cSwBj7psQ">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="input"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="output"/>
+    </variableUsages>
+  </reusableBehaviours>
+</behaviour:Behaviours>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:CharacteristicTypeDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" id="_tp7jAD1WEeuNWouTGsQ1xw">
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_ynkhsT1WEeuNWouTGsQ1xw" name="WritePermission" type="_t_EFgj1WEeuNWouTGsQ1xw"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_0NogkT1WEeuNWouTGsQ1xw" name="ReadPermission" type="_t_EFgj1WEeuNWouTGsQ1xw"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_2EyPcT1WEeuNWouTGsQ1xw" name="Identity" type="_t_EFgj1WEeuNWouTGsQ1xw"/>
+  <characteristicEnumerations id="_t_EFgj1WEeuNWouTGsQ1xw" name="Subjects">
+    <literals id="_vIVasD1WEeuNWouTGsQ1xw" name="Parents"/>
+    <literals id="_vV-OED1WEeuNWouTGsQ1xw" name="Relatives"/>
+    <literals id="_vlhF8D1WEeuNWouTGsQ1xw" name="IndexingBot"/>
+  </characteristicEnumerations>
+</characteristics:CharacteristicTypeDictionary>
