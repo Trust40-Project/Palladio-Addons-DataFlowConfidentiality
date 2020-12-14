@@ -1,22 +1,25 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided
 
 import java.util.Stack
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.DataChannelBehaviour
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.OperationalDataStoreComponent
+import org.palladiosimulator.dataflow.confidentiality.pcm.model.profile.ProfileConstants
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.DFDFactoryUtilities
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.impl.TransformationTraceModifier
 import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.DataFlowDiagram
 import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.ExternalActor
 import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.Node
-import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedProcess
+import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedNode
+import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedStore
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Pin
 import org.palladiosimulator.indirections.repository.DataChannel
 import org.palladiosimulator.indirections.repository.DataSinkRole
 import org.palladiosimulator.indirections.repository.DataSourceRole
+import org.palladiosimulator.mdsdprofiles.api.StereotypeAPI
 import org.palladiosimulator.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.pcm.seff.AbstractAction
 import org.palladiosimulator.pcm.seff.ServiceEffectSpecification
 import org.palladiosimulator.pcm.usagemodel.AbstractUserAction
-import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.OperationalDataStoreComponent
-import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedStore
 
 class DFDEntityCreator implements TransformationResultGetter {
 	
@@ -100,7 +103,15 @@ class DFDEntityCreator implements TransformationResultGetter {
 		addTraceEntry(seff, context, process)
 	}
 	
-	override create process : createProcess getProcess(DataChannel dc, Stack<AssemblyContext> context) {
+	override getProcess(DataChannel dc, Stack<AssemblyContext> context) {
+		if (isStoreDataChannel(dc)) {
+			dc.getStore(context)
+		} else {
+			dc.getCharacterizedProcess(context)
+		}
+	}
+	
+	protected def create process : createProcess getCharacterizedProcess(DataChannel dc, Stack<AssemblyContext> context) {
 		process.name = '''DC «context.peek.entityName».«dc.entityName»'''
 		process.createBehavior
 		dfd.nodes += process
@@ -121,24 +132,24 @@ class DFDEntityCreator implements TransformationResultGetter {
 		addTraceEntry(dc, context, store)
 	}
 	
-	override create pin: createPin getOutputPin(CharacterizedProcess process, String pinName) {
+	override create pin: createPin getOutputPin(CharacterizedNode process, String pinName) {
 		pin.name = pinName
 		process.behavior.outputs += pin
 	}
 	
-	override create pin: createPin getInputPin(CharacterizedProcess process, String pinName) {
+	override create pin: createPin getInputPin(CharacterizedNode process, String pinName) {
 		pin.name = pinName
 		process.behavior.inputs += pin
 	}
 	
-	override getOutputPin(CharacterizedProcess process, DataSourceRole role) {
+	override getOutputPin(CharacterizedNode process, DataSourceRole role) {
 		val roleName = role.entityName
 		val parameterName = role.dataInterface.dataSignature.parameter.parameterName
 		val pinName = '''«roleName».«parameterName»''' 
 		process.getOutputPin(pinName);
 	}
 	
-	override getInputPin(CharacterizedProcess process, DataSinkRole role) {
+	override getInputPin(CharacterizedNode process, DataSinkRole role) {
 		val pinName = '''«role.entityName».«role.dataInterface.dataSignature.parameter.parameterName»'''
 		process.getInputPin(pinName);
 	}
@@ -153,13 +164,27 @@ class DFDEntityCreator implements TransformationResultGetter {
 		store.behavior.inputs += pin
 	}
 	
-	override create flow : createDataFlow getDataFlow(Node source, Pin sourcePin, Node destination, Pin destinationPin) {
+	override create flow : createDataFlow getDataFlow(CharacterizedNode source, Pin sourcePin, CharacterizedNode destination, Pin destinationPin) {
 		//TODO calculate and set name
 		flow.name = "data"
-		flow.source = source
+		flow.source = source as Node
 		flow.sourcePin = sourcePin
-		flow.target = destination
+		flow.target = destination as Node
 		flow.targetPin = destinationPin
 		dfd.edges += flow
+	}
+	
+
+	protected def isStoreDataChannel(DataChannel dc) {
+		val behavior = dc.confidentialityBehavior
+		if (!behavior.isPresent) {
+			return false
+		}
+		behavior.get.reusedBehaviours.map[reusedBehaviour].exists[entityName == TransformationConstants.STORE_BEHAVIOUR_NAME]
+	}
+	
+	def getConfidentialityBehavior(DataChannel dc) {
+		StereotypeAPI.<DataChannelBehaviour>getTaggedValueSafe(dc, ProfileConstants.dataChannelBehavior.value,
+			ProfileConstants.dataChannelBehavior.stereotype)
 	}
 }

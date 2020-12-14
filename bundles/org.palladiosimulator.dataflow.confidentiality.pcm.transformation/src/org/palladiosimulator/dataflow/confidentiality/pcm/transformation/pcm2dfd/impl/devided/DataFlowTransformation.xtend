@@ -17,7 +17,7 @@ import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.queries.NamedReferenceTargetFinder.SEFFReferenceTarget
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.queries.NamedReferenceTargetFinder.UserActionVariableReferenceTarget
 import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.queries.NamedReferenceTargetFinder.VariableReferenceTarget
-import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.Node
+import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedNode
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedProcess
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Pin
 import org.palladiosimulator.indirections.repository.DataChannel
@@ -56,7 +56,7 @@ class DataFlowTransformation {
 		srcPins.createDataFlows(process, dstPin)
 	}
 	
-	def createOutgoingDataFlows(CharacterizedProcess process, OperationSignature operationSignature, OperationRequiredRole requiredRole, Stack<AssemblyContext> context) {
+	def createOutgoingDataFlows(CharacterizedNode process, OperationSignature operationSignature, OperationRequiredRole requiredRole, Stack<AssemblyContext> context) {
 		val destinationSeff = requiredRole.findCalledSeff(operationSignature, context)
 		val destinationProcess = getEntryProcess(destinationSeff.seff, destinationSeff.context)
 		for (parameter : operationSignature.parameters__OperationSignature.map[parameterName]) {
@@ -66,7 +66,7 @@ class DataFlowTransformation {
 		}
 	}
 	
-	def createOutgoingDataFlows(CharacterizedProcess process, DataSourceRole dataSourceRole, Stack<AssemblyContext> context) {
+	def createOutgoingDataFlows(CharacterizedNode process, DataSourceRole dataSourceRole, Stack<AssemblyContext> context) {
 		val outputPin = process.getOutputPin(dataSourceRole)
 		val destinations = dataSourceRole.findDestinations(context)
 		for (destination : destinations) {
@@ -118,7 +118,7 @@ class DataFlowTransformation {
 				println("Attention!")
 			}
 			for (srcPin : srcPins) {
-				val srcNode = srcPin.owner.findParentOfType(Node, false)
+				val srcNode = srcPin.owner.findParentOfType(CharacterizedNode, false)
 				resultGetter.getDataFlow(srcNode, srcPin, dstProcess, dstPin)
 			}
 	}

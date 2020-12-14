@@ -3,9 +3,9 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2df
 import java.util.Stack;
 
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.repository.OperationalDataStoreComponent;
-import org.palladiosimulator.dataflow.diagram.DataFlowDiagram.Node;
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedActorProcess;
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedDataFlow;
+import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedNode;
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedProcess;
 import org.palladiosimulator.dataflow.diagram.characterized.DataFlowDiagramCharacterized.CharacterizedStore;
 import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.Pin;
@@ -33,20 +33,20 @@ public interface TransformationResultGetter {
     
     CharacterizedProcess getEntryProcess(ServiceEffectSpecification seff, Stack<AssemblyContext> context);
     
-    CharacterizedProcess getProcess(DataChannel dc, Stack<AssemblyContext> context);
+    CharacterizedNode getProcess(DataChannel dc, Stack<AssemblyContext> context);
     
     CharacterizedStore getStore(OperationalDataStoreComponent component, Stack<AssemblyContext> context);
     CharacterizedStore getStore(DataChannel dc, Stack<AssemblyContext> context);
     
-    Pin getOutputPin(CharacterizedProcess process, DataSourceRole sourceRole);
-    Pin getOutputPin(CharacterizedProcess process, String pinName);
+    Pin getOutputPin(CharacterizedNode process, DataSourceRole sourceRole);
+    Pin getOutputPin(CharacterizedNode process, String pinName);
     
-    Pin getInputPin(CharacterizedProcess process, DataSinkRole sourceRole);
-    Pin getInputPin(CharacterizedProcess process, String pinName);
+    Pin getInputPin(CharacterizedNode process, DataSinkRole sourceRole);
+    Pin getInputPin(CharacterizedNode process, String pinName);
     
     Pin getOutputPin(CharacterizedStore store);
     Pin getInputPin(CharacterizedStore store);
     
-    CharacterizedDataFlow getDataFlow(Node source, Pin sourcePin, Node destination, Pin destinationPin);
+    CharacterizedDataFlow getDataFlow(CharacterizedNode source, Pin sourcePin, CharacterizedNode destination, Pin destinationPin);
     
 }

@@ -9,7 +9,6 @@ import org.apache.commons.lang3.Validate
 import org.apache.log4j.Logger
 import org.eclipse.emf.ecore.EObject
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.ConfidentialityVariableCharacterisation
-import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.behaviour.DataChannelBehaviour
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.Characteristic
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.DataTypeCharacteristic
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.characteristics.EnumCharacteristic
@@ -56,7 +55,6 @@ import org.palladiosimulator.pcm.usagemodel.UsageScenario
 import static org.apache.commons.lang3.Validate.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.TransformationConstants.EMPTY_STACK
 import static org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.TransformationConstants.RESULT_PIN_NAME
-import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.impl.devided.TransformationConstants
 
 class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 
@@ -294,37 +292,18 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 	
 	protected def dispatch transformComponent(DataChannel dc, Stack<AssemblyContext> context) {
 		val process = dc.getProcess(context)
-		
+
 		// create pins
 		dc.dataSinkRoles.forEach[role | process.getInputPin(role)]
 		dc.dataSourceRoles.forEach[role | process.getOutputPin(role)]
 		
 		// create behaviour
-		if (dc.isStoreDataChannel) {
-			Validate.isTrue(dc.dataSinkRoles.size == 1)
-			Validate.isTrue(dc.dataSourceRoles.size == 1)
-			
-			val dcInputPin = process.getInputPin(dc.dataSinkRoles.get(0))
-			val dcOutputPinToStore = process.getOutputPin(TransformationConstants.STORE_OUTPUT_PIN_NAME)
-			process.createCopyAssignment(dcOutputPinToStore, dcInputPin)
-
-			val dcOutputPin = process.getOutputPin(dc.dataSourceRoles.get(0))			
-			val dcInputPinFromStore = process.getInputPin(TransformationConstants.STORE_INPUT_PIN_NAME)
-			process.createCopyAssignment(dcOutputPin, dcInputPinFromStore)
-			
-			val store = dc.getStore(context)
-			val storeInputPin = store.inputPin
-			val storeOutputPin = store.outputPin
-			getDataFlow(process, dcOutputPinToStore, store, storeInputPin)
-			getDataFlow(store, storeOutputPin, process, dcInputPinFromStore)
-			
-			store.createCharacteristics(context, dc)
-		} else {
+		if (process instanceof CharacterizedProcess) {
 			val behaviour = dc.confidentialityBehavior.orElseThrow
 			val collectedVariableUsages = new ArrayList
 			collectedVariableUsages += behaviour.reusedBehaviours.flatMap[variableUsages]
 			collectedVariableUsages += behaviour.variableUsages
-			process.addPinsAndBehavior(collectedVariableUsages, context, false)			
+			process.addPinsAndBehavior(collectedVariableUsages, context, false)		
 		}
 		
 		// create characteristics
@@ -335,15 +314,7 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 		
 		process
 	}
-	
-	protected def isStoreDataChannel(DataChannel dc) {
-		val behavior = dc.confidentialityBehavior
-		if (!behavior.isPresent) {
-			return false
-		}
-		behavior.get.reusedBehaviours.map[reusedBehaviour].exists[entityName == TransformationConstants.STORE_BEHAVIOUR_NAME]
-	}
-	
+
 	protected def dispatch transformComponent(ComposedProvidingRequiringEntity cc, Stack<AssemblyContext> context) {
 		isTrue(context.peek.encapsulatedComponent__AssemblyContext === cc)
 		cc.assemblyContexts__ComposedStructure.forEach[transform(context)]
@@ -518,11 +489,6 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 	protected def getCharacteristics(EObject eobject) {
 		StereotypeAPI.<List<Characteristic<? extends CharacteristicType>>>getTaggedValueSafe(eobject,
 			ProfileConstants.characterisable.value, ProfileConstants.characterisable.stereotype).orElse(#[])
-	}
-	
-	protected def getConfidentialityBehavior(DataChannel dc) {
-		StereotypeAPI.<DataChannelBehaviour>getTaggedValueSafe(dc, ProfileConstants.dataChannelBehavior.value,
-			ProfileConstants.dataChannelBehavior.stereotype)
 	}
 
 }
