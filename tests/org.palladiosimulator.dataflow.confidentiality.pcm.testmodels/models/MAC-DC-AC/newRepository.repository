@@ -1,0 +1,291 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:confidentiality="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:expression="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression" xmlns:org.palladiosimulator.dataflow.confidentiality.pcm.model.profile="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" xmlns:org.palladiosimulator.indirections.actions="http://palladiosimulator.org/Indirections/Actions/1.0" xmlns:org.palladiosimulator.indirections.composition="http://palladiosimulator.org/Indirections/Composition/1.0" xmlns:org.palladiosimulator.indirections.repository="http://palladiosimulator.org/Indirections/Repository/1.0" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2">
+  <repository:Repository id="_NzfuYD2BEeuZ_cSwBj7psQ" entityName="New Repository">
+    <components__Repository xsi:type="repository:CompositeComponent" id="_kZgwYD4uEeuI6qYQxDoU_g" entityName="FlightDB">
+      <assemblyContexts__ComposedStructure id="_9YJekD42EeuI6qYQxDoU_g" entityName="Assembly_PlaneStore_Military" encapsulatedComponent__AssemblyContext="_qw3aYD42EeuI6qYQxDoU_g"/>
+      <assemblyContexts__ComposedStructure id="__NaXED42EeuI6qYQxDoU_g" entityName="Assembly_PlaneStore_Divil" encapsulatedComponent__AssemblyContext="_qw3aYD42EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_C6j-QD43EeuI6qYQxDoU_g" entityName="newDataSinkDelegationConnector" assemblyContext="__NaXED42EeuI6qYQxDoU_g" innerDataSinkRole="_xcx4wD42EeuI6qYQxDoU_g" outerDataSinkRole="_0-57sD42EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_DSadkD43EeuI6qYQxDoU_g" entityName="newDataSinkDelegationConnector" assemblyContext="_9YJekD42EeuI6qYQxDoU_g" innerDataSinkRole="_xcx4wD42EeuI6qYQxDoU_g" outerDataSinkRole="_2esTcD42EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_DpmOgD43EeuI6qYQxDoU_g" entityName="newDataSourceDelegationConnector" assemblyContext="__NaXED42EeuI6qYQxDoU_g" innerDataSourceRole="_xwcboD42EeuI6qYQxDoU_g" outerDataSourceRole="_3nlOID42EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_D2s2YD43EeuI6qYQxDoU_g" entityName="newDataSourceDelegationConnector" assemblyContext="_9YJekD42EeuI6qYQxDoU_g" innerDataSourceRole="_xwcboD42EeuI6qYQxDoU_g" outerDataSourceRole="_4u2_QD42EeuI6qYQxDoU_g"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_0-57sD42EeuI6qYQxDoU_g" entityName="FlightDB.Plane.civil.sink" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_2esTcD42EeuI6qYQxDoU_g" entityName="FlightDB.Plane.military.sink" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_3nlOID42EeuI6qYQxDoU_g" entityName="FlightDB.Plane.civil.source" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_4u2_QD42EeuI6qYQxDoU_g" entityName="FlightDB.Plane.military.source" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_qw3aYD42EeuI6qYQxDoU_g" entityName="PlaneStore" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_xcx4wD42EeuI6qYQxDoU_g" entityName="PlaneStore.Plane.sink" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_xwcboD42EeuI6qYQxDoU_g" entityName="PlaneStore.Plane.source" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+    </components__Repository>
+    <components__Repository xsi:type="repository:CompositeComponent" id="_GAd_QD43EeuI6qYQxDoU_g" entityName="MilitaryRouteController">
+      <assemblyContexts__ComposedStructure id="_l6uf8D44EeuI6qYQxDoU_g" entityName="Assembly_RouteControllerFacade" encapsulatedComponent__AssemblyContext="_KwzhwD43EeuI6qYQxDoU_g"/>
+      <assemblyContexts__ComposedStructure id="_BpmawD45EeuI6qYQxDoU_g" entityName="Assembly_PlaneListCreator" encapsulatedComponent__AssemblyContext="_j_mFcD43EeuI6qYQxDoU_g"/>
+      <assemblyContexts__ComposedStructure id="_K8ka8D45EeuI6qYQxDoU_g" entityName="Assembly_PlaneMultiplexer" encapsulatedComponent__AssemblyContext="_FqoAMD45EeuI6qYQxDoU_g"/>
+      <assemblyContexts__ComposedStructure id="_Q_BsoD45EeuI6qYQxDoU_g" entityName="Assembly_PlaneListMerger" encapsulatedComponent__AssemblyContext="_Uf2Z8D43EeuI6qYQxDoU_g"/>
+      <assemblyContexts__ComposedStructure id="_XOsT4D45EeuI6qYQxDoU_g" entityName="Assembly_PlaneRouteCreator" encapsulatedComponent__AssemblyContext="_q1yhMD43EeuI6qYQxDoU_g"/>
+      <assemblyContexts__ComposedStructure id="_2pTqMD5FEeu2O4H5yPtgqw" entityName="Assembly_PlaneListCreator" encapsulatedComponent__AssemblyContext="_j_mFcD43EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_pdpNED44EeuI6qYQxDoU_g" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_N9RdwD43EeuI6qYQxDoU_g" outerProvidedRole_ProvidedDelegationConnector="_NS_KoD43EeuI6qYQxDoU_g" assemblyContext_ProvidedDelegationConnector="_l6uf8D44EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_p4sKUD44EeuI6qYQxDoU_g" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_Or9vwD43EeuI6qYQxDoU_g" outerProvidedRole_ProvidedDelegationConnector="_MQ-UAD43EeuI6qYQxDoU_g" assemblyContext_ProvidedDelegationConnector="_l6uf8D44EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_AmAPwD45EeuI6qYQxDoU_g" entityName="newDataSourceDelegationConnector" assemblyContext="_l6uf8D44EeuI6qYQxDoU_g" innerDataSourceRole="_4FgDwD43EeuI6qYQxDoU_g" outerDataSourceRole="_y0g10D44EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_NRr4MD45EeuI6qYQxDoU_g" entityName="newDataSinkDelegationConnector" assemblyContext="_K8ka8D45EeuI6qYQxDoU_g" innerDataSinkRole="_HOUnkD45EeuI6qYQxDoU_g" outerDataSinkRole="_3lq3sD44EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_N06hED45EeuI6qYQxDoU_g" entityName="newAssemblyDataConnector" dataSourceRole="_Jk4PQD45EeuI6qYQxDoU_g" dataSinkRole="_Q4wXcD43EeuI6qYQxDoU_g" sinkAssemblyContext="_l6uf8D44EeuI6qYQxDoU_g" sourceAssemblyContext="_K8ka8D45EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_P8obgD45EeuI6qYQxDoU_g" entityName="newAssemblyDataConnector" dataSourceRole="_IQAuED45EeuI6qYQxDoU_g" dataSinkRole="_nlTn4D43EeuI6qYQxDoU_g" sinkAssemblyContext="_BpmawD45EeuI6qYQxDoU_g" sourceAssemblyContext="_K8ka8D45EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_WxO70D45EeuI6qYQxDoU_g" entityName="newAssemblyDataConnector" dataSourceRole="_opY7ED43EeuI6qYQxDoU_g" dataSinkRole="_fP6DMD43EeuI6qYQxDoU_g" sinkAssemblyContext="_Q_BsoD45EeuI6qYQxDoU_g" sourceAssemblyContext="_BpmawD45EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_aW9FUD45EeuI6qYQxDoU_g" entityName="newAssemblyDataConnector" dataSourceRole="_zkxDgD43EeuI6qYQxDoU_g" dataSinkRole="_1n9DQD43EeuI6qYQxDoU_g" sinkAssemblyContext="_l6uf8D44EeuI6qYQxDoU_g" sourceAssemblyContext="_XOsT4D45EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_a2uxkD45EeuI6qYQxDoU_g" entityName="newAssemblyDataConnector" dataSourceRole="_SI2GUD43EeuI6qYQxDoU_g" dataSinkRole="_ty06ED43EeuI6qYQxDoU_g" sinkAssemblyContext="_XOsT4D45EeuI6qYQxDoU_g" sourceAssemblyContext="_l6uf8D44EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_dpz9MD45EeuI6qYQxDoU_g" entityName="newAssemblyDataConnector" dataSourceRole="_iPVowD43EeuI6qYQxDoU_g" dataSinkRole="_svqM4D43EeuI6qYQxDoU_g" sinkAssemblyContext="_XOsT4D45EeuI6qYQxDoU_g" sourceAssemblyContext="_Q_BsoD45EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_8S0QYD5FEeu2O4H5yPtgqw" entityName="newDataSinkDelegationConnector" assemblyContext="_2pTqMD5FEeu2O4H5yPtgqw" innerDataSinkRole="_nlTn4D43EeuI6qYQxDoU_g" outerDataSinkRole="_fesbMD45EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_8wlKcD5FEeu2O4H5yPtgqw" entityName="newAssemblyDataConnector" dataSourceRole="_opY7ED43EeuI6qYQxDoU_g" dataSinkRole="_fi1mQD43EeuI6qYQxDoU_g" sinkAssemblyContext="_Q_BsoD45EeuI6qYQxDoU_g" sourceAssemblyContext="_2pTqMD5FEeu2O4H5yPtgqw"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_MQ-UAD43EeuI6qYQxDoU_g" entityName="MilitaryRouteController.PlaneStore.OperationProvidedRole1" providedInterface__OperationProvidedRole="_grOM4D2CEeuZ_cSwBj7psQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_NS_KoD43EeuI6qYQxDoU_g" entityName="MilitaryRouteController.RouteCalculation.OperationProvidedRole2" providedInterface__OperationProvidedRole="_HkRnQD4qEeuI6qYQxDoU_g"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_3lq3sD44EeuI6qYQxDoU_g" entityName="MilitaryRouteController.RouteCalculation.Plane.sink.Military" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_fesbMD45EeuI6qYQxDoU_g" entityName="MilitaryRouteController.RouteCalculation.Plane.sink.Civil" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_y0g10D44EeuI6qYQxDoU_g" entityName="MilitaryRouteController.RouteCalculation.Plane.source.Military" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" id="_KwzhwD43EeuI6qYQxDoU_g" entityName="RouteControllerFacade">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_N9RdwD43EeuI6qYQxDoU_g" entityName="RouteControllerFacade.RouteCalculation.OperationProvidedRole1" providedInterface__OperationProvidedRole="_HkRnQD4qEeuI6qYQxDoU_g"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_Or9vwD43EeuI6qYQxDoU_g" entityName="RouteControllerFacade.PlaneStore.OperationProvidedRole2" providedInterface__OperationProvidedRole="_grOM4D2CEeuZ_cSwBj7psQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_Q4wXcD43EeuI6qYQxDoU_g" entityName="RouteControllerFacade.Plane.sink" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_1n9DQD43EeuI6qYQxDoU_g" entityName="RouteControllerFacade.PlaneRoute.sink" dataInterface="_vGs8wD43EeuI6qYQxDoU_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_SI2GUD43EeuI6qYQxDoU_g" entityName="RouteControllerFacade.Plane.sourceToRoute" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_4FgDwD43EeuI6qYQxDoU_g" entityName="RouteControllerFacade.Plane.sourceToDB" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_N9jKkD43EeuI6qYQxDoU_g" describedService__SEFF="_JwpYMD4qEeuI6qYQxDoU_g">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_N9jKkT43EeuI6qYQxDoU_g" successor_AbstractAction="_S92mQD44EeuI6qYQxDoU_g"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_N9jKkj43EeuI6qYQxDoU_g" predecessor_AbstractAction="_bti6QD44EeuI6qYQxDoU_g"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_S92mQD44EeuI6qYQxDoU_g" entityName="RouteControllerFacade.determineRoute.createData" predecessor_AbstractAction="_N9jKkT43EeuI6qYQxDoU_g" successor_AbstractAction="_W9TeYD44EeuI6qYQxDoU_g">
+          <variableReference referenceName="planeData"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_Zp9mAD5FEeu2O4H5yPtgqw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_af5Icz5FEeu2O4H5yPtgqw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="plane"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="planeData"/>
+          </variableUsages>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_W9TeYD44EeuI6qYQxDoU_g" entityName="RouteControllerFacade.determineRoute.emit" predecessor_AbstractAction="_S92mQD44EeuI6qYQxDoU_g" successor_AbstractAction="_Y3J78D44EeuI6qYQxDoU_g" dataSourceRole="_SI2GUD43EeuI6qYQxDoU_g">
+          <variableReference referenceName="planeData"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:ConsumeDataAction" id="_Y3J78D44EeuI6qYQxDoU_g" entityName="RouteControllerFacade.determineRoute.consume" predecessor_AbstractAction="_W9TeYD44EeuI6qYQxDoU_g" successor_AbstractAction="_bti6QD44EeuI6qYQxDoU_g" dataSinkRole="_1n9DQD43EeuI6qYQxDoU_g">
+          <variableReference referenceName="route"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="seff:SetVariableAction" id="_bti6QD44EeuI6qYQxDoU_g" entityName="RouteControllerFacade.determineRoute.return" predecessor_AbstractAction="_Y3J78D44EeuI6qYQxDoU_g" successor_AbstractAction="_N9jKkj43EeuI6qYQxDoU_g">
+          <localVariableUsages_SetVariableAction>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_eayQsD5FEeu2O4H5yPtgqw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_fFpyoz5FEeu2O4H5yPtgqw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="route"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+          </localVariableUsages_SetVariableAction>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_Or-W0D43EeuI6qYQxDoU_g" describedService__SEFF="_hcCl0D2CEeuZ_cSwBj7psQ">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_Or-94D43EeuI6qYQxDoU_g" successor_AbstractAction="_7ZaEgD43EeuI6qYQxDoU_g"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_Or-94T43EeuI6qYQxDoU_g" predecessor_AbstractAction="_-RIfkD43EeuI6qYQxDoU_g"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_7ZaEgD43EeuI6qYQxDoU_g" entityName="RouteControllerFacade.addPlane.createData" predecessor_AbstractAction="_Or-94D43EeuI6qYQxDoU_g" successor_AbstractAction="_-RIfkD43EeuI6qYQxDoU_g">
+          <variableReference referenceName="planeData"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_iK6TYD5FEeu2O4H5yPtgqw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_ivrNUz5FEeu2O4H5yPtgqw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="plane"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="planeData"/>
+          </variableUsages>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_-RIfkD43EeuI6qYQxDoU_g" entityName="RouteControllerFacade.addPlane.emit" predecessor_AbstractAction="_7ZaEgD43EeuI6qYQxDoU_g" successor_AbstractAction="_Or-94T43EeuI6qYQxDoU_g" dataSourceRole="_4FgDwD43EeuI6qYQxDoU_g">
+          <variableReference referenceName="planeData"/>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_OsX_cD43EeuI6qYQxDoU_g" describedService__SEFF="_mD0CMD2CEeuZ_cSwBj7psQ">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_OsX_cT43EeuI6qYQxDoU_g" successor_AbstractAction="_G69cID44EeuI6qYQxDoU_g"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_OsX_cj43EeuI6qYQxDoU_g" predecessor_AbstractAction="_JUZ_wD44EeuI6qYQxDoU_g"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:ConsumeDataAction" id="_G69cID44EeuI6qYQxDoU_g" entityName="RouteControllerFacade.getPlane.consume" predecessor_AbstractAction="_OsX_cT43EeuI6qYQxDoU_g" successor_AbstractAction="_JUZ_wD44EeuI6qYQxDoU_g" dataSinkRole="_Q4wXcD43EeuI6qYQxDoU_g">
+          <variableReference referenceName="plane"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="seff:SetVariableAction" id="_JUZ_wD44EeuI6qYQxDoU_g" entityName="RouteControllerFacade.getPlane.return" predecessor_AbstractAction="_G69cID44EeuI6qYQxDoU_g" successor_AbstractAction="_OsX_cj43EeuI6qYQxDoU_g">
+          <localVariableUsages_SetVariableAction>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_mpohcD5FEeu2O4H5yPtgqw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_niVEAz5FEeu2O4H5yPtgqw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="plane"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+          </localVariableUsages_SetVariableAction>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_Uf2Z8D43EeuI6qYQxDoU_g" entityName="PlaneListMerger" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_fP6DMD43EeuI6qYQxDoU_g" entityName="PlaneListMerger.Planes.sink1" dataInterface="_WxXwoD43EeuI6qYQxDoU_g"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_fi1mQD43EeuI6qYQxDoU_g" entityName="PlaneListMerger.Planes.sink2" dataInterface="_WxXwoD43EeuI6qYQxDoU_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_iPVowD43EeuI6qYQxDoU_g" entityName="PlaneListMerger.Planes.source" dataInterface="_WxXwoD43EeuI6qYQxDoU_g"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_j_mFcD43EeuI6qYQxDoU_g" entityName="PlaneListCreator" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_nlTn4D43EeuI6qYQxDoU_g" entityName="PlaneListCreator.Plane.sink" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_opY7ED43EeuI6qYQxDoU_g" entityName="PlaneListCreator.Planes.source" dataInterface="_WxXwoD43EeuI6qYQxDoU_g"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_q1yhMD43EeuI6qYQxDoU_g" entityName="PlaneRouteCreator" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_svqM4D43EeuI6qYQxDoU_g" entityName="PlaneRouteCreator.Planes.sink" dataInterface="_WxXwoD43EeuI6qYQxDoU_g"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_ty06ED43EeuI6qYQxDoU_g" entityName="PlaneRouteCreator.Plane.sink" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_zkxDgD43EeuI6qYQxDoU_g" entityName="PlaneRouteCreator.PlaneRoute.source" dataInterface="_vGs8wD43EeuI6qYQxDoU_g"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_FqoAMD45EeuI6qYQxDoU_g" entityName="PlaneMultiplexer" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_HOUnkD45EeuI6qYQxDoU_g" entityName="PlaneMultiplexer.Plane.sink" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_IQAuED45EeuI6qYQxDoU_g" entityName="PlaneMultiplexer.Plane.source1" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_Jk4PQD45EeuI6qYQxDoU_g" entityName="PlaneMultiplexer.Plane.source2" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+    </components__Repository>
+    <components__Repository xsi:type="repository:CompositeComponent" id="_HBlgMD5GEeu2O4H5yPtgqw" entityName="CivilRouteController">
+      <assemblyContexts__ComposedStructure id="_ZlNMYD5GEeu2O4H5yPtgqw" entityName="Assembly_RouteControllerFacade" encapsulatedComponent__AssemblyContext="_KwzhwD43EeuI6qYQxDoU_g"/>
+      <assemblyContexts__ComposedStructure id="_gYSpwD5GEeu2O4H5yPtgqw" entityName="Assembly_PlaneListCreator" encapsulatedComponent__AssemblyContext="_j_mFcD43EeuI6qYQxDoU_g"/>
+      <assemblyContexts__ComposedStructure id="_h-VagD5GEeu2O4H5yPtgqw" entityName="Assembly_PlaneMultiplexer" encapsulatedComponent__AssemblyContext="_FqoAMD45EeuI6qYQxDoU_g"/>
+      <assemblyContexts__ComposedStructure id="_r54doD5GEeu2O4H5yPtgqw" entityName="Assembly_PlaneRouteCreator" encapsulatedComponent__AssemblyContext="_q1yhMD43EeuI6qYQxDoU_g"/>
+      <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_dAUBUD5GEeu2O4H5yPtgqw" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_N9RdwD43EeuI6qYQxDoU_g" outerProvidedRole_ProvidedDelegationConnector="_Jk5xgD5GEeu2O4H5yPtgqw" assemblyContext_ProvidedDelegationConnector="_ZlNMYD5GEeu2O4H5yPtgqw"/>
+      <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_dYepsD5GEeu2O4H5yPtgqw" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_Or9vwD43EeuI6qYQxDoU_g" outerProvidedRole_ProvidedDelegationConnector="_L7vGAD5GEeu2O4H5yPtgqw" assemblyContext_ProvidedDelegationConnector="_ZlNMYD5GEeu2O4H5yPtgqw"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_j1MOcD5GEeu2O4H5yPtgqw" entityName="newDataSinkDelegationConnector" assemblyContext="_h-VagD5GEeu2O4H5yPtgqw" innerDataSinkRole="_HOUnkD45EeuI6qYQxDoU_g" outerDataSinkRole="_P1KOoD5GEeu2O4H5yPtgqw"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_rYVPwD5GEeu2O4H5yPtgqw" entityName="newAssemblyDataConnector" dataSourceRole="_IQAuED45EeuI6qYQxDoU_g" dataSinkRole="_nlTn4D43EeuI6qYQxDoU_g" sinkAssemblyContext="_gYSpwD5GEeu2O4H5yPtgqw" sourceAssemblyContext="_h-VagD5GEeu2O4H5yPtgqw"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_tn8h8D5GEeu2O4H5yPtgqw" entityName="newAssemblyDataConnector" dataSourceRole="_opY7ED43EeuI6qYQxDoU_g" dataSinkRole="_svqM4D43EeuI6qYQxDoU_g" sinkAssemblyContext="_r54doD5GEeu2O4H5yPtgqw" sourceAssemblyContext="_gYSpwD5GEeu2O4H5yPtgqw"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_xZtjYD5GEeu2O4H5yPtgqw" entityName="newAssemblyDataConnector" dataSourceRole="_SI2GUD43EeuI6qYQxDoU_g" dataSinkRole="_ty06ED43EeuI6qYQxDoU_g" sinkAssemblyContext="_r54doD5GEeu2O4H5yPtgqw" sourceAssemblyContext="_ZlNMYD5GEeu2O4H5yPtgqw"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_1SvqcD5GEeu2O4H5yPtgqw" entityName="newAssemblyDataConnector" dataSourceRole="_zkxDgD43EeuI6qYQxDoU_g" dataSinkRole="_1n9DQD43EeuI6qYQxDoU_g" sinkAssemblyContext="_ZlNMYD5GEeu2O4H5yPtgqw" sourceAssemblyContext="_r54doD5GEeu2O4H5yPtgqw"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_6lWzkD5GEeu2O4H5yPtgqw" entityName="newAssemblyDataConnector" dataSourceRole="_Jk4PQD45EeuI6qYQxDoU_g" dataSinkRole="_Q4wXcD43EeuI6qYQxDoU_g" sinkAssemblyContext="_ZlNMYD5GEeu2O4H5yPtgqw" sourceAssemblyContext="_h-VagD5GEeu2O4H5yPtgqw"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_-NjpUD5GEeu2O4H5yPtgqw" entityName="newDataSourceDelegationConnector" assemblyContext="_ZlNMYD5GEeu2O4H5yPtgqw" innerDataSourceRole="_4FgDwD43EeuI6qYQxDoU_g" outerDataSourceRole="_SqGbcD5GEeu2O4H5yPtgqw"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_Jk5xgD5GEeu2O4H5yPtgqw" entityName="CivilRouteController.RouteCalculation.OperationProvidedRole1" providedInterface__OperationProvidedRole="_HkRnQD4qEeuI6qYQxDoU_g"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_L7vGAD5GEeu2O4H5yPtgqw" entityName="CivilRouteController.PlaneStore.OperationProvidedRole2" providedInterface__OperationProvidedRole="_grOM4D2CEeuZ_cSwBj7psQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_P1KOoD5GEeu2O4H5yPtgqw" entityName="CivilRouteController.Plane.sink.fromDB" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_SqGbcD5GEeu2O4H5yPtgqw" entityName="CivilRouteController.Plane.source.toDB" dataInterface="_tGE-QD42EeuI6qYQxDoU_g"/>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" id="_NObngD5HEeu2O4H5yPtgqw" entityName="WeatherReportStoreFacade">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_TdzT0D5HEeu2O4H5yPtgqw" entityName="WeatherReportStoreFacade.WeatherReportStore.OperationProvidedRole1" providedInterface__OperationProvidedRole="_2WAeUD2CEeuZ_cSwBj7psQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_bOJqsD5HEeu2O4H5yPtgqw" entityName="WeatherReportStoreFacade.WeatherReport.sink" dataInterface="_UrgdED5HEeu2O4H5yPtgqw"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_dOQhQD5HEeu2O4H5yPtgqw" entityName="WeatherReportStoreFacade.WeatherReport.source" dataInterface="_UrgdED5HEeu2O4H5yPtgqw"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_TeGOwD5HEeu2O4H5yPtgqw" describedService__SEFF="_3NwlsD2CEeuZ_cSwBj7psQ">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_TeG10D5HEeu2O4H5yPtgqw" successor_AbstractAction="_fk_IED5HEeu2O4H5yPtgqw"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_TeG10T5HEeu2O4H5yPtgqw" predecessor_AbstractAction="_i96LsD5HEeu2O4H5yPtgqw"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_fk_IED5HEeu2O4H5yPtgqw" entityName="WeatherReportStoreFacade.addWeatherReport.createData" predecessor_AbstractAction="_TeG10D5HEeu2O4H5yPtgqw" successor_AbstractAction="_i96LsD5HEeu2O4H5yPtgqw">
+          <variableReference referenceName="weatherReportData"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_IhW-8D5IEeu2O4H5yPtgqw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_I6cNUz5IEeu2O4H5yPtgqw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="weatherReport"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="weatherReportData"/>
+          </variableUsages>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_i96LsD5HEeu2O4H5yPtgqw" entityName="WeatherReportStoreFacade.addWeatherReport.emit" predecessor_AbstractAction="_fk_IED5HEeu2O4H5yPtgqw" successor_AbstractAction="_TeG10T5HEeu2O4H5yPtgqw" dataSourceRole="_dOQhQD5HEeu2O4H5yPtgqw">
+          <variableReference referenceName="weatherReportData"/>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_TfBb0D5HEeu2O4H5yPtgqw" describedService__SEFF="_5YmsoD2CEeuZ_cSwBj7psQ">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_TfBb0T5HEeu2O4H5yPtgqw" successor_AbstractAction="_ooNcED5HEeu2O4H5yPtgqw"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_TfBb0j5HEeu2O4H5yPtgqw" predecessor_AbstractAction="_rlwLQD5HEeu2O4H5yPtgqw"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:ConsumeDataAction" id="_ooNcED5HEeu2O4H5yPtgqw" entityName="WeatherReportStoreFacade.getWeatherReport.consume" predecessor_AbstractAction="_TfBb0T5HEeu2O4H5yPtgqw" successor_AbstractAction="_rlwLQD5HEeu2O4H5yPtgqw" dataSinkRole="_bOJqsD5HEeu2O4H5yPtgqw">
+          <variableReference referenceName="weatherReport"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="seff:SetVariableAction" id="_rlwLQD5HEeu2O4H5yPtgqw" entityName="WeatherReportStoreFacade.getWeatherReport.return" predecessor_AbstractAction="_ooNcED5HEeu2O4H5yPtgqw" successor_AbstractAction="_TfBb0j5HEeu2O4H5yPtgqw">
+          <localVariableUsages_SetVariableAction>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_MYvgMD5IEeu2O4H5yPtgqw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_M2PUgj5IEeu2O4H5yPtgqw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="weatherReport"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+          </localVariableUsages_SetVariableAction>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="repository:CompositeComponent" id="_Q1HaUD5HEeu2O4H5yPtgqw" entityName="WeatherReportStore">
+      <assemblyContexts__ComposedStructure id="_8fXzwD5HEeu2O4H5yPtgqw" entityName="Assembly_WeatherReportStoreFacade" encapsulatedComponent__AssemblyContext="_NObngD5HEeu2O4H5yPtgqw"/>
+      <assemblyContexts__ComposedStructure id="_9Mh0sD5HEeu2O4H5yPtgqw" entityName="Assembly_WeatherStore" encapsulatedComponent__AssemblyContext="_YGevID5HEeu2O4H5yPtgqw"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_BhVRwD5IEeu2O4H5yPtgqw" entityName="newAssemblyDataConnector" dataSourceRole="_aOdIQD5HEeu2O4H5yPtgqw" dataSinkRole="_bOJqsD5HEeu2O4H5yPtgqw" sinkAssemblyContext="_8fXzwD5HEeu2O4H5yPtgqw" sourceAssemblyContext="_9Mh0sD5HEeu2O4H5yPtgqw"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_B-bdcD5IEeu2O4H5yPtgqw" entityName="newAssemblyDataConnector" dataSourceRole="_dOQhQD5HEeu2O4H5yPtgqw" dataSinkRole="_ZH36sD5HEeu2O4H5yPtgqw" sinkAssemblyContext="_9Mh0sD5HEeu2O4H5yPtgqw" sourceAssemblyContext="_8fXzwD5HEeu2O4H5yPtgqw"/>
+      <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_SATloD5IEeu2O4H5yPtgqw" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_TdzT0D5HEeu2O4H5yPtgqw" outerProvidedRole_ProvidedDelegationConnector="_TDL0YD5HEeu2O4H5yPtgqw" assemblyContext_ProvidedDelegationConnector="_8fXzwD5HEeu2O4H5yPtgqw"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_TDL0YD5HEeu2O4H5yPtgqw" entityName="WeatherReportStore.WeatherReportStore.OperationProvidedRole1" providedInterface__OperationProvidedRole="_2WAeUD2CEeuZ_cSwBj7psQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_YGevID5HEeu2O4H5yPtgqw" entityName="WeatherStore" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_ZH36sD5HEeu2O4H5yPtgqw" entityName="WeatherStore.WeatherReport.sink" dataInterface="_UrgdED5HEeu2O4H5yPtgqw"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_aOdIQD5HEeu2O4H5yPtgqw" entityName="WeatherStore.WeatherReport.source" dataInterface="_UrgdED5HEeu2O4H5yPtgqw"/>
+    </components__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_grOM4D2CEeuZ_cSwBj7psQ" entityName="PlaneStore">
+      <signatures__OperationInterface id="_hcCl0D2CEeuZ_cSwBj7psQ" entityName="addPlane">
+        <parameters__OperationSignature dataType__Parameter="_i0hbsD2CEeuZ_cSwBj7psQ" parameterName="plane"/>
+      </signatures__OperationInterface>
+      <signatures__OperationInterface id="_mD0CMD2CEeuZ_cSwBj7psQ" entityName="getPlane" returnType__OperationSignature="_i0hbsD2CEeuZ_cSwBj7psQ"/>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_2WAeUD2CEeuZ_cSwBj7psQ" entityName="WeatherReportStore">
+      <signatures__OperationInterface id="_3NwlsD2CEeuZ_cSwBj7psQ" entityName="addWeatherReport">
+        <parameters__OperationSignature dataType__Parameter="_f6E5QD2BEeuZ_cSwBj7psQ" parameterName="weatherReport"/>
+      </signatures__OperationInterface>
+      <signatures__OperationInterface id="_5YmsoD2CEeuZ_cSwBj7psQ" entityName="getWeatherReport" returnType__OperationSignature="_f6E5QD2BEeuZ_cSwBj7psQ"/>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_HkRnQD4qEeuI6qYQxDoU_g" entityName="RouteCalculation">
+      <signatures__OperationInterface id="_JwpYMD4qEeuI6qYQxDoU_g" entityName="determineRoute" returnType__OperationSignature="_4__00D2BEeuZ_cSwBj7psQ">
+        <parameters__OperationSignature dataType__Parameter="_i0hbsD2CEeuZ_cSwBj7psQ" parameterName="plane"/>
+      </signatures__OperationInterface>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_tGE-QD42EeuI6qYQxDoU_g" entityName="Plane">
+      <dataSignature id="_ts01MD42EeuI6qYQxDoU_g" entityName="plane">
+        <parameter dataType__Parameter="_i0hbsD2CEeuZ_cSwBj7psQ" parameterName="plane"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_WxXwoD43EeuI6qYQxDoU_g" entityName="Planes">
+      <dataSignature id="_bQgOYD43EeuI6qYQxDoU_g" entityName="planes">
+        <parameter dataType__Parameter="_YK024D43EeuI6qYQxDoU_g" parameterName="planes"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_vGs8wD43EeuI6qYQxDoU_g" entityName="PlaneRoute">
+      <dataSignature id="_wDhxYD43EeuI6qYQxDoU_g" entityName="planeRoute">
+        <parameter dataType__Parameter="_4__00D2BEeuZ_cSwBj7psQ" parameterName="planeRoute"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_UrgdED5HEeu2O4H5yPtgqw" entityName="WeatherReport">
+      <dataSignature id="_VhuTYD5HEeu2O4H5yPtgqw" entityName="weatherReport">
+        <parameter dataType__Parameter="_f6E5QD2BEeuZ_cSwBj7psQ" parameterName="weatherReport"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_f6E5QD2BEeuZ_cSwBj7psQ" entityName="WeatherReport"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_1NMRkD2BEeuZ_cSwBj7psQ" entityName="PlanePosition"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_4__00D2BEeuZ_cSwBj7psQ" entityName="PlaneRoute"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_i0hbsD2CEeuZ_cSwBj7psQ" entityName="Plane"/>
+    <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_YK024D43EeuI6qYQxDoU_g" entityName="Planes" innerType_CollectionDataType="_i0hbsD2CEeuZ_cSwBj7psQ"/>
+  </repository:Repository>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_qw3aYD42EeuI6qYQxDoU_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_DgXHED5EEeu2O4H5yPtgqw"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_Uf2Z8D43EeuI6qYQxDoU_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_NohC0D5EEeu2O4H5yPtgqw"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_j_mFcD43EeuI6qYQxDoU_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_Z6ZrMD5EEeu2O4H5yPtgqw"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_q1yhMD43EeuI6qYQxDoU_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_lj1McD5EEeu2O4H5yPtgqw"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_FqoAMD45EeuI6qYQxDoU_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_18A70D5EEeu2O4H5yPtgqw"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_YGevID5HEeu2O4H5yPtgqw">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="DataChannelBehaviors.behaviour#_wM2SMD5HEeu2O4H5yPtgqw"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" location="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>
