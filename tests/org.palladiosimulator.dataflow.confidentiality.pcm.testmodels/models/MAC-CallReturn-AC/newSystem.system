@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="ASCII"?>
+<system:System xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:repository="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/repository" xmlns:repository_1="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.2" id="_kZFE0D4pEeuI6qYQxDoU_g" entityName="New System">
+  <assemblyContexts__ComposedStructure id="_m3H0kD4pEeuI6qYQxDoU_g" entityName="Assembly_WeatherReportStore">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository:OperationalDataStoreComponent" href="newRepository.repository#_yPmprj2CEeuZ_cSwBj7psQ"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_CH99UD4vEeuI6qYQxDoU_g" entityName="Assembly_FlightDB">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository_1:CompositeComponent" href="newRepository.repository#_kZgwYD4uEeuI6qYQxDoU_g"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_DPIZsD4vEeuI6qYQxDoU_g" entityName="Assembly_CivilRouteCalculation">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository_1:BasicComponent" href="newRepository.repository#__VEKID4pEeuI6qYQxDoU_g"/>
+  </assemblyContexts__ComposedStructure>
+  <assemblyContexts__ComposedStructure id="_Duw8AD4vEeuI6qYQxDoU_g" entityName="Assembly_MilitaryRouteController">
+    <encapsulatedComponent__AssemblyContext xsi:type="repository_1:BasicComponent" href="newRepository.repository#_W1ThUD4qEeuI6qYQxDoU_g"/>
+  </assemblyContexts__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_oS1koD4pEeuI6qYQxDoU_g" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_l4m94D4pEeuI6qYQxDoU_g" assemblyContext_ProvidedDelegationConnector="_m3H0kD4pEeuI6qYQxDoU_g">
+    <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_7Ot5sD2CEeuZ_cSwBj7psQ"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_HrFAkD4vEeuI6qYQxDoU_g" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_sYEpwD4rEeuI6qYQxDoU_g" assemblyContext_ProvidedDelegationConnector="_DPIZsD4vEeuI6qYQxDoU_g">
+    <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_YX6jkD4qEeuI6qYQxDoU_g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_ICeM4D4vEeuI6qYQxDoU_g" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_z-jS8D4rEeuI6qYQxDoU_g" assemblyContext_ProvidedDelegationConnector="_DPIZsD4vEeuI6qYQxDoU_g">
+    <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#__CQJkD4uEeuI6qYQxDoU_g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_JU1MoD4vEeuI6qYQxDoU_g" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_DPIZsD4vEeuI6qYQxDoU_g" providingAssemblyContext_AssemblyConnector="_m3H0kD4pEeuI6qYQxDoU_g">
+    <providedRole_AssemblyConnector href="newRepository.repository#_7Ot5sD2CEeuZ_cSwBj7psQ"/>
+    <requiredRole_AssemblyConnector href="newRepository.repository#_kwKSoD4qEeuI6qYQxDoU_g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_LjmKQD4vEeuI6qYQxDoU_g" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_DPIZsD4vEeuI6qYQxDoU_g" providingAssemblyContext_AssemblyConnector="_CH99UD4vEeuI6qYQxDoU_g">
+    <providedRole_AssemblyConnector href="newRepository.repository#_lvCY4D4uEeuI6qYQxDoU_g"/>
+    <requiredRole_AssemblyConnector href="newRepository.repository#_e3nx8D4qEeuI6qYQxDoU_g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_Qj2YED4vEeuI6qYQxDoU_g" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_Duw8AD4vEeuI6qYQxDoU_g" providingAssemblyContext_AssemblyConnector="_CH99UD4vEeuI6qYQxDoU_g">
+    <providedRole_AssemblyConnector href="newRepository.repository#_lvCY4D4uEeuI6qYQxDoU_g"/>
+    <requiredRole_AssemblyConnector href="newRepository.repository#_bNm-UD4qEeuI6qYQxDoU_g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_Q9QWkD4vEeuI6qYQxDoU_g" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_Duw8AD4vEeuI6qYQxDoU_g" providingAssemblyContext_AssemblyConnector="_CH99UD4vEeuI6qYQxDoU_g">
+    <providedRole_AssemblyConnector href="newRepository.repository#_nVW2cD4uEeuI6qYQxDoU_g"/>
+    <requiredRole_AssemblyConnector href="newRepository.repository#_cvbWYD4qEeuI6qYQxDoU_g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_RtPpED4vEeuI6qYQxDoU_g" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_Duw8AD4vEeuI6qYQxDoU_g" providingAssemblyContext_AssemblyConnector="_m3H0kD4pEeuI6qYQxDoU_g">
+    <providedRole_AssemblyConnector href="newRepository.repository#_7Ot5sD2CEeuZ_cSwBj7psQ"/>
+    <requiredRole_AssemblyConnector href="newRepository.repository#_jy1HsD4qEeuI6qYQxDoU_g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_URB0cD4vEeuI6qYQxDoU_g" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_uYrPkD4rEeuI6qYQxDoU_g" assemblyContext_ProvidedDelegationConnector="_Duw8AD4vEeuI6qYQxDoU_g">
+    <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_YBPI8D4qEeuI6qYQxDoU_g"/>
+  </connectors__ComposedStructure>
+  <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_UqTQED4vEeuI6qYQxDoU_g" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_xPK7kD4rEeuI6qYQxDoU_g" assemblyContext_ProvidedDelegationConnector="_Duw8AD4vEeuI6qYQxDoU_g">
+    <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_-pnnID4uEeuI6qYQxDoU_g"/>
+  </connectors__ComposedStructure>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository_1:OperationProvidedRole" id="_l4m94D4pEeuI6qYQxDoU_g" entityName="WeatherReportStoreProvidedRole">
+    <providedInterface__OperationProvidedRole href="newRepository.repository#_2WAeUD2CEeuZ_cSwBj7psQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository_1:OperationProvidedRole" id="_sYEpwD4rEeuI6qYQxDoU_g" entityName="RouteCalculationProvidedRole.Civil">
+    <providedInterface__OperationProvidedRole href="newRepository.repository#_HkRnQD4qEeuI6qYQxDoU_g"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository_1:OperationProvidedRole" id="_uYrPkD4rEeuI6qYQxDoU_g" entityName="RouteCalculationProvidedRole.Military">
+    <providedInterface__OperationProvidedRole href="newRepository.repository#_HkRnQD4qEeuI6qYQxDoU_g"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository_1:OperationProvidedRole" id="_xPK7kD4rEeuI6qYQxDoU_g" entityName="PlaneStoreProvidedRole.Military">
+    <providedInterface__OperationProvidedRole href="newRepository.repository#_grOM4D2CEeuZ_cSwBj7psQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+  <providedRoles_InterfaceProvidingEntity xsi:type="repository_1:OperationProvidedRole" id="_z-jS8D4rEeuI6qYQxDoU_g" entityName="PlaneStoreProvidedRole.Civil">
+    <providedInterface__OperationProvidedRole href="newRepository.repository#_grOM4D2CEeuZ_cSwBj7psQ"/>
+  </providedRoles_InterfaceProvidingEntity>
+</system:System>

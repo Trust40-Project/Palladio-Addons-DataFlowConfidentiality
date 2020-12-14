@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" xmlns:confidentiality="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:expression="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression" xmlns:expressions="http://palladiosimulator.org/dataflow/dictionary/characterized/expressions/1.0" xmlns:org.palladiosimulator.dataflow.confidentiality.pcm.model.profile="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" xmlns:usagemodel="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.2">
+  <usagemodel:UsageModel>
+    <usageScenario_UsageModel id="_vtoa4D4sEeuI6qYQxDoU_g" entityName="WeatherClerk">
+      <scenarioBehaviour_UsageScenario id="_0RQ-ID4sEeuI6qYQxDoU_g" entityName="ScenarioBehaviour">
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_0RSMQD4sEeuI6qYQxDoU_g" successor="_6qzTED4sEeuI6qYQxDoU_g"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_0RSzUD4sEeuI6qYQxDoU_g" predecessor="_6qzTED4sEeuI6qYQxDoU_g"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_6qzTED4sEeuI6qYQxDoU_g" entityName="WeatherClerk.addWeatherReport" successor="_0RSzUD4sEeuI6qYQxDoU_g" predecessor="_0RSMQD4sEeuI6qYQxDoU_g">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_l4m94D4pEeuI6qYQxDoU_g"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_3NwlsD2CEeuZ_cSwBj7psQ"/>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_XJ8NMD4tEeuI6qYQxDoU_g">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                <literal href="CharacteristicTypes.characteristics#_9bRsED4rEeuI6qYQxDoU_g"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_Y_O65j4tEeuI6qYQxDoU_g"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="weatherReport"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+      </scenarioBehaviour_UsageScenario>
+      <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload">
+        <thinkTime_ClosedWorkload specification="0.0"/>
+      </workload_UsageScenario>
+    </usageScenario_UsageModel>
+    <usageScenario_UsageModel id="_xAjbUD4sEeuI6qYQxDoU_g" entityName="CivilFlightPlanner">
+      <scenarioBehaviour_UsageScenario id="_0fIbAD4sEeuI6qYQxDoU_g" entityName="ScenarioBehaviour">
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_0fJCED4sEeuI6qYQxDoU_g" successor="_-DjXkD4sEeuI6qYQxDoU_g"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_0fJCET4sEeuI6qYQxDoU_g" predecessor="_Bmf54D4tEeuI6qYQxDoU_g"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_-DjXkD4sEeuI6qYQxDoU_g" entityName="CivilFlightPlanner.registerPlane" successor="_Bmf54D4tEeuI6qYQxDoU_g" predecessor="_0fJCED4sEeuI6qYQxDoU_g">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_z-jS8D4rEeuI6qYQxDoU_g"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_hcCl0D2CEeuZ_cSwBj7psQ"/>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_c_nAED4tEeuI6qYQxDoU_g">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                <literal href="CharacteristicTypes.characteristics#_9qDH4D4rEeuI6qYQxDoU_g"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_eom-Nj4tEeuI6qYQxDoU_g"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="plane"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_Bmf54D4tEeuI6qYQxDoU_g" entityName="CivilFlightPlanner.determineRoute" successor="_0fJCET4sEeuI6qYQxDoU_g" predecessor="_-DjXkD4sEeuI6qYQxDoU_g">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_sYEpwD4rEeuI6qYQxDoU_g"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_JwpYMD4qEeuI6qYQxDoU_g"/>
+          <outputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_vBOLYD4tEeuI6qYQxDoU_g"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_vhBs0z4tEeuI6qYQxDoU_g">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="route"/>
+          </outputParameterUsages_EntryLevelSystemCall>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_k4K3wD4tEeuI6qYQxDoU_g">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                <literal href="CharacteristicTypes.characteristics#_9qDH4D4rEeuI6qYQxDoU_g"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_nl9Ttj4tEeuI6qYQxDoU_g"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="plane"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+      </scenarioBehaviour_UsageScenario>
+      <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload">
+        <thinkTime_ClosedWorkload specification="0.0"/>
+      </workload_UsageScenario>
+    </usageScenario_UsageModel>
+    <usageScenario_UsageModel id="_yBvykD4sEeuI6qYQxDoU_g" entityName="MilitaryFlightPlanner">
+      <scenarioBehaviour_UsageScenario id="_0rMhED4sEeuI6qYQxDoU_g" entityName="ScenarioBehaviour">
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_0rMhET4sEeuI6qYQxDoU_g" successor="_Ewqv0D4tEeuI6qYQxDoU_g"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_0rMhEj4sEeuI6qYQxDoU_g" predecessor="_Gy5tUD4tEeuI6qYQxDoU_g"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_Ewqv0D4tEeuI6qYQxDoU_g" entityName="MilitaryFlightPlanner.registerPlane" successor="_Gy5tUD4tEeuI6qYQxDoU_g" predecessor="_0rMhET4sEeuI6qYQxDoU_g">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_xPK7kD4rEeuI6qYQxDoU_g"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_hcCl0D2CEeuZ_cSwBj7psQ"/>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_qORZwD4tEeuI6qYQxDoU_g">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                <literal href="CharacteristicTypes.characteristics#_92-JkD4rEeuI6qYQxDoU_g"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_rz5Txj4tEeuI6qYQxDoU_g"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="plane"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_Gy5tUD4tEeuI6qYQxDoU_g" entityName="MilitaryFlightPlanner.determineRoute" successor="_0rMhEj4sEeuI6qYQxDoU_g" predecessor="_Ewqv0D4tEeuI6qYQxDoU_g">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_uYrPkD4rEeuI6qYQxDoU_g"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_JwpYMD4qEeuI6qYQxDoU_g"/>
+          <outputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_4lU-4D4tEeuI6qYQxDoU_g"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_5FQcIz4tEeuI6qYQxDoU_g">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="route"/>
+          </outputParameterUsages_EntryLevelSystemCall>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_yGNmYD4tEeuI6qYQxDoU_g">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                <literal href="CharacteristicTypes.characteristics#_92-JkD4rEeuI6qYQxDoU_g"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_0AKxpj4tEeuI6qYQxDoU_g"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="plane"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+      </scenarioBehaviour_UsageScenario>
+      <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload">
+        <thinkTime_ClosedWorkload specification="0.0"/>
+      </workload_UsageScenario>
+    </usageScenario_UsageModel>
+  </usagemodel:UsageModel>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_vtoa4D4sEeuI6qYQxDoU_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_yqyHQBBzEeucCo3FRAS_1w"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_L_SvID4sEeuI6qYQxDoU_g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_xAjbUD4sEeuI6qYQxDoU_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_yqyHQBBzEeucCo3FRAS_1w"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_Phm_UD4sEeuI6qYQxDoU_g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_yBvykD4sEeuI6qYQxDoU_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_yqyHQBBzEeucCo3FRAS_1w"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_P2qpUD4sEeuI6qYQxDoU_g"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" location="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

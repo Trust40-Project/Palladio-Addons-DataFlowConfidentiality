@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" id="_dIV6wD4sEeuI6qYQxDoU_g" entityName="New Allocation">
+  <targetResourceEnvironment_Allocation href="newResourceEnvironment.resourceenvironment#/0"/>
+  <system_Allocation href="newSystem.system#_kZFE0D4pEeuI6qYQxDoU_g"/>
+  <allocationContexts_Allocation id="_iSwxMD4sEeuI6qYQxDoU_g" entityName="Allocation_Assembly_WeatherReportStore">
+    <resourceContainer_AllocationContext href="newResourceEnvironment.resourceenvironment#_V3_SkD4sEeuI6qYQxDoU_g"/>
+    <assemblyContext_AllocationContext href="newSystem.system#_m3H0kD4pEeuI6qYQxDoU_g"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_dsjTsD4vEeuI6qYQxDoU_g" entityName="Allocation_Assembly_MilitaryRouteController">
+    <resourceContainer_AllocationContext href="newResourceEnvironment.resourceenvironment#_aKRAED4sEeuI6qYQxDoU_g"/>
+    <assemblyContext_AllocationContext href="newSystem.system#_Duw8AD4vEeuI6qYQxDoU_g"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_eC7zYD4vEeuI6qYQxDoU_g" entityName="Allocation_Assembly_CivilRouteCalculation">
+    <resourceContainer_AllocationContext href="newResourceEnvironment.resourceenvironment#_ZFeiQD4sEeuI6qYQxDoU_g"/>
+    <assemblyContext_AllocationContext href="newSystem.system#_DPIZsD4vEeuI6qYQxDoU_g"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_eSqRcD4vEeuI6qYQxDoU_g" entityName="Allocation_Assembly_FlightDB">
+    <resourceContainer_AllocationContext href="newResourceEnvironment.resourceenvironment#_aKRAED4sEeuI6qYQxDoU_g"/>
+    <assemblyContext_AllocationContext href="newSystem.system#_CH99UD4vEeuI6qYQxDoU_g"/>
+  </allocationContexts_Allocation>
+</allocation:Allocation>

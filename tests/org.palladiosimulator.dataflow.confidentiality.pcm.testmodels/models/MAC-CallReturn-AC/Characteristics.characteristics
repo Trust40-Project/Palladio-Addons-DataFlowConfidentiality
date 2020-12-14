@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:Characteristics xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" id="_K9_DID4sEeuI6qYQxDoU_g">
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_L_SvID4sEeuI6qYQxDoU_g" entityName="Clearance_Weather">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ArxMcT4sEeuI6qYQxDoU_g"/>
+    <values href="CharacteristicTypes.characteristics#_9bRsED4rEeuI6qYQxDoU_g"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_Phm_UD4sEeuI6qYQxDoU_g" entityName="Clearance_Civil">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ArxMcT4sEeuI6qYQxDoU_g"/>
+    <values href="CharacteristicTypes.characteristics#_9qDH4D4rEeuI6qYQxDoU_g"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_P2qpUD4sEeuI6qYQxDoU_g" entityName="Military">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ArxMcT4sEeuI6qYQxDoU_g"/>
+    <values href="CharacteristicTypes.characteristics#_92-JkD4rEeuI6qYQxDoU_g"/>
+  </characteristics>
+</characteristics:Characteristics>

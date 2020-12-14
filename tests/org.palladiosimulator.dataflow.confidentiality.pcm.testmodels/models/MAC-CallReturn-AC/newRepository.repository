@@ -1,0 +1,304 @@
+<?xml version="1.0" encoding="ASCII"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:confidentiality="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0" xmlns:expression="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression" xmlns:expressions="http://palladiosimulator.org/dataflow/dictionary/characterized/expressions/1.0" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:repository_1="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/repository" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" id="_NzfuYD2BEeuZ_cSwBj7psQ" entityName="New Repository">
+  <components__Repository xsi:type="repository_1:OperationalDataStoreComponent" id="_fNm_bj2CEeuZ_cSwBj7psQ" entityName="PlaneStore">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_nolAkD2CEeuZ_cSwBj7psQ" entityName="PlaneStore.PlaneStore.OperationProvidedRole1" providedInterface__OperationProvidedRole="_grOM4D2CEeuZ_cSwBj7psQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_9uK-sD2CEeuZ_cSwBj7psQ" describedService__SEFF="_hcCl0D2CEeuZ_cSwBj7psQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_98STMD2CEeuZ_cSwBj7psQ" successor_AbstractAction="_98STMT2CEeuZ_cSwBj7psQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_98STMT2CEeuZ_cSwBj7psQ" predecessor_AbstractAction="_98STMD2CEeuZ_cSwBj7psQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_-KlN4D2CEeuZ_cSwBj7psQ" describedService__SEFF="_mD0CMD2CEeuZ_cSwBj7psQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_-XxVUD2CEeuZ_cSwBj7psQ" successor_AbstractAction="_-XxVUT2CEeuZ_cSwBj7psQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_-XxVUT2CEeuZ_cSwBj7psQ" predecessor_AbstractAction="_-XxVUD2CEeuZ_cSwBj7psQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository_1:OperationalDataStoreComponent" id="_yPmprj2CEeuZ_cSwBj7psQ" entityName="WeatherReportStore">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_7Ot5sD2CEeuZ_cSwBj7psQ" entityName="WeatherReportStore.WeatherReportStore.OperationProvidedRole1" providedInterface__OperationProvidedRole="_2WAeUD2CEeuZ_cSwBj7psQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_77fgID2CEeuZ_cSwBj7psQ" describedService__SEFF="_3NwlsD2CEeuZ_cSwBj7psQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_8JoCwD2CEeuZ_cSwBj7psQ" successor_AbstractAction="_8Jop0D2CEeuZ_cSwBj7psQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_8Jop0D2CEeuZ_cSwBj7psQ" predecessor_AbstractAction="_8JoCwD2CEeuZ_cSwBj7psQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_8ctW0D2CEeuZ_cSwBj7psQ" describedService__SEFF="_5YmsoD2CEeuZ_cSwBj7psQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_8r6QcD2CEeuZ_cSwBj7psQ" successor_AbstractAction="_8r63gD2CEeuZ_cSwBj7psQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_8r63gD2CEeuZ_cSwBj7psQ" predecessor_AbstractAction="_8r6QcD2CEeuZ_cSwBj7psQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="__VEKID4pEeuI6qYQxDoU_g" entityName="CivilRouteCalculation">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_YX6jkD4qEeuI6qYQxDoU_g" entityName="CivilRouteCalculation.RouteCalculation.OperationProvidedRole1" providedInterface__OperationProvidedRole="_HkRnQD4qEeuI6qYQxDoU_g"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="__CQJkD4uEeuI6qYQxDoU_g" entityName="CivilRouteCalculation.PlaneStore.OperationProvidedRole2" providedInterface__OperationProvidedRole="_grOM4D2CEeuZ_cSwBj7psQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_e3nx8D4qEeuI6qYQxDoU_g" entityName="CivilRouteCalculation.PlaneStore.OperationRequiredRole1" requiredInterface__OperationRequiredRole="_grOM4D2CEeuZ_cSwBj7psQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_kwKSoD4qEeuI6qYQxDoU_g" entityName="CivilRouteCalculation.WeatherReportStore.OperationRequiredRole2" requiredInterface__OperationRequiredRole="_2WAeUD2CEeuZ_cSwBj7psQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_YX7KoD4qEeuI6qYQxDoU_g" describedService__SEFF="_JwpYMD4qEeuI6qYQxDoU_g">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_YX7xsD4qEeuI6qYQxDoU_g" successor_AbstractAction="_1w_kID4vEeuI6qYQxDoU_g"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_YX7xsT4qEeuI6qYQxDoU_g" predecessor_AbstractAction="_6kERkD4vEeuI6qYQxDoU_g"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_1w_kID4vEeuI6qYQxDoU_g" entityName="CivilRouteCalculation.determineRoute.callDB" predecessor_AbstractAction="_YX7xsD4qEeuI6qYQxDoU_g" successor_AbstractAction="_6kERkD4vEeuI6qYQxDoU_g" calledService_ExternalService="_mD0CMD2CEeuZ_cSwBj7psQ" role_ExternalService="_e3nx8D4qEeuI6qYQxDoU_g">
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_J-_ugD4wEeuI6qYQxDoU_g"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_KYCgoz4wEeuI6qYQxDoU_g">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="planes"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_6kERkD4vEeuI6qYQxDoU_g" entityName="CivilRouteCalculation.determineRoute.return" predecessor_AbstractAction="_1w_kID4vEeuI6qYQxDoU_g" successor_AbstractAction="_YX7xsT4qEeuI6qYQxDoU_g">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_NbuUED4wEeuI6qYQxDoU_g"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_N05pEz4wEeuI6qYQxDoU_g">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="planes"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="__CR-wD4uEeuI6qYQxDoU_g" describedService__SEFF="_hcCl0D2CEeuZ_cSwBj7psQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="__CR-wT4uEeuI6qYQxDoU_g" successor_AbstractAction="_tntv4D4vEeuI6qYQxDoU_g"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="__CR-wj4uEeuI6qYQxDoU_g" predecessor_AbstractAction="_tntv4D4vEeuI6qYQxDoU_g"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_tntv4D4vEeuI6qYQxDoU_g" entityName="CivilRouteCalculation.addPlane.callDB" predecessor_AbstractAction="__CR-wT4uEeuI6qYQxDoU_g" successor_AbstractAction="__CR-wj4uEeuI6qYQxDoU_g" calledService_ExternalService="_hcCl0D2CEeuZ_cSwBj7psQ" role_ExternalService="_e3nx8D4qEeuI6qYQxDoU_g">
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_Stqu0D4wEeuI6qYQxDoU_g"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_TJehEz4wEeuI6qYQxDoU_g">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="plane"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="plane"/>
+        </inputVariableUsages__CallAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="__CcW0D4uEeuI6qYQxDoU_g" describedService__SEFF="_mD0CMD2CEeuZ_cSwBj7psQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="__CcW0T4uEeuI6qYQxDoU_g" successor_AbstractAction="_wwjJED4vEeuI6qYQxDoU_g"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="__CcW0j4uEeuI6qYQxDoU_g" predecessor_AbstractAction="_xT2DYD4vEeuI6qYQxDoU_g"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_wwjJED4vEeuI6qYQxDoU_g" entityName="CivilRouteCalculation.getPlane.callDB" predecessor_AbstractAction="__CcW0T4uEeuI6qYQxDoU_g" successor_AbstractAction="_xT2DYD4vEeuI6qYQxDoU_g" calledService_ExternalService="_mD0CMD2CEeuZ_cSwBj7psQ" role_ExternalService="_e3nx8D4qEeuI6qYQxDoU_g">
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_YM3icD4wEeuI6qYQxDoU_g"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_ZAibEz4wEeuI6qYQxDoU_g">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="plane"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_xT2DYD4vEeuI6qYQxDoU_g" entityName="CivilRouteCalculation.getPlane.return" predecessor_AbstractAction="_wwjJED4vEeuI6qYQxDoU_g" successor_AbstractAction="__CcW0j4uEeuI6qYQxDoU_g">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_deMSID4wEeuI6qYQxDoU_g"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_d5PPYz4wEeuI6qYQxDoU_g">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="plane"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_W1ThUD4qEeuI6qYQxDoU_g" entityName="MilitaryRouteController">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_YBPI8D4qEeuI6qYQxDoU_g" entityName="MilitaryRouteCalculation.RouteCalculation.OperationProvidedRole1" providedInterface__OperationProvidedRole="_HkRnQD4qEeuI6qYQxDoU_g"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_-pnnID4uEeuI6qYQxDoU_g" entityName="MilitaryRouteController.PlaneStore.OperationProvidedRole2" providedInterface__OperationProvidedRole="_grOM4D2CEeuZ_cSwBj7psQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_bNm-UD4qEeuI6qYQxDoU_g" entityName="MilitaryRouteCalculation.PlaneStore.Civil" requiredInterface__OperationRequiredRole="_grOM4D2CEeuZ_cSwBj7psQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_cvbWYD4qEeuI6qYQxDoU_g" entityName="MilitaryRouteCalculation.PlaneStore.Military" requiredInterface__OperationRequiredRole="_grOM4D2CEeuZ_cSwBj7psQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_jy1HsD4qEeuI6qYQxDoU_g" entityName="MilitaryRouteCalculation.WeatherReportStore.OperationRequiredRole3" requiredInterface__OperationRequiredRole="_2WAeUD2CEeuZ_cSwBj7psQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_YBp_sD4qEeuI6qYQxDoU_g" describedService__SEFF="_JwpYMD4qEeuI6qYQxDoU_g">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_YBp_sT4qEeuI6qYQxDoU_g" successor_AbstractAction="_8vqmcD4vEeuI6qYQxDoU_g"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_YBp_sj4qEeuI6qYQxDoU_g" predecessor_AbstractAction="_A0P2MD4wEeuI6qYQxDoU_g"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_8vqmcD4vEeuI6qYQxDoU_g" entityName="MilitaryRouteController.determineRoute.callCivilDB" predecessor_AbstractAction="_YBp_sT4qEeuI6qYQxDoU_g" successor_AbstractAction="_9cnzED4vEeuI6qYQxDoU_g" calledService_ExternalService="_mD0CMD2CEeuZ_cSwBj7psQ" role_ExternalService="_bNm-UD4qEeuI6qYQxDoU_g">
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_5bMvkD4wEeuI6qYQxDoU_g"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_53H2kz4wEeuI6qYQxDoU_g">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="civilPlanes"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_9cnzED4vEeuI6qYQxDoU_g" entityName="MilitaryRouteController.determineRoute.callMilitaryDB" predecessor_AbstractAction="_8vqmcD4vEeuI6qYQxDoU_g" successor_AbstractAction="_A0P2MD4wEeuI6qYQxDoU_g" calledService_ExternalService="_mD0CMD2CEeuZ_cSwBj7psQ" role_ExternalService="_cvbWYD4qEeuI6qYQxDoU_g">
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_9Px0cD4wEeuI6qYQxDoU_g"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_9oU3Uz4wEeuI6qYQxDoU_g">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="militaryPlanes"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_A0P2MD4wEeuI6qYQxDoU_g" entityName="MilitaryRouteController.determineRoute.return" predecessor_AbstractAction="_9cnzED4vEeuI6qYQxDoU_g" successor_AbstractAction="_YBp_sj4qEeuI6qYQxDoU_g">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_A_u4AD4xEeuI6qYQxDoU_g">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+              <literal href="CharacteristicTypes.characteristics#_9bRsED4rEeuI6qYQxDoU_g"/>
+            </lhs>
+            <rhs xsi:type="expressions:And" id="_EdO5qT4xEeuI6qYQxDoU_g">
+              <left xsi:type="expression:NamedEnumCharacteristicReference" id="_Ggi1QT4xEeuI6qYQxDoU_g">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                <literal href="CharacteristicTypes.characteristics#_9bRsED4rEeuI6qYQxDoU_g"/>
+                <namedReference xsi:type="stoex:VariableReference" referenceName="civilPlanes"/>
+              </left>
+              <right xsi:type="expression:NamedEnumCharacteristicReference" id="_HN9U5T4xEeuI6qYQxDoU_g">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                <literal href="CharacteristicTypes.characteristics#_9bRsED4rEeuI6qYQxDoU_g"/>
+                <namedReference xsi:type="stoex:VariableReference" referenceName="militaryPlanes"/>
+              </right>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_PFyzwD4xEeuI6qYQxDoU_g">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+              <literal href="CharacteristicTypes.characteristics#_92-JkD4rEeuI6qYQxDoU_g"/>
+            </lhs>
+            <rhs xsi:type="expressions:Or" id="_QqUhmT4xEeuI6qYQxDoU_g">
+              <left xsi:type="expression:NamedEnumCharacteristicReference" id="_RB8XcT4xEeuI6qYQxDoU_g">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                <literal href="CharacteristicTypes.characteristics#_92-JkD4rEeuI6qYQxDoU_g"/>
+                <namedReference xsi:type="stoex:VariableReference" referenceName="civilPlanes"/>
+              </left>
+              <right xsi:type="expression:NamedEnumCharacteristicReference" id="_RrRoVT4xEeuI6qYQxDoU_g">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                <literal href="CharacteristicTypes.characteristics#_92-JkD4rEeuI6qYQxDoU_g"/>
+                <namedReference xsi:type="stoex:VariableReference" referenceName="militaryPlanes"/>
+              </right>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_WzSD4D4xEeuI6qYQxDoU_g">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+              <literal href="CharacteristicTypes.characteristics#_9qDH4D4rEeuI6qYQxDoU_g"/>
+            </lhs>
+            <rhs xsi:type="expressions:Or" id="_Yvmmqj4xEeuI6qYQxDoU_g">
+              <left xsi:type="expressions:And" id="_ZWzwkz4xEeuI6qYQxDoU_g">
+                <left xsi:type="expression:NamedEnumCharacteristicReference" id="_Z8KgcT4xEeuI6qYQxDoU_g">
+                  <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                  <literal href="CharacteristicTypes.characteristics#_9qDH4D4rEeuI6qYQxDoU_g"/>
+                  <namedReference xsi:type="stoex:VariableReference" referenceName="civilPlanes"/>
+                </left>
+                <right xsi:type="expressions:Or" id="_dAyvDD4xEeuI6qYQxDoU_g">
+                  <left xsi:type="expression:NamedEnumCharacteristicReference" id="_dVvrYT4xEeuI6qYQxDoU_g">
+                    <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                    <literal href="CharacteristicTypes.characteristics#_9qDH4D4rEeuI6qYQxDoU_g"/>
+                    <namedReference xsi:type="stoex:VariableReference" referenceName="militaryPlanes"/>
+                  </left>
+                  <right xsi:type="expression:NamedEnumCharacteristicReference" id="_d6vO1T4xEeuI6qYQxDoU_g">
+                    <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                    <literal href="CharacteristicTypes.characteristics#_9bRsED4rEeuI6qYQxDoU_g"/>
+                    <namedReference xsi:type="stoex:VariableReference" referenceName="militaryPlanes"/>
+                  </right>
+                </right>
+              </left>
+              <right xsi:type="expressions:And" id="_lYuqWz4xEeuI6qYQxDoU_g">
+                <left xsi:type="expression:NamedEnumCharacteristicReference" id="_l7bu0T4xEeuI6qYQxDoU_g">
+                  <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                  <literal href="CharacteristicTypes.characteristics#_9qDH4D4rEeuI6qYQxDoU_g"/>
+                  <namedReference xsi:type="stoex:VariableReference" referenceName="militaryPlanes"/>
+                </left>
+                <right xsi:type="expressions:Or" id="_m7Pl_D4xEeuI6qYQxDoU_g">
+                  <left xsi:type="expression:NamedEnumCharacteristicReference" id="_nO7-ET4xEeuI6qYQxDoU_g">
+                    <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                    <literal href="CharacteristicTypes.characteristics#_9qDH4D4rEeuI6qYQxDoU_g"/>
+                    <namedReference xsi:type="stoex:VariableReference" referenceName="civilPlanes"/>
+                  </left>
+                  <right xsi:type="expression:NamedEnumCharacteristicReference" id="_oB7hRT4xEeuI6qYQxDoU_g">
+                    <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_ALMO8T4sEeuI6qYQxDoU_g"/>
+                    <literal href="CharacteristicTypes.characteristics#_9bRsED4rEeuI6qYQxDoU_g"/>
+                    <namedReference xsi:type="stoex:VariableReference" referenceName="civilPlanes"/>
+                  </right>
+                </right>
+              </right>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_-qB20D4uEeuI6qYQxDoU_g" describedService__SEFF="_hcCl0D2CEeuZ_cSwBj7psQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_-qB20T4uEeuI6qYQxDoU_g" successor_AbstractAction="_iVcxcD4vEeuI6qYQxDoU_g"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_-qB20j4uEeuI6qYQxDoU_g" predecessor_AbstractAction="_iVcxcD4vEeuI6qYQxDoU_g"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_iVcxcD4vEeuI6qYQxDoU_g" entityName="MilitaryRouteController.addPlane.callDB" predecessor_AbstractAction="_-qB20T4uEeuI6qYQxDoU_g" successor_AbstractAction="_-qB20j4uEeuI6qYQxDoU_g" calledService_ExternalService="_hcCl0D2CEeuZ_cSwBj7psQ" role_ExternalService="_cvbWYD4qEeuI6qYQxDoU_g">
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_vaqewD4wEeuI6qYQxDoU_g"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_v2rsYz4wEeuI6qYQxDoU_g">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="plane"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="plane"/>
+        </inputVariableUsages__CallAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_-qslMD4uEeuI6qYQxDoU_g" describedService__SEFF="_mD0CMD2CEeuZ_cSwBj7psQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_-qslMT4uEeuI6qYQxDoU_g" successor_AbstractAction="_prr_MD4vEeuI6qYQxDoU_g"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_-qslMj4uEeuI6qYQxDoU_g" predecessor_AbstractAction="_qToI8D4vEeuI6qYQxDoU_g"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_prr_MD4vEeuI6qYQxDoU_g" entityName="MilitaryRouteController.getPlane.callDB" predecessor_AbstractAction="_-qslMT4uEeuI6qYQxDoU_g" successor_AbstractAction="_qToI8D4vEeuI6qYQxDoU_g" calledService_ExternalService="_mD0CMD2CEeuZ_cSwBj7psQ" role_ExternalService="_bNm-UD4qEeuI6qYQxDoU_g">
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_mmIHAD4wEeuI6qYQxDoU_g"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_nNlIkz4wEeuI6qYQxDoU_g">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="plane"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_qToI8D4vEeuI6qYQxDoU_g" entityName="MilitaryRouteController.getPlane.return" predecessor_AbstractAction="_prr_MD4vEeuI6qYQxDoU_g" successor_AbstractAction="_-qslMj4uEeuI6qYQxDoU_g">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_rAh1wD4wEeuI6qYQxDoU_g"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_rc5Boz4wEeuI6qYQxDoU_g">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="plane"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:CompositeComponent" id="_kZgwYD4uEeuI6qYQxDoU_g" entityName="FlightDB">
+    <assemblyContexts__ComposedStructure id="_rJ-XkD4uEeuI6qYQxDoU_g" entityName="Assembly_PlaneStore_Civil" encapsulatedComponent__AssemblyContext="_fNm_bj2CEeuZ_cSwBj7psQ"/>
+    <assemblyContexts__ComposedStructure id="_rsG0QD4uEeuI6qYQxDoU_g" entityName="Assembly_PlaneStore_Military" encapsulatedComponent__AssemblyContext="_fNm_bj2CEeuZ_cSwBj7psQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_ujZKcD4uEeuI6qYQxDoU_g" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_nolAkD2CEeuZ_cSwBj7psQ" outerProvidedRole_ProvidedDelegationConnector="_nVW2cD4uEeuI6qYQxDoU_g" assemblyContext_ProvidedDelegationConnector="_rsG0QD4uEeuI6qYQxDoU_g"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_u4OK8D4uEeuI6qYQxDoU_g" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_nolAkD2CEeuZ_cSwBj7psQ" outerProvidedRole_ProvidedDelegationConnector="_lvCY4D4uEeuI6qYQxDoU_g" assemblyContext_ProvidedDelegationConnector="_rJ-XkD4uEeuI6qYQxDoU_g"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_lvCY4D4uEeuI6qYQxDoU_g" entityName="FlightDB.PlaneStore.Civil" providedInterface__OperationProvidedRole="_grOM4D2CEeuZ_cSwBj7psQ"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_nVW2cD4uEeuI6qYQxDoU_g" entityName="FlightDB.PlaneStore.Military" providedInterface__OperationProvidedRole="_grOM4D2CEeuZ_cSwBj7psQ"/>
+  </components__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_grOM4D2CEeuZ_cSwBj7psQ" entityName="PlaneStore">
+    <signatures__OperationInterface id="_hcCl0D2CEeuZ_cSwBj7psQ" entityName="addPlane">
+      <parameters__OperationSignature dataType__Parameter="_i0hbsD2CEeuZ_cSwBj7psQ" parameterName="plane"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_mD0CMD2CEeuZ_cSwBj7psQ" entityName="getPlane" returnType__OperationSignature="_i0hbsD2CEeuZ_cSwBj7psQ"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_2WAeUD2CEeuZ_cSwBj7psQ" entityName="WeatherReportStore">
+    <signatures__OperationInterface id="_3NwlsD2CEeuZ_cSwBj7psQ" entityName="addWeatherReport">
+      <parameters__OperationSignature dataType__Parameter="_f6E5QD2BEeuZ_cSwBj7psQ" parameterName="weatherReport"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_5YmsoD2CEeuZ_cSwBj7psQ" entityName="getWeatherReport" returnType__OperationSignature="_f6E5QD2BEeuZ_cSwBj7psQ"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_HkRnQD4qEeuI6qYQxDoU_g" entityName="RouteCalculation">
+    <signatures__OperationInterface id="_JwpYMD4qEeuI6qYQxDoU_g" entityName="determineRoute" returnType__OperationSignature="_4__00D2BEeuZ_cSwBj7psQ">
+      <parameters__OperationSignature dataType__Parameter="_i0hbsD2CEeuZ_cSwBj7psQ" parameterName="plane"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_dWIV0D2BEeuZ_cSwBj7psQ" entityName="WeatherData"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_f6E5QD2BEeuZ_cSwBj7psQ" entityName="WeatherReport"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_iTF_ED2BEeuZ_cSwBj7psQ" entityName="TimeInterval"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_1NMRkD2BEeuZ_cSwBj7psQ" entityName="PlanePosition"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_3rQ2gD2BEeuZ_cSwBj7psQ" entityName="PlaneID"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_4__00D2BEeuZ_cSwBj7psQ" entityName="PlaneRoute"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_i0hbsD2CEeuZ_cSwBj7psQ" entityName="Plane"/>
+</repository:Repository>

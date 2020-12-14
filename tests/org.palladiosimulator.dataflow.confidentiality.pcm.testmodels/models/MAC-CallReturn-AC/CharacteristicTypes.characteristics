@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:CharacteristicTypeDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" id="_72kYED4rEeuI6qYQxDoU_g">
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_ALMO8T4sEeuI6qYQxDoU_g" name="DataClassification" type="_8fq_cj4rEeuI6qYQxDoU_g"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_ArxMcT4sEeuI6qYQxDoU_g" name="NodeClearance" type="_8fq_cj4rEeuI6qYQxDoU_g"/>
+  <characteristicEnumerations id="_8fq_cj4rEeuI6qYQxDoU_g" name="Levels">
+    <literals id="_9bRsED4rEeuI6qYQxDoU_g" name="Weather"/>
+    <literals id="_9qDH4D4rEeuI6qYQxDoU_g" name="Civil"/>
+    <literals id="_92-JkD4rEeuI6qYQxDoU_g" name="Military"/>
+  </characteristicEnumerations>
+</characteristics:CharacteristicTypeDictionary>
