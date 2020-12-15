@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:Characteristics xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" id="_oG4OAD6yEeuVUal8mM_jUA">
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_pzBmwD6yEeuVUal8mM_jUA" entityName="Location_USA">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_RcmLQT6uEeuVUal8mM_jUA"/>
+    <values href="CharacteristicTypes.characteristics#_KTNGsD6uEeuVUal8mM_jUA"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_sJJwoD6yEeuVUal8mM_jUA" entityName="Location_Asia">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_RcmLQT6uEeuVUal8mM_jUA"/>
+    <values href="CharacteristicTypes.characteristics#_KghxAD6uEeuVUal8mM_jUA"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_uEs3UD6yEeuVUal8mM_jUA" entityName="Role_Clerk">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dHgTMT6uEeuVUal8mM_jUA"/>
+    <values href="CharacteristicTypes.characteristics#_XOM9gD6uEeuVUal8mM_jUA"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_xT-PsD6yEeuVUal8mM_jUA" entityName="Role_Manager">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dHgTMT6uEeuVUal8mM_jUA"/>
+    <values href="CharacteristicTypes.characteristics#_Xd1U8D6uEeuVUal8mM_jUA"/>
+  </characteristics>
+</characteristics:Characteristics>

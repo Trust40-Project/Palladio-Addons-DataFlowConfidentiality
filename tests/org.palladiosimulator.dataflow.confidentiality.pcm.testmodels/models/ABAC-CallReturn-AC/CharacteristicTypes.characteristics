@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:CharacteristicTypeDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" id="_I9bmkD6uEeuVUal8mM_jUA">
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_RcmLQT6uEeuVUal8mM_jUA" name="Location" type="_JYjcUj6uEeuVUal8mM_jUA"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_R0RrcT6uEeuVUal8mM_jUA" name="Origin" type="_JYjcUj6uEeuVUal8mM_jUA"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_dHgTMT6uEeuVUal8mM_jUA" name="Role" type="_WA7SEj6uEeuVUal8mM_jUA"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_exwOgT6uEeuVUal8mM_jUA" name="Status" type="_ZPijIj6uEeuVUal8mM_jUA"/>
+  <characteristicEnumerations id="_JYjcUj6uEeuVUal8mM_jUA" name="Locations">
+    <literals id="_KTNGsD6uEeuVUal8mM_jUA" name="USA"/>
+    <literals id="_KghxAD6uEeuVUal8mM_jUA" name="Asia"/>
+  </characteristicEnumerations>
+  <characteristicEnumerations id="_WA7SEj6uEeuVUal8mM_jUA" name="Roles">
+    <literals id="_XOM9gD6uEeuVUal8mM_jUA" name="Clerk"/>
+    <literals id="_Xd1U8D6uEeuVUal8mM_jUA" name="Manager"/>
+  </characteristicEnumerations>
+  <characteristicEnumerations id="_ZPijIj6uEeuVUal8mM_jUA" name="Status">
+    <literals id="_amQecD6uEeuVUal8mM_jUA" name="Regular"/>
+    <literals id="_a4A80D6uEeuVUal8mM_jUA" name="Celebrity"/>
+  </characteristicEnumerations>
+</characteristics:CharacteristicTypeDictionary>
