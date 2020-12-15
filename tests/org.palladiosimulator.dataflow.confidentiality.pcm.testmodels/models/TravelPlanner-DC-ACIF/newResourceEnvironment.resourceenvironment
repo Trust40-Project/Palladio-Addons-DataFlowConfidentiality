@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.dataflow.confidentiality.pcm.model.profile="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2">
+  <resourceenvironment:ResourceEnvironment entityName="New ResourceEnvironment">
+    <linkingResources__ResourceEnvironment id="_axXbsBdxEeupdPoAmrbV3w" entityName="Internet" connectedResourceContainers_LinkingResource="_XNP0sBdxEeupdPoAmrbV3w _YYccgBdxEeupdPoAmrbV3w _Z7-EwBdxEeupdPoAmrbV3w">
+      <communicationLinkResourceSpecifications_LinkingResource id="_axZQ4BdxEeupdPoAmrbV3w">
+        <latency_CommunicationLinkResourceSpecification/>
+        <throughput_CommunicationLinkResourceSpecification/>
+      </communicationLinkResourceSpecifications_LinkingResource>
+    </linkingResources__ResourceEnvironment>
+    <resourceContainer_ResourceEnvironment id="_XNP0sBdxEeupdPoAmrbV3w" entityName="Mobile"/>
+    <resourceContainer_ResourceEnvironment id="_YYccgBdxEeupdPoAmrbV3w" entityName="TravelAgencyServer"/>
+    <resourceContainer_ResourceEnvironment id="_Z7-EwBdxEeupdPoAmrbV3w" entityName="AirlineServer"/>
+  </resourceenvironment:ResourceEnvironment>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_XNP0sBdxEeupdPoAmrbV3w">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_5cGYIBB1EeuGl5fMWzDLAw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.xmi#_Ut2loBdnEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.xmi#_9JE5AD8AEeulRPEeT0f8DQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_YYccgBdxEeupdPoAmrbV3w">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_5cGYIBB1EeuGl5fMWzDLAw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.xmi#_Xg4t8BdnEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.xmi#_9JE5AD8AEeulRPEeT0f8DQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_Z7-EwBdxEeupdPoAmrbV3w">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_5cGYIBB1EeuGl5fMWzDLAw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.xmi#_ZqISYBdnEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.xmi#_9JE5AD8AEeulRPEeT0f8DQ"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" location="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

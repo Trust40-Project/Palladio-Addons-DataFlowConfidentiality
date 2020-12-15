@@ -1,0 +1,487 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:confidentiality="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:expression="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression" xmlns:org.palladiosimulator.dataflow.confidentiality.pcm.model.profile="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" xmlns:org.palladiosimulator.indirections.actions="http://palladiosimulator.org/Indirections/Actions/1.0" xmlns:org.palladiosimulator.indirections.composition="http://palladiosimulator.org/Indirections/Composition/1.0" xmlns:org.palladiosimulator.indirections.repository="http://palladiosimulator.org/Indirections/Repository/1.0" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2">
+  <repository:Repository id="_PCa2MAY3Eeuv9OmE7aVAxA" entityName="New Repository">
+    <components__Repository xsi:type="repository:BasicComponent" id="_Q5bbIAY3Eeuv9OmE7aVAxA" entityName="CreditCardCenterFacade">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_IqszQAZEEeuTVv_2RzcyRA" entityName="CreditCardCenterFacade.provided.CCD" providedInterface__OperationProvidedRole="_dHgEEAZDEeuTVv_2RzcyRA"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_5c_1uQfSEeuo_qwmXnjVvw" entityName="CreditCardCenterFacade.required.CCD" dataInterface="_MDHPvwpZEeu74bTg6F24cQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_rfsp2gfREeuo_qwmXnjVvw" entityName="CreditCardCenterFacade.source.CCD" dataInterface="_MDHPvwpZEeu74bTg6F24cQ"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_IrTQMAZEEeuTVv_2RzcyRA" describedService__SEFF="_d-rjsAZDEeuTVv_2RzcyRA">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_IrVFYAZEEeuTVv_2RzcyRA" entityName="CreditCardCenterLogic.addCCD.start" successor_AbstractAction="_CbhR0B56EeuYAPYPj_T7gw"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_IrVscAZEEeuTVv_2RzcyRA" entityName="CreditCardCenterLogic.addCCD.stop" predecessor_AbstractAction="_oonvEQfREeuo_qwmXnjVvw"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_oonvEQfREeuo_qwmXnjVvw" entityName="CreditCardCenterLogic.addCCD.emit" predecessor_AbstractAction="_CbhR0B56EeuYAPYPj_T7gw" successor_AbstractAction="_IrVscAZEEeuTVv_2RzcyRA" dataSourceRole="_rfsp2gfREeuo_qwmXnjVvw">
+          <variableReference referenceName="ccd"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_CbhR0B56EeuYAPYPj_T7gw" entityName="CreditCardCenterLogic.addCCD.createCCDDate" predecessor_AbstractAction="_IrVFYAZEEeuTVv_2RzcyRA" successor_AbstractAction="_oonvEQfREeuo_qwmXnjVvw">
+          <variableReference referenceName="ccdDate"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_RVao0B57EeuYAPYPj_T7gw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_SGPBwx57EeuYAPYPj_T7gw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="ccd"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="ccdDate"/>
+          </variableUsages>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_hefUlwcWEeumXJMH97cslw" describedService__SEFF="_A_aaIAcWEeumXJMH97cslw">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_Ry2bsgfSEeuo_qwmXnjVvw" entityName="CreditCardCenterLogic.getCCD.start" successor_AbstractAction="_-qsCoAfSEeuo_qwmXnjVvw"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_SebvUAfSEeuo_qwmXnjVvw" entityName="CreditCardCenterLogic.getCCD.stop" predecessor_AbstractAction="_FucZOQfTEeuo_qwmXnjVvw"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:ConsumeDataAction" id="_-qsCoAfSEeuo_qwmXnjVvw" entityName="CreditCardCenterLogic.getCCD.consume" predecessor_AbstractAction="_Ry2bsgfSEeuo_qwmXnjVvw" successor_AbstractAction="_FucZOQfTEeuo_qwmXnjVvw" dataSinkRole="_5c_1uQfSEeuo_qwmXnjVvw">
+          <variableReference referenceName="ccd"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="seff:SetVariableAction" id="_FucZOQfTEeuo_qwmXnjVvw" entityName="CreditCardCenterLogic.getCCD.return" predecessor_AbstractAction="_-qsCoAfSEeuo_qwmXnjVvw" successor_AbstractAction="_SebvUAfSEeuo_qwmXnjVvw">
+          <localVariableUsages_SetVariableAction>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_kn1IMAfTEeuo_qwmXnjVvw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_lxTRswfTEeuo_qwmXnjVvw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="ccd"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+          </localVariableUsages_SetVariableAction>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" id="_S8vWsAY3Eeuv9OmE7aVAxA" entityName="TravelPlannerFacade">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_K-Fq0AZHEeuTVv_2RzcyRA" entityName="TravelPlannerFacade.provided.TravelPlanner" providedInterface__OperationProvidedRole="_5W_RQAZGEeuTVv_2RzcyRA"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_66I12QoGEeuqRKfhGJupQQ" entityName="TravelPlannerFacade.in.flights" dataInterface="_FwJAYApaEeuqN7ohkJglEA"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_4nyGyQoIEeuqRKfhGJupQQ" entityName="TravelPlannerFacade.in.confirmation" dataInterface="_Ml9BoApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_7PRtegoIEeuqRKfhGJupQQ" entityName="TravelPlannerFacade.out.ccd" dataInterface="_MDHPvwpZEeu74bTg6F24cQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_W1f-ygpaEeuqN7ohkJglEA" entityName="TravelPlannerFacade.out.flight" dataInterface="_ZQrn0ApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_A8h9egoEEeutS7WfGIqduw" entityName="TravelPlannerFacade.out.criteria" dataInterface="_FJd3UApZEeu74bTg6F24cQ"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_K-eFUAZHEeuTVv_2RzcyRA" describedService__SEFF="_7Wd1sAZGEeuTVv_2RzcyRA">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_K-esYAZHEeuTVv_2RzcyRA" entityName="TravelPlannerFacade.findFlights.start" successor_AbstractAction="_QriiMB53Eeub9rQ1rJH5OA"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_FvrgPQoAEeunc5L08jViCA" entityName="TravelPlannerFacade.findFlights.emitCriteria" predecessor_AbstractAction="_QriiMB53Eeub9rQ1rJH5OA" successor_AbstractAction="__NWUSwoCEeutS7WfGIqduw" dataSourceRole="_A8h9egoEEeutS7WfGIqduw">
+          <variableReference referenceName="criteriaDate"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:ConsumeDataAction" id="__NWUSwoCEeutS7WfGIqduw" entityName="TravelPlannerFacade.findFlights.consumeflights" predecessor_AbstractAction="_FvrgPQoAEeunc5L08jViCA" successor_AbstractAction="_jVCz2QoGEeuqRKfhGJupQQ" dataSinkRole="_66I12QoGEeuqRKfhGJupQQ">
+          <variableReference referenceName="flights"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="seff:SetVariableAction" id="_jVCz2QoGEeuqRKfhGJupQQ" entityName="TravelPlannerFacade.findFlights.return" predecessor_AbstractAction="__NWUSwoCEeutS7WfGIqduw" successor_AbstractAction="_K-esYQZHEeuTVv_2RzcyRA">
+          <localVariableUsages_SetVariableAction>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_uRbB0AoGEeuqRKfhGJupQQ"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_vLIRAwoGEeuqRKfhGJupQQ">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="flights"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+          </localVariableUsages_SetVariableAction>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_K-esYQZHEeuTVv_2RzcyRA" entityName="TravelPlannerFacade.findFlights.stop" predecessor_AbstractAction="_jVCz2QoGEeuqRKfhGJupQQ"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_QriiMB53Eeub9rQ1rJH5OA" entityName="TravelPlannerFacade.findFlights.createCriteriaDate" predecessor_AbstractAction="_K-esYAZHEeuTVv_2RzcyRA" successor_AbstractAction="_FvrgPQoAEeunc5L08jViCA">
+          <variableReference referenceName="criteriaDate"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_K3rQsB54EeuYAPYPj_T7gw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_LxcxUx54EeuYAPYPj_T7gw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="criteria"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="criteriaDate"/>
+          </variableUsages>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_K-0DkAZHEeuTVv_2RzcyRA" describedService__SEFF="_G9hYYAZHEeuTVv_2RzcyRA">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_K-0DkQZHEeuTVv_2RzcyRA" entityName="TravelPlannerFacade.bookFlight.start" successor_AbstractAction="_Pf7_0B55EeuYAPYPj_T7gw"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_FdD_cQpyEeu5W7_QEvvNqQ" entityName="TravelPlannerFacade.bookflight.emitflight" predecessor_AbstractAction="_SQKEsB55EeuYAPYPj_T7gw" successor_AbstractAction="_I1gh8QpyEeu5W7_QEvvNqQ" dataSourceRole="_W1f-ygpaEeuqN7ohkJglEA">
+          <variableReference referenceName="flightDate"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_I1gh8QpyEeu5W7_QEvvNqQ" entityName="TravelPlannerFacade.bookflight.emitccd" predecessor_AbstractAction="_FdD_cQpyEeu5W7_QEvvNqQ" successor_AbstractAction="_QoUW8ApyEeu5W7_QEvvNqQ" dataSourceRole="_7PRtegoIEeuqRKfhGJupQQ">
+          <variableReference referenceName="ccdDate"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:ConsumeDataAction" id="_QoUW8ApyEeu5W7_QEvvNqQ" entityName="TravelPlannerFacade.bookflight.consumeconfirmation" predecessor_AbstractAction="_I1gh8QpyEeu5W7_QEvvNqQ" successor_AbstractAction="_RGW9yQpyEeu5W7_QEvvNqQ" dataSinkRole="_4nyGyQoIEeuqRKfhGJupQQ">
+          <variableReference referenceName="confirmation"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="seff:SetVariableAction" id="_RGW9yQpyEeu5W7_QEvvNqQ" entityName="TravelPlannerFacade.bookflight.return" predecessor_AbstractAction="_QoUW8ApyEeu5W7_QEvvNqQ" successor_AbstractAction="_K-0DkgZHEeuTVv_2RzcyRA">
+          <localVariableUsages_SetVariableAction>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_v7LV0ApyEeu5W7_QEvvNqQ"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_wuj6kwpyEeu5W7_QEvvNqQ">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="confirmation"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+          </localVariableUsages_SetVariableAction>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_K-0DkgZHEeuTVv_2RzcyRA" entityName="TravelPlannerFacade.bookFlight.stop" predecessor_AbstractAction="_RGW9yQpyEeu5W7_QEvvNqQ"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_Pf7_0B55EeuYAPYPj_T7gw" entityName="TravelPlannerFacade.bookflight.createFlightDate" predecessor_AbstractAction="_K-0DkQZHEeuTVv_2RzcyRA" successor_AbstractAction="_SQKEsB55EeuYAPYPj_T7gw">
+          <variableReference referenceName="flightDate"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_sDoCwB55EeuYAPYPj_T7gw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_s63z0x55EeuYAPYPj_T7gw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="flight"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="flightDate"/>
+          </variableUsages>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_SQKEsB55EeuYAPYPj_T7gw" entityName="TravelPlannerFacade.bookflight.createCCDDate" predecessor_AbstractAction="_Pf7_0B55EeuYAPYPj_T7gw" successor_AbstractAction="_FdD_cQpyEeu5W7_QEvvNqQ">
+          <variableReference referenceName="ccdDate"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_03z1MB55EeuYAPYPj_T7gw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_2CHsMx55EeuYAPYPj_T7gw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="ccd"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="ccdDate"/>
+          </variableUsages>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="repository:BasicComponent" id="_YXH7wAY3Eeuv9OmE7aVAxA" entityName="AirlineFacade">
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_-puEIQfQEeuo_qwmXnjVvw" entityName="AirlineFacade.provided.FlightPlanner" providedInterface__OperationProvidedRole="_0pRqRwcdEeubY9P78o028Q"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_CvqzmgfWEeu-M8JAYJSQDQ" entityName="AirlineFacade.source.Flight" dataInterface="_ZQrn0ApaEeuqN7ohkJglEA"/>
+      <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_AhVtFwfREeuo_qwmXnjVvw" describedService__SEFF="_4TLwMAcdEeubY9P78o028Q">
+        <steps_Behaviour xsi:type="seff:StartAction" id="_CQxqYgfREeuo_qwmXnjVvw" entityName="AirlineFacade.addFlight.start" successor_AbstractAction="_ZfywoB54EeuYAPYPj_T7gw"/>
+        <steps_Behaviour xsi:type="seff:StopAction" id="_Dk9PEAfREeuo_qwmXnjVvw" entityName="AirlineFacade.addFlight.stop" predecessor_AbstractAction="_8JGIMgfVEeu-M8JAYJSQDQ"/>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:EmitDataAction" id="_8JGIMgfVEeu-M8JAYJSQDQ" entityName="AirlineFacade.addFlight.emit" predecessor_AbstractAction="_ZfywoB54EeuYAPYPj_T7gw" successor_AbstractAction="_Dk9PEAfREeuo_qwmXnjVvw" dataSourceRole="_CvqzmgfWEeu-M8JAYJSQDQ">
+          <variableReference referenceName="flightDate"/>
+        </steps_Behaviour>
+        <steps_Behaviour xsi:type="org.palladiosimulator.indirections.actions:CreateDateAction" id="_ZfywoB54EeuYAPYPj_T7gw" entityName="AirlineFacade.addFlight.createFlightDate" predecessor_AbstractAction="_CQxqYgfREeuo_qwmXnjVvw" successor_AbstractAction="_8JGIMgfVEeu-M8JAYJSQDQ">
+          <variableReference referenceName="flightDate"/>
+          <variableUsages>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_syqIcB54EeuYAPYPj_T7gw"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_uIq5Ix54EeuYAPYPj_T7gw">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="flight"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="flightDate"/>
+          </variableUsages>
+        </steps_Behaviour>
+      </serviceEffectSpecifications__BasicComponent>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_jTNcrgpaEeuqN7ohkJglEA" entityName="CCDStorage" realizingClassFqn="org.palladiosimulator.indirections.scheduler.implementations.AnyToAllPushingDataChannel">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_ord6xwpaEeuqN7ohkJglEA" entityName="CCDStorage.in.ccd" dataInterface="_MDHPvwpZEeu74bTg6F24cQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_ord6yApaEeuqN7ohkJglEA" entityName="CCDStorage.out.ccd" dataInterface="_MDHPvwpZEeu74bTg6F24cQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_qniO0QpuEeu5W7_QEvvNqQ" entityName="FlightStorage" realizingClassFqn="org.palladiosimulator.indirections.scheduler.implementations.AnyToAllPushingDataChannel">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_55n4xwpuEeu5W7_QEvvNqQ" entityName="FlightStorage.in.flights" dataInterface="_FwJAYApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_6W7f2ApuEeu5W7_QEvvNqQ" entityName="FlightStorage.out.flights" dataInterface="_FwJAYApaEeuqN7ohkJglEA"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_1BVQtwvNEeuTvLpVllC7_g" entityName="BookingStorage" realizingClassFqn="org.palladiosimulator.indirections.scheduler.implementations.AnyToAllPushingDataChannel">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_3dM2JwvNEeuTvLpVllC7_g" entityName="BookingStorage.in.booking" dataInterface="_9xTRgAvNEeuTvLpVllC7_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_38Sl6AvNEeuTvLpVllC7_g" entityName="BookingStorage.out.booking" dataInterface="_9xTRgAvNEeuTvLpVllC7_g"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_OpHj9wxiEeuTvLpVllC7_g" entityName="CommissionStore" realizingClassFqn="org.palladiosimulator.indirections.scheduler.implementations.AnyToAllPushingDataChannel">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_Qps7lwxiEeuTvLpVllC7_g" entityName="CommissionStore.in.commission" dataInterface="_WRGg4AvREeuTvLpVllC7_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_T0s3-AxiEeuTvLpVllC7_g" entityName="CommissionStore.out.commission" dataInterface="_WRGg4AvREeuTvLpVllC7_g"/>
+    </components__Repository>
+    <components__Repository xsi:type="repository:CompositeComponent" id="_lwBA0gpbEeuqN7ohkJglEA" entityName="CreditCardCenter">
+      <assemblyContexts__ComposedStructure id="__xzuwApbEeuqN7ohkJglEA" entityName="AC_CreditCardCenter.CreditCardCenterFacade" encapsulatedComponent__AssemblyContext="_Q5bbIAY3Eeuv9OmE7aVAxA"/>
+      <assemblyContexts__ComposedStructure id="_JH24IApcEeuqN7ohkJglEA" entityName="AC_CreditCardCenter.CCDStorage" encapsulatedComponent__AssemblyContext="_jTNcrgpaEeuqN7ohkJglEA"/>
+      <assemblyContexts__ComposedStructure id="_EPhacD8FEeulRPEeT0f8DQ" entityName="Assembly_ValidateCCD" encapsulatedComponent__AssemblyContext="_OzFAID8CEeulRPEeT0f8DQ"/>
+      <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_CX3KBApnEeuR97ixrD9Teg" entityName="OperationProvidedDelegation.CCD" innerProvidedRole_ProvidedDelegationConnector="_IqszQAZEEeuTVv_2RzcyRA" outerProvidedRole_ProvidedDelegationConnector="_nl_D_wpbEeuqN7ohkJglEA" assemblyContext_ProvidedDelegationConnector="__xzuwApbEeuqN7ohkJglEA"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_SB7PNwpnEeuR97ixrD9Teg" entityName="DataAssemblyConnector.Storage2CCD" dataSourceRole="_ord6yApaEeuqN7ohkJglEA" dataSinkRole="_5c_1uQfSEeuo_qwmXnjVvw" sinkAssemblyContext="__xzuwApbEeuqN7ohkJglEA" sourceAssemblyContext="_JH24IApcEeuqN7ohkJglEA"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_GxqAAD8FEeulRPEeT0f8DQ" entityName="newAssemblyDataConnector" dataSourceRole="_rfsp2gfREeuo_qwmXnjVvw" dataSinkRole="_T-0aUD8EEeulRPEeT0f8DQ" sinkAssemblyContext="_EPhacD8FEeulRPEeT0f8DQ" sourceAssemblyContext="__xzuwApbEeuqN7ohkJglEA"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_HIfysD8FEeulRPEeT0f8DQ" entityName="newAssemblyDataConnector" dataSourceRole="_Wxbr4D8EEeulRPEeT0f8DQ" dataSinkRole="_ord6xwpaEeuqN7ohkJglEA" sinkAssemblyContext="_JH24IApcEeuqN7ohkJglEA" sourceAssemblyContext="_EPhacD8FEeulRPEeT0f8DQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_nl_D_wpbEeuqN7ohkJglEA" entityName="CreditCardCenter.provided.CCD" providedInterface__OperationProvidedRole="_dHgEEAZDEeuTVv_2RzcyRA"/>
+    </components__Repository>
+    <components__Repository xsi:type="repository:CompositeComponent" id="_PEUU8ApvEeu5W7_QEvvNqQ" entityName="Airline">
+      <assemblyContexts__ComposedStructure id="_YQqvsApvEeu5W7_QEvvNqQ" entityName="AC_Airline.AirlineFacade" encapsulatedComponent__AssemblyContext="_YXH7wAY3Eeuv9OmE7aVAxA"/>
+      <assemblyContexts__ComposedStructure id="_og8gQApvEeu5W7_QEvvNqQ" entityName="AC_Airline.FlightStorage" encapsulatedComponent__AssemblyContext="_qniO0QpuEeu5W7_QEvvNqQ"/>
+      <assemblyContexts__ComposedStructure id="_YN2X0AvFEeuTvLpVllC7_g" entityName="AC_Airline.AirlineFlightSelector" encapsulatedComponent__AssemblyContext="_7_WhywvEEeuTvLpVllC7_g"/>
+      <assemblyContexts__ComposedStructure id="_RLk40AvOEeuTvLpVllC7_g" entityName="AC_Airline.BookingStorage" encapsulatedComponent__AssemblyContext="_1BVQtwvNEeuTvLpVllC7_g"/>
+      <assemblyContexts__ComposedStructure id="_1Rk2oAvOEeuTvLpVllC7_g" entityName="AC_Airline.AirlineCreateBooking" encapsulatedComponent__AssemblyContext="_UqCj1wvOEeuTvLpVllC7_g"/>
+      <assemblyContexts__ComposedStructure id="_mlHz0AvPEeuTvLpVllC7_g" entityName="AC_Airline.FlightMultiplexer" encapsulatedComponent__AssemblyContext="_LuRGNwvPEeuTvLpVllC7_g"/>
+      <assemblyContexts__ComposedStructure id="_pc-f0AvREeuTvLpVllC7_g" entityName="AC_Airline.AirlineCreateCommission" encapsulatedComponent__AssemblyContext="_NfzDSQvREeuTvLpVllC7_g"/>
+      <assemblyContexts__ComposedStructure id="_1tuEAAxmEeuTvLpVllC7_g" entityName="AC_Airline.ConfirmationForwarder" encapsulatedComponent__AssemblyContext="_iLgotwxmEeuTvLpVllC7_g"/>
+      <assemblyContexts__ComposedStructure id="_0BLfYD8LEeulRPEeT0f8DQ" entityName="AC_Airline.ValidateFlight" encapsulatedComponent__AssemblyContext="_R1qAUD8CEeulRPEeT0f8DQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_r-7fRwvREeuTvLpVllC7_g" entityName="DataAssemblyConnector.Multiplexer2Commission" dataSourceRole="_U7RBOAvPEeuTvLpVllC7_g" dataSinkRole="_QC55NwvREeuTvLpVllC7_g" sinkAssemblyContext="_pc-f0AvREeuTvLpVllC7_g" sourceAssemblyContext="_mlHz0AvPEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_doUw5ApvEeu5W7_QEvvNqQ" entityName="OperationProvidedDelegation.FlightPlanner" innerProvidedRole_ProvidedDelegationConnector="_-puEIQfQEeuo_qwmXnjVvw" outerProvidedRole_ProvidedDelegationConnector="_T0LWTwpvEeu5W7_QEvvNqQ" assemblyContext_ProvidedDelegationConnector="_YQqvsApvEeu5W7_QEvvNqQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_A3IQdwvCEeuTvLpVllC7_g" entityName="DataAssemblyConnector.Facade2Validate" dataSourceRole="_CvqzmgfWEeu-M8JAYJSQDQ" dataSinkRole="_e9HT4D8EEeulRPEeT0f8DQ" sinkAssemblyContext="_0BLfYD8LEeulRPEeT0f8DQ" sourceAssemblyContext="_YQqvsApvEeu5W7_QEvvNqQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_4TPKhz8LEeulRPEeT0f8DQ" entityName="DataAssemblyConnector.Validate2Storage" dataSourceRole="_giL0QD8EEeulRPEeT0f8DQ" dataSinkRole="_55n4xwpuEeu5W7_QEvvNqQ" sinkAssemblyContext="_og8gQApvEeu5W7_QEvvNqQ" sourceAssemblyContext="_0BLfYD8LEeulRPEeT0f8DQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_fg0POQvFEeuTvLpVllC7_g" entityName="DataSinkDelegation.query" assemblyContext="_YN2X0AvFEeuTvLpVllC7_g" innerDataSinkRole="__A_t1wvEEeuTvLpVllC7_g" outerDataSinkRole="_dIZmVQvFEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_ok4QtwvFEeuTvLpVllC7_g" entityName="DataAssemblyConnector.Storage2Selector" dataSourceRole="_6W7f2ApuEeu5W7_QEvvNqQ" dataSinkRole="_DwFTJwvFEeuTvLpVllC7_g" sinkAssemblyContext="_YN2X0AvFEeuTvLpVllC7_g" sourceAssemblyContext="_og8gQApvEeu5W7_QEvvNqQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_lqWZSAvFEeuTvLpVllC7_g" entityName="DataSourceDelegation.flights" assemblyContext="_YN2X0AvFEeuTvLpVllC7_g" innerDataSourceRole="__jy46AvEEeuTvLpVllC7_g" outerDataSourceRole="_MaS3xgxpEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_71t5KQvOEeuTvLpVllC7_g" entityName="DataSinkDelegation.ccd" assemblyContext="_1Rk2oAvOEeuTvLpVllC7_g" innerDataSinkRole="_XhzbFwvOEeuTvLpVllC7_g" outerDataSinkRole="_l2_NdQvNEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_pz-ViQvPEeuTvLpVllC7_g" entityName="DataSinkDelegation.flight" assemblyContext="_mlHz0AvPEeuTvLpVllC7_g" innerDataSinkRole="_QprQNwvPEeuTvLpVllC7_g" outerDataSinkRole="_pt-GFQvNEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_tB1_pQvPEeuTvLpVllC7_g" entityName="DataAssemblyConnector.Multiplexer2Booking" dataSourceRole="_RM1nqAvPEeuTvLpVllC7_g" dataSinkRole="_Yi-kMgvOEeuTvLpVllC7_g" sinkAssemblyContext="_1Rk2oAvOEeuTvLpVllC7_g" sourceAssemblyContext="_mlHz0AvPEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_ykvnlwvPEeuTvLpVllC7_g" entityName="DataAssemblyConnector.Booking2Storage" dataSourceRole="_Y7JMmAvOEeuTvLpVllC7_g" dataSinkRole="_3dM2JwvNEeuTvLpVllC7_g" sinkAssemblyContext="_RLk40AvOEeuTvLpVllC7_g" sourceAssemblyContext="_1Rk2oAvOEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_Jjty2AvSEeuTvLpVllC7_g" entityName="DataSourceDelegation.commission" assemblyContext="_pc-f0AvREeuTvLpVllC7_g" innerDataSourceRole="_QqSpWAvREeuTvLpVllC7_g" outerDataSourceRole="_H9bKdgvSEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_7zkoCAxmEeuTvLpVllC7_g" entityName="DataSourceDelegation.confirmation" assemblyContext="_1tuEAAxmEeuTvLpVllC7_g" innerDataSourceRole="_lR_RaAxmEeuTvLpVllC7_g" outerDataSourceRole="_5sPvJgxmEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="__JGZaQxmEeuTvLpVllC7_g" entityName="DataSinkDelegation.confirmation" assemblyContext="_1tuEAAxmEeuTvLpVllC7_g" innerDataSinkRole="_ku0S5wxmEeuTvLpVllC7_g" outerDataSinkRole="_dFd79QxmEeuTvLpVllC7_g"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_T0LWTwpvEeu5W7_QEvvNqQ" entityName="Airline.provided.FlightPlanner" providedInterface__OperationProvidedRole="_0pRqRwcdEeubY9P78o028Q"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_dIZmVQvFEeuTvLpVllC7_g" entityName="Airline.in.query" dataInterface="_G7IIUAvEEeuTvLpVllC7_g"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_l2_NdQvNEeuTvLpVllC7_g" entityName="Airline.in.ccd" dataInterface="_MDHPvwpZEeu74bTg6F24cQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_pt-GFQvNEeuTvLpVllC7_g" entityName="Airline.in.flight" dataInterface="_ZQrn0ApaEeuqN7ohkJglEA"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_dFd79QxmEeuTvLpVllC7_g" entityName="Airline.in.confirmation" dataInterface="_Ml9BoApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_H9bKdgvSEeuTvLpVllC7_g" entityName="Airline.out.commission" dataInterface="_WRGg4AvREeuTvLpVllC7_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_5sPvJgxmEeuTvLpVllC7_g" entityName="Airline.out.confirmation" dataInterface="_Ml9BoApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_MaS3xgxpEeuTvLpVllC7_g" entityName="Airline.out.flights" dataInterface="_FwJAYApaEeuqN7ohkJglEA"/>
+    </components__Repository>
+    <components__Repository xsi:type="repository:CompositeComponent" id="_5dhgsgpwEeu5W7_QEvvNqQ" entityName="TravelPlanner">
+      <assemblyContexts__ComposedStructure id="_-Sz0oApwEeu5W7_QEvvNqQ" entityName="AC_TravelPlanner.TravelPlannerFacade" encapsulatedComponent__AssemblyContext="_S8vWsAY3Eeuv9OmE7aVAxA"/>
+      <assemblyContexts__ComposedStructure id="_tyIAUD8EEeulRPEeT0f8DQ" entityName="Assembly_ValidateFlight" encapsulatedComponent__AssemblyContext="_R1qAUD8CEeulRPEeT0f8DQ"/>
+      <assemblyContexts__ComposedStructure id="_zFUYQD8EEeulRPEeT0f8DQ" entityName="Assembly_ValidateCriteria" encapsulatedComponent__AssemblyContext="_Q5w_0D8CEeulRPEeT0f8DQ"/>
+      <assemblyContexts__ComposedStructure id="_3SbR4D8EEeulRPEeT0f8DQ" entityName="Assembly_ValidateCCD" encapsulatedComponent__AssemblyContext="_OzFAID8CEeulRPEeT0f8DQ"/>
+      <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_Iy2r9ApxEeu5W7_QEvvNqQ" entityName="OperationProvidedDelegation.TravelPlanner" innerProvidedRole_ProvidedDelegationConnector="_K-Fq0AZHEeuTVv_2RzcyRA" outerProvidedRole_ProvidedDelegationConnector="_7wWe_wpwEeu5W7_QEvvNqQ" assemblyContext_ProvidedDelegationConnector="_-Sz0oApwEeu5W7_QEvvNqQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_ZztTCQpzEeu5W7_QEvvNqQ" entityName="DataSinkDelegation.flights" assemblyContext="_-Sz0oApwEeu5W7_QEvvNqQ" innerDataSinkRole="_66I12QoGEeuqRKfhGJupQQ" outerDataSinkRole="_1cLgVQpyEeu5W7_QEvvNqQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_dsydaQpzEeu5W7_QEvvNqQ" entityName="DataSinkDelegation.confirmation" assemblyContext="_-Sz0oApwEeu5W7_QEvvNqQ" innerDataSinkRole="_4nyGyQoIEeuqRKfhGJupQQ" outerDataSinkRole="_5Rou9QpyEeu5W7_QEvvNqQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_xFBUcD8EEeulRPEeT0f8DQ" entityName="newAssemblyDataConnector" dataSourceRole="_W1f-ygpaEeuqN7ohkJglEA" dataSinkRole="_e9HT4D8EEeulRPEeT0f8DQ" sinkAssemblyContext="_tyIAUD8EEeulRPEeT0f8DQ" sourceAssemblyContext="_-Sz0oApwEeu5W7_QEvvNqQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_x5cbAD8EEeulRPEeT0f8DQ" entityName="newDataSourceDelegationConnector" assemblyContext="_tyIAUD8EEeulRPEeT0f8DQ" innerDataSourceRole="_giL0QD8EEeulRPEeT0f8DQ" outerDataSourceRole="_Ce_2ZgpzEeu5W7_QEvvNqQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_194g0D8EEeulRPEeT0f8DQ" entityName="newDataSourceDelegationConnector" assemblyContext="_zFUYQD8EEeulRPEeT0f8DQ" innerDataSourceRole="_bR930D8EEeulRPEeT0f8DQ" outerDataSourceRole="_C8d1cApzEeu5W7_QEvvNqQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_2ZTRgD8EEeulRPEeT0f8DQ" entityName="newAssemblyDataConnector" dataSourceRole="_A8h9egoEEeutS7WfGIqduw" dataSinkRole="_ZHZdsD8EEeulRPEeT0f8DQ" sinkAssemblyContext="_zFUYQD8EEeulRPEeT0f8DQ" sourceAssemblyContext="_-Sz0oApwEeu5W7_QEvvNqQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_6HA5YD8EEeulRPEeT0f8DQ" entityName="newDataSourceDelegationConnector" assemblyContext="_3SbR4D8EEeulRPEeT0f8DQ" innerDataSourceRole="_Wxbr4D8EEeulRPEeT0f8DQ" outerDataSourceRole="_-qyk9gpyEeu5W7_QEvvNqQ"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_6fqp8D8EEeulRPEeT0f8DQ" entityName="newAssemblyDataConnector" dataSourceRole="_7PRtegoIEeuqRKfhGJupQQ" dataSinkRole="_T-0aUD8EEeulRPEeT0f8DQ" sinkAssemblyContext="_3SbR4D8EEeulRPEeT0f8DQ" sourceAssemblyContext="_-Sz0oApwEeu5W7_QEvvNqQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_7wWe_wpwEeu5W7_QEvvNqQ" entityName="TravelPlanner.provided.TravelPlanner" providedInterface__OperationProvidedRole="_5W_RQAZGEeuTVv_2RzcyRA"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_1cLgVQpyEeu5W7_QEvvNqQ" entityName="TravelPlanner.in.flights" dataInterface="_FwJAYApaEeuqN7ohkJglEA"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_5Rou9QpyEeu5W7_QEvvNqQ" entityName="TravelPlanner.in.confirmation" dataInterface="_Ml9BoApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_-qyk9gpyEeu5W7_QEvvNqQ" entityName="TravelPlanner.out.ccd" dataInterface="_MDHPvwpZEeu74bTg6F24cQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_Ce_2ZgpzEeu5W7_QEvvNqQ" entityName="TravelPlanner.out.flight" dataInterface="_ZQrn0ApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_C8d1cApzEeu5W7_QEvvNqQ" entityName="TravelPlanner.out.criteria" dataInterface="_FJd3UApZEeu74bTg6F24cQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="repository:CompositeComponent" id="_39_akwvDEeuTvLpVllC7_g" entityName="TravelAgency">
+      <assemblyContexts__ComposedStructure id="_ly2qYAvEEeuTvLpVllC7_g" entityName="AC_TravelAgency.TravelAgencyQueryBuilder" encapsulatedComponent__AssemblyContext="_6HxKjgvDEeuTvLpVllC7_g"/>
+      <assemblyContexts__ComposedStructure id="_lkrkIAvHEeuTvLpVllC7_g" entityName="AC_TravelAgency.TravelAgencyFlightsDelegator" encapsulatedComponent__AssemblyContext="_SF_99wvHEeuTvLpVllC7_g"/>
+      <assemblyContexts__ComposedStructure id="_0lRLAAxiEeuTvLpVllC7_g" entityName="AC_TravelAgency.CommissionStore" encapsulatedComponent__AssemblyContext="_OpHj9wxiEeuTvLpVllC7_g"/>
+      <assemblyContexts__ComposedStructure id="_vrqs4AxkEeuTvLpVllC7_g" entityName="AC_TravelAgency.CommissionMultiplexer" encapsulatedComponent__AssemblyContext="__Wp0lwxjEeuTvLpVllC7_g"/>
+      <assemblyContexts__ComposedStructure id="_zKLbIAxkEeuTvLpVllC7_g" entityName="AC_TravelAgency.TravelAgencyConfirmCommission" encapsulatedComponent__AssemblyContext="_8eBalwxjEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_qhzF2AvEEeuTvLpVllC7_g" entityName="DataSourceDelegationConnector.query" assemblyContext="_ly2qYAvEEeuTvLpVllC7_g" innerDataSourceRole="_Ez8ZWAvEEeuTvLpVllC7_g" outerDataSourceRole="_hIlTtgvEEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_yL4cqQvEEeuTvLpVllC7_g" entityName="DataSinkDelegationConnector.criteria" assemblyContext="_ly2qYAvEEeuTvLpVllC7_g" innerDataSinkRole="_BBMgdwvEEeuTvLpVllC7_g" outerDataSinkRole="_jwRHpQvEEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_ot9pWAvHEeuTvLpVllC7_g" entityName="DataSourceDelegationConnector.flights" assemblyContext="_lkrkIAvHEeuTvLpVllC7_g" innerDataSourceRole="_VrT3uAvHEeuTvLpVllC7_g" outerDataSourceRole="_OXPNNgvHEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_sOphxAvHEeuTvLpVllC7_g" entityName="DataSinkDelegationConnector.flights" assemblyContext="_lkrkIAvHEeuTvLpVllC7_g" innerDataSinkRole="_VTWqtwvHEeuTvLpVllC7_g" outerDataSinkRole="_NFw-RQvHEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSinkDelegationConnector" id="_3feAeQxkEeuTvLpVllC7_g" entityName="DataSinkDelegationConnector.commission" assemblyContext="_vrqs4AxkEeuTvLpVllC7_g" innerDataSinkRole="_B2IHpwxkEeuTvLpVllC7_g" outerDataSinkRole="_xJ5QZQxiEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_7r-dGQxkEeuTvLpVllC7_g" entityName="DataAssemblyConnector.Multiplexer2CommissionStore" dataSourceRole="_CYHaYwxkEeuTvLpVllC7_g" dataSinkRole="_Qps7lwxiEeuTvLpVllC7_g" sinkAssemblyContext="_0lRLAAxiEeuTvLpVllC7_g" sourceAssemblyContext="_vrqs4AxkEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_EMynpwxlEeuTvLpVllC7_g" entityName="DataAssemblyConnector.Multiplexer2Confirmation" dataSourceRole="_GxD7KAxlEeuTvLpVllC7_g" dataSinkRole="_gMMHJwxkEeuTvLpVllC7_g" sinkAssemblyContext="_zKLbIAxkEeuTvLpVllC7_g" sourceAssemblyContext="_vrqs4AxkEeuTvLpVllC7_g"/>
+      <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:DataSourceDelegationConnector" id="_PTaWyAxlEeuTvLpVllC7_g" entityName="DataSourceDelegationConnector.confirmation" assemblyContext="_zKLbIAxkEeuTvLpVllC7_g" innerDataSourceRole="_hE532AxkEeuTvLpVllC7_g" outerDataSourceRole="_X1fskQxlEeuTvLpVllC7_g"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_jwRHpQvEEeuTvLpVllC7_g" entityName="TravelAgency.in.criteria" dataInterface="_FJd3UApZEeu74bTg6F24cQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_NFw-RQvHEeuTvLpVllC7_g" entityName="TravelAgency.in.flights" dataInterface="_FwJAYApaEeuqN7ohkJglEA"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_xJ5QZQxiEeuTvLpVllC7_g" entityName="TravelAgency.in.commission" dataInterface="_WRGg4AvREeuTvLpVllC7_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_hIlTtgvEEeuTvLpVllC7_g" entityName="TravelAgency.out.query" dataInterface="_G7IIUAvEEeuTvLpVllC7_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_OXPNNgvHEeuTvLpVllC7_g" entityName="TravelAgency.out.flights" dataInterface="_FwJAYApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_X1fskQxlEeuTvLpVllC7_g" entityName="TravelAgency.out.confirmation" dataInterface="_Ml9BoApaEeuqN7ohkJglEA"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_6HxKjgvDEeuTvLpVllC7_g" entityName="TravelAgencyQueryBuilder" realizingClassFqn="org.palladiosimulator.indirections.scheduler.implementations.AnyToAllPushingDataChannel">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_BBMgdwvEEeuTvLpVllC7_g" entityName="TravelAgencyQueryBuilder.in.criteria" dataInterface="_FJd3UApZEeu74bTg6F24cQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_Ez8ZWAvEEeuTvLpVllC7_g" entityName="TravelAgencyQueryBuilder.out.query" dataInterface="_G7IIUAvEEeuTvLpVllC7_g"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_7_WhywvEEeuTvLpVllC7_g" entityName="AirlineFlightSelector" realizingClassFqn="org.palladiosimulator.indirections.scheduler.implementations.AnyToAllPushingDataChannel">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="__A_t1wvEEeuTvLpVllC7_g" entityName="AirlineFlightSelector.in.query" dataInterface="_G7IIUAvEEeuTvLpVllC7_g"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_DwFTJwvFEeuTvLpVllC7_g" entityName="AirlineFlightSelector.in.flights" dataInterface="_FwJAYApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="__jy46AvEEeuTvLpVllC7_g" entityName="AirlineFlightSelector.out.flights" dataInterface="_FwJAYApaEeuqN7ohkJglEA"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_SF_99wvHEeuTvLpVllC7_g" entityName="TravelAgencyFlightsDelegator" realizingClassFqn="org.palladiosimulator.indirections.scheduler.implementations.AnyToAllPushingDataChannel">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_VTWqtwvHEeuTvLpVllC7_g" entityName="TravelAgencyFlightsDelegator.in.flights" dataInterface="_FwJAYApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_VrT3uAvHEeuTvLpVllC7_g" entityName="TravelAgencyFlightsDelegator.out.flights" dataInterface="_FwJAYApaEeuqN7ohkJglEA"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_UqCj1wvOEeuTvLpVllC7_g" entityName="AirlineCreateBooking" realizingClassFqn="org.palladiosimulator.indirections.scheduler.implementations.AnyToAllPushingDataChannel">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_XhzbFwvOEeuTvLpVllC7_g" entityName="AirlineCreateBooking.in.ccd" dataInterface="_MDHPvwpZEeu74bTg6F24cQ"/>
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_Yi-kMgvOEeuTvLpVllC7_g" entityName="AirlineCreateBooking.in.flight" dataInterface="_ZQrn0ApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_Y7JMmAvOEeuTvLpVllC7_g" entityName="AirlineCreateBooking.out.booking" dataInterface="_9xTRgAvNEeuTvLpVllC7_g"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_LuRGNwvPEeuTvLpVllC7_g" entityName="FlightMultiplexer" realizingClassFqn="org.palladiosimulator.indirections.scheduler.implementations.AnyToAllPushingDataChannel">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_QprQNwvPEeuTvLpVllC7_g" entityName="FlightMultiplexer.in.flight" dataInterface="_ZQrn0ApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_RM1nqAvPEeuTvLpVllC7_g" entityName="FlightMultiplexer.out.flight1" dataInterface="_ZQrn0ApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_U7RBOAvPEeuTvLpVllC7_g" entityName="FlightMultiplexer.out.flight2" dataInterface="_ZQrn0ApaEeuqN7ohkJglEA"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_NfzDSQvREeuTvLpVllC7_g" entityName="AirlineCreateCommission" realizingClassFqn="org.palladiosimulator.indirections.scheduler.implementations.AnyToAllPushingDataChannel">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_QC55NwvREeuTvLpVllC7_g" entityName="AirlineCreateCommission.in.flight" dataInterface="_ZQrn0ApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_QqSpWAvREeuTvLpVllC7_g" entityName="AirlineCreateCommission.out.commission" dataInterface="_WRGg4AvREeuTvLpVllC7_g"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_8eBalwxjEeuTvLpVllC7_g" entityName="TravelAgencyConfirmCommission" realizingClassFqn="org.palladiosimulator.indirections.scheduler.implementations.AnyToAllPushingDataChannel">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_gMMHJwxkEeuTvLpVllC7_g" entityName="TravelAgencyConfirmCommission.in.commission" dataInterface="_WRGg4AvREeuTvLpVllC7_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_hE532AxkEeuTvLpVllC7_g" entityName="TravelAgencyConfirmCommission.out.confirmation" dataInterface="_Ml9BoApaEeuqN7ohkJglEA"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="__Wp0lwxjEeuTvLpVllC7_g" entityName="CommissionMultiplexer" realizingClassFqn="org.palladiosimulator.indirections.scheduler.implementations.AnyToAllPushingDataChannel">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_B2IHpwxkEeuTvLpVllC7_g" entityName="CommissionMultiplexer.in.commission" dataInterface="_WRGg4AvREeuTvLpVllC7_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_CYHaYwxkEeuTvLpVllC7_g" entityName="CommissionMultiplexer.out.commission1" dataInterface="_WRGg4AvREeuTvLpVllC7_g"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_GxD7KAxlEeuTvLpVllC7_g" entityName="CommissionMultiplexer.out.commission2" dataInterface="_WRGg4AvREeuTvLpVllC7_g"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_iLgotwxmEeuTvLpVllC7_g" entityName="ConfirmationForwarder" realizingClassFqn="org.palladiosimulator.indirections.scheduler.implementations.AnyToAllPushingDataChannel">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_ku0S5wxmEeuTvLpVllC7_g" entityName="ConfirmationForwarder.in.confirmation" dataInterface="_Ml9BoApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_lR_RaAxmEeuTvLpVllC7_g" entityName="ConfirmationForwarder.out.confirmation" dataInterface="_Ml9BoApaEeuqN7ohkJglEA"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_OzFAID8CEeulRPEeT0f8DQ" entityName="ValidateCCD" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_T-0aUD8EEeulRPEeT0f8DQ" entityName="ValidateCCD.CCD.sink" dataInterface="_MDHPvwpZEeu74bTg6F24cQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_Wxbr4D8EEeulRPEeT0f8DQ" entityName="ValidateCCD.CCD.source" dataInterface="_MDHPvwpZEeu74bTg6F24cQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_Q5w_0D8CEeulRPEeT0f8DQ" entityName="ValidateCriteria" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_ZHZdsD8EEeulRPEeT0f8DQ" entityName="ValidateCriteria.Criteria.sink" dataInterface="_FJd3UApZEeu74bTg6F24cQ"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_bR930D8EEeulRPEeT0f8DQ" entityName="ValidateCriteria.Criteria.source" dataInterface="_FJd3UApZEeu74bTg6F24cQ"/>
+    </components__Repository>
+    <components__Repository xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" id="_R1qAUD8CEeulRPEeT0f8DQ" entityName="ValidateFlight" realizingClassFqn="n/a">
+      <providedRoles_InterfaceProvidingEntity xsi:type="org.palladiosimulator.indirections.repository:DataSinkRole" id="_e9HT4D8EEeulRPEeT0f8DQ" entityName="ValidateFlight.Flight.sink" dataInterface="_ZQrn0ApaEeuqN7ohkJglEA"/>
+      <requiredRoles_InterfaceRequiringEntity xsi:type="org.palladiosimulator.indirections.repository:DataSourceRole" id="_giL0QD8EEeulRPEeT0f8DQ" entityName="ValidateFlight.Flight.source" dataInterface="_ZQrn0ApaEeuqN7ohkJglEA"/>
+    </components__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_dHgEEAZDEeuTVv_2RzcyRA" entityName="CCD">
+      <signatures__OperationInterface id="_d-rjsAZDEeuTVv_2RzcyRA" entityName="addCCD">
+        <parameters__OperationSignature dataType__Parameter="_ByUmMAZEEeuTVv_2RzcyRA" parameterName="ccd"/>
+      </signatures__OperationInterface>
+      <signatures__OperationInterface id="_A_aaIAcWEeumXJMH97cslw" entityName="getCCD" returnType__OperationSignature="_ByUmMAZEEeuTVv_2RzcyRA"/>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_5W_RQAZGEeuTVv_2RzcyRA" entityName="TravelPlanner">
+      <signatures__OperationInterface id="_7Wd1sAZGEeuTVv_2RzcyRA" entityName="findFlights" returnType__OperationSignature="_CApOsAZHEeuTVv_2RzcyRA">
+        <parameters__OperationSignature dataType__Parameter="_872fIAZGEeuTVv_2RzcyRA" parameterName="criteria"/>
+      </signatures__OperationInterface>
+      <signatures__OperationInterface id="_G9hYYAZHEeuTVv_2RzcyRA" entityName="bookFlight">
+        <parameters__OperationSignature dataType__Parameter="_BenfsAZHEeuTVv_2RzcyRA" parameterName="flight"/>
+        <parameters__OperationSignature dataType__Parameter="_ByUmMAZEEeuTVv_2RzcyRA" parameterName="ccd"/>
+      </signatures__OperationInterface>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="repository:OperationInterface" id="_0pRqRwcdEeubY9P78o028Q" entityName="FlightPlanner">
+      <signatures__OperationInterface id="_4TLwMAcdEeubY9P78o028Q" entityName="addFlight">
+        <parameters__OperationSignature dataType__Parameter="_BenfsAZHEeuTVv_2RzcyRA" parameterName="flight"/>
+      </signatures__OperationInterface>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_FJd3UApZEeu74bTg6F24cQ" entityName="Criteria">
+      <dataSignature id="_HTKHsApZEeu74bTg6F24cQ" entityName="criteria">
+        <parameter dataType__Parameter="_872fIAZGEeuTVv_2RzcyRA" parameterName="criteria"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_MDHPvwpZEeu74bTg6F24cQ" entityName="CCD">
+      <dataSignature id="_NFddgApZEeu74bTg6F24cQ" entityName="ccd">
+        <parameter dataType__Parameter="_ByUmMAZEEeuTVv_2RzcyRA" parameterName="ccd"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_FwJAYApaEeuqN7ohkJglEA" entityName="Flights">
+      <dataSignature id="_Gw1BQApaEeuqN7ohkJglEA" entityName="flights">
+        <parameter dataType__Parameter="_CApOsAZHEeuTVv_2RzcyRA" parameterName="flights"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_Ml9BoApaEeuqN7ohkJglEA" entityName="Confirmation">
+      <dataSignature id="_NmQoAApaEeuqN7ohkJglEA" entityName="confirmation">
+        <parameter dataType__Parameter="_m_qZjQoIEeuqRKfhGJupQQ" parameterName="confirmation"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_ZQrn0ApaEeuqN7ohkJglEA" entityName="Flight">
+      <dataSignature id="_aJp3IApaEeuqN7ohkJglEA" entityName="flight">
+        <parameter dataType__Parameter="_BenfsAZHEeuTVv_2RzcyRA" parameterName="flight"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_G7IIUAvEEeuTvLpVllC7_g" entityName="Query">
+      <dataSignature id="_Hzy1oAvEEeuTvLpVllC7_g" entityName="query">
+        <parameter dataType__Parameter="_dUwlgAZaEeuTVv_2RzcyRA" parameterName="query"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_9xTRgAvNEeuTvLpVllC7_g" entityName="Booking">
+      <dataSignature id="_-oCFIAvNEeuTvLpVllC7_g" entityName="booking">
+        <parameter dataType__Parameter="_8oyxTQvNEeuTvLpVllC7_g" parameterName="booking"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <interfaces__Repository xsi:type="org.palladiosimulator.indirections.repository:DataInterface" id="_WRGg4AvREeuTvLpVllC7_g" entityName="Commission">
+      <dataSignature id="_XmHzAAvREeuTvLpVllC7_g" entityName="commission">
+        <parameter dataType__Parameter="_VAnJXQvREeuTvLpVllC7_g" parameterName="commission"/>
+      </dataSignature>
+    </interfaces__Repository>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_ByUmMAZEEeuTVv_2RzcyRA" entityName="CCD"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_872fIAZGEeuTVv_2RzcyRA" entityName="Criteria"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_BenfsAZHEeuTVv_2RzcyRA" entityName="Flight"/>
+    <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_CApOsAZHEeuTVv_2RzcyRA" entityName="Flights" innerType_CollectionDataType="_BenfsAZHEeuTVv_2RzcyRA"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_dUwlgAZaEeuTVv_2RzcyRA" entityName="Query"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_m_qZjQoIEeuqRKfhGJupQQ" entityName="Confirmation"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_8oyxTQvNEeuTvLpVllC7_g" entityName="Booking"/>
+    <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_VAnJXQvREeuTvLpVllC7_g" entityName="Commission"/>
+  </repository:Repository>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_jTNcrgpaEeuqN7ohkJglEA">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_l2BEsQpnEeuR97ixrD9Teg"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_qniO0QpuEeu5W7_QEvvNqQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_BBiWoApvEeu5W7_QEvvNqQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_6HxKjgvDEeuTvLpVllC7_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_SJMjMAvEEeuTvLpVllC7_g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_7_WhywvEEeuTvLpVllC7_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_IMkFgAvFEeuTvLpVllC7_g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_SF_99wvHEeuTvLpVllC7_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_bGJIsgvHEeuTvLpVllC7_g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_1BVQtwvNEeuTvLpVllC7_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_EXiloAvOEeuTvLpVllC7_g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_UqCj1wvOEeuTvLpVllC7_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_ebAHgAvOEeuTvLpVllC7_g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_LuRGNwvPEeuTvLpVllC7_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_XgXbMAvPEeuTvLpVllC7_g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_NfzDSQvREeuTvLpVllC7_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_b9c_oAvREeuTvLpVllC7_g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_OpHj9wxiEeuTvLpVllC7_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_XEqM0AxiEeuTvLpVllC7_g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="__Wp0lwxjEeuTvLpVllC7_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_S8hA0AxkEeuTvLpVllC7_g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_8eBalwxjEeuTvLpVllC7_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_eksk4AxkEeuTvLpVllC7_g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_iLgotwxmEeuTvLpVllC7_g">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_rhjyAAxmEeuTvLpVllC7_g"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_-Sz0oApwEeu5W7_QEvvNqQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_YMF8MBdpEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.xmi#_516fID8AEeulRPEeT0f8DQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="__xzuwApbEeuqN7ohkJglEA">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_YMF8MBdpEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.xmi#_516fID8AEeulRPEeT0f8DQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_OzFAID8CEeulRPEeT0f8DQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_TkLQQD8FEeulRPEeT0f8DQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_Q5w_0D8CEeulRPEeT0f8DQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_ZH0fAD8FEeulRPEeT0f8DQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:DataChannelBehaviour" appliedTo="_R1qAUD8CEeulRPEeT0f8DQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_4YVBkAevEeuLudFLEF6rzA"/>
+      <behaviour href="Behaviours.xmi#_ZYYDgD8FEeulRPEeT0f8DQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_YQqvsApvEeu5W7_QEvvNqQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_YMF8MBdpEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.xmi#_516fID8AEeulRPEeT0f8DQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_0BLfYD8LEeulRPEeT0f8DQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_YMF8MBdpEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.xmi#_516fID8AEeulRPEeT0f8DQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_EPhacD8FEeulRPEeT0f8DQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_YMF8MBdpEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.xmi#_516fID8AEeulRPEeT0f8DQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_3SbR4D8EEeulRPEeT0f8DQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_YMF8MBdpEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.xmi#_516fID8AEeulRPEeT0f8DQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_zFUYQD8EEeulRPEeT0f8DQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_YMF8MBdpEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.xmi#_516fID8AEeulRPEeT0f8DQ"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_tyIAUD8EEeulRPEeT0f8DQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_YMF8MBdpEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.xmi#_516fID8AEeulRPEeT0f8DQ"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" location="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>
