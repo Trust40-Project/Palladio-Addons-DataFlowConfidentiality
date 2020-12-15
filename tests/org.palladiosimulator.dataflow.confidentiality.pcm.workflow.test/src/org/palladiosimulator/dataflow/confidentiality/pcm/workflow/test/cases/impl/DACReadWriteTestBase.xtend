@@ -1,7 +1,5 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl
 
-import java.io.File
-import java.nio.file.Files
 import java.util.function.Consumer
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.TransformPCMDFDToPrologWorkflowFactory
@@ -82,7 +80,6 @@ class DACReadWriteTestBase extends TestBase {
 		'''
 		
 		var prologProgram = resultingProgram.get + System.lineSeparator + queryRules
-		Files.writeString(new File("/tmp/bla.pl").toPath, prologProgram)
 		prover.addTheory(prologProgram)
 		prover.query('''readViolation(A, STORE, S); writeViolation(A, STORE, S).''').solve
 	}
