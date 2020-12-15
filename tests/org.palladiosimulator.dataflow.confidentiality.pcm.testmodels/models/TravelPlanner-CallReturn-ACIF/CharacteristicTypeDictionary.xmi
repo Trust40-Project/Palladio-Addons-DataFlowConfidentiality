@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:CharacteristicTypeDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" xsi:schemaLocation="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0#//characteristics" id="_osmIwAcQEeuCO_LUOeqqZQ">
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_t51CoQcQEeuCO_LUOeqqZQ" name="AllowedRoles" type="_o-OrUgcQEeuCO_LUOeqqZQ"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_voPsQQcQEeuCO_LUOeqqZQ" name="OwnedRoles" type="_o-OrUgcQEeuCO_LUOeqqZQ"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_zurlgRB5EeuCiqzTNKebcA" name="CorrespondingActor" type="_ywLV4hB5EeuCiqzTNKebcA"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_qvQCAT8AEeulRPEeT0f8DQ" name="Criticality" type="_0V0wIj7_EeulRPEeT0f8DQ"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_si9bUT8AEeulRPEeT0f8DQ" name="ValidationStatus" type="_Jusnoj7_EeulRPEeT0f8DQ"/>
+  <characteristicEnumerations id="_o-OrUgcQEeuCO_LUOeqqZQ" name="AccessRights">
+    <literals id="_qmC9sAcQEeuCO_LUOeqqZQ" name="User"/>
+    <literals id="_q6I-YAcQEeuCO_LUOeqqZQ" name="TravelAgency"/>
+    <literals id="_rIUkUAcQEeuCO_LUOeqqZQ" name="Airline"/>
+  </characteristicEnumerations>
+  <characteristicEnumerations id="_ywLV4hB5EeuCiqzTNKebcA" name="Actors">
+    <literals id="_1VMQUBB5EeuCiqzTNKebcA" name="User"/>
+    <literals id="_2KPpABB5EeuCiqzTNKebcA" name="FlightPlanner"/>
+  </characteristicEnumerations>
+  <characteristicEnumerations id="_Jusnoj7_EeulRPEeT0f8DQ" name="ValidationStatus">
+    <literals id="_LwwmAD7_EeulRPEeT0f8DQ" name="Validated"/>
+  </characteristicEnumerations>
+  <characteristicEnumerations id="_0V0wIj7_EeulRPEeT0f8DQ" name="Criticality">
+    <literals id="_hxgq8D8AEeulRPEeT0f8DQ" name="Low"/>
+    <literals id="_lFLbID8AEeulRPEeT0f8DQ" name="DMZ"/>
+    <literals id="_nkPekD8AEeulRPEeT0f8DQ" name="High"/>
+  </characteristicEnumerations>
+</characteristics:CharacteristicTypeDictionary>
