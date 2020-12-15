@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<behaviour:Behaviours xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:behaviour="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/behaviour" xmlns:confidentiality="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0" xmlns:expression="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression" xmlns:org.palladiosimulator.indirections.repository="http://palladiosimulator.org/Indirections/Repository/1.0" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" id="_0s1gkD7AEeulRPEeT0f8DQ">
+  <dataChannelBehaviour id="_2aD3YD7AEeulRPEeT0f8DQ" entityName="CustomerStore">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_z0TgoD7BEeulRPEeT0f8DQ"/>
+    <reusedBehaviours id="_bOFmwD7rEeulRPEeT0f8DQ" reusedBehaviour="_1AT2MD7AEeulRPEeT0f8DQ"/>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_fzfroD7rEeulRPEeT0f8DQ" entityName="CustomerFinder">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_clKrED7CEeulRPEeT0f8DQ"/>
+    <reusedBehaviours id="_eKWuID7sEeulRPEeT0f8DQ" reusedBehaviour="_BvXUMT7sEeulRPEeT0f8DQ">
+      <variableBindings id="_f05kYD7sEeulRPEeT0f8DQ" boundVariable="//@reusableBehaviours.2/@inputVariables.1">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="CustomerFinder.CustomerName.sink.parameter.customerName"/>
+      </variableBindings>
+      <variableBindings id="_gHUxID7sEeulRPEeT0f8DQ" boundVariable="//@reusableBehaviours.2/@inputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="CustomerFinder.Customer.sink.customer"/>
+      </variableBindings>
+      <variableBindings id="_gUFawD7sEeulRPEeT0f8DQ" boundVariable="//@reusableBehaviours.2/@outputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="CustomerFinder.Customer.source.customer"/>
+      </variableBindings>
+    </reusedBehaviours>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_iERbcD7rEeulRPEeT0f8DQ" entityName="DetermineCreditLine">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_p35agD7EEeulRPEeT0f8DQ"/>
+    <reusedBehaviours id="_pv508D7sEeulRPEeT0f8DQ" reusedBehaviour="_rKGiET7sEeulRPEeT0f8DQ">
+      <variableBindings id="_yDKroD7sEeulRPEeT0f8DQ" boundVariable="//@reusableBehaviours.3/@inputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="DetermineCreditLine.Customer.sink.customer"/>
+      </variableBindings>
+      <variableBindings id="_ySMmID7sEeulRPEeT0f8DQ" boundVariable="//@reusableBehaviours.3/@outputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="DetermineCreditLine.CreditLine.source.creditLine"/>
+      </variableBindings>
+    </reusedBehaviours>
+  </dataChannelBehaviour>
+  <dataChannelBehaviour id="_kPxCoD7rEeulRPEeT0f8DQ" entityName="CustomerMultiplexer">
+    <dataChannel xsi:type="org.palladiosimulator.indirections.repository:JavaClassDataChannel" href="newRepository.repository#_060VYD7EEeulRPEeT0f8DQ"/>
+    <reusedBehaviours id="_23YeAD7rEeulRPEeT0f8DQ" reusedBehaviour="_qcPzAT7rEeulRPEeT0f8DQ">
+      <variableBindings id="_32d8cD7rEeulRPEeT0f8DQ" boundVariable="//@reusableBehaviours.1/@inputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="CustomerMultiplexer.Customer.sink.customer"/>
+      </variableBindings>
+      <variableBindings id="_4H98ID7rEeulRPEeT0f8DQ" boundVariable="//@reusableBehaviours.1/@outputVariables.0">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="CustomerMultiplexer.Customer.source1.customer"/>
+      </variableBindings>
+      <variableBindings id="_4VezsD7rEeulRPEeT0f8DQ" boundVariable="//@reusableBehaviours.1/@outputVariables.1">
+        <boundValue xsi:type="stoex:VariableReference" referenceName="CustomerMultiplexer.Customer.source2.customer"/>
+      </variableBindings>
+    </reusedBehaviours>
+  </dataChannelBehaviour>
+  <reusableBehaviours id="_1AT2MD7AEeulRPEeT0f8DQ" entityName="Store"/>
+  <reusableBehaviours id="_qcPzAT7rEeulRPEeT0f8DQ" entityName="Forward2">
+    <inputVariables referenceName="input"/>
+    <outputVariables referenceName="output1"/>
+    <outputVariables referenceName="output2"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_vi7Y8D7rEeulRPEeT0f8DQ"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_v-fTkz7rEeulRPEeT0f8DQ">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="input"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="output1"/>
+    </variableUsages>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_zUCTED7rEeulRPEeT0f8DQ"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_zwhawz7rEeulRPEeT0f8DQ">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="input"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="output2"/>
+    </variableUsages>
+  </reusableBehaviours>
+  <reusableBehaviours id="_BvXUMT7sEeulRPEeT0f8DQ" entityName="Sync">
+    <inputVariables referenceName="input"/>
+    <inputVariables referenceName="param"/>
+    <outputVariables referenceName="output"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_GViOED7sEeulRPEeT0f8DQ"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_uAAMoz72EeulRPEeT0f8DQ">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="input"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="output"/>
+    </variableUsages>
+  </reusableBehaviours>
+  <reusableBehaviours id="_rKGiET7sEeulRPEeT0f8DQ" entityName="Forward">
+    <inputVariables referenceName="input"/>
+    <outputVariables referenceName="output"/>
+    <variableUsages>
+      <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+        <specification_VariableCharacterisation specification="false"/>
+        <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_vbzAwD7sEeulRPEeT0f8DQ"/>
+        <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_vx4lgz7sEeulRPEeT0f8DQ">
+          <namedReference xsi:type="stoex:VariableReference" referenceName="input"/>
+        </rhs>
+      </variableCharacterisation_VariableUsage>
+      <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="output"/>
+    </variableUsages>
+  </reusableBehaviours>
+</behaviour:Behaviours>
