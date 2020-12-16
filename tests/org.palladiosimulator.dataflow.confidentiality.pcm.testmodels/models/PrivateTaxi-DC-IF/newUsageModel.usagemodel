@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" xmlns:confidentiality="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:expression="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression" xmlns:expressions="http://palladiosimulator.org/dataflow/dictionary/characterized/expressions/1.0" xmlns:org.palladiosimulator.dataflow.confidentiality.pcm.model.profile="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" xmlns:usagemodel="http://palladiosimulator.org/PalladioComponentModel/UsageModel/5.2">
+  <usagemodel:UsageModel>
+    <usageScenario_UsageModel id="_3e7SAD-iEeuuG9chg-tc3w" entityName="Rider">
+      <scenarioBehaviour_UsageScenario id="_Bh7A8D-jEeuuG9chg-tc3w" entityName="ScenarioBehaviour">
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_Bh7oAD-jEeuuG9chg-tc3w" successor="_7YdA8D-lEeuuG9chg-tc3w"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_Bh7oAT-jEeuuG9chg-tc3w" predecessor="__IrKQD-lEeuuG9chg-tc3w"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_7YdA8D-lEeuuG9chg-tc3w" entityName="Rider.addPrivateKey" successor="_9JXk8D-lEeuuG9chg-tc3w" predecessor="_Bh7oAD-jEeuuG9chg-tc3w">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_jjc6sD-lEeuuG9chg-tc3w"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_4QuXoD98EeuyzLaAFX3TLQ"/>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_nxnHwD-mEeuuG9chg-tc3w">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                <literal href="CharacteristicTypes.characteristics#_E6d4oD94EeuyzLaAFX3TLQ"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_pPuEhj-mEeuuG9chg-tc3w"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_9JXk8D-lEeuuG9chg-tc3w" entityName="Rider.addPublicKey" successor="_d9HngD-pEeuuG9chg-tc3w" predecessor="_7YdA8D-lEeuuG9chg-tc3w">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_lYqI0D-lEeuuG9chg-tc3w"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_yDA4MD98EeuyzLaAFX3TLQ"/>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_ron1kD-mEeuuG9chg-tc3w">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_gzAXsT92EeuyzLaAFX3TLQ"/>
+                <literal href="CharacteristicTypes.characteristics#_E6d4oD94EeuyzLaAFX3TLQ"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_sJHThj-mEeuuG9chg-tc3w"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="publicKey"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_d9HngD-pEeuuG9chg-tc3w" entityName="Rider.register" successor="__IrKQD-lEeuuG9chg-tc3w" predecessor="_9JXk8D-lEeuuG9chg-tc3w">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_cJYZAD-pEeuuG9chg-tc3w"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_hIIAYD-oEeuuG9chg-tc3w"/>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_qyhzsD-pEeuuG9chg-tc3w">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dwawcT92EeuyzLaAFX3TLQ"/>
+                <literal href="CharacteristicTypes.characteristics#_7hbssD93EeuyzLaAFX3TLQ"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_rOMcBj-pEeuuG9chg-tc3w"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="user"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="__IrKQD-lEeuuG9chg-tc3w" entityName="Rider.findBestMatchingRoute" successor="_Bh7oAT-jEeuuG9chg-tc3w" predecessor="_d9HngD-pEeuuG9chg-tc3w">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#__t8EMD-JEeuyzLaAFX3TLQ"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_iGUc4D96EeuyzLaAFX3TLQ"/>
+          <outputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_4o0VcD-mEeuuG9chg-tc3w"/>
+              <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_5CahMz-mEeuuG9chg-tc3w">
+                <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+              </rhs>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="bestRoute"/>
+          </outputParameterUsages_EntryLevelSystemCall>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_y0JBED-mEeuuG9chg-tc3w">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dwawcT92EeuyzLaAFX3TLQ"/>
+                <literal href="CharacteristicTypes.characteristics#_NB4zED91EeuyzLaAFX3TLQ"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_zR6iNj-mEeuuG9chg-tc3w"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="route"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+      </scenarioBehaviour_UsageScenario>
+      <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload">
+        <thinkTime_ClosedWorkload specification="0.0"/>
+      </workload_UsageScenario>
+    </usageScenario_UsageModel>
+    <usageScenario_UsageModel id="_4ZO-ID-iEeuuG9chg-tc3w" entityName="Driver">
+      <scenarioBehaviour_UsageScenario id="_BwqAgD-jEeuuG9chg-tc3w" entityName="ScenarioBehaviour">
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_BwqAgT-jEeuuG9chg-tc3w" successor="_nys0QD-jEeuuG9chg-tc3w"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_BwqnkD-jEeuuG9chg-tc3w" predecessor="_12ffID-jEeuuG9chg-tc3w"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_nys0QD-jEeuuG9chg-tc3w" entityName="Driver.addPrivateKey" successor="_phSdAD-jEeuuG9chg-tc3w" predecessor="_BwqAgT-jEeuuG9chg-tc3w">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_umnX4D9-EeuyzLaAFX3TLQ"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_4QuXoD98EeuyzLaAFX3TLQ"/>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_JjS5kD-nEeuuG9chg-tc3w">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                <literal href="CharacteristicTypes.characteristics#_htC-ED92EeuyzLaAFX3TLQ"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_Kve_5j-nEeuuG9chg-tc3w"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_phSdAD-jEeuuG9chg-tc3w" entityName="Driver.addPublicKey" successor="_iyKq4D-pEeuuG9chg-tc3w" predecessor="_nys0QD-jEeuuG9chg-tc3w">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_U4RKkD-jEeuuG9chg-tc3w"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_yDA4MD98EeuyzLaAFX3TLQ"/>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_NlotoD-nEeuuG9chg-tc3w">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_gzAXsT92EeuyzLaAFX3TLQ"/>
+                <literal href="CharacteristicTypes.characteristics#_htC-ED92EeuyzLaAFX3TLQ"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_PICUhj-nEeuuG9chg-tc3w"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="publicKey"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_iyKq4D-pEeuuG9chg-tc3w" entityName="Driver.register" successor="_12ffID-jEeuuG9chg-tc3w" predecessor="_phSdAD-jEeuuG9chg-tc3w">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_cJYZAD-pEeuuG9chg-tc3w"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_eaVkcD-oEeuuG9chg-tc3w"/>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_u-rrED-pEeuuG9chg-tc3w">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dwawcT92EeuyzLaAFX3TLQ"/>
+                <literal href="CharacteristicTypes.characteristics#_7hbssD93EeuyzLaAFX3TLQ"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_xeqUhj-pEeuuG9chg-tc3w"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="user"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_12ffID-jEeuuG9chg-tc3w" entityName="Driver.submitRoute" successor="_BwqnkD-jEeuuG9chg-tc3w" predecessor="_iyKq4D-pEeuuG9chg-tc3w">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_s3CQoD9-EeuyzLaAFX3TLQ"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_LM9fgD96EeuyzLaAFX3TLQ"/>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_UGVagD-nEeuuG9chg-tc3w">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dwawcT92EeuyzLaAFX3TLQ"/>
+                <literal href="CharacteristicTypes.characteristics#_NB4zED91EeuyzLaAFX3TLQ"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_VTE6dj-nEeuuG9chg-tc3w"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="route"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+      </scenarioBehaviour_UsageScenario>
+      <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload">
+        <thinkTime_ClosedWorkload specification="0.0"/>
+      </workload_UsageScenario>
+    </usageScenario_UsageModel>
+    <usageScenario_UsageModel id="_470GwD-iEeuuG9chg-tc3w" entityName="Admin">
+      <scenarioBehaviour_UsageScenario id="_B51xsD-jEeuuG9chg-tc3w" entityName="ScenarioBehaviour">
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Start" id="_B51xsT-jEeuuG9chg-tc3w" successor="_h4nbcD-jEeuuG9chg-tc3w"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:Stop" id="_B51xsj-jEeuuG9chg-tc3w" predecessor="_xaYgMD-jEeuuG9chg-tc3w"/>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_h4nbcD-jEeuuG9chg-tc3w" entityName="Admin.addPublicKeyDistanceService" successor="_xaYgMD-jEeuuG9chg-tc3w" predecessor="_B51xsT-jEeuuG9chg-tc3w">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_dylaMD-jEeuuG9chg-tc3w"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_yDA4MD98EeuyzLaAFX3TLQ"/>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_TIfHoD-mEeuuG9chg-tc3w">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_gzAXsT92EeuyzLaAFX3TLQ"/>
+                <literal href="CharacteristicTypes.characteristics#_KDWlYD91EeuyzLaAFX3TLQ"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_TlwSdj-mEeuuG9chg-tc3w"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="publicKey"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+        <actions_ScenarioBehaviour xsi:type="usagemodel:EntryLevelSystemCall" id="_xaYgMD-jEeuuG9chg-tc3w" entityName="Admin.addPrivateKeyDistanceService" successor="_B51xsj-jEeuuG9chg-tc3w" predecessor="_h4nbcD-jEeuuG9chg-tc3w">
+          <providedRole_EntryLevelSystemCall href="newSystem.system#_Bs65YD-KEeuyzLaAFX3TLQ"/>
+          <operationSignature__EntryLevelSystemCall href="newRepository.repository#_4QuXoD98EeuyzLaAFX3TLQ"/>
+          <inputParameterUsages_EntryLevelSystemCall>
+            <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+              <specification_VariableCharacterisation specification="false"/>
+              <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_XfJl4D-mEeuuG9chg-tc3w">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                <literal href="CharacteristicTypes.characteristics#_KDWlYD91EeuyzLaAFX3TLQ"/>
+              </lhs>
+              <rhs xsi:type="expressions:True" id="_X9Thhj-mEeuuG9chg-tc3w"/>
+            </variableCharacterisation_VariableUsage>
+            <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+          </inputParameterUsages_EntryLevelSystemCall>
+        </actions_ScenarioBehaviour>
+      </scenarioBehaviour_UsageScenario>
+      <workload_UsageScenario xsi:type="usagemodel:ClosedWorkload">
+        <thinkTime_ClosedWorkload specification="0.0"/>
+      </workload_UsageScenario>
+    </usageScenario_UsageModel>
+  </usagemodel:UsageModel>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_3e7SAD-iEeuuG9chg-tc3w">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_yqyHQBBzEeucCo3FRAS_1w"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_c65AYD-nEeuuG9chg-tc3w"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_4ZO-ID-iEeuuG9chg-tc3w">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_yqyHQBBzEeucCo3FRAS_1w"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_k0ahYD-nEeuuG9chg-tc3w"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_470GwD-iEeuuG9chg-tc3w">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_yqyHQBBzEeucCo3FRAS_1w"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_qOSJED-nEeuuG9chg-tc3w"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" location="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>

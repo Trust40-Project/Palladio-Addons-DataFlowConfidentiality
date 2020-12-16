@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="ASCII"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:emfprofileapplication="http://www.modelversioning.org/emfprofile/application/1.1" xmlns:org.palladiosimulator.dataflow.confidentiality.pcm.model.profile="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" xmlns:org.palladiosimulator.indirections.composition="http://palladiosimulator.org/Indirections/Composition/1.0" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:system="http://palladiosimulator.org/PalladioComponentModel/System/5.2">
+  <system:System id="_VxqQgD9-EeuyzLaAFX3TLQ" entityName="New System">
+    <assemblyContexts__ComposedStructure id="_X6OfgD9-EeuyzLaAFX3TLQ" entityName="Assembly_PrivateDriver">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:CompositeComponent" href="newRepository.repository#_uZG5oD95EeuyzLaAFX3TLQ"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_ZNmy8D9-EeuyzLaAFX3TLQ" entityName="Assembly_PrivateTaxi">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:CompositeComponent" href="newRepository.repository#_nWsm0D95EeuyzLaAFX3TLQ"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_xoOtwD-JEeuyzLaAFX3TLQ" entityName="Assembly_DistanceService">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:CompositeComponent" href="newRepository.repository#_Cvy0AD98EeuyzLaAFX3TLQ"/>
+    </assemblyContexts__ComposedStructure>
+    <assemblyContexts__ComposedStructure id="_zgyx4D-JEeuyzLaAFX3TLQ" entityName="Assembly_PrivateRider">
+      <encapsulatedComponent__AssemblyContext xsi:type="repository:CompositeComponent" href="newRepository.repository#_qFNmED96EeuyzLaAFX3TLQ"/>
+    </assemblyContexts__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_ypHkAD9-EeuyzLaAFX3TLQ" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_s3CQoD9-EeuyzLaAFX3TLQ" assemblyContext_ProvidedDelegationConnector="_X6OfgD9-EeuyzLaAFX3TLQ">
+      <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_yo0bUD95EeuyzLaAFX3TLQ"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_zNhRkD9-EeuyzLaAFX3TLQ" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_umnX4D9-EeuyzLaAFX3TLQ" assemblyContext_ProvidedDelegationConnector="_X6OfgD9-EeuyzLaAFX3TLQ">
+      <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_Eprb4D9-EeuyzLaAFX3TLQ"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_AnOcoD-KEeuyzLaAFX3TLQ" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="__t8EMD-JEeuyzLaAFX3TLQ" assemblyContext_ProvidedDelegationConnector="_zgyx4D-JEeuyzLaAFX3TLQ">
+      <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_rBV3ID96EeuyzLaAFX3TLQ"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_Fw7hYD-KEeuyzLaAFX3TLQ" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_Bs65YD-KEeuyzLaAFX3TLQ" assemblyContext_ProvidedDelegationConnector="_xoOtwD-JEeuyzLaAFX3TLQ">
+      <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_wvWacD-IEeuyzLaAFX3TLQ"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_XgyE8D-jEeuuG9chg-tc3w" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_U4RKkD-jEeuuG9chg-tc3w" assemblyContext_ProvidedDelegationConnector="_X6OfgD9-EeuyzLaAFX3TLQ">
+      <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_7lxFMD-aEeuyzLaAFX3TLQ"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_gn2-MD-jEeuuG9chg-tc3w" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_dylaMD-jEeuuG9chg-tc3w" assemblyContext_ProvidedDelegationConnector="_xoOtwD-JEeuyzLaAFX3TLQ">
+      <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_dkhkUD-IEeuyzLaAFX3TLQ"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_n0_oYD-lEeuuG9chg-tc3w" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_jjc6sD-lEeuuG9chg-tc3w" assemblyContext_ProvidedDelegationConnector="_zgyx4D-JEeuyzLaAFX3TLQ">
+      <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_aI2ogD-lEeuuG9chg-tc3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_oITl8D-lEeuuG9chg-tc3w" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_lYqI0D-lEeuuG9chg-tc3w" assemblyContext_ProvidedDelegationConnector="_zgyx4D-JEeuyzLaAFX3TLQ">
+      <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_eJhBkD-lEeuuG9chg-tc3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_dVzv4D-pEeuuG9chg-tc3w" entityName="newProvidedDelegationConnector" outerProvidedRole_ProvidedDelegationConnector="_cJYZAD-pEeuuG9chg-tc3w" assemblyContext_ProvidedDelegationConnector="_ZNmy8D9-EeuyzLaAFX3TLQ">
+      <innerProvidedRole_ProvidedDelegationConnector href="newRepository.repository#_wC2eoD95EeuyzLaAFX3TLQ"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_hKWc4D_HEeuuG9chg-tc3w" entityName="newAssemblyDataConnector" sinkAssemblyContext="_xoOtwD-JEeuyzLaAFX3TLQ" sourceAssemblyContext="_ZNmy8D9-EeuyzLaAFX3TLQ">
+      <dataSourceRole href="newRepository.repository#_FcFGYD_EEeuuG9chg-tc3w"/>
+      <dataSinkRole href="newRepository.repository#_NBCRID-6EeuuG9chg-tc3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_hwLGwD_HEeuuG9chg-tc3w" entityName="newAssemblyDataConnector" sinkAssemblyContext="_xoOtwD-JEeuyzLaAFX3TLQ" sourceAssemblyContext="_ZNmy8D9-EeuyzLaAFX3TLQ">
+      <dataSourceRole href="newRepository.repository#_G_eLwD_EEeuuG9chg-tc3w"/>
+      <dataSinkRole href="newRepository.repository#_Ov7b4D-6EeuuG9chg-tc3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_iMZIsD_HEeuuG9chg-tc3w" entityName="newAssemblyDataConnector" sinkAssemblyContext="_ZNmy8D9-EeuyzLaAFX3TLQ" sourceAssemblyContext="_xoOtwD-JEeuyzLaAFX3TLQ">
+      <dataSourceRole href="newRepository.repository#_LX0QkD-6EeuuG9chg-tc3w"/>
+      <dataSinkRole href="newRepository.repository#_Kq5UoD_EEeuuG9chg-tc3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_C6yRgD_IEeuuG9chg-tc3w" entityName="newAssemblyDataConnector" sinkAssemblyContext="_X6OfgD9-EeuyzLaAFX3TLQ" sourceAssemblyContext="_xoOtwD-JEeuyzLaAFX3TLQ">
+      <dataSourceRole href="newRepository.repository#_6jVeYD_HEeuuG9chg-tc3w"/>
+      <dataSinkRole href="newRepository.repository#_H8wbwD-2EeuuG9chg-tc3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_MULCwD_IEeuuG9chg-tc3w" entityName="newAssemblyDataConnector" sinkAssemblyContext="_ZNmy8D9-EeuyzLaAFX3TLQ" sourceAssemblyContext="_X6OfgD9-EeuyzLaAFX3TLQ">
+      <dataSourceRole href="newRepository.repository#_am-X0D-5EeuuG9chg-tc3w"/>
+      <dataSinkRole href="newRepository.repository#_MOeKwD_FEeuuG9chg-tc3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_RSq9ED_IEeuuG9chg-tc3w" entityName="newAssemblyDataConnector" sinkAssemblyContext="_X6OfgD9-EeuyzLaAFX3TLQ" sourceAssemblyContext="_ZNmy8D9-EeuyzLaAFX3TLQ">
+      <dataSourceRole href="newRepository.repository#_KWzegD_FEeuuG9chg-tc3w"/>
+      <dataSinkRole href="newRepository.repository#_JgvPoD-5EeuuG9chg-tc3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_SiJn8D_IEeuuG9chg-tc3w" entityName="newAssemblyDataConnector" sinkAssemblyContext="_X6OfgD9-EeuyzLaAFX3TLQ" sourceAssemblyContext="_ZNmy8D9-EeuyzLaAFX3TLQ">
+      <dataSourceRole href="newRepository.repository#_HWcE0D_FEeuuG9chg-tc3w"/>
+      <dataSinkRole href="newRepository.repository#_HFUWED-5EeuuG9chg-tc3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_yLqMUD_IEeuuG9chg-tc3w" entityName="newAssemblyDataConnector" sinkAssemblyContext="_ZNmy8D9-EeuyzLaAFX3TLQ" sourceAssemblyContext="_X6OfgD9-EeuyzLaAFX3TLQ">
+      <dataSourceRole href="newRepository.repository#_cOgLwD-4EeuuG9chg-tc3w"/>
+      <dataSinkRole href="newRepository.repository#_mub7ED_IEeuuG9chg-tc3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_-B1wID_IEeuuG9chg-tc3w" entityName="newAssemblyDataConnector" sinkAssemblyContext="_zgyx4D-JEeuyzLaAFX3TLQ" sourceAssemblyContext="_xoOtwD-JEeuyzLaAFX3TLQ">
+      <dataSourceRole href="newRepository.repository#_6jVeYD_HEeuuG9chg-tc3w"/>
+      <dataSinkRole href="newRepository.repository#_s163sD-9EeuuG9chg-tc3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_Apa2YD_JEeuuG9chg-tc3w" entityName="newAssemblyDataConnector" sinkAssemblyContext="_ZNmy8D9-EeuyzLaAFX3TLQ" sourceAssemblyContext="_zgyx4D-JEeuyzLaAFX3TLQ">
+      <dataSourceRole href="newRepository.repository#_R4Zr4D--EeuuG9chg-tc3w"/>
+      <dataSinkRole href="newRepository.repository#_7jpBoD_DEeuuG9chg-tc3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_BLzKsD_JEeuuG9chg-tc3w" entityName="newAssemblyDataConnector" sinkAssemblyContext="_ZNmy8D9-EeuyzLaAFX3TLQ" sourceAssemblyContext="_zgyx4D-JEeuyzLaAFX3TLQ">
+      <dataSourceRole href="newRepository.repository#_LoBS8D--EeuuG9chg-tc3w"/>
+      <dataSinkRole href="newRepository.repository#_55Lq8D_DEeuuG9chg-tc3w"/>
+    </connectors__ComposedStructure>
+    <connectors__ComposedStructure xsi:type="org.palladiosimulator.indirections.composition:AssemblyDataConnector" id="_Bz3QQD_JEeuuG9chg-tc3w" entityName="newAssemblyDataConnector" sinkAssemblyContext="_zgyx4D-JEeuyzLaAFX3TLQ" sourceAssemblyContext="_ZNmy8D9-EeuyzLaAFX3TLQ">
+      <dataSourceRole href="newRepository.repository#_86p34D_DEeuuG9chg-tc3w"/>
+      <dataSinkRole href="newRepository.repository#_0bRqED--EeuuG9chg-tc3w"/>
+    </connectors__ComposedStructure>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_s3CQoD9-EeuyzLaAFX3TLQ" entityName="PrivateDriverProvidedRole">
+      <providedInterface__OperationProvidedRole href="newRepository.repository#_tHuKQD95EeuyzLaAFX3TLQ"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_umnX4D9-EeuyzLaAFX3TLQ" entityName="PrivateKeyStorageDriverProvidedRole">
+      <providedInterface__OperationProvidedRole href="newRepository.repository#_3c5G8D98EeuyzLaAFX3TLQ"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="__t8EMD-JEeuyzLaAFX3TLQ" entityName="PrivateRiderProvidedRole">
+      <providedInterface__OperationProvidedRole href="newRepository.repository#_hGPf8D96EeuyzLaAFX3TLQ"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_Bs65YD-KEeuyzLaAFX3TLQ" entityName="PrivateKeyStorageDistanceServiceProvidedRole">
+      <providedInterface__OperationProvidedRole href="newRepository.repository#_3c5G8D98EeuyzLaAFX3TLQ"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_U4RKkD-jEeuuG9chg-tc3w" entityName="PublicKeyStorageDriverProvidedRole">
+      <providedInterface__OperationProvidedRole href="newRepository.repository#_xPKZYD98EeuyzLaAFX3TLQ"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_dylaMD-jEeuuG9chg-tc3w" entityName="PublicKeyStorageDistanceServiceProvidedRole">
+      <providedInterface__OperationProvidedRole href="newRepository.repository#_xPKZYD98EeuyzLaAFX3TLQ"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_jjc6sD-lEeuuG9chg-tc3w" entityName="PrivateKeyStorageRiderProvidedRole">
+      <providedInterface__OperationProvidedRole href="newRepository.repository#_3c5G8D98EeuyzLaAFX3TLQ"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_lYqI0D-lEeuuG9chg-tc3w" entityName="PublicKeyStorageRiderProvidedRole">
+      <providedInterface__OperationProvidedRole href="newRepository.repository#_xPKZYD98EeuyzLaAFX3TLQ"/>
+    </providedRoles_InterfaceProvidingEntity>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_cJYZAD-pEeuuG9chg-tc3w" entityName="PrivateTaxiProvidedRole">
+      <providedInterface__OperationProvidedRole href="newRepository.repository#_sDneYD94EeuyzLaAFX3TLQ"/>
+    </providedRoles_InterfaceProvidingEntity>
+  </system:System>
+  <emfprofileapplication:ProfileApplication>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_X6OfgD9-EeuyzLaAFX3TLQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_YMF8MBdpEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_k0ahYD-nEeuuG9chg-tc3w"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_ZNmy8D9-EeuyzLaAFX3TLQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_YMF8MBdpEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_n_DRYD-nEeuuG9chg-tc3w"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_xoOtwD-JEeuyzLaAFX3TLQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_YMF8MBdpEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_qOSJED-nEeuuG9chg-tc3w"/>
+    </stereotypeApplications>
+    <stereotypeApplications xsi:type="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile:Characterisable" appliedTo="_zgyx4D-JEeuyzLaAFX3TLQ">
+      <extension href="../../plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram#_YMF8MBdpEeu98bd9ogearw"/>
+      <characteristics xsi:type="characteristics:EnumCharacteristic" href="Characteristics.characteristics#_c65AYD-nEeuuG9chg-tc3w"/>
+    </stereotypeApplications>
+    <importedProfiles nsURI="org.palladiosimulator.dataflow.confidentiality.pcm.model.profile" location="platform:/plugin/org.palladiosimulator.dataflow.confidentiality.pcm.model.profile/profile.emfprofile_diagram"/>
+  </emfprofileapplication:ProfileApplication>
+</xmi:XMI>
