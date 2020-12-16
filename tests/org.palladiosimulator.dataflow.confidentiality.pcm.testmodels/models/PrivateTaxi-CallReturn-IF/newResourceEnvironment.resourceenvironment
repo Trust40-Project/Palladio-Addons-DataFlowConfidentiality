@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ASCII"?>
+<resourceenvironment:ResourceEnvironment xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:resourceenvironment="http://palladiosimulator.org/PalladioComponentModel/ResourceEnvironment/5.2" entityName="New ResourceEnvironment">
+  <linkingResources__ResourceEnvironment id="_JUi2cD-oEeuuG9chg-tc3w" entityName="LinkingResource1" connectedResourceContainers_LinkingResource="_HxHU0D-oEeuuG9chg-tc3w _IgRg4D-oEeuuG9chg-tc3w _HEm0ID-oEeuuG9chg-tc3w _GJf2wD-oEeuuG9chg-tc3w">
+    <communicationLinkResourceSpecifications_LinkingResource id="_JUkEkD-oEeuuG9chg-tc3w">
+      <latency_CommunicationLinkResourceSpecification/>
+      <throughput_CommunicationLinkResourceSpecification/>
+    </communicationLinkResourceSpecifications_LinkingResource>
+  </linkingResources__ResourceEnvironment>
+  <resourceContainer_ResourceEnvironment id="_GJf2wD-oEeuuG9chg-tc3w" entityName="Driver"/>
+  <resourceContainer_ResourceEnvironment id="_HEm0ID-oEeuuG9chg-tc3w" entityName="Rider"/>
+  <resourceContainer_ResourceEnvironment id="_HxHU0D-oEeuuG9chg-tc3w" entityName="PrivateTaxi"/>
+  <resourceContainer_ResourceEnvironment id="_IgRg4D-oEeuuG9chg-tc3w" entityName="CalcDistance"/>
+</resourceenvironment:ResourceEnvironment>

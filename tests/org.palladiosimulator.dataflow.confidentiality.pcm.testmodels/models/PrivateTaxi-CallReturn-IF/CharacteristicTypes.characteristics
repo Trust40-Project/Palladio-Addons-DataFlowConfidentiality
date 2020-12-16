@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:CharacteristicTypeDictionary xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" id="_D5u7wD91EeuyzLaAFX3TLQ">
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_dwawcT92EeuyzLaAFX3TLQ" name="CriticalDataType" type="_EaffcD91EeuyzLaAFX3TLQ"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_fTP1IT92EeuyzLaAFX3TLQ" name="EncryptedContent" type="_EaffcD91EeuyzLaAFX3TLQ"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_gzAXsT92EeuyzLaAFX3TLQ" name="PublicKeyOf" type="_I1XvUj91EeuyzLaAFX3TLQ"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_lLI1kT92EeuyzLaAFX3TLQ" name="PrivateKeyOf" type="_I1XvUj91EeuyzLaAFX3TLQ"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_xSDuoT93EeuyzLaAFX3TLQ" name="DecryptableBy" type="_I1XvUj91EeuyzLaAFX3TLQ"/>
+  <characteristicTypes xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" id="_gpVoET-nEeuuG9chg-tc3w" name="Owner" type="_I1XvUj91EeuyzLaAFX3TLQ"/>
+  <characteristicEnumerations id="_EaffcD91EeuyzLaAFX3TLQ" name="CriticalDataType">
+    <literals id="_NB4zED91EeuyzLaAFX3TLQ" name="Route"/>
+    <literals id="_7hbssD93EeuyzLaAFX3TLQ" name="ContactData"/>
+  </characteristicEnumerations>
+  <characteristicEnumerations id="_I1XvUj91EeuyzLaAFX3TLQ" name="Roles">
+    <literals id="_KDWlYD91EeuyzLaAFX3TLQ" name="CalcDistance"/>
+    <literals id="_LLhHUD91EeuyzLaAFX3TLQ" name="PrivateTaxi"/>
+    <literals id="_htC-ED92EeuyzLaAFX3TLQ" name="Driver"/>
+    <literals id="_E6d4oD94EeuyzLaAFX3TLQ" name="Rider"/>
+  </characteristicEnumerations>
+</characteristics:CharacteristicTypeDictionary>

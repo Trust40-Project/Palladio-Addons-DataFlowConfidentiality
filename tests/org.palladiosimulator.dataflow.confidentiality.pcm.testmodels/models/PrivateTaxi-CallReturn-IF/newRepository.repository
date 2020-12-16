@@ -1,0 +1,925 @@
+<?xml version="1.0" encoding="ASCII"?>
+<repository:Repository xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:composition="http://palladiosimulator.org/PalladioComponentModel/Core/Composition/5.2" xmlns:confidentiality="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0" xmlns:expression="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/expression" xmlns:expressions="http://palladiosimulator.org/dataflow/dictionary/characterized/expressions/1.0" xmlns:repository="http://palladiosimulator.org/PalladioComponentModel/Repository/5.2" xmlns:repository_1="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/repository" xmlns:seff="http://palladiosimulator.org/PalladioComponentModel/SEFF/5.2" xmlns:stoex="http://sdq.ipd.uka.de/StochasticExpressions/2.2" id="_ohv6ID94EeuyzLaAFX3TLQ" entityName="New Repository">
+  <components__Repository xsi:type="repository:CompositeComponent" id="_nWsm0D95EeuyzLaAFX3TLQ" entityName="PrivateTaxi">
+    <assemblyContexts__ComposedStructure id="_YhTPID-VEeuyzLaAFX3TLQ" entityName="Assembly_PrivateTaxiLogic" encapsulatedComponent__AssemblyContext="_Qu-rsD98EeuyzLaAFX3TLQ"/>
+    <assemblyContexts__ComposedStructure id="_btEnkD-VEeuyzLaAFX3TLQ" entityName="Assembly_RouteStorage" encapsulatedComponent__AssemblyContext="_mN2oHj98EeuyzLaAFX3TLQ"/>
+    <assemblyContexts__ComposedStructure id="_up6xcD-oEeuuG9chg-tc3w" entityName="Assembly_UserStorage_Rider" encapsulatedComponent__AssemblyContext="_k3CiID-oEeuuG9chg-tc3w"/>
+    <assemblyContexts__ComposedStructure id="_wiyXkD-oEeuuG9chg-tc3w" entityName="Assembly_UserStorage_Driver" encapsulatedComponent__AssemblyContext="_k3CiID-oEeuuG9chg-tc3w"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_cyQuAD-VEeuyzLaAFX3TLQ" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_YhTPID-VEeuyzLaAFX3TLQ" providingAssemblyContext_AssemblyConnector="_btEnkD-VEeuyzLaAFX3TLQ" providedRole_AssemblyConnector="_9zWSsD98EeuyzLaAFX3TLQ" requiredRole_AssemblyConnector="_Irqt0D-CEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_dFLqAD-VEeuyzLaAFX3TLQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_R5hzQD98EeuyzLaAFX3TLQ" outerProvidedRole_ProvidedDelegationConnector="_wC2eoD95EeuyzLaAFX3TLQ" assemblyContext_ProvidedDelegationConnector="_YhTPID-VEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:RequiredDelegationConnector" id="_dmjRsD-VEeuyzLaAFX3TLQ" entityName="newRequiredDelegationConnector" innerRequiredRole_RequiredDelegationConnector="_m-ngMD-IEeuyzLaAFX3TLQ" outerRequiredRole_RequiredDelegationConnector="_p0xN8D-IEeuyzLaAFX3TLQ" assemblyContext_RequiredDelegationConnector="_YhTPID-VEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:RequiredDelegationConnector" id="_kivAsD-VEeuyzLaAFX3TLQ" entityName="newRequiredDelegationConnector" innerRequiredRole_RequiredDelegationConnector="_5jbBsD-UEeuyzLaAFX3TLQ" outerRequiredRole_RequiredDelegationConnector="_huVmcD-VEeuyzLaAFX3TLQ" assemblyContext_RequiredDelegationConnector="_YhTPID-VEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_9BCA8D-oEeuuG9chg-tc3w" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_YhTPID-VEeuyzLaAFX3TLQ" providingAssemblyContext_AssemblyConnector="_wiyXkD-oEeuuG9chg-tc3w" providedRole_AssemblyConnector="_rY66wD-oEeuuG9chg-tc3w" requiredRole_AssemblyConnector="_0Yzm4D-oEeuuG9chg-tc3w"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_9Y2EAD-oEeuuG9chg-tc3w" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_YhTPID-VEeuyzLaAFX3TLQ" providingAssemblyContext_AssemblyConnector="_up6xcD-oEeuuG9chg-tc3w" providedRole_AssemblyConnector="_rY66wD-oEeuuG9chg-tc3w" requiredRole_AssemblyConnector="_2b2csD-oEeuuG9chg-tc3w"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_wC2eoD95EeuyzLaAFX3TLQ" entityName="PrivateTaxi.provided.PrivateTaxi" providedInterface__OperationProvidedRole="_sDneYD94EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_p0xN8D-IEeuyzLaAFX3TLQ" entityName="PrivateTaxi.required.DistanceService" requiredInterface__OperationRequiredRole="_Ei-o4D98EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_huVmcD-VEeuyzLaAFX3TLQ" entityName="PrivateTaxi.required.PrivateDriver" requiredInterface__OperationRequiredRole="_tHuKQD95EeuyzLaAFX3TLQ"/>
+  </components__Repository>
+  <components__Repository xsi:type="repository:CompositeComponent" id="_uZG5oD95EeuyzLaAFX3TLQ" entityName="PrivateDriver">
+    <assemblyContexts__ComposedStructure id="_ICJzkD9-EeuyzLaAFX3TLQ" entityName="Assembly_PrivateDriverLogic" encapsulatedComponent__AssemblyContext="_MNk9ED98EeuyzLaAFX3TLQ"/>
+    <assemblyContexts__ComposedStructure id="_I3Sr0D9-EeuyzLaAFX3TLQ" entityName="Assembly_PrivateKeyStorage_PrivateDriver" encapsulatedComponent__AssemblyContext="_hqejgD98EeuyzLaAFX3TLQ"/>
+    <assemblyContexts__ComposedStructure id="_3OGhYD-aEeuyzLaAFX3TLQ" entityName="Assembly_PublicKeyStorage" encapsulatedComponent__AssemblyContext="_j8aw_j98EeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_NT5aAD9-EeuyzLaAFX3TLQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_88imgD98EeuyzLaAFX3TLQ" outerProvidedRole_ProvidedDelegationConnector="_Eprb4D9-EeuyzLaAFX3TLQ" assemblyContext_ProvidedDelegationConnector="_I3Sr0D9-EeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_NqWLID9-EeuyzLaAFX3TLQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_N2Yt8D98EeuyzLaAFX3TLQ" outerProvidedRole_ProvidedDelegationConnector="_yo0bUD95EeuyzLaAFX3TLQ" assemblyContext_ProvidedDelegationConnector="_ICJzkD9-EeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:RequiredDelegationConnector" id="_QafK8D-TEeuyzLaAFX3TLQ" entityName="newRequiredDelegationConnector" innerRequiredRole_RequiredDelegationConnector="_PJlT0D9_EeuyzLaAFX3TLQ" outerRequiredRole_RequiredDelegationConnector="_R8OakD9_EeuyzLaAFX3TLQ" assemblyContext_RequiredDelegationConnector="_ICJzkD9-EeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:RequiredDelegationConnector" id="_Q6s8ED-TEeuyzLaAFX3TLQ" entityName="newRequiredDelegationConnector" innerRequiredRole_RequiredDelegationConnector="_jY1bYD9_EeuyzLaAFX3TLQ" outerRequiredRole_RequiredDelegationConnector="_h0WJ0D9_EeuyzLaAFX3TLQ" assemblyContext_RequiredDelegationConnector="_ICJzkD9-EeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_bNgzMD-UEeuyzLaAFX3TLQ" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_ICJzkD9-EeuyzLaAFX3TLQ" providingAssemblyContext_AssemblyConnector="_I3Sr0D9-EeuyzLaAFX3TLQ" providedRole_AssemblyConnector="_88imgD98EeuyzLaAFX3TLQ" requiredRole_AssemblyConnector="_WAxokD-UEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_687jkD-aEeuyzLaAFX3TLQ" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_ICJzkD9-EeuyzLaAFX3TLQ" providingAssemblyContext_AssemblyConnector="_3OGhYD-aEeuyzLaAFX3TLQ" providedRole_AssemblyConnector="_9W8DgD98EeuyzLaAFX3TLQ" requiredRole_AssemblyConnector="_0WpMED-aEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_9yIPED-aEeuyzLaAFX3TLQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_9W8DgD98EeuyzLaAFX3TLQ" outerProvidedRole_ProvidedDelegationConnector="_7lxFMD-aEeuyzLaAFX3TLQ" assemblyContext_ProvidedDelegationConnector="_3OGhYD-aEeuyzLaAFX3TLQ"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_yo0bUD95EeuyzLaAFX3TLQ" entityName="PrivateDriver.provided.PrivateDriver" providedInterface__OperationProvidedRole="_tHuKQD95EeuyzLaAFX3TLQ"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_Eprb4D9-EeuyzLaAFX3TLQ" entityName="PrivateDriver.provided.PrivateKeyStorage" providedInterface__OperationProvidedRole="_3c5G8D98EeuyzLaAFX3TLQ"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_7lxFMD-aEeuyzLaAFX3TLQ" entityName="PrivateDriver.provided.PublicKeyStorage" providedInterface__OperationProvidedRole="_xPKZYD98EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_R8OakD9_EeuyzLaAFX3TLQ" entityName="PrivateDriver.required.PublicKeyStorage_DistanceCalculator" requiredInterface__OperationRequiredRole="_xPKZYD98EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_h0WJ0D9_EeuyzLaAFX3TLQ" entityName="PrivateDriver.required.PrivateTaxi" requiredInterface__OperationRequiredRole="_sDneYD94EeuyzLaAFX3TLQ"/>
+  </components__Repository>
+  <components__Repository xsi:type="repository:CompositeComponent" id="_qFNmED96EeuyzLaAFX3TLQ" entityName="PrivateRider">
+    <assemblyContexts__ComposedStructure id="_Ir95sD-LEeuyzLaAFX3TLQ" entityName="Assembly_PrivateKeyStorage" encapsulatedComponent__AssemblyContext="_hqejgD98EeuyzLaAFX3TLQ"/>
+    <assemblyContexts__ComposedStructure id="_JS9BMD-LEeuyzLaAFX3TLQ" entityName="Assembly_PublicKeyStorage" encapsulatedComponent__AssemblyContext="_j8aw_j98EeuyzLaAFX3TLQ"/>
+    <assemblyContexts__ComposedStructure id="_K0SRED-LEeuyzLaAFX3TLQ" entityName="Assembly_PrivateRiderLogic" encapsulatedComponent__AssemblyContext="_TgAo4D98EeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:RequiredDelegationConnector" id="_NU9eED-LEeuyzLaAFX3TLQ" entityName="newRequiredDelegationConnector" innerRequiredRole_RequiredDelegationConnector="_LgP0oD-KEeuyzLaAFX3TLQ" outerRequiredRole_RequiredDelegationConnector="_Qd72oD-KEeuyzLaAFX3TLQ" assemblyContext_RequiredDelegationConnector="_K0SRED-LEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:RequiredDelegationConnector" id="_Nyr74D-LEeuyzLaAFX3TLQ" entityName="newRequiredDelegationConnector" innerRequiredRole_RequiredDelegationConnector="_hvf-sD-CEeuyzLaAFX3TLQ" outerRequiredRole_RequiredDelegationConnector="_jRze8D-CEeuyzLaAFX3TLQ" assemblyContext_RequiredDelegationConnector="_K0SRED-LEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_Sz0TcD-LEeuyzLaAFX3TLQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_UkSJUD98EeuyzLaAFX3TLQ" outerProvidedRole_ProvidedDelegationConnector="_rBV3ID96EeuyzLaAFX3TLQ" assemblyContext_ProvidedDelegationConnector="_K0SRED-LEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_fK-dYD-LEeuyzLaAFX3TLQ" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_K0SRED-LEeuyzLaAFX3TLQ" providingAssemblyContext_AssemblyConnector="_JS9BMD-LEeuyzLaAFX3TLQ" providedRole_AssemblyConnector="_9W8DgD98EeuyzLaAFX3TLQ" requiredRole_AssemblyConnector="_ZC32sD-LEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_fhrGID-LEeuyzLaAFX3TLQ" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_K0SRED-LEeuyzLaAFX3TLQ" providingAssemblyContext_AssemblyConnector="_Ir95sD-LEeuyzLaAFX3TLQ" providedRole_AssemblyConnector="_88imgD98EeuyzLaAFX3TLQ" requiredRole_AssemblyConnector="_W81XQD-LEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_gl6ykD-lEeuuG9chg-tc3w" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_9W8DgD98EeuyzLaAFX3TLQ" outerProvidedRole_ProvidedDelegationConnector="_eJhBkD-lEeuuG9chg-tc3w" assemblyContext_ProvidedDelegationConnector="_JS9BMD-LEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_g-pboD-lEeuuG9chg-tc3w" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_88imgD98EeuyzLaAFX3TLQ" outerProvidedRole_ProvidedDelegationConnector="_aI2ogD-lEeuuG9chg-tc3w" assemblyContext_ProvidedDelegationConnector="_Ir95sD-LEeuyzLaAFX3TLQ"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_rBV3ID96EeuyzLaAFX3TLQ" entityName="PrivateRider.PrivateRider.OperationProvidedRole1" providedInterface__OperationProvidedRole="_hGPf8D96EeuyzLaAFX3TLQ"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_aI2ogD-lEeuuG9chg-tc3w" entityName="PrivateRider.provided.PrivateKeyStorage" providedInterface__OperationProvidedRole="_3c5G8D98EeuyzLaAFX3TLQ"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_eJhBkD-lEeuuG9chg-tc3w" entityName="PrivateRider.provided.PublicKeyStorage" providedInterface__OperationProvidedRole="_xPKZYD98EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_jRze8D-CEeuyzLaAFX3TLQ" entityName="PrivateRider.required.PrivateTaxi" requiredInterface__OperationRequiredRole="_sDneYD94EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_Qd72oD-KEeuyzLaAFX3TLQ" entityName="PrivateRider.required.PublicKeyStorage_DistanceService" requiredInterface__OperationRequiredRole="_xPKZYD98EeuyzLaAFX3TLQ"/>
+  </components__Repository>
+  <components__Repository xsi:type="repository:CompositeComponent" id="_Cvy0AD98EeuyzLaAFX3TLQ" entityName="DistanceService">
+    <assemblyContexts__ComposedStructure id="_gMXJQD-IEeuyzLaAFX3TLQ" entityName="Assembly_DistanceServiceLogic" encapsulatedComponent__AssemblyContext="_H3P2AD98EeuyzLaAFX3TLQ"/>
+    <assemblyContexts__ComposedStructure id="_g2iHoD-IEeuyzLaAFX3TLQ" entityName="Assembly_PrivateKeyStorage" encapsulatedComponent__AssemblyContext="_hqejgD98EeuyzLaAFX3TLQ"/>
+    <assemblyContexts__ComposedStructure id="_hUUP0D-IEeuyzLaAFX3TLQ" entityName="Assembly_PublicKeyStorage" encapsulatedComponent__AssemblyContext="_j8aw_j98EeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_j4rC8D-IEeuyzLaAFX3TLQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_K13jQD98EeuyzLaAFX3TLQ" outerProvidedRole_ProvidedDelegationConnector="_F3bTUD98EeuyzLaAFX3TLQ" assemblyContext_ProvidedDelegationConnector="_gMXJQD-IEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_kOe64D-IEeuyzLaAFX3TLQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_9W8DgD98EeuyzLaAFX3TLQ" outerProvidedRole_ProvidedDelegationConnector="_dkhkUD-IEeuyzLaAFX3TLQ" assemblyContext_ProvidedDelegationConnector="_hUUP0D-IEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_klpdsD-IEeuyzLaAFX3TLQ" entityName="newAssemblyConnector" requiringAssemblyContext_AssemblyConnector="_gMXJQD-IEeuyzLaAFX3TLQ" providingAssemblyContext_AssemblyConnector="_g2iHoD-IEeuyzLaAFX3TLQ" providedRole_AssemblyConnector="_88imgD98EeuyzLaAFX3TLQ" requiredRole_AssemblyConnector="_F8bRoD-IEeuyzLaAFX3TLQ"/>
+    <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_zhOsMD-IEeuyzLaAFX3TLQ" entityName="newProvidedDelegationConnector" innerProvidedRole_ProvidedDelegationConnector="_88imgD98EeuyzLaAFX3TLQ" outerProvidedRole_ProvidedDelegationConnector="_wvWacD-IEeuyzLaAFX3TLQ" assemblyContext_ProvidedDelegationConnector="_g2iHoD-IEeuyzLaAFX3TLQ"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_F3bTUD98EeuyzLaAFX3TLQ" entityName="DistanceService.provided.DistanceService" providedInterface__OperationProvidedRole="_Ei-o4D98EeuyzLaAFX3TLQ"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_dkhkUD-IEeuyzLaAFX3TLQ" entityName="DistanceService.provided.PublicKeyStorage" providedInterface__OperationProvidedRole="_xPKZYD98EeuyzLaAFX3TLQ"/>
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_wvWacD-IEeuyzLaAFX3TLQ" entityName="DistanceService.provided.PrivateKeyStorage" providedInterface__OperationProvidedRole="_3c5G8D98EeuyzLaAFX3TLQ"/>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_H3P2AD98EeuyzLaAFX3TLQ" entityName="DistanceServiceLogic">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_K13jQD98EeuyzLaAFX3TLQ" entityName="DistanceServiceLogic.provided.DistanceService" providedInterface__OperationProvidedRole="_Ei-o4D98EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_F8bRoD-IEeuyzLaAFX3TLQ" entityName="DistanceServiceLogic.required.PrivateKeyStorage" requiredInterface__OperationRequiredRole="_3c5G8D98EeuyzLaAFX3TLQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_MrysoD-IEeuyzLaAFX3TLQ" describedService__SEFF="_6btAcD-HEeuyzLaAFX3TLQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_M6hsMD-IEeuyzLaAFX3TLQ" successor_AbstractAction="_RA32gD-IEeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_M6iTQD-IEeuyzLaAFX3TLQ" predecessor_AbstractAction="_YUsCYD-IEeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_RA32gD-IEeuyzLaAFX3TLQ" entityName="DistanceServiceLogic.calculateProximity.loadPrivateKey" predecessor_AbstractAction="_M6hsMD-IEeuyzLaAFX3TLQ" successor_AbstractAction="_UDNmID-IEeuyzLaAFX3TLQ" calledService_ExternalService="_6xRBwD98EeuyzLaAFX3TLQ" role_ExternalService="_F8bRoD-IEeuyzLaAFX3TLQ">
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_n-AYQD-WEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_odZC8z-WEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_UDNmID-IEeuyzLaAFX3TLQ" entityName="DistanceServiceLogic.calculateProximity.decryptRoute1" predecessor_AbstractAction="_RA32gD-IEeuyzLaAFX3TLQ" successor_AbstractAction="_W8vYAD-IEeuyzLaAFX3TLQ">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_vbSCID-WEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_v520gz-WEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="route1"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_0Rs-gD-WEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dwawcT92EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:And" id="_3_kXaT-WEeuyzLaAFX3TLQ">
+              <left xsi:type="expression:NamedEnumCharacteristicReference" id="_4aQIQT-WEeuyzLaAFX3TLQ">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_fTP1IT92EeuyzLaAFX3TLQ"/>
+                <namedReference xsi:type="stoex:VariableReference" referenceName="route1"/>
+              </left>
+              <right xsi:type="expressions:Or" id="_8G8cez-WEeuyzLaAFX3TLQ">
+                <left xsi:type="expressions:Or" id="_YWWRdD-XEeuyzLaAFX3TLQ">
+                  <left xsi:type="expressions:And" id="_aVAWgz-XEeuyzLaAFX3TLQ">
+                    <left xsi:type="expression:NamedEnumCharacteristicReference" id="_cP1EgT-XEeuyzLaAFX3TLQ">
+                      <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+                      <literal href="CharacteristicTypes.characteristics#_KDWlYD91EeuyzLaAFX3TLQ"/>
+                      <namedReference xsi:type="stoex:VariableReference" referenceName="route1"/>
+                    </left>
+                    <right xsi:type="expression:NamedEnumCharacteristicReference" id="_dB2XVT-XEeuyzLaAFX3TLQ">
+                      <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                      <literal href="CharacteristicTypes.characteristics#_KDWlYD91EeuyzLaAFX3TLQ"/>
+                      <namedReference xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+                    </right>
+                  </left>
+                  <right xsi:type="expressions:Or" id="_bUhSzD-XEeuyzLaAFX3TLQ">
+                    <left xsi:type="expressions:And" id="_1EYjMz-XEeuyzLaAFX3TLQ">
+                      <left xsi:type="expression:NamedEnumCharacteristicReference" id="_1uGOkT-XEeuyzLaAFX3TLQ">
+                        <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+                        <literal href="CharacteristicTypes.characteristics#_htC-ED92EeuyzLaAFX3TLQ"/>
+                        <namedReference xsi:type="stoex:VariableReference" referenceName="route1"/>
+                      </left>
+                      <right xsi:type="expression:NamedEnumCharacteristicReference" id="_2WcoFT-XEeuyzLaAFX3TLQ">
+                        <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                        <literal href="CharacteristicTypes.characteristics#_htC-ED92EeuyzLaAFX3TLQ"/>
+                        <namedReference xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+                      </right>
+                    </left>
+                    <right xsi:type="expressions:And" id="_9CdNCz-XEeuyzLaAFX3TLQ">
+                      <left xsi:type="expression:NamedEnumCharacteristicReference" id="_9fDpgT-XEeuyzLaAFX3TLQ">
+                        <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+                        <literal href="CharacteristicTypes.characteristics#_E6d4oD94EeuyzLaAFX3TLQ"/>
+                        <namedReference xsi:type="stoex:VariableReference" referenceName="route1"/>
+                      </left>
+                      <right xsi:type="expression:NamedEnumCharacteristicReference" id="_-W6elT-XEeuyzLaAFX3TLQ">
+                        <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                        <literal href="CharacteristicTypes.characteristics#_E6d4oD94EeuyzLaAFX3TLQ"/>
+                        <namedReference xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+                      </right>
+                    </right>
+                  </right>
+                </left>
+                <right xsi:type="expressions:And" id="_PhW3rD-gEeuyzLaAFX3TLQ">
+                  <left xsi:type="expression:NamedEnumCharacteristicReference" id="_TFfs0T-gEeuyzLaAFX3TLQ">
+                    <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+                    <literal href="CharacteristicTypes.characteristics#_LLhHUD91EeuyzLaAFX3TLQ"/>
+                    <namedReference xsi:type="stoex:VariableReference" referenceName="route1"/>
+                  </left>
+                  <right xsi:type="expression:NamedEnumCharacteristicReference" id="_TyJXdT-gEeuyzLaAFX3TLQ">
+                    <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                    <literal href="CharacteristicTypes.characteristics#_LLhHUD91EeuyzLaAFX3TLQ"/>
+                    <namedReference xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+                  </right>
+                </right>
+              </right>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_G_mLkD-YEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_fTP1IT92EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:False" id="_IJrZFz-YEeuyzLaAFX3TLQ"/>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_I9W4wD-YEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:False" id="_J96W1z-YEeuyzLaAFX3TLQ"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="decryptedRoute1"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_W8vYAD-IEeuyzLaAFX3TLQ" entityName="DistanceServiceLogic.calculateProximity.decryptRoute2" predecessor_AbstractAction="_UDNmID-IEeuyzLaAFX3TLQ" successor_AbstractAction="_YUsCYD-IEeuyzLaAFX3TLQ">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_2__vbSCID-WEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_2__v520gz-WEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="route2"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_2__0Rs-gD-WEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dwawcT92EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:And" id="_2__3_kXaT-WEeuyzLaAFX3TLQ">
+              <left xsi:type="expression:NamedEnumCharacteristicReference" id="_2__4aQIQT-WEeuyzLaAFX3TLQ">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_fTP1IT92EeuyzLaAFX3TLQ"/>
+                <namedReference xsi:type="stoex:VariableReference" referenceName="route2"/>
+              </left>
+              <right xsi:type="expressions:Or" id="_2__8G8cez-WEeuyzLaAFX3TLQ">
+                <left xsi:type="expressions:Or" id="_2__YWWRdD-XEeuyzLaAFX3TLQ">
+                  <left xsi:type="expressions:And" id="_2__aVAWgz-XEeuyzLaAFX3TLQ">
+                    <left xsi:type="expression:NamedEnumCharacteristicReference" id="_2__cP1EgT-XEeuyzLaAFX3TLQ">
+                      <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+                      <literal href="CharacteristicTypes.characteristics#_KDWlYD91EeuyzLaAFX3TLQ"/>
+                      <namedReference xsi:type="stoex:VariableReference" referenceName="route2"/>
+                    </left>
+                    <right xsi:type="expression:NamedEnumCharacteristicReference" id="_2__dB2XVT-XEeuyzLaAFX3TLQ">
+                      <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                      <literal href="CharacteristicTypes.characteristics#_KDWlYD91EeuyzLaAFX3TLQ"/>
+                      <namedReference xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+                    </right>
+                  </left>
+                  <right xsi:type="expressions:Or" id="_2__bUhSzD-XEeuyzLaAFX3TLQ">
+                    <left xsi:type="expressions:And" id="_2__1EYjMz-XEeuyzLaAFX3TLQ">
+                      <left xsi:type="expression:NamedEnumCharacteristicReference" id="_2__1uGOkT-XEeuyzLaAFX3TLQ">
+                        <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+                        <literal href="CharacteristicTypes.characteristics#_htC-ED92EeuyzLaAFX3TLQ"/>
+                        <namedReference xsi:type="stoex:VariableReference" referenceName="route2"/>
+                      </left>
+                      <right xsi:type="expression:NamedEnumCharacteristicReference" id="_2__2WcoFT-XEeuyzLaAFX3TLQ">
+                        <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                        <literal href="CharacteristicTypes.characteristics#_htC-ED92EeuyzLaAFX3TLQ"/>
+                        <namedReference xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+                      </right>
+                    </left>
+                    <right xsi:type="expressions:And" id="_2__9CdNCz-XEeuyzLaAFX3TLQ">
+                      <left xsi:type="expression:NamedEnumCharacteristicReference" id="_2__9fDpgT-XEeuyzLaAFX3TLQ">
+                        <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+                        <literal href="CharacteristicTypes.characteristics#_E6d4oD94EeuyzLaAFX3TLQ"/>
+                        <namedReference xsi:type="stoex:VariableReference" referenceName="route2"/>
+                      </left>
+                      <right xsi:type="expression:NamedEnumCharacteristicReference" id="_2__-W6elT-XEeuyzLaAFX3TLQ">
+                        <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                        <literal href="CharacteristicTypes.characteristics#_E6d4oD94EeuyzLaAFX3TLQ"/>
+                        <namedReference xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+                      </right>
+                    </right>
+                  </right>
+                </left>
+                <right xsi:type="expressions:And" id="__N-TSz-gEeuyzLaAFX3TLQ">
+                  <left xsi:type="expression:NamedEnumCharacteristicReference" id="_DdaIMT-hEeuyzLaAFX3TLQ">
+                    <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+                    <namedReference xsi:type="stoex:VariableReference" referenceName="route2"/>
+                  </left>
+                  <right xsi:type="expression:NamedEnumCharacteristicReference" id="_ELGUpT-hEeuyzLaAFX3TLQ">
+                    <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                    <namedReference xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+                  </right>
+                </right>
+              </right>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_2__G_mLkD-YEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_fTP1IT92EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:False" id="_2__IJrZFz-YEeuyzLaAFX3TLQ"/>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_2__I9W4wD-YEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:False" id="_2__J96W1z-YEeuyzLaAFX3TLQ"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="decryptedRoute2"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_YUsCYD-IEeuyzLaAFX3TLQ" entityName="DistanceServiceLogic.calculateProximity.return" predecessor_AbstractAction="_W8vYAD-IEeuyzLaAFX3TLQ" successor_AbstractAction="_M6iTQD-IEeuyzLaAFX3TLQ">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_s_7IED-YEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expressions:False" id="_uwHTVz-YEeuyzLaAFX3TLQ"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_MNk9ED98EeuyzLaAFX3TLQ" entityName="PrivateDriverLogic">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_N2Yt8D98EeuyzLaAFX3TLQ" entityName="PrivateDriverLogic.provided.PrivateDriver" providedInterface__OperationProvidedRole="_tHuKQD95EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_PJlT0D9_EeuyzLaAFX3TLQ" entityName="PrivateDriverLogic.required.PublicKeyStorage_DistanceCalculator" requiredInterface__OperationRequiredRole="_xPKZYD98EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_jY1bYD9_EeuyzLaAFX3TLQ" entityName="PrivateDriverLogic.required.PrivateTaxi" requiredInterface__OperationRequiredRole="_sDneYD94EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_WAxokD-UEeuyzLaAFX3TLQ" entityName="PrivateDriverLogic.required.PrivateKeyStorage" requiredInterface__OperationRequiredRole="_3c5G8D98EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_0WpMED-aEeuyzLaAFX3TLQ" entityName="PrivateDriverLogic.required.PublicKeyStorage_Driver" requiredInterface__OperationRequiredRole="_xPKZYD98EeuyzLaAFX3TLQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_N2olkD98EeuyzLaAFX3TLQ" describedService__SEFF="_LM9fgD96EeuyzLaAFX3TLQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_N2ro4D98EeuyzLaAFX3TLQ" successor_AbstractAction="_UsdGgD9_EeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_N2s3AD98EeuyzLaAFX3TLQ" predecessor_AbstractAction="_lMLoUD9_EeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_UsdGgD9_EeuyzLaAFX3TLQ" entityName="PrivateDriverLogic.submitRoute.getDistanceCalculatorPublicKey" predecessor_AbstractAction="_N2ro4D98EeuyzLaAFX3TLQ" successor_AbstractAction="_SO3q8D-ZEeuyzLaAFX3TLQ" calledService_ExternalService="_1O3JID98EeuyzLaAFX3TLQ" role_ExternalService="_PJlT0D9_EeuyzLaAFX3TLQ">
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_F9bugD-ZEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_GobMQz-ZEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="distanceCalculatorPublicKey"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_SO3q8D-ZEeuyzLaAFX3TLQ" entityName="PrivateDriverLogic.submitRoute.getDriverPublicKey" predecessor_AbstractAction="_UsdGgD9_EeuyzLaAFX3TLQ" successor_AbstractAction="_HDL0cD9_EeuyzLaAFX3TLQ" calledService_ExternalService="_1O3JID98EeuyzLaAFX3TLQ" role_ExternalService="_0WpMED-aEeuyzLaAFX3TLQ">
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_azae4D-ZEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_bzfb0z-ZEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="driverPublicKey"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_HDL0cD9_EeuyzLaAFX3TLQ" entityName="PrivateDriverLogic.submitRoute.encryptRoute" predecessor_AbstractAction="_SO3q8D-ZEeuyzLaAFX3TLQ" successor_AbstractAction="_lMLoUD9_EeuyzLaAFX3TLQ">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_z0vDwD-YEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_0nvOAz-YEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="route"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_3pB0wD-YEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dwawcT92EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:False" id="_4zgD1z-YEeuyzLaAFX3TLQ"/>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_5g6jcD-YEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_fTP1IT92EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_602Qgz-YEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dwawcT92EeuyzLaAFX3TLQ"/>
+              <namedReference xsi:type="stoex:VariableReference" referenceName="route"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_-MHuUD-YEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:Or" id="_I6LMej-ZEeuyzLaAFX3TLQ">
+              <left xsi:type="expression:NamedEnumCharacteristicReference" id="_JOpnsT-ZEeuyzLaAFX3TLQ">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_gzAXsT92EeuyzLaAFX3TLQ"/>
+                <namedReference xsi:type="stoex:VariableReference" referenceName="distanceCalculatorPublicKey"/>
+              </left>
+              <right xsi:type="expression:NamedEnumCharacteristicReference" id="_M1B4hT-ZEeuyzLaAFX3TLQ">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_gzAXsT92EeuyzLaAFX3TLQ"/>
+                <namedReference xsi:type="stoex:VariableReference" referenceName="driverPublicKey"/>
+              </right>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="encryptedRoute"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_lMLoUD9_EeuyzLaAFX3TLQ" entityName="PrivateDriverLogic.submitRoute.callPrivateTaxi" predecessor_AbstractAction="_HDL0cD9_EeuyzLaAFX3TLQ" successor_AbstractAction="_N2s3AD98EeuyzLaAFX3TLQ" calledService_ExternalService="_b4nLMD9_EeuyzLaAFX3TLQ" role_ExternalService="_jY1bYD9_EeuyzLaAFX3TLQ">
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_k9r6gD-ZEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_lbvIcz-ZEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="encryptedRoute"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="route"/>
+        </inputVariableUsages__CallAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_JgA2sD-UEeuyzLaAFX3TLQ" describedService__SEFF="_Dz5ocD-UEeuyzLaAFX3TLQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_J09L8D-UEeuyzLaAFX3TLQ" successor_AbstractAction="_uhQUwD-UEeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_J09L8T-UEeuyzLaAFX3TLQ" predecessor_AbstractAction="_zTkNMD-UEeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_uhQUwD-UEeuyzLaAFX3TLQ" entityName="PrivateDriverLogic.provideRiderWithRoute.getPrivateKey" predecessor_AbstractAction="_J09L8D-UEeuyzLaAFX3TLQ" successor_AbstractAction="_wuYToD-UEeuyzLaAFX3TLQ" calledService_ExternalService="_6xRBwD98EeuyzLaAFX3TLQ" role_ExternalService="_WAxokD-UEeuyzLaAFX3TLQ">
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_t_y0MD-ZEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_uWjuYz-ZEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_wuYToD-UEeuyzLaAFX3TLQ" entityName="PrivateDriverLogic.provideRiderWithRoute.decryptRoute" predecessor_AbstractAction="_uhQUwD-UEeuyzLaAFX3TLQ" successor_AbstractAction="_GLTggD-bEeuyzLaAFX3TLQ">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_3__vbSCID-WEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_3__v520gz-WEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="route"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_3__0Rs-gD-WEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dwawcT92EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:And" id="_3__3_kXaT-WEeuyzLaAFX3TLQ">
+              <left xsi:type="expression:NamedEnumCharacteristicReference" id="_3__4aQIQT-WEeuyzLaAFX3TLQ">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_fTP1IT92EeuyzLaAFX3TLQ"/>
+                <namedReference xsi:type="stoex:VariableReference" referenceName="route"/>
+              </left>
+              <right xsi:type="expressions:Or" id="_3__8G8cez-WEeuyzLaAFX3TLQ">
+                <left xsi:type="expressions:Or" id="_3__YWWRdD-XEeuyzLaAFX3TLQ">
+                  <left xsi:type="expressions:And" id="_3__aVAWgz-XEeuyzLaAFX3TLQ">
+                    <left xsi:type="expression:NamedEnumCharacteristicReference" id="_3__cP1EgT-XEeuyzLaAFX3TLQ">
+                      <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+                      <literal href="CharacteristicTypes.characteristics#_KDWlYD91EeuyzLaAFX3TLQ"/>
+                      <namedReference xsi:type="stoex:VariableReference" referenceName="route"/>
+                    </left>
+                    <right xsi:type="expression:NamedEnumCharacteristicReference" id="_3__dB2XVT-XEeuyzLaAFX3TLQ">
+                      <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                      <literal href="CharacteristicTypes.characteristics#_KDWlYD91EeuyzLaAFX3TLQ"/>
+                      <namedReference xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+                    </right>
+                  </left>
+                  <right xsi:type="expressions:Or" id="_3__bUhSzD-XEeuyzLaAFX3TLQ">
+                    <left xsi:type="expressions:And" id="_3__1EYjMz-XEeuyzLaAFX3TLQ">
+                      <left xsi:type="expression:NamedEnumCharacteristicReference" id="_3__1uGOkT-XEeuyzLaAFX3TLQ">
+                        <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+                        <literal href="CharacteristicTypes.characteristics#_htC-ED92EeuyzLaAFX3TLQ"/>
+                        <namedReference xsi:type="stoex:VariableReference" referenceName="route"/>
+                      </left>
+                      <right xsi:type="expression:NamedEnumCharacteristicReference" id="_3__2WcoFT-XEeuyzLaAFX3TLQ">
+                        <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                        <literal href="CharacteristicTypes.characteristics#_htC-ED92EeuyzLaAFX3TLQ"/>
+                        <namedReference xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+                      </right>
+                    </left>
+                    <right xsi:type="expressions:And" id="_3__9CdNCz-XEeuyzLaAFX3TLQ">
+                      <left xsi:type="expression:NamedEnumCharacteristicReference" id="_3__9fDpgT-XEeuyzLaAFX3TLQ">
+                        <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+                        <literal href="CharacteristicTypes.characteristics#_E6d4oD94EeuyzLaAFX3TLQ"/>
+                        <namedReference xsi:type="stoex:VariableReference" referenceName="route"/>
+                      </left>
+                      <right xsi:type="expression:NamedEnumCharacteristicReference" id="_3__-W6elT-XEeuyzLaAFX3TLQ">
+                        <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                        <literal href="CharacteristicTypes.characteristics#_E6d4oD94EeuyzLaAFX3TLQ"/>
+                        <namedReference xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+                      </right>
+                    </right>
+                  </right>
+                </left>
+                <right xsi:type="expressions:And" id="_dm0hCz-hEeuyzLaAFX3TLQ">
+                  <left xsi:type="expression:NamedEnumCharacteristicReference" id="_etQksT-hEeuyzLaAFX3TLQ">
+                    <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+                    <literal href="CharacteristicTypes.characteristics#_LLhHUD91EeuyzLaAFX3TLQ"/>
+                    <namedReference xsi:type="stoex:VariableReference" referenceName="route"/>
+                  </left>
+                  <right xsi:type="expression:NamedEnumCharacteristicReference" id="_fcV4Pj-hEeuyzLaAFX3TLQ">
+                    <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_lLI1kT92EeuyzLaAFX3TLQ"/>
+                    <literal href="CharacteristicTypes.characteristics#_LLhHUD91EeuyzLaAFX3TLQ"/>
+                    <namedReference xsi:type="stoex:VariableReference" referenceName="privateKey"/>
+                  </right>
+                </right>
+              </right>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_3__G_mLkD-YEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_fTP1IT92EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:False" id="_3__IJrZFz-YEeuyzLaAFX3TLQ"/>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_3__I9W4wD-YEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:False" id="_3__J96W1z-YEeuyzLaAFX3TLQ"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="decryptedRoute"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_GLTggD-bEeuyzLaAFX3TLQ" entityName="PrivateDriverLogic.provideRiderWithRoute.getPublicKey" predecessor_AbstractAction="_wuYToD-UEeuyzLaAFX3TLQ" successor_AbstractAction="_yJ4oUD-UEeuyzLaAFX3TLQ" calledService_ExternalService="_1O3JID98EeuyzLaAFX3TLQ" role_ExternalService="_0WpMED-aEeuyzLaAFX3TLQ">
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_QnBRcD-bEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_RAYzsz-bEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="driverPublicKey"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_yJ4oUD-UEeuyzLaAFX3TLQ" entityName="PrivateDriverLogic.provideRiderWithRoute.encryptForRider" predecessor_AbstractAction="_GLTggD-bEeuyzLaAFX3TLQ" successor_AbstractAction="_zTkNMD-UEeuyzLaAFX3TLQ">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_bSUL8D-aEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_b1DFkz-aEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="decryptedRoute"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_fTCPYD-aEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_fTP1IT92EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_gK65oz-aEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dwawcT92EeuyzLaAFX3TLQ"/>
+              <namedReference xsi:type="stoex:VariableReference" referenceName="decryptedRoute"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_iOmooD-aEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:Or" id="_jjG9ej-aEeuyzLaAFX3TLQ">
+              <left xsi:type="expression:NamedEnumCharacteristicReference" id="_VNhikT-bEeuyzLaAFX3TLQ">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_gzAXsT92EeuyzLaAFX3TLQ"/>
+                <namedReference xsi:type="stoex:VariableReference" referenceName="publicKey"/>
+              </left>
+              <right xsi:type="expression:NamedEnumCharacteristicReference" id="_V_vCpT-bEeuyzLaAFX3TLQ">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_gzAXsT92EeuyzLaAFX3TLQ"/>
+                <namedReference xsi:type="stoex:VariableReference" referenceName="driverPublicKey"/>
+              </right>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_epo3oD-bEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dwawcT92EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:False" id="_gkhP9z-bEeuyzLaAFX3TLQ"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="encryptedRoute"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_zTkNMD-UEeuyzLaAFX3TLQ" entityName="PrivateDriverLogic.provideRiderWithRoute.return" predecessor_AbstractAction="_yJ4oUD-UEeuyzLaAFX3TLQ" successor_AbstractAction="_J09L8T-UEeuyzLaAFX3TLQ">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_kXfyUD-bEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_ky6jAz-bEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="encryptedRoute"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_Qu-rsD98EeuyzLaAFX3TLQ" entityName="PrivateTaxiLogic">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_R5hzQD98EeuyzLaAFX3TLQ" entityName="PrivateTaxiLogic.provided.PrivateTaxi" providedInterface__OperationProvidedRole="_sDneYD94EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_Irqt0D-CEeuyzLaAFX3TLQ" entityName="PrivateTaxiLogic.required.RouteStorage" requiredInterface__OperationRequiredRole="_s2TiwD98EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_m-ngMD-IEeuyzLaAFX3TLQ" entityName="PrivateTaxiLogic.required.DistanceService" requiredInterface__OperationRequiredRole="_Ei-o4D98EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_5jbBsD-UEeuyzLaAFX3TLQ" entityName="PrivateTaxiLogic.required.PrivateDriver" requiredInterface__OperationRequiredRole="_tHuKQD95EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_0Yzm4D-oEeuuG9chg-tc3w" entityName="PrivateTaxiLogic.required.UserStorage_Driver" requiredInterface__OperationRequiredRole="_nY9sUD-oEeuuG9chg-tc3w"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_2b2csD-oEeuuG9chg-tc3w" entityName="PrivateTaxiLogic.required.UserStorage_Rider" requiredInterface__OperationRequiredRole="_nY9sUD-oEeuuG9chg-tc3w"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_Gtz6AD-CEeuyzLaAFX3TLQ" describedService__SEFF="_b4nLMD9_EeuyzLaAFX3TLQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_HHlE4D-CEeuyzLaAFX3TLQ" successor_AbstractAction="_LbgYMD-CEeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_HHlr8D-CEeuyzLaAFX3TLQ" predecessor_AbstractAction="_LbgYMD-CEeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_LbgYMD-CEeuyzLaAFX3TLQ" entityName="PrivateTaxisLogic.registerDriverRoute.callDB" predecessor_AbstractAction="_HHlE4D-CEeuyzLaAFX3TLQ" successor_AbstractAction="_HHlr8D-CEeuyzLaAFX3TLQ" calledService_ExternalService="_tulOkD98EeuyzLaAFX3TLQ" role_ExternalService="_Irqt0D-CEeuyzLaAFX3TLQ">
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_qy8y0D-bEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_rNeysz-bEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="route"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="route"/>
+        </inputVariableUsages__CallAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_XT3UAD-HEeuyzLaAFX3TLQ" describedService__SEFF="_l2MHQD-CEeuyzLaAFX3TLQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_XsOJoD-HEeuyzLaAFX3TLQ" successor_AbstractAction="_0aBK0D-HEeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_XsOJoT-HEeuyzLaAFX3TLQ" predecessor_AbstractAction="_9bLM0D-IEeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_0aBK0D-HEeuyzLaAFX3TLQ" entityName="PrivateTaxiLogic.findBestMatchingDriverRoute.loadDriverRoutes" predecessor_AbstractAction="_XsOJoD-HEeuyzLaAFX3TLQ" successor_AbstractAction="_63oSAD-IEeuyzLaAFX3TLQ" calledService_ExternalService="_vh8CkD98EeuyzLaAFX3TLQ" role_ExternalService="_Irqt0D-CEeuyzLaAFX3TLQ">
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_KSuzcD-cEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_K3tIwz-cEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="driverRoute"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_63oSAD-IEeuyzLaAFX3TLQ" entityName="PrivateTaxiLogic.findBestMatchingDriverRoute.calcProximity" predecessor_AbstractAction="_0aBK0D-HEeuyzLaAFX3TLQ" successor_AbstractAction="_7ZnHQD-UEeuyzLaAFX3TLQ" calledService_ExternalService="_6btAcD-HEeuyzLaAFX3TLQ" role_ExternalService="_m-ngMD-IEeuyzLaAFX3TLQ">
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_YpQ0ID-cEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_ZC-7sz-cEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="driverRoute"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="route1"/>
+        </inputVariableUsages__CallAction>
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_a9LXgD-cEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_bXQEYz-cEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="route"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="route2"/>
+        </inputVariableUsages__CallAction>
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_gTq7ED-cEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_g1dZgz-cEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="proximity"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_7ZnHQD-UEeuyzLaAFX3TLQ" entityName="PrivateTaxiLogic.findBestMatchingDriverRoute.encryptForRider" predecessor_AbstractAction="_63oSAD-IEeuyzLaAFX3TLQ" successor_AbstractAction="_9bLM0D-IEeuyzLaAFX3TLQ" calledService_ExternalService="_Dz5ocD-UEeuyzLaAFX3TLQ" role_ExternalService="_5jbBsD-UEeuyzLaAFX3TLQ">
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_rfLxQD-cEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_r3Lagz-cEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="driverRoute"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="route"/>
+        </inputVariableUsages__CallAction>
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_wbpEMD-cEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_w0FZYz-cEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="riderPublicKey"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="publicKey"/>
+        </inputVariableUsages__CallAction>
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_2IocMD-cEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_2rVgoz-cEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="encryptedRoute"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_9bLM0D-IEeuyzLaAFX3TLQ" entityName="PrivateTaxiLogic.findBestMatchingDriverRoute.return" predecessor_AbstractAction="_7ZnHQD-UEeuyzLaAFX3TLQ" successor_AbstractAction="_XsOJoT-HEeuyzLaAFX3TLQ">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_5_icUD-cEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_6TIGsz-cEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="encryptedRoute"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_5qeU0D-oEeuuG9chg-tc3w" describedService__SEFF="_eaVkcD-oEeuuG9chg-tc3w">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_6FqcAD-oEeuuG9chg-tc3w" successor_AbstractAction="_B_AW0D-pEeuuG9chg-tc3w"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_6FrDED-oEeuuG9chg-tc3w" predecessor_AbstractAction="_B_AW0D-pEeuuG9chg-tc3w"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_B_AW0D-pEeuuG9chg-tc3w" entityName="PrivateTaxiLogic.registerDriver.callDB" predecessor_AbstractAction="_6FqcAD-oEeuuG9chg-tc3w" successor_AbstractAction="_6FrDED-oEeuuG9chg-tc3w" calledService_ExternalService="_oEf8oD-oEeuuG9chg-tc3w" role_ExternalService="_0Yzm4D-oEeuuG9chg-tc3w">
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_QzrsED-pEeuuG9chg-tc3w"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_RYj6wz-pEeuuG9chg-tc3w">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="user"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="user"/>
+        </inputVariableUsages__CallAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_6VyisD-oEeuuG9chg-tc3w" describedService__SEFF="_hIIAYD-oEeuuG9chg-tc3w">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_6mcN0D-oEeuuG9chg-tc3w" successor_AbstractAction="_KAdEwD-pEeuuG9chg-tc3w"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_6mcN0T-oEeuuG9chg-tc3w" predecessor_AbstractAction="_KAdEwD-pEeuuG9chg-tc3w"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_KAdEwD-pEeuuG9chg-tc3w" entityName="PrivateTaxiLogic.registerRider.callDB" predecessor_AbstractAction="_6mcN0D-oEeuuG9chg-tc3w" successor_AbstractAction="_6mcN0T-oEeuuG9chg-tc3w" calledService_ExternalService="_oEf8oD-oEeuuG9chg-tc3w" role_ExternalService="_2b2csD-oEeuuG9chg-tc3w">
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_VQ_k4D-pEeuuG9chg-tc3w"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_Vo7jwz-pEeuuG9chg-tc3w">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="user"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="user"/>
+        </inputVariableUsages__CallAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository:BasicComponent" id="_TgAo4D98EeuyzLaAFX3TLQ" entityName="PrivateRiderLogic">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_UkSJUD98EeuyzLaAFX3TLQ" entityName="PrivateRiderLogic.provided.PrivateRider" providedInterface__OperationProvidedRole="_hGPf8D96EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_hvf-sD-CEeuyzLaAFX3TLQ" entityName="PrivateRiderLogic.required.PrivateTaxi" requiredInterface__OperationRequiredRole="_sDneYD94EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_LgP0oD-KEeuyzLaAFX3TLQ" entityName="PrivateRiderLogic.required.PublicKeyStorage_DistanceService" requiredInterface__OperationRequiredRole="_xPKZYD98EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_W81XQD-LEeuyzLaAFX3TLQ" entityName="PrivateRiderLogic.required.PrivateKeyStorage_Rider" requiredInterface__OperationRequiredRole="_3c5G8D98EeuyzLaAFX3TLQ"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_ZC32sD-LEeuyzLaAFX3TLQ" entityName="PrivateRiderLogic.required.PublicKeyStorage_Rider" requiredInterface__OperationRequiredRole="_xPKZYD98EeuyzLaAFX3TLQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_UkXB0D98EeuyzLaAFX3TLQ" describedService__SEFF="_iGUc4D96EeuyzLaAFX3TLQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_UkXo4D98EeuyzLaAFX3TLQ" successor_AbstractAction="_U0lt0D-KEeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_UkYP8D98EeuyzLaAFX3TLQ" predecessor_AbstractAction="_IzjCAD-DEeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_U0lt0D-KEeuyzLaAFX3TLQ" entityName="PrivateRiderLogic.findBestMatchingRoute.getDistanceServicePublicKey" predecessor_AbstractAction="_UkXo4D98EeuyzLaAFX3TLQ" successor_AbstractAction="_9OlgUD-eEeuyzLaAFX3TLQ" calledService_ExternalService="_1O3JID98EeuyzLaAFX3TLQ" role_ExternalService="_LgP0oD-KEeuyzLaAFX3TLQ">
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_omFLQD-eEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_pBzd8z-eEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="distanceServicePublicKey"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_9OlgUD-eEeuyzLaAFX3TLQ" entityName="PrivateRiderLogic.findBestMatchingRoute.getRiderPublicKey" predecessor_AbstractAction="_U0lt0D-KEeuyzLaAFX3TLQ" successor_AbstractAction="_b1WUcD-CEeuyzLaAFX3TLQ" calledService_ExternalService="_1O3JID98EeuyzLaAFX3TLQ" role_ExternalService="_ZC32sD-LEeuyzLaAFX3TLQ">
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_I5Ib4D-fEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_JNVKQz-fEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="riderPublicKey"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_b1WUcD-CEeuyzLaAFX3TLQ" entityName="PrivateRiderLogic.findBestMatchingRoute.encryptRoute" predecessor_AbstractAction="_9OlgUD-eEeuyzLaAFX3TLQ" successor_AbstractAction="_FVwFcD-DEeuyzLaAFX3TLQ">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_ekpikD-eEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_fCAM8z-eEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="route"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_q31LcD-eEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_fTP1IT92EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_sLWo0z-eEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dwawcT92EeuyzLaAFX3TLQ"/>
+              <namedReference xsi:type="stoex:VariableReference" referenceName="route"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_uDkHoD-eEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_xSDuoT93EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:Or" id="_MgN3Wj-fEeuyzLaAFX3TLQ">
+              <left xsi:type="expression:NamedEnumCharacteristicReference" id="_M1SvgT-fEeuyzLaAFX3TLQ">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_gzAXsT92EeuyzLaAFX3TLQ"/>
+                <namedReference xsi:type="stoex:VariableReference" referenceName="riderPublicKey"/>
+              </left>
+              <right xsi:type="expression:NamedEnumCharacteristicReference" id="_NZVQtT-fEeuyzLaAFX3TLQ">
+                <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_gzAXsT92EeuyzLaAFX3TLQ"/>
+                <namedReference xsi:type="stoex:VariableReference" referenceName="distanceServicePublicKey"/>
+              </right>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_x_aSID-eEeuyzLaAFX3TLQ">
+              <characteristicType xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_dwawcT92EeuyzLaAFX3TLQ"/>
+            </lhs>
+            <rhs xsi:type="expressions:False" id="_zO6LJz-eEeuyzLaAFX3TLQ"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="encryptedRoute"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_FVwFcD-DEeuyzLaAFX3TLQ" entityName="PrivateRiderLogic.findBestMatchingRoute.callPrivateTaxi" predecessor_AbstractAction="_b1WUcD-CEeuyzLaAFX3TLQ" successor_AbstractAction="_IzjCAD-DEeuyzLaAFX3TLQ" calledService_ExternalService="_l2MHQD-CEeuyzLaAFX3TLQ" role_ExternalService="_hvf-sD-CEeuyzLaAFX3TLQ">
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_cgOXQD-fEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_dA5bYz-fEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="encryptedRoute"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="route"/>
+        </inputVariableUsages__CallAction>
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_e-sk0D-fEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_fYC48z-fEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="riderPublicKey"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="riderPublicKey"/>
+        </inputVariableUsages__CallAction>
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_iW2MYD-fEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_izco0z-fEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="bestRoute"/>
+        </returnVariableUsage__CallReturnAction>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_IzjCAD-DEeuyzLaAFX3TLQ" entityName="PrivateRiderLogic.findBestMatchingRoute.return" predecessor_AbstractAction="_FVwFcD-DEeuyzLaAFX3TLQ" successor_AbstractAction="_UkYP8D98EeuyzLaAFX3TLQ">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage xsi:type="confidentiality:ConfidentialityVariableCharacterisation">
+            <specification_VariableCharacterisation specification="false"/>
+            <lhs xsi:type="expression:LhsEnumCharacteristicReference" id="_Y01DkD-fEeuyzLaAFX3TLQ"/>
+            <rhs xsi:type="expression:NamedEnumCharacteristicReference" id="_ZPNScz-fEeuyzLaAFX3TLQ">
+              <namedReference xsi:type="stoex:VariableReference" referenceName="bestRoute"/>
+            </rhs>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+      </steps_Behaviour>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository_1:OperationalDataStoreComponent" id="_hqejgD98EeuyzLaAFX3TLQ" entityName="PrivateKeyStorage">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_88imgD98EeuyzLaAFX3TLQ" entityName="PrivateKeyStorage.provided.PrivateKeyStorage" providedInterface__OperationProvidedRole="_3c5G8D98EeuyzLaAFX3TLQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_Eo4nID99EeuyzLaAFX3TLQ" describedService__SEFF="_4QuXoD98EeuyzLaAFX3TLQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_E6CokD99EeuyzLaAFX3TLQ" successor_AbstractAction="_E6EdwD99EeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_E6EdwD99EeuyzLaAFX3TLQ" predecessor_AbstractAction="_E6CokD99EeuyzLaAFX3TLQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_FKccED99EeuyzLaAFX3TLQ" describedService__SEFF="_6xRBwD98EeuyzLaAFX3TLQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_FaGosD99EeuyzLaAFX3TLQ" successor_AbstractAction="_FaGosT99EeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_FaGosT99EeuyzLaAFX3TLQ" predecessor_AbstractAction="_FaGosD99EeuyzLaAFX3TLQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository_1:OperationalDataStoreComponent" id="_j8aw_j98EeuyzLaAFX3TLQ" entityName="PublicKeyStorage">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_9W8DgD98EeuyzLaAFX3TLQ" entityName="PublicKeyStorage.provided.PublicKeyStorage" providedInterface__OperationProvidedRole="_xPKZYD98EeuyzLaAFX3TLQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_FmhUED99EeuyzLaAFX3TLQ" describedService__SEFF="_yDA4MD98EeuyzLaAFX3TLQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_F0EA0D99EeuyzLaAFX3TLQ" successor_AbstractAction="_F0EA0T99EeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_F0EA0T99EeuyzLaAFX3TLQ" predecessor_AbstractAction="_F0EA0D99EeuyzLaAFX3TLQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_GBcVgD99EeuyzLaAFX3TLQ" describedService__SEFF="_1O3JID98EeuyzLaAFX3TLQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_GSQYsD99EeuyzLaAFX3TLQ" successor_AbstractAction="_GSQ_wD99EeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_GSQ_wD99EeuyzLaAFX3TLQ" predecessor_AbstractAction="_GSQYsD99EeuyzLaAFX3TLQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository_1:OperationalDataStoreComponent" id="_mN2oHj98EeuyzLaAFX3TLQ" entityName="RouteStorage">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_9zWSsD98EeuyzLaAFX3TLQ" entityName="RouteStorage.provided.RouteStorage" providedInterface__OperationProvidedRole="_s2TiwD98EeuyzLaAFX3TLQ"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_GfZc0D99EeuyzLaAFX3TLQ" describedService__SEFF="_tulOkD98EeuyzLaAFX3TLQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_GtfjMD99EeuyzLaAFX3TLQ" successor_AbstractAction="_GtgKQD99EeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_GtgKQD99EeuyzLaAFX3TLQ" predecessor_AbstractAction="_GtfjMD99EeuyzLaAFX3TLQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_G-t2ED99EeuyzLaAFX3TLQ" describedService__SEFF="_vh8CkD98EeuyzLaAFX3TLQ">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_HOORsD99EeuyzLaAFX3TLQ" successor_AbstractAction="_HOO4wD99EeuyzLaAFX3TLQ"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_HOO4wD99EeuyzLaAFX3TLQ" predecessor_AbstractAction="_HOORsD99EeuyzLaAFX3TLQ"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <components__Repository xsi:type="repository_1:OperationalDataStoreComponent" id="_k3CiID-oEeuuG9chg-tc3w" entityName="UserStorage">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_rY66wD-oEeuuG9chg-tc3w" entityName="UserStorage.UserStorage.OperationProvidedRole1" providedInterface__OperationProvidedRole="_nY9sUD-oEeuuG9chg-tc3w"/>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_sa_bwD-oEeuuG9chg-tc3w" describedService__SEFF="_oEf8oD-oEeuuG9chg-tc3w">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_spg_8D-oEeuuG9chg-tc3w" successor_AbstractAction="_sphnAD-oEeuuG9chg-tc3w"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_sphnAD-oEeuuG9chg-tc3w" predecessor_AbstractAction="_spg_8D-oEeuuG9chg-tc3w"/>
+    </serviceEffectSpecifications__BasicComponent>
+    <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_s3ETwD-oEeuuG9chg-tc3w" describedService__SEFF="_pdcFgD-oEeuuG9chg-tc3w">
+      <steps_Behaviour xsi:type="seff:StartAction" id="_tFlQ4D-oEeuuG9chg-tc3w" successor_AbstractAction="_tFlQ4T-oEeuuG9chg-tc3w"/>
+      <steps_Behaviour xsi:type="seff:StopAction" id="_tFlQ4T-oEeuuG9chg-tc3w" predecessor_AbstractAction="_tFlQ4D-oEeuuG9chg-tc3w"/>
+    </serviceEffectSpecifications__BasicComponent>
+  </components__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_sDneYD94EeuyzLaAFX3TLQ" entityName="PrivateTaxi">
+    <signatures__OperationInterface id="_b4nLMD9_EeuyzLaAFX3TLQ" entityName="registerDriverRoute">
+      <parameters__OperationSignature dataType__Parameter="_QA2sUD96EeuyzLaAFX3TLQ" parameterName="route"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_l2MHQD-CEeuyzLaAFX3TLQ" entityName="findBestMatchingDriverRoute" returnType__OperationSignature="_QA2sUD96EeuyzLaAFX3TLQ">
+      <parameters__OperationSignature dataType__Parameter="_QA2sUD96EeuyzLaAFX3TLQ" parameterName="route"/>
+      <parameters__OperationSignature dataType__Parameter="_1OtU8D94EeuyzLaAFX3TLQ" parameterName="riderPublicKey"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_eaVkcD-oEeuuG9chg-tc3w" entityName="registerDriver">
+      <parameters__OperationSignature dataType__Parameter="_utlKQD94EeuyzLaAFX3TLQ" parameterName="user"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_hIIAYD-oEeuuG9chg-tc3w" entityName="registerRider">
+      <parameters__OperationSignature dataType__Parameter="_utlKQD94EeuyzLaAFX3TLQ" parameterName="user"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_tHuKQD95EeuyzLaAFX3TLQ" entityName="PrivateDriver">
+    <signatures__OperationInterface id="_LM9fgD96EeuyzLaAFX3TLQ" entityName="submitRoute">
+      <parameters__OperationSignature dataType__Parameter="_QA2sUD96EeuyzLaAFX3TLQ" parameterName="route"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_Dz5ocD-UEeuyzLaAFX3TLQ" entityName="provideRouteForRider" returnType__OperationSignature="_QA2sUD96EeuyzLaAFX3TLQ">
+      <parameters__OperationSignature dataType__Parameter="_QA2sUD96EeuyzLaAFX3TLQ" parameterName="route"/>
+      <parameters__OperationSignature dataType__Parameter="_1OtU8D94EeuyzLaAFX3TLQ" parameterName="publicKey"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_hGPf8D96EeuyzLaAFX3TLQ" entityName="PrivateRider">
+    <signatures__OperationInterface id="_iGUc4D96EeuyzLaAFX3TLQ" entityName="findBestMatchingRoute" returnType__OperationSignature="_QA2sUD96EeuyzLaAFX3TLQ">
+      <parameters__OperationSignature dataType__Parameter="_QA2sUD96EeuyzLaAFX3TLQ" parameterName="route"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_Ei-o4D98EeuyzLaAFX3TLQ" entityName="DistanceService">
+    <signatures__OperationInterface id="_6btAcD-HEeuyzLaAFX3TLQ" entityName="calculateProximity" returnType__OperationSignature="_-iKfgD-HEeuyzLaAFX3TLQ">
+      <parameters__OperationSignature dataType__Parameter="_QA2sUD96EeuyzLaAFX3TLQ" parameterName="route1"/>
+      <parameters__OperationSignature dataType__Parameter="_QA2sUD96EeuyzLaAFX3TLQ" parameterName="route2"/>
+    </signatures__OperationInterface>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_s2TiwD98EeuyzLaAFX3TLQ" entityName="RouteStorage">
+    <signatures__OperationInterface id="_tulOkD98EeuyzLaAFX3TLQ" entityName="addRoute">
+      <parameters__OperationSignature dataType__Parameter="_QA2sUD96EeuyzLaAFX3TLQ" parameterName="route"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_vh8CkD98EeuyzLaAFX3TLQ" entityName="getRoute" returnType__OperationSignature="_QA2sUD96EeuyzLaAFX3TLQ"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_xPKZYD98EeuyzLaAFX3TLQ" entityName="PublicKeyStorage">
+    <signatures__OperationInterface id="_yDA4MD98EeuyzLaAFX3TLQ" entityName="addPublicKey">
+      <parameters__OperationSignature dataType__Parameter="_1OtU8D94EeuyzLaAFX3TLQ" parameterName="publicKey"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_1O3JID98EeuyzLaAFX3TLQ" entityName="getPublicKey" returnType__OperationSignature="_1OtU8D94EeuyzLaAFX3TLQ"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_3c5G8D98EeuyzLaAFX3TLQ" entityName="PrivateKeyStorage">
+    <signatures__OperationInterface id="_4QuXoD98EeuyzLaAFX3TLQ" entityName="addPrivateKey">
+      <parameters__OperationSignature dataType__Parameter="_230n0D94EeuyzLaAFX3TLQ" parameterName="privateKey"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_6xRBwD98EeuyzLaAFX3TLQ" entityName="getPrivateKey" returnType__OperationSignature="_230n0D94EeuyzLaAFX3TLQ"/>
+  </interfaces__Repository>
+  <interfaces__Repository xsi:type="repository:OperationInterface" id="_nY9sUD-oEeuuG9chg-tc3w" entityName="UserStorage">
+    <signatures__OperationInterface id="_oEf8oD-oEeuuG9chg-tc3w" entityName="addUser">
+      <parameters__OperationSignature dataType__Parameter="_utlKQD94EeuyzLaAFX3TLQ" parameterName="user"/>
+    </signatures__OperationInterface>
+    <signatures__OperationInterface id="_pdcFgD-oEeuuG9chg-tc3w" entityName="getUser" returnType__OperationSignature="_utlKQD94EeuyzLaAFX3TLQ"/>
+  </interfaces__Repository>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_utlKQD94EeuyzLaAFX3TLQ" entityName="User"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_1OtU8D94EeuyzLaAFX3TLQ" entityName="PublicKey"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_230n0D94EeuyzLaAFX3TLQ" entityName="PrivateKey"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_QA2sUD96EeuyzLaAFX3TLQ" entityName="Route"/>
+  <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_-iKfgD-HEeuyzLaAFX3TLQ" entityName="Proximity"/>
+</repository:Repository>

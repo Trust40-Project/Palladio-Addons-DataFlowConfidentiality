@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<characteristics:Characteristics xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DataDictionaryCharacterized="http://palladiosimulator.org/dataflow/dictionary/characterized/1.0" xmlns:characteristics="http://palladiosimulator.org/dataflow/confidentiality/pcm/0.1.0/characteristics" id="_Y1cN8D-nEeuuG9chg-tc3w">
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_c65AYD-nEeuuG9chg-tc3w" entityName="Owner_Rider">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_gpVoET-nEeuuG9chg-tc3w"/>
+    <values href="CharacteristicTypes.characteristics#_E6d4oD94EeuyzLaAFX3TLQ"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_k0ahYD-nEeuuG9chg-tc3w" entityName="Owner_Driver">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_gpVoET-nEeuuG9chg-tc3w"/>
+    <values href="CharacteristicTypes.characteristics#_htC-ED92EeuyzLaAFX3TLQ"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_n_DRYD-nEeuuG9chg-tc3w" entityName="Owner_PrivateTaxi">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_gpVoET-nEeuuG9chg-tc3w"/>
+    <values href="CharacteristicTypes.characteristics#_LLhHUD91EeuyzLaAFX3TLQ"/>
+  </characteristics>
+  <characteristics xsi:type="characteristics:EnumCharacteristic" id="_qOSJED-nEeuuG9chg-tc3w" entityName="Owner_CalcDistance">
+    <type xsi:type="DataDictionaryCharacterized:EnumCharacteristicType" href="CharacteristicTypes.characteristics#_gpVoET-nEeuuG9chg-tc3w"/>
+    <values href="CharacteristicTypes.characteristics#_KDWlYD91EeuyzLaAFX3TLQ"/>
+  </characteristics>
+</characteristics:Characteristics>

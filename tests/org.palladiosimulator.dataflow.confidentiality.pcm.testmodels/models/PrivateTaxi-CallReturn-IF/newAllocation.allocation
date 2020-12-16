@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="ASCII"?>
+<allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:allocation="http://palladiosimulator.org/PalladioComponentModel/Allocation/5.2" id="_L8An8D-oEeuuG9chg-tc3w" entityName="New Allocation">
+  <targetResourceEnvironment_Allocation href="newResourceEnvironment.resourceenvironment#/"/>
+  <system_Allocation href="newSystem.system#_VxqQgD9-EeuyzLaAFX3TLQ"/>
+  <allocationContexts_Allocation id="_QUfEED-oEeuuG9chg-tc3w" entityName="Allocation_Assembly_PrivateRider">
+    <resourceContainer_AllocationContext href="newResourceEnvironment.resourceenvironment#_HEm0ID-oEeuuG9chg-tc3w"/>
+    <assemblyContext_AllocationContext href="newSystem.system#_zgyx4D-JEeuyzLaAFX3TLQ"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_Q31owD-oEeuuG9chg-tc3w" entityName="Allocation_Assembly_DistanceService">
+    <resourceContainer_AllocationContext href="newResourceEnvironment.resourceenvironment#_IgRg4D-oEeuuG9chg-tc3w"/>
+    <assemblyContext_AllocationContext href="newSystem.system#_xoOtwD-JEeuyzLaAFX3TLQ"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_RvJEMD-oEeuuG9chg-tc3w" entityName="Allocation_Assembly_PrivateDriver">
+    <resourceContainer_AllocationContext href="newResourceEnvironment.resourceenvironment#_GJf2wD-oEeuuG9chg-tc3w"/>
+    <assemblyContext_AllocationContext href="newSystem.system#_X6OfgD9-EeuyzLaAFX3TLQ"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_SrA2kD-oEeuuG9chg-tc3w" entityName="Allocation_Assembly_PrivateTaxi">
+    <resourceContainer_AllocationContext href="newResourceEnvironment.resourceenvironment#_HxHU0D-oEeuuG9chg-tc3w"/>
+    <assemblyContext_AllocationContext href="newSystem.system#_ZNmy8D9-EeuyzLaAFX3TLQ"/>
+  </allocationContexts_Allocation>
+</allocation:Allocation>
