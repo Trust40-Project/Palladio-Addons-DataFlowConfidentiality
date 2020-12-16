@@ -421,8 +421,8 @@ class PcmToDfdTransformationImplementation implements PcmToDfdTransformation {
 	
 	protected def createCharacteristics(CharacterizedNode node, Stack<AssemblyContext> context, EObject... pcmElements) {
 		val characterisedElements = new ArrayList<EObject>
+		characterisedElements += context
 		if (!context.isEmpty) {
-			characterisedElements += context.peek
 			characterisedElements += context.findResourceContainer
 		}
 		characterisedElements += pcmElements
