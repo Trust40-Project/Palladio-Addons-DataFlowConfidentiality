@@ -1,17 +1,17 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases
 
 import org.junit.jupiter.api.Test
-import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowHierarchicalLaticesTestBase
 import org.palladiosimulator.indirections.composition.AssemblyDataConnector
 import org.palladiosimulator.indirections.repository.DataSourceRole
 import org.palladiosimulator.pcm.repository.OperationProvidedRole
 import org.palladiosimulator.pcm.system.System
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
+import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowHierarchicalLatices_TestBase
 
-class MACDataChannelsAccessControlTest extends InformationFlowHierarchicalLaticesTestBase {
+class FlightControl_Indirections_MAC_Test extends InformationFlowHierarchicalLatices_TestBase {
 	
 	new() {
-		super("MAC-DC-AC")
+		super("FlightControl_Indirections_MAC")
 	}
 
 	@Test

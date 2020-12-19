@@ -11,7 +11,7 @@ import org.palladiosimulator.pcm.usagemodel.UsageModel
 import static org.junit.jupiter.api.Assertions.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.StandaloneUtil.getModelURI
 
-class TMACTestBase extends TestBase {
+class PrivateTaxi_LG_TestBase extends TestBase {
 	
 	val String folderName
 	
@@ -25,7 +25,7 @@ class TMACTestBase extends TestBase {
 	
 	protected def runTest(int expectedNumberOfSolutions, Consumer<UsageModel> usageModelModifier) {
 		val solution = deriveSolution(usageModelModifier)
-		assertNumberOfSolutions(solution, expectedNumberOfSolutions, #["P", "PIN", "ROLES", "REQ", "S"])
+		assertNumberOfSolutions(solution, expectedNumberOfSolutions, #["N", "PIN", "R", "D", "S"])
 	}
 	
 	protected def deriveSolution(Consumer<UsageModel> usageModelModifier) {
@@ -34,7 +34,6 @@ class TMACTestBase extends TestBase {
 		val allocationModelURI = getModelURI(folderName + "/newAllocation.allocation")
 		val allocationModel = rs.getResource(allocationModelURI, true).contents.get(0) as Allocation
 		EcoreUtil.resolveAll(rs)
-		val ctDict = rs.resources.findFirst[r|r.URI.lastSegment == "CharacteristicTypeDictionary.xmi"].contents.get(0) as CharacteristicTypeDictionary
 		
 		usageModelModifier.accept(usageModel)
 		
@@ -49,31 +48,36 @@ class TMACTestBase extends TestBase {
 		val traceWrapper = workflow.trace
 		assertTrue(traceWrapper.isPresent)
 		val trace = traceWrapper.get
-		val ctRights = trace.getFactId([ct | ct.name == "AllowedRoles"]).findFirst[true]
-		val ctRoles = trace.getFactId([ct | ct.name == "OwnedRoles"]).findFirst[true]
-		val ctValidation = trace.getFactId([ct | ct.name == "ValidationStatus"]).findFirst[true]
-		val literalValidated = ctDict.characteristicEnumerations.findFirst[name == "ValidationStatus"].literals.findFirst[name == "Validated"]
-		val cValidated = trace.getLiteralFactIds(literalValidated).findFirst[true]
-		val ctCriticality = trace.getFactId([ct | ct.name == "Criticality"]).findFirst[true]
-		val literalHigh = ctDict.characteristicEnumerations.findFirst[name == "Criticality"].literals.findFirst[name == "High"]
-		val cHigh = trace.getLiteralFactIds(literalHigh).findFirst[true]
+		val characteristicTypesDictionary = rs.resources.findFirst[r | r.URI.lastSegment == "CharacteristicTypes.characteristics"].contents.get(0) as CharacteristicTypeDictionary
+		val ownerEnum = characteristicTypesDictionary.characteristicEnumerations.findFirst[name == "Roles"]
+		val dataTypesEnum = characteristicTypesDictionary.characteristicEnumerations.findFirst[name == "CriticalDataType"]
+		val ctCriticalDataType = trace.getFactId([ct | ct.name == "CriticalDataType"]).findFirst[true]
+		val cContact = trace.getLiteralFactIds(dataTypesEnum.literals.findFirst[name == "ContactData"]).findFirst[true]
+		val cRoute = trace.getLiteralFactIds(dataTypesEnum.literals.findFirst[name == "Route"]).findFirst[true]
+		val ctOwner = trace.getFactId([ct | ct.name == "Owner"]).findFirst[true]
+		val cCalcDistance = trace.getLiteralFactIds(ownerEnum.literals.findFirst[name == "CalcDistance"]).findFirst[true]
+		val cPrivateTaxi = trace.getLiteralFactIds(ownerEnum.literals.findFirst[name == "PrivateTaxi"]).findFirst[true]
 
 		prover.addTheory(resultingProgram.get)
 		
 		val query = prover.query('''
-			inputPin(P, PIN),
-			setof(R, nodeCharacteristic(P, ?CTROLES, R), ROLES),
-			setof_characteristics(P, PIN, ?CTRIGHTS, REQ, S),
-			(intersection(REQ, ROLES, []);
-			(nodeCharacteristic(P, ?CTCRITICAL, ?CHIGH),
-			\+ characteristic(P, PIN, ?CTVALIDATION, ?CVALIDATED, S))).
+		(
+			R = ?CCALCDIST,
+			D = ?CCONTACT
+		; 
+			R = ?CPRIVATETAXI,
+			D = ?CROUTE
+		),
+		inputPin(N,PIN),
+		nodeCharacteristic(N, ?CTOWNER, R),
+		characteristic(N, PIN, ?CTCRITDT, D, S).
 		''')
-		query.bind("CTROLES", ctRoles)
-		query.bind("CTRIGHTS", ctRights)
-		query.bind("CTCRITICAL", ctCriticality)
-		query.bind("CHIGH", cHigh)
-		query.bind("CTVALIDATION", ctValidation)
-		query.bind("CVALIDATED", cValidated)
+		query.bind("CCALCDIST", cCalcDistance)
+		query.bind("CCONTACT", cContact)
+		query.bind("CPRIVATETAXI", cPrivateTaxi)
+		query.bind("CROUTE", cRoute)
+		query.bind("CTOWNER", ctOwner)
+		query.bind("CTCRITDT", ctCriticalDataType)
 		query.solve()
 	}
 }

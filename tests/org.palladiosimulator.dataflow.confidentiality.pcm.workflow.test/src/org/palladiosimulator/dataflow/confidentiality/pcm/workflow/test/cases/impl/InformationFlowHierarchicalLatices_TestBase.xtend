@@ -1,18 +1,16 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl
 
 import java.util.function.Consumer
-import org.eclipse.emf.ecore.util.EcoreUtil
-import org.palladiosimulator.dataflow.confidentiality.pcm.transformation.pcm2dfd.trace.PCMSingleTraceElement
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.TransformPCMDFDToPrologWorkflowFactory
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.jobs.TransformPCMDFDToPrologJobBuilder
-import org.palladiosimulator.dataflow.dictionary.characterized.DataDictionaryCharacterized.EnumCharacteristicType
 import org.palladiosimulator.pcm.allocation.Allocation
 import org.palladiosimulator.pcm.usagemodel.UsageModel
 
 import static org.junit.jupiter.api.Assertions.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.StandaloneUtil.getModelURI
+import org.eclipse.emf.ecore.util.EcoreUtil
 
-class InformationFlowHighLowTestBase extends TestBase {
+class InformationFlowHierarchicalLatices_TestBase extends TestBase {
 	
 	val String folderName
 	
@@ -26,7 +24,7 @@ class InformationFlowHighLowTestBase extends TestBase {
 	
 	protected def runTest(int expectedNumberOfSolutions, Consumer<UsageModel> usageModelModifier) {
 		val solution = deriveSolution(usageModelModifier)
-		assertNumberOfSolutions(solution, expectedNumberOfSolutions, #["P", "PIN", "S"])
+		assertNumberOfSolutions(solution, expectedNumberOfSolutions, #["P", "PIN", "V_LEVEL", "V_CLEAR", "S"])
 	}
 	
 	def deriveSolution(Consumer<UsageModel> usageModelModifier) {
@@ -49,27 +47,24 @@ class InformationFlowHighLowTestBase extends TestBase {
 		val traceWrapper = workflow.trace
 		assertTrue(traceWrapper.isPresent)
 		val trace = traceWrapper.get
-		val ctClassification = trace.getFactId([ct | ct.name == "Classification"]).findFirst[true]
-		val highValue = trace.getPCMEntries(ctClassification).filter(PCMSingleTraceElement).map[element].filter(EnumCharacteristicType).findFirst[true].type.literals.findFirst[name == "High"]
-		val cHigh = trace.getLiteralFactIds(highValue).findFirst[true]
-		val ctZone = trace.getFactId([ct | ct.name == "Zone"]).findFirst[true]
-		val attackValue = trace.getPCMEntries(ctZone).filter(PCMSingleTraceElement).map[element].filter(EnumCharacteristicType).findFirst[true].type.literals.findFirst[name == "Attack"]
-		val cAttack = trace.getLiteralFactIds(attackValue).findFirst[true]
+		val ctClassification = trace.getFactId([ct | ct.name == "DataClassification"]).findFirst[true]
+		val ctClearance = trace.getFactId([ct | ct.name == "NodeClearance"]).findFirst[true]
 
 		prover.addTheory(resultingProgram.get)
 		
-		var queryString = '''
+		val query = prover.query('''
+			CT_LEVEL = ?CTSECLEVEL,
+			CT_CLEARANCE = ?CTCLEARANCE,
+			nodeCharacteristic(P, CT_CLEARANCE, V_CLEAR),
+			characteristicTypeValue(CT_CLEARANCE, V_CLEAR, N_CLEAR),
 			inputPin(P, PIN),
-			nodeCharacteristic(P, ?CTZONE, ?CZONE),
-			characteristic(P, PIN, ?CTLEVEL, ?CLEVEL, S).
-		'''
-		var query = prover.query(queryString)
-		query.bind("CTZONE", ctZone)
-		query.bind("CZONE", cAttack)
-		query.bind("CTLEVEL", ctClassification)
-		query.bind("CLEVEL", cHigh)
-		var solution = query.solve()
-		solution
+			characteristic(P, PIN, CT_LEVEL, V_LEVEL, S),
+			characteristicTypeValue(CT_LEVEL, V_LEVEL, N_LEVEL),
+			N_LEVEL > N_CLEAR.
+		''')
+		query.bind("CTCLEARANCE", ctClearance)
+		query.bind("CTSECLEVEL", ctClassification)
+		query.solve()
 	}
 	
 }

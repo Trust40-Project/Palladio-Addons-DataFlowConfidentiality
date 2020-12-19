@@ -1,14 +1,14 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases
 
 import org.junit.jupiter.api.Test
-import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.RBACTestBase
 import org.palladiosimulator.pcm.seff.ExternalCallAction
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
+import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.RBAC_TestBase
 
-class DistanceTrackerCallReturnAccessControlTest extends RBACTestBase {
+class DistanceTracker_CallReturn_RBAC_Test extends RBAC_TestBase {
 
 	new() {
-		super("DistanceTracker-CallReturn-AC")
+		super("DistanceTracker_CallReturn_RBAC")
 	}
 
 	@Test

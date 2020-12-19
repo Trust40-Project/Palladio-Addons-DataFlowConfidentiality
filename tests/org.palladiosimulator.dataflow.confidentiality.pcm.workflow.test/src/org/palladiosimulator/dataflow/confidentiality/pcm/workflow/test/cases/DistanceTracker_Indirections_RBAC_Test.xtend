@@ -1,17 +1,17 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases
 
 import org.junit.jupiter.api.Test
-import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.RBACTestBase
 import org.palladiosimulator.indirections.composition.CompositionFactory
 import org.palladiosimulator.indirections.composition.DataSourceDelegationConnector
 import org.palladiosimulator.indirections.repository.DataSourceRole
 import org.palladiosimulator.pcm.repository.CompositeComponent
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
+import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.RBAC_TestBase
 
-class DistanceTrackerDataChannelsAccessControlTest extends RBACTestBase {
+class DistanceTracker_Indirections_RBAC_Test extends RBAC_TestBase {
 
 	new() {
-		super("DistanceTracker-DC-AC")
+		super("DistanceTracker_Indirections_RBAC")
 	}
 
 	@Test

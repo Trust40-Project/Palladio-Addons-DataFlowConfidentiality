@@ -1,7 +1,6 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases
 
 import org.junit.jupiter.api.Test
-import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.DACReadWriteTestBase
 import org.palladiosimulator.pcm.usagemodel.UsageScenario
 import org.palladiosimulator.pcm.usagemodel.UsagemodelFactory
 import org.palladiosimulator.pcm.repository.OperationSignature
@@ -13,11 +12,12 @@ import org.palladiosimulator.pcm.parameter.ParameterFactory
 import de.uka.ipd.sdq.stoex.StoexFactory
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.ConfidentialityFactory
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.expression.ExpressionFactory
+import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.ImageSharing_DAC_TestBase
 
-class DACCallReturnAccessControlTest extends DACReadWriteTestBase {
+class ImageSharing_CallReturn_DAC_Test extends ImageSharing_DAC_TestBase {
 	
 	new() {
-		super("DAC-CallReturn-AC")
+		super("ImageSharing_CallReturn_DAC")
 	}
 	
 	@Test

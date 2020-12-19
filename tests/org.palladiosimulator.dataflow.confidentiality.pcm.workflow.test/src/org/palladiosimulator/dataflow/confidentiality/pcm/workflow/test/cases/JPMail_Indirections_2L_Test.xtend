@@ -1,17 +1,17 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases
 
 import org.junit.jupiter.api.Test
-import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowHighLowTestBase
 import org.palladiosimulator.indirections.composition.DataSourceDelegationConnector
 import org.palladiosimulator.indirections.repository.DataChannel
 import org.palladiosimulator.pcm.repository.CompositeComponent
 import org.palladiosimulator.pcm.repository.Repository
 import org.eclipse.emf.ecore.util.EcoreUtil
+import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowHighLow_TestBase
 
-class JPmailDataChannelsInformationFlowTest extends InformationFlowHighLowTestBase {
+class JPMail_Indirections_2L_Test extends InformationFlowHighLow_TestBase {
 	
 	new() {
-		super("JPMail-DC-IF")
+		super("JPMail_Indirections_2L")
 	}
 	
 	@Test

@@ -1,16 +1,16 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases
 
 import org.junit.jupiter.api.Test
-import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowHierarchicalLaticesTestBase
 import org.palladiosimulator.pcm.core.composition.AssemblyConnector
 import org.palladiosimulator.pcm.repository.OperationProvidedRole
 import org.palladiosimulator.pcm.system.System
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
+import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowHierarchicalLatices_TestBase
 
-class MACCallReturnAccessControlTest extends InformationFlowHierarchicalLaticesTestBase {
+class FlightControl_CallReturn_MAC_Test extends InformationFlowHierarchicalLatices_TestBase {
 	
 	new() {
-		super("MAC-CallReturn-AC")
+		super("FlightControl_CallReturn_MAC")
 	}
 
 	@Test

@@ -69,7 +69,7 @@ class PrologWorkflowTests {
 
 	@Test
 	def void testTrace() {
-		val modelURIs = getModelURIs("TravelPlanner-DC-AC", "newUsageModel.usagemodel", "newAllocation.allocation")
+		val modelURIs = getModelURIs("TravelPlanner_Indirections_RBAC", "newUsageModel.usagemodel", "newAllocation.allocation")
 		val models = modelURIs.map[uri|rs.getResource(uri, true).contents.head]
 		val usageModel = models.filter(UsageModel).findFirst[true]
 		val allocationModel = models.filter(Allocation).findFirst[true]
@@ -102,8 +102,8 @@ class PrologWorkflowTests {
 	
 	
 	protected def initWithTravelPlanner(String queryString) {
-		val usageModelURIs = getModelURIs("TravelPlanner-DC-AC", "newUsageModel.usagemodel")
-		val allocationModelURI = getModelURIs("TravelPlanner-DC-AC", "newAllocation.allocation").get(0)
+		val usageModelURIs = getModelURIs("TravelPlanner_Indirections_RBAC", "newUsageModel.usagemodel")
+		val allocationModelURI = getModelURIs("TravelPlanner_Indirections_RBAC", "newAllocation.allocation").get(0)
 		initializeProver(usageModelURIs, allocationModelURI)
 		val query = prover.query(queryString)
 		val solution = query.solve()

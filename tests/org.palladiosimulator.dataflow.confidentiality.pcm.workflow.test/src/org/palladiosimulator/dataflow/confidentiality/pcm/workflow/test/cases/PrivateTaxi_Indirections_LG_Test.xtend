@@ -1,16 +1,16 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases
 
 import org.junit.jupiter.api.Test
-import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.PrivateTaxiTestBase
 import org.palladiosimulator.indirections.composition.DataSourceDelegationConnector
 import org.palladiosimulator.indirections.repository.DataSourceRole
 import org.palladiosimulator.pcm.repository.CompositeComponent
 import org.palladiosimulator.pcm.repository.Repository
+import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.PrivateTaxi_LG_TestBase
 
-class PrivateTaxiDataChannelsInformationFlowTest extends PrivateTaxiTestBase {
+class PrivateTaxi_Indirections_LG_Test extends PrivateTaxi_LG_TestBase {
 	
 	new() {
-		super("PrivateTaxi-DC-IF")
+		super("PrivateTaxi_Indirections_LG")
 	}
 
 	@Test

@@ -2,12 +2,12 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases
 
 import org.junit.jupiter.api.Test
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
-import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowHierarchicalLaticesTestBase
+import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowHierarchicalLatices_TestBase
 
-class TravelPlannerCallReturnInformationFlowTest extends InformationFlowHierarchicalLaticesTestBase {
+class TravelPlanner_CallReturn_HL_Test extends InformationFlowHierarchicalLatices_TestBase {
 	
 	new() {
-		super("TravelPlanner-CallReturn-IF")
+		super("TravelPlanner_CallReturn_HL")
 	}
 	
 	@Test

@@ -5,12 +5,12 @@ import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.
 import org.palladiosimulator.dataflow.confidentiality.pcm.model.confidentiality.expression.LhsEnumCharacteristicReference
 import org.palladiosimulator.pcm.seff.ExternalCallAction
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
-import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowHierarchicalLaticesTestBase
+import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.InformationFlowHierarchicalLatices_TestBase
 
-class DistanceTrackerCallReturnInformationFlowTest extends InformationFlowHierarchicalLaticesTestBase {
+class DistanceTracker_CallReturn_HL_Test extends InformationFlowHierarchicalLatices_TestBase {
 	
 	new() {
-		super("DistanceTracker-CallReturn-IF")
+		super("DistanceTracker_CallReturn_HL")
 	}
 	
 	@Test

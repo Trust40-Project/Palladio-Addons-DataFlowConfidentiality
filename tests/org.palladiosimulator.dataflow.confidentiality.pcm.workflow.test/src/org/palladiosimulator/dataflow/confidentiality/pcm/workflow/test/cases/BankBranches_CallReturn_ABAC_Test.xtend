@@ -1,14 +1,14 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases
 
 import org.junit.jupiter.api.Test
-import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.ABACTwoBranchesTestBase
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
 import org.palladiosimulator.pcm.repository.OperationProvidedRole
+import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.BankBranches_ABAC_TestBase
 
-class ABACCallReturnAccessControlTest extends ABACTwoBranchesTestBase {
+class BankBranches_CallReturn_ABAC_Test extends BankBranches_ABAC_TestBase {
 	
 	new() {
-		super("ABAC-CallReturn-AC")
+		super("BankBranches_CallReturn_ABAC")
 	}
 	
 	@Test

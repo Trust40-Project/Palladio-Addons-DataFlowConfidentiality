@@ -1,6 +1,7 @@
 package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl
 
 import java.util.function.Consumer
+import org.eclipse.emf.ecore.util.EcoreUtil
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.TransformPCMDFDToPrologWorkflowFactory
 import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.jobs.TransformPCMDFDToPrologJobBuilder
 import org.palladiosimulator.pcm.allocation.Allocation
@@ -8,14 +9,13 @@ import org.palladiosimulator.pcm.usagemodel.UsageModel
 
 import static org.junit.jupiter.api.Assertions.*
 import static org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.StandaloneUtil.getModelURI
-import org.eclipse.emf.ecore.util.EcoreUtil
 
-class InformationFlowHierarchicalLaticesTestBase extends TestBase {
+class RBAC_TestBase extends TestBase {
 	
 	val String folderName
 	
 	new(String folderName) {
-		this.folderName = folderName
+		this.folderName = folderName;
 	}
 	
 	protected def runTest(int expectedNumberOfSolutions) {
@@ -24,10 +24,10 @@ class InformationFlowHierarchicalLaticesTestBase extends TestBase {
 	
 	protected def runTest(int expectedNumberOfSolutions, Consumer<UsageModel> usageModelModifier) {
 		val solution = deriveSolution(usageModelModifier)
-		assertNumberOfSolutions(solution, expectedNumberOfSolutions, #["P", "PIN", "V_LEVEL", "V_CLEAR", "S"])
+		assertNumberOfSolutions(solution, expectedNumberOfSolutions, #["P", "PIN", "ROLES", "REQ", "S"])
 	}
 	
-	def deriveSolution(Consumer<UsageModel> usageModelModifier) {
+	protected def deriveSolution(Consumer<UsageModel> usageModelModifier) {
 		val usageModelURI = getModelURI(folderName + "/newUsageModel.usagemodel")
 		val usageModel = rs.getResource(usageModelURI, true).contents.get(0) as UsageModel
 		val allocationModelURI = getModelURI(folderName + "/newAllocation.allocation")
@@ -47,23 +47,19 @@ class InformationFlowHierarchicalLaticesTestBase extends TestBase {
 		val traceWrapper = workflow.trace
 		assertTrue(traceWrapper.isPresent)
 		val trace = traceWrapper.get
-		val ctClassification = trace.getFactId([ct | ct.name == "DataClassification"]).findFirst[true]
-		val ctClearance = trace.getFactId([ct | ct.name == "NodeClearance"]).findFirst[true]
+		val ctRights = trace.getFactId([ct | ct.name == "AllowedRoles"]).findFirst[true]
+		val ctRoles = trace.getFactId([ct | ct.name == "OwnedRoles"]).findFirst[true]
 
 		prover.addTheory(resultingProgram.get)
 		
 		val query = prover.query('''
-			CT_LEVEL = ?CTSECLEVEL,
-			CT_CLEARANCE = ?CTCLEARANCE,
-			nodeCharacteristic(P, CT_CLEARANCE, V_CLEAR),
-			characteristicTypeValue(CT_CLEARANCE, V_CLEAR, N_CLEAR),
 			inputPin(P, PIN),
-			characteristic(P, PIN, CT_LEVEL, V_LEVEL, S),
-			characteristicTypeValue(CT_LEVEL, V_LEVEL, N_LEVEL),
-			N_LEVEL > N_CLEAR.
+			setof(R, nodeCharacteristic(P, ?CTROLES, R), ROLES),
+			setof_characteristics(P, PIN, ?CTRIGHTS, REQ, S),
+			intersection(REQ, ROLES, []).
 		''')
-		query.bind("CTCLEARANCE", ctClearance)
-		query.bind("CTSECLEVEL", ctClassification)
+		query.bind("CTROLES", ctRoles)
+		query.bind("CTRIGHTS", ctRights)
 		query.solve()
 	}
 	

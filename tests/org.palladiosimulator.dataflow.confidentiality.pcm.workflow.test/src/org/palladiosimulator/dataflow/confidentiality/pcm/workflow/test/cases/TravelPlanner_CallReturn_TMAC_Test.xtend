@@ -2,17 +2,17 @@ package org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases
 
 import org.eclipse.emf.ecore.util.EcoreUtil
 import org.junit.jupiter.api.Test
-import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.TMACTestBase
 import org.palladiosimulator.pcm.core.composition.AssemblyConnector
 import org.palladiosimulator.pcm.core.composition.ProvidedDelegationConnector
 import org.palladiosimulator.pcm.repository.CompositeComponent
 import org.palladiosimulator.pcm.repository.OperationProvidedRole
 import org.palladiosimulator.pcm.usagemodel.EntryLevelSystemCall
+import org.palladiosimulator.dataflow.confidentiality.pcm.workflow.test.cases.impl.TMAC_TestBase
 
-class TMACCallReturnTest extends TMACTestBase {
+class TravelPlanner_CallReturn_TMAC_Test extends TMAC_TestBase {
 	
 	new() {
-		super("TravelPlanner-CallReturn-ACIF")
+		super("TravelPlanner_CallReturn_TMAC")
 	}
 	
 	@Test
